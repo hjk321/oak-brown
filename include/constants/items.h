@@ -409,38 +409,38 @@
 #define REUSABLE_TMS        //comment this line out to have tms be consumable
 
 // FireRed/LeafGreen
-#define ITEM_OAKS_PARCEL    ITEM_TMHM_END + 1
-#define ITEM_POKE_FLUTE     ITEM_TMHM_END + 2
-#define ITEM_SECRET_KEY     ITEM_TMHM_END + 3
-#define ITEM_BIKE_VOUCHER   ITEM_TMHM_END + 4
-#define ITEM_GOLD_TEETH     ITEM_TMHM_END + 5
-#define ITEM_OLD_AMBER      ITEM_TMHM_END + 6
-#define ITEM_CARD_KEY       ITEM_TMHM_END + 7
-#define ITEM_LIFT_KEY       ITEM_TMHM_END + 8
-#define ITEM_HELIX_FOSSIL   ITEM_TMHM_END + 9
-#define ITEM_DOME_FOSSIL    ITEM_TMHM_END + 10
-#define ITEM_SILPH_SCOPE    ITEM_TMHM_END + 11
-#define ITEM_BICYCLE        ITEM_TMHM_END + 12
-#define ITEM_TOWN_MAP       ITEM_TMHM_END + 13
-#define ITEM_VS_SEEKER      ITEM_TMHM_END + 14
-#define ITEM_FAME_CHECKER   ITEM_TMHM_END + 15
-#define ITEM_TM_CASE        ITEM_TMHM_END + 16
-#define ITEM_BERRY_POUCH    ITEM_TMHM_END + 17
-#define ITEM_TEACHY_TV      ITEM_TMHM_END + 18
-#define ITEM_TRI_PASS       ITEM_TMHM_END + 19
-#define ITEM_RAINBOW_PASS   ITEM_TMHM_END + 20
-#define ITEM_TEA            ITEM_TMHM_END + 21
-#define ITEM_MYSTIC_TICKET  ITEM_TMHM_END + 22
-#define ITEM_AURORA_TICKET  ITEM_TMHM_END + 23
-#define ITEM_POWDER_JAR     ITEM_TMHM_END + 24    
-#define ITEM_RUBY           ITEM_TMHM_END + 25
-#define ITEM_SAPPHIRE       ITEM_TMHM_END + 26
+#define ITEM_OAKS_PARCEL    397
+#define ITEM_POKE_FLUTE     398
+#define ITEM_SECRET_KEY     399
+#define ITEM_BIKE_VOUCHER   400
+#define ITEM_GOLD_TEETH     401 
+#define ITEM_OLD_AMBER      402
+#define ITEM_CARD_KEY        403
+#define ITEM_LIFT_KEY        404
+#define ITEM_HELIX_FOSSIL    405
+#define ITEM_DOME_FOSSIL     406
+#define ITEM_SILPH_SCOPE     407
+#define ITEM_BICYCLE         408
+#define ITEM_TOWN_MAP        409
+#define ITEM_VS_SEEKER       410
+#define ITEM_FAME_CHECKER    411
+#define ITEM_TM_CASE         412
+#define ITEM_BERRY_POUCH     413
+#define ITEM_TEACHY_TV       414
+#define ITEM_TRI_PASS        415
+#define ITEM_RAINBOW_PASS    416
+#define ITEM_TEA             417
+#define ITEM_MYSTIC_TICKET   418
+#define ITEM_AURORA_TICKET   419
+#define ITEM_POWDER_JAR      420 
+#define ITEM_RUBY            421
+#define ITEM_SAPPHIRE        422
 
-#define ITEM_N_A            ITEM_TMHM_END + 27
+#define ITEM_N_A             423
 
 // Emerald
-#define ITEM_MAGMA_EMBLEM   ITEM_TMHM_END + 28
-#define ITEM_OLD_SEA_MAP    ITEM_TMHM_END + 29
+#define ITEM_MAGMA_EMBLEM    424
+#define ITEM_OLD_SEA_MAP     425
 
 #define ITEM_TM01_WORK_UP           ITEM_TM01
 #define ITEM_TM02_DRAGON_CLAW       ITEM_TM02
