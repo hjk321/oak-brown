@@ -1460,7 +1460,7 @@ s8 GetSetQuestFlag(u8 quest, u8 caseId)
     return -1;  //failure
 }
 
-static s8 GetActiveQuestIndex(void)
+s8 GetActiveQuestIndex(void)
 {
     if (gSaveBlock1Ptr->activeQuest > 0)
         return (gSaveBlock1Ptr->activeQuest - 1);

@@ -39,5 +39,6 @@ void SetActiveQuest(u8 questId);
 void CopyQuestName(u8 *dst, u8 questId);
 s8 GetSetQuestFlag(u8 quest, u8 caseId);
 void ResetActiveQuest(void);
+s8 GetActiveQuestIndex(void);
 
 #endif // GUARD_QUESTS_H
