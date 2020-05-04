@@ -2264,7 +2264,7 @@ bool8 ScrCmd_setmonmetlocation(struct ScriptContext * ctx)
 bool8 ScrCmd_questmenu(struct ScriptContext *ctx)
 {
     u8 caseId = ScriptReadByte(ctx);
-    u8 questId = ScriptReadByte(ctx);
+    u8 questId = VarGet(ScriptReadByte(ctx));
 
     switch (caseId)
     {
