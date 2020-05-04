@@ -21,6 +21,7 @@
 #include "task.h"
 #include "text_window.h"
 #include "event_data.h"
+#include "quest_menu.h"
 #include "constants/items.h"
 #include "constants/quest_log.h"
 #include "constants/songs.h"
@@ -103,7 +104,6 @@ static void ItemPc_PrintOnWindow5WithContinueTask(u8 taskId, const u8 * str, Tas
 
 //QUEST MENU
 //static void DebugSideQuestMenu(void);
-static s8 GetSetQuestFlag(u8 quest, u8 caseId);
 static void SetQuestMenuInactive(void);
 static bool8 IsQuestMenuActive(void);
 static bool8 IsActiveQuest(u8 questId);
@@ -1433,7 +1433,7 @@ static bool8 IsQuestMenuActive(void)
     return FlagGet(FLAG_QUEST_MENU_ACTIVE);
 }
 
-static s8 GetSetQuestFlag(u8 quest, u8 caseId)
+s8 GetSetQuestFlag(u8 quest, u8 caseId)
 {
     u8 index;
     u8 bit;
@@ -1481,7 +1481,7 @@ void SetActiveQuest(u8 questId)
     gSaveBlock1Ptr->activeQuest = questId + 1;  // 1-indexed
 }
 
-static void ResetActiveQuest(void)
+void ResetActiveQuest(void)
 {
     gSaveBlock1Ptr->activeQuest = 0;
 }
@@ -1588,6 +1588,11 @@ static void Task_QuestMenuBeginQuest(u8 taskId)
     StringCopy(gStringVar1, sSideQuests[questIndex].name);
     StringExpandPlaceholders(gStringVar4, sText_QuestMenu_BeginQuest);
     QuestMenu_DisplaySubMenuMessage(taskId);
+}
+
+void CopyQuestName(u8 *dst, u8 questId)
+{
+    StringCopy(dst, sSideQuests[questId].name);
 }
 
 /*

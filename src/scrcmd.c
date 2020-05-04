@@ -34,6 +34,7 @@
 #include "fieldmap.h"
 #include "field_door.h"
 #include "item_pc.h"
+#include "quest_menu.h"
 #include "constants/event_objects.h"
 
 extern u16 (*const gSpecials[])(void);
@@ -2262,10 +2263,47 @@ bool8 ScrCmd_setmonmetlocation(struct ScriptContext * ctx)
 
 bool8 ScrCmd_questmenu(struct ScriptContext *ctx)
 {
-    SetQuestMenuActive();
-    BeginNormalPaletteFade(0xFFFFFFFF, 2, 16, 0, 0);
-    ItemPc_Init(0, CB2_ReturnToFieldContinueScriptPlayMapMusic);
-    ScriptContext1_Stop();
+    u8 caseId = ScriptReadByte(ctx);
+    u8 questId = ScriptReadByte(ctx);
+
+    switch (caseId)
+    {
+    case QUEST_MENU_OPEN:
+    default:
+        SetQuestMenuActive();
+        BeginNormalPaletteFade(0xFFFFFFFF, 2, 16, 0, 0);
+        ItemPc_Init(0, CB2_ReturnToFieldContinueScriptPlayMapMusic);
+        ScriptContext1_Stop();
+        break;
+    case QUEST_MENU_UNLOCK_QUEST:
+        GetSetQuestFlag(questId, FLAG_SET_UNLOCKED);
+        break;
+    case QUEST_MENU_COMPLETE_QUEST:
+        GetSetQuestFlag(questId, FLAG_SET_COMPLETED);
+        break;
+    case QUEST_MENU_SET_ACTIVE:
+        SetActiveQuest(questId);
+        break;
+    case QUEST_MENU_RESET_ACTIVE:
+        ResetActiveQuest();
+        break;
+    case QUEST_MENU_BUFFER_ACTIVE_NAME:
+        CopyQuestName(gStringVar1, questId);
+        break;
+    case QUEST_MENU_CHECK_UNLOCKED:
+        if (GetSetQuestFlag(questId, FLAG_GET_UNLOCKED))
+            gSpecialVar_Result = TRUE;
+        else
+            gSpecialVar_Result = FALSE;
+        break;
+    case QUEST_MENU_CHECK_COMPLETE:
+        if (GetSetQuestFlag(questId, FLAG_GET_COMPLETED))
+            gSpecialVar_Result = TRUE;
+        else
+            gSpecialVar_Result = FALSE;
+        break;
+    }
+    
     return TRUE;
 }
 

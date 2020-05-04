@@ -714,7 +714,7 @@ struct TrainerNameRecord
 #define UNION_ROOM_KB_ROW_COUNT 10
 
 // quest menu
-#include "quest_menu.h"
+#include "constants/quests.h"
 #define SIDE_QUEST_FLAGS_COUNT     ((SIDE_QUEST_COUNT / 8) + ((SIDE_QUEST_COUNT % 8) ? 1 : 0))
 
 struct SaveBlock1

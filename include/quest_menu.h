@@ -1,42 +1,6 @@
 #ifndef GUARD_QUESTS_H
 #define GUARD_QUESTS_H
 
-//constants
-enum SideQuests
-{
-    SIDE_QUEST_1,
-    SIDE_QUEST_2,
-    SIDE_QUEST_3,
-    SIDE_QUEST_4,
-    SIDE_QUEST_5,
-    SIDE_QUEST_6,
-    SIDE_QUEST_7,
-    SIDE_QUEST_8,
-    SIDE_QUEST_9,
-    SIDE_QUEST_10,
-    SIDE_QUEST_11,
-    SIDE_QUEST_12,
-    SIDE_QUEST_13,
-    SIDE_QUEST_14,
-    SIDE_QUEST_15,
-    SIDE_QUEST_16,
-    SIDE_QUEST_17,
-    SIDE_QUEST_18,
-    SIDE_QUEST_19,
-    SIDE_QUEST_20,
-    SIDE_QUEST_21,
-    SIDE_QUEST_22,
-    SIDE_QUEST_23,
-    SIDE_QUEST_24,
-    SIDE_QUEST_25,
-    SIDE_QUEST_26,
-    SIDE_QUEST_27,
-    SIDE_QUEST_28,
-    SIDE_QUEST_29,
-    SIDE_QUEST_30,
-    SIDE_QUEST_COUNT
-};
-
 //#define FLAG_QUEST_MENU_ACTIVE              0x200 //constants/flags.h
 #define NO_ACTIVE_QUEST                     -1
 
@@ -72,6 +36,8 @@ enum QuestCases
 //functions
 void SetQuestMenuActive(void);
 void SetActiveQuest(u8 questId);
-
+void CopyQuestName(u8 *dst, u8 questId);
+s8 GetSetQuestFlag(u8 quest, u8 caseId);
+void ResetActiveQuest(void);
 
 #endif // GUARD_QUESTS_H
