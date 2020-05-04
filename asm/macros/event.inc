@@ -1444,6 +1444,10 @@
 	.2byte \item
 	.2byte \quantity
 	.endm
+    
+    .macro questmenu
+    .byte 0xd5
+    .endm
 
 
 @ Supplementary

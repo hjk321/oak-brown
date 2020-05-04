@@ -33,6 +33,7 @@
 #include "field_effect.h"
 #include "fieldmap.h"
 #include "field_door.h"
+#include "item_pc.h"
 #include "constants/event_objects.h"
 
 extern u16 (*const gSpecials[])(void);
@@ -2257,3 +2258,14 @@ bool8 ScrCmd_setmonmetlocation(struct ScriptContext * ctx)
         SetMonData(&gPlayerParty[partyIndex], MON_DATA_MET_LOCATION, &location);
     return FALSE;
 }
+
+
+bool8 ScrCmd_questmenu(struct ScriptContext *ctx)
+{
+    SetQuestMenuActive();
+    BeginNormalPaletteFade(0xFFFFFFFF, 2, 16, 0, 0);
+    ItemPc_Init(0, CB2_ReturnToFieldContinueScriptPlayMapMusic);
+    ScriptContext1_Stop();
+    return TRUE;
+}
+

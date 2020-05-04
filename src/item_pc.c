@@ -102,8 +102,9 @@ static void ItemPc_DestroySubwindow(u8 idx);
 static void ItemPc_PrintOnWindow5WithContinueTask(u8 taskId, const u8 * str, TaskFunc taskFunc);
 
 //QUEST MENU
-static void DebugSideQuestMenu(void);
+//static void DebugSideQuestMenu(void);
 static s8 GetSetQuestFlag(u8 quest, u8 caseId);
+static void SetQuestMenuInactive(void);
 static bool8 IsQuestMenuActive(void);
 static bool8 IsActiveQuest(u8 questId);
 static void Task_QuestMenuBeginQuest(u8 taskId);
@@ -205,7 +206,7 @@ static const u8 sSideQuestDifficulties[SIDE_QUEST_COUNT] =
     [SIDE_QUEST_4] =  QUEST_DIFFICULTY_EASY,
     [SIDE_QUEST_5] =  QUEST_DIFFICULTY_EASY,
     [SIDE_QUEST_6] =  QUEST_DIFFICULTY_EASY,
-    [SIDE_QUEST_7] =  QUEST_DIFFICULTY_EASY,
+    [SIDE_QUEST_7] =  QUEST_DIFFICULTY_EXTREME,
     [SIDE_QUEST_8] =  QUEST_DIFFICULTY_EASY,
     [SIDE_QUEST_9] =  QUEST_DIFFICULTY_EASY,
     [SIDE_QUEST_10] = QUEST_DIFFICULTY_EASY,
@@ -344,10 +345,8 @@ void ItemPc_Init(u8 kind, MainCallback callback)
 {
     u8 i;
 
-
-    DebugSideQuestMenu();
-
-
+    //DebugSideQuestMenu();
+    
     if (kind >= 2)
     {
         SetMainCallback2(callback);
@@ -700,7 +699,7 @@ static void ItemPc_MoveCursorFunc(s32 itemIndex, bool8 onInit, struct ListMenu *
                 }
                 else
                 {
-                    itemId = ITEM_N_A;
+                    itemId = ITEM_NONE;
                     desc = sText_QuestMenu_Unk;
                 }
                 
@@ -844,6 +843,7 @@ static void Task_ItemPcTurnOff2(u8 taskId)
 {
     s16 * data = gTasks[taskId].data;
 
+    SetQuestMenuInactive();
     if (!gPaletteFade.active && !IsPCScreenEffectRunning_TurnOff())
     {
         DestroyListMenuTask(data[0], &sListMenuState.scroll, &sListMenuState.row);
@@ -1405,7 +1405,7 @@ void SetQuestMenuActive(void)
     FlagSet(FLAG_QUEST_MENU_ACTIVE);
 }
 
-void SetQuestMenuInactive(void)
+static void SetQuestMenuInactive(void)
 {
     FlagClear(FLAG_QUEST_MENU_ACTIVE);
 }
@@ -1572,6 +1572,7 @@ static void Task_QuestMenuBeginQuest(u8 taskId)
     QuestMenu_DisplaySubMenuMessage(taskId);
 }
 
+/*
 static void DebugSideQuestMenu(void)
 {
     FlagSet(FLAG_QUEST_MENU_ACTIVE);
@@ -1588,6 +1589,7 @@ static void DebugSideQuestMenu(void)
     GetSetQuestFlag(20, FLAG_SET_UNLOCKED);
     GetSetQuestFlag(23, FLAG_SET_UNLOCKED);
     
-    SetActiveQuest(20);
+    SetActiveQuest(6);
 }
+*/
 

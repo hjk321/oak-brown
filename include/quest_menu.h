@@ -40,7 +40,7 @@ enum SideQuests
 #define FLAG_SIDE_QUEST_UNLOCKED_START      0x4BD   //60 unused flags??
 #define FLAG_SIDE_QUEST_COMPLETE_START      FLAG_SIDE_QUEST_UNLOCKED_START + SIDE_QUEST_COUNT
 
-#define FLAG_QUEST_MENU_ACTIVE              0x200
+//#define FLAG_QUEST_MENU_ACTIVE              0x200 //constants/flags.h
 
 #define NO_ACTIVE_QUEST                     -1
 
@@ -72,6 +72,10 @@ enum QuestCases
     FLAG_GET_COMPLETED,     // check if quest is completed
     FLAG_SET_COMPLETED,     // mark completed quest
 };
+
+//functions
+void SetQuestMenuActive(void);
+void SetActiveQuest(u8 questId);
 
 
 #endif // GUARD_QUESTS_H
