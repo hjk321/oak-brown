@@ -713,6 +713,10 @@ struct TrainerNameRecord
 
 #define UNION_ROOM_KB_ROW_COUNT 10
 
+// quest menu
+#include "quest_menu.h"
+#define SIDE_QUEST_FLAGS_COUNT     ((SIDE_QUEST_COUNT / 8) + ((SIDE_QUEST_COUNT % 8) ? 1 : 0))
+
 struct SaveBlock1
 {
     /*0x0000*/ struct Coords16 pos;
@@ -774,6 +778,9 @@ struct SaveBlock1
     /*0x3D24*/ u8 filler3D24[0x10];
     /*0x3D34*/ u32 towerChallengeId;
     /*0x3D38*/ struct TrainerTower trainerTower[NUM_TOWER_CHALLENGE_TYPES];
+    /*0x3C44*/ u8 unlockedQuests[SIDE_QUEST_FLAGS_COUNT];
+    /*0x????*/ u8 completedQuests[SIDE_QUEST_FLAGS_COUNT];
+    /*0x????*/ u8 activeQuest;
 };
 
 struct MapPosition
