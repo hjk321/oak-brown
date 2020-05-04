@@ -37,11 +37,7 @@ enum SideQuests
     SIDE_QUEST_COUNT
 };
 
-#define FLAG_SIDE_QUEST_UNLOCKED_START      0x4BD   //60 unused flags??
-#define FLAG_SIDE_QUEST_COMPLETE_START      FLAG_SIDE_QUEST_UNLOCKED_START + SIDE_QUEST_COUNT
-
 //#define FLAG_QUEST_MENU_ACTIVE              0x200 //constants/flags.h
-
 #define NO_ACTIVE_QUEST                     -1
 
 //structs
