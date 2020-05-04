@@ -943,24 +943,42 @@ static void Task_ItemPcMain(u8 taskId)
         ListMenuGetScrollAndRow(data[0], &sListMenuState.scroll, &sListMenuState.row);
         switch (input)
         {
-        case -1:
+        case LIST_NOTHING_CHOSEN:
             break;
-        case -2:
+        case LIST_CANCEL:
             PlaySE(SE_SELECT);
             ItemPc_SetInitializedFlag(FALSE);
             gTasks[taskId].func = Task_ItemPcTurnOff1;
             break;
         default:
-            PlaySE(SE_SELECT);
-            ItemPc_SetMessageWindowPalette(1);
-            ItemPc_RemoveScrollIndicatorArrowPair();
-            data[1] = input;
-            
-            if (!IsQuestMenuActive())
+            if (IsQuestMenuActive())
+            {
+                if (GetSetQuestFlag(input, FLAG_GET_UNLOCKED))
+                {
+                    PlaySE(SE_SELECT);
+                    ItemPc_SetMessageWindowPalette(1);
+                    ItemPc_RemoveScrollIndicatorArrowPair();
+                    data[1] = input;
+                    //data[2] = QuestMenu_GetItemQuantityBySlotId(input);
+                    data[2] = 0;
+                    ItemPc_PrintOrRemoveCursor(data[0], 2);            
+                    gTasks[taskId].func = Task_ItemPcSubmenuInit;
+                }
+                else
+                {
+                    PlaySE(SE_HAZURE);
+                }
+            }
+            else
+            {
+                PlaySE(SE_SELECT);
+                ItemPc_SetMessageWindowPalette(1);
+                ItemPc_RemoveScrollIndicatorArrowPair();
+                data[1] = input;
                 data[2] = ItemPc_GetItemQuantityBySlotId(input);
-
-            ItemPc_PrintOrRemoveCursor(data[0], 2);
-            gTasks[taskId].func = Task_ItemPcSubmenuInit;
+                ItemPc_PrintOrRemoveCursor(data[0], 2);
+                gTasks[taskId].func = Task_ItemPcSubmenuInit;
+            }
             break;
         }
     }
