@@ -3,6 +3,7 @@
 #include "random.h"
 #include "overworld.h"
 #include "constants/maps.h"
+#include "constants/flags.h"
 #include "load_save.h"
 #include "item_menu.h"
 #include "tm_case.h"
@@ -59,9 +60,9 @@ static void InitPlayerTrainerId(void)
 
 static void SetDefaultOptions(void)
 {
-    gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_MID;
+    gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_FAST;
     gSaveBlock2Ptr->optionsWindowFrameType = 0;
-    gSaveBlock2Ptr->optionsSound = OPTIONS_SOUND_MONO;
+    gSaveBlock2Ptr->optionsSound = OPTIONS_SOUND_STEREO;
     gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SHIFT;
     gSaveBlock2Ptr->optionsBattleSceneOff = FALSE;
     gSaveBlock2Ptr->regionMapZoom = FALSE;
@@ -149,6 +150,7 @@ void NewGameInitData(void)
     ScriptContext2_RunNewScript(EventScript_ResetAllMapFlags);
     StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
     ResetTrainerTowerResults();
+    FlagSet(FLAG_SYS_B_DASH);
 }
 
 static void ResetMiniGamesResults(void)

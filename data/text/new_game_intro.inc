@@ -124,6 +124,21 @@ gNameChoice_Momo:: @ 81C5823
 gNameChoice_Suzi:: @ 81C5828
     .string "SUZI$"
 
+gNameChoice_Mura::
+    .string "Mura$"
+
+gNameChoice_Brown::
+    .string "Brown$"
+
+gNameChoice_Adam::
+    .string "Adam$"
+
+gNameChoice_Paul::
+    .string "Paul$"
+
+gNameChoice_Kyle::
+    .string "Kyle$"
+
 gNewGame_HelpDocs1:: @ 81C582D
     .string "The various buttons will be explained in\n"
     .string "the order of their importance.$"
@@ -187,32 +202,30 @@ gNewGameAdventureIntro3::
     .string "adventure begin!$"
 
 gOakText_WelcomeToTheWorld:: @ 81C5C78
-    .string "Hello, there!\n"
-    .string "Glad to meet you!\pWelcome to the world of POKéMON!\pMy name is OAK.\pPeople affectionately refer to me\n"
-    .string "as the POKéMON PROFESSOR.\p$"
+    .string "H-hello?!\nYou must be new here.\p"
+    .string "Welcome to this land, called Rijon!\p"
+    .string "My name is Timothy, but you can call\nme Tim.\p"
+    .string "I am the island's Pokémon Tutor.\p$"
 
 gOakText_WorldInhabited1:: @ 81C5D06
-    .string "This world…$"
+    .string "$"
 
 gOakText_WorldInhabited2:: @ 81C5D12
-    .string "…is inhabited far and wide by\n"
-    .string "creatures called POKéMON.\p$"
+    .string "This is a Pokémon. There are a lot of\nthese in the Rijon area.\p$"
 
 gOakText_PetsBattlingStudy:: @ 81C5D4B
-    .string "For some people, POKéMON are pets.\n"
-    .string "Others use them for battling.\pAs for myself…\pI study POKéMON as a profession.\p$"
+    .string "I've done a fair extent of research\non these…\p"
+    .string "and it seems that they have special\ncapabilities for fighting, as well as\l"
+    .string "being tame household pets.\p$"
 
 gOakText_TellMeALittleAboutYourself:: @ 81C5DBD
-    .string "But first, tell me a little about\n"
-    .string "yourself.\p$"
+    .string "Oh, um, I suppose I'm getting a \nlittle ahead of myself.\p$"
 
 gOakText_AskPlayerName:: @ 81C5DEA
-    .string "Let's begin with your name.\n"
-    .string "What is it?\p$"
+    .string "What's your name, young man?$"
 
 gOakText_FinalizePlayerName:: @ 81C5E13
-    .string "Right…\n"
-    .string "So your name is {PLAYER}.$"
+    .string "Oh, {PLAYER}, right?$"
 
 gOakText_IntroduceRival:: @ 81C5E2E
     .string "This is my grandson.\pHe's been your rival since you both\n"
@@ -229,6 +242,8 @@ gOakText_RememberRivalName:: @ 81C5EC5
     .string "His name is {RIVAL}!\p$"
 
 gOakText_LegendAboutToUnfold:: @ 81C5EF4
-    .string "{PLAYER}!\pYour very own POKéMON legend is\n"
-    .string "about to unfold!\pA world of dreams and adventures\n"
-    .string "with POKéMON awaits! Let's go!$"
+    .string "{PLAYER}!\nNow that you have met some people…\p"
+    .string "…all you need now is to journey the\ntown.\p"
+    .string "I think your mother has settled in\nand finished unpacking.\p"
+    .string "Your adventure starts here, so come\nsee me sometime tomorrow, after you\lawake.\p"
+    .string "See you later!$"

@@ -70,6 +70,7 @@ static void Task_OakSpeech31(u8 taskId);
 static void Task_OakSpeech32(u8 taskId);
 static void Task_OakSpeech34(u8 taskId);
 static void Task_OakSpeech33(u8 taskId);
+static void Task_OakSpeech35(u8 taskId);
 static void Task_OakSpeech36(u8 taskId);
 static void Task_OakSpeech37(u8 taskId);
 static void Task_OakSpeech38(u8 taskId);
@@ -394,33 +395,10 @@ static const u8 *const sHelpDocsPtrs[] = {
 };
 
 static const u8 *const sMaleNameChoices[] = {
-#if defined(FIRERED)
-    gNameChoice_Red,
-    gNameChoice_Fire,
-    gNameChoice_Ash,
-    gNameChoice_Kene,
-    gNameChoice_Geki,
-#elif defined(LEAFGREEN)
-    gNameChoice_Green,
-    gNameChoice_Leaf,
-    gNameChoice_Gary,
-    gNameChoice_Kaz,
-    gNameChoice_Toru,
-#endif
-    gNameChoice_Jak,
-    gNameChoice_Janne,
-    gNameChoice_Jonn,
-    gNameChoice_Kamon,
-    gNameChoice_Karl,
-    gNameChoice_Taylor,
-    gNameChoice_Oscar,
-    gNameChoice_Hiro,
-    gNameChoice_Max,
-    gNameChoice_Jon,
-    gNameChoice_Ralph,
-    gNameChoice_Kay,
-    gNameChoice_Tosh,
-    gNameChoice_Roak
+    gNameChoice_Brown,
+    gNameChoice_Adam,
+    gNameChoice_Paul,
+    gNameChoice_Kyle,
 };
 
 static const u8 *const sFemaleNameChoices[] = {
@@ -451,17 +429,10 @@ static const u8 *const sFemaleNameChoices[] = {
 };
 
 static const u8 *const sRivalNameChoices[] = {
-#if defined(FIRERED)
-    gNameChoice_Green,
-    gNameChoice_Gary,
-    gNameChoice_Kaz,
-    gNameChoice_Toru
-#elif defined(LEAFGREEN)
-    gNameChoice_Red,
-    gNameChoice_Ash,
-    gNameChoice_Kene,
-    gNameChoice_Geki
-#endif
+    gNameChoice_Mura,
+    gNameChoice_Mura,
+    gNameChoice_Mura,
+    gNameChoice_Mura
 };
 
 static void VBlankCB_NewGameOaksSpeech(void)
@@ -541,9 +512,8 @@ static void Task_OaksSpeech1(u8 taskId)
         LoadPalette(stdpal_get(2) + 15, 0x000, 0x002);
         break;
     case 5:
-        sOakSpeechResources->textSpeed = GetTextSpeedSetting();
+        sOakSpeechResources->textSpeed = OPTIONS_TEXT_SPEED_FAST;
         gTextFlags.canABSpeedUpPrint = TRUE;
-        DecompressAndCopyTileDataToVram(1, sOakSpeechGfx_GameStartHelpUI, 0, 0, 0);
         break;
     case 6:
         if (FreeTempTileDataBuffersIfPossible())
@@ -553,23 +523,15 @@ static void Task_OaksSpeech1(u8 taskId)
         CopyBgTilemapBufferToVram(1);
         break;
     case 7:
-        CreateTopBarWindowLoadPalette(0, 30, 0, 13, 0x1C4);
-        FillBgTilemapBufferRect_Palette0(1, 0xD00F,  0,  0, 30, 2);
-        FillBgTilemapBufferRect_Palette0(1, 0xD002,  0,  2, 30, 1);
-        FillBgTilemapBufferRect_Palette0(1, 0xD00E,  0, 19, 30, 1);
-        CreateHelpDocsPage1();
         gPaletteFade.bufferTransferDisabled = FALSE;
-        gTasks[taskId].data[5] = CreateTextCursorSpriteForOakSpeech(0, 0xE6, 0x95, 0, 0);
         BlendPalettes(0xFFFFFFFF, 0x10, 0x00);
         break;
     case 10:
-        BeginNormalPaletteFade(0xFFFFFFFF, 0, 16, 0, RGB_BLACK);
         SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_MODE_0 | DISPCNT_OBJ_1D_MAP | DISPCNT_OBJ_ON);
         ShowBg(0);
         ShowBg(1);
         SetVBlankCallback(VBlankCB_NewGameOaksSpeech);
-        PlayBGM(MUS_NEW_GAME_INSTRUCT);
-        gTasks[taskId].func = Task_OaksSpeech2;
+        gTasks[taskId].func = Task_OakSpeech9;
         gMain.state = 0;
         return;
     }
@@ -944,7 +906,7 @@ static void Task_OakSpeech12(u8 taskId)
         spriteId = gTasks[taskId].data[4];
         gSprites[spriteId].invisible = FALSE;
         gSprites[spriteId].data[0] = 0;
-        CreatePokeballSpriteToReleaseMon(spriteId, gSprites[spriteId].oam.paletteNum, 0x64, 0x42, 0, 0, 32, 0xFFFF1FFF);
+        CreatePokeballSpriteForOaksSpeech(spriteId, gSprites[spriteId].oam.paletteNum, 0x88, 0x50, 0, 0, 32, 0xFFFF1FFF);
         gTasks[taskId].func = Task_OakSpeech13;
         gTasks[taskId].data[3] = 0;
         // }
@@ -955,16 +917,16 @@ static void Task_OakSpeech13(u8 taskId)
 {
     if (IsCryFinished())
     {
-        if (gTasks[taskId].data[3] >= 96)
+        if (gTasks[taskId].data[3] >= 222)
             gTasks[taskId].func = Task_OakSpeech14;
     }
     if (gTasks[taskId].data[3] < 0x4000)
     {
         gTasks[taskId].data[3]++;
-        if (gTasks[taskId].data[3] == 32)
+        if (gTasks[taskId].data[3] == 100)
         {
             OaksSpeechPrintMessage(gOakText_WorldInhabited2, sOakSpeechResources->textSpeed);
-            PlayCry1(SPECIES_NIDORAN_F, 0);
+            PlayCry1(SPECIES_GLIGAR, 0);
         }
     }
 }
@@ -986,7 +948,7 @@ static void Task_OakSpeech15(u8 taskId)
     {
         ClearDialogWindowAndFrame(0, 1);
         spriteId = gTasks[taskId].data[4];
-        gTasks[taskId].data[6] = CreateTradePokeballSprite(spriteId, gSprites[spriteId].oam.paletteNum, 0x64, 0x42, 0, 0, 32, 0xFFFF1F3F);
+        gTasks[taskId].data[6] = CreateTradePokeballOakSprite(spriteId, gSprites[spriteId].oam.paletteNum, 0x88, 0x50, 0, 0, 32, 0xFFFF1F3F);
         gTasks[taskId].data[3] = 48;
         gTasks[taskId].data[0] = 64;
         gTasks[taskId].func = Task_OakSpeech16;
@@ -1001,7 +963,8 @@ static void Task_OakSpeech16(u8 taskId)
     {
         if (data[0] < 24)
         {
-            gSprites[data[4]].pos1.y--;
+            gSprites[data[4]].pos1.y += 1 * (data[4] % 3 != 0);
+            gSprites[data[4]].pos1.y -= 1;
         }
         data[0]--;
     }
@@ -1049,8 +1012,8 @@ static void Task_OakSpeech18(u8 taskId)
         {
             data[1] = -60;
             DestroyOaksSpeechTrainerPic();
-            OaksSpeechPrintMessage(gOakText_AskPlayerGender, sOakSpeechResources->textSpeed);
-            gTasks[taskId].func = Task_OakSpeech19;
+            gSaveBlock2Ptr->playerGender = MALE;
+            gTasks[taskId].func = Task_OakSpeech22;
         }
     }
 }
@@ -1131,7 +1094,7 @@ static void Task_OakSpeech23(u8 taskId)
         {
             data[1] = 0;
             OaksSpeechPrintMessage(gOakText_AskPlayerName, sOakSpeechResources->textSpeed);
-            gTasks[taskId].func = Task_OakSpeech24;
+            gTasks[taskId].func = Task_OakSpeech35;
         }
     }
 }
@@ -1145,6 +1108,7 @@ static void Task_OakSpeech24(u8 taskId)
         gTasks[taskId].func = Task_OakSpeech25;
     }
 }
+
 static void Task_OakSpeech35(u8 taskId)
 {
     s16 * data = gTasks[taskId].data;
@@ -1211,7 +1175,7 @@ static void Task_OakSpeech25(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
-        GetDefaultName(sOakSpeechResources->unk_0010, 0);
+        GetDefaultName(sOakSpeechResources->unk_0010, Random() % 4);
         if (sOakSpeechResources->unk_0010 == 0)
         {
             DoNamingScreen(NAMING_SCREEN_PLAYER, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_ReturnFromNamingScreen);
@@ -1268,10 +1232,10 @@ static void Task_OakSpeech27(u8 taskId)
     case 0:
         PlaySE(SE_SELECT);
         gTasks[taskId].data[3] = 40;
+        gTasks[taskId].data[1] = 0;
         if (sOakSpeechResources->unk_0010 == 0)
         {
             ClearDialogWindowAndFrame(0, 1);
-            CreateFadeInTask(taskId, 2);
             gTasks[taskId].func = Task_OakSpeech30;
         }
         else
@@ -1284,10 +1248,7 @@ static void Task_OakSpeech27(u8 taskId)
     case 1:
     case -1:
         PlaySE(SE_SELECT);
-        if (sOakSpeechResources->unk_0010 == 0)
-            gTasks[taskId].func = Task_OakSpeech24;
-        else
-            gTasks[taskId].func = Task_OakSpeech28;
+        gTasks[taskId].func = Task_OakSpeech28;
         break;
     }
 }
@@ -1296,14 +1257,21 @@ static void Task_OakSpeech30(u8 taskId)
 {
     s16 * data = gTasks[taskId].data;
 
-    if (data[2] != 0)
+    if (!IsTextPrinterActive(0))
     {
-        DestroyOaksSpeechTrainerPic();
-        if (data[3] != 0)
-            data[3]--;
+        if (data[1] > -60)
+        {
+            data[1] -= 2;
+            gSpriteCoordOffsetX -= 2;
+            ChangeBgX(2, 0x200, 1);
+        }
+        else if (data[1] >= -80)
+        {
+            data[1] -= 2;
+        }
         else
-            gTasks[taskId].func = Task_OakSpeech32;
-    }
+            gTasks[taskId].func = Task_OakSpeech36;
+        }
 }
 
 static void Task_OakSpeech31(u8 taskId)
@@ -1321,9 +1289,7 @@ static void Task_OakSpeech32(u8 taskId)
     ChangeBgX(2, 0, 0);
     gTasks[taskId].data[1] = 0;
     gSpriteCoordOffsetX = 0;
-    LoadOaksSpeechTrainerPic(2, 0);
-    CreateFadeOutTask(taskId, 2);
-    gTasks[taskId].func = Task_OakSpeech34;
+    gTasks[taskId].func = Task_OakSpeech33;
 }
 
 static void Task_OakSpeech34(u8 taskId)
@@ -1344,7 +1310,6 @@ static void Task_OakSpeech33(u8 taskId)
 
     if (data[2] != 0)
     {
-        DestroyOaksSpeechTrainerPic();
         if (data[3] != 0)
             data[3]--;
         else
@@ -1364,13 +1329,11 @@ static void Task_OakSpeech33(u8 taskId)
 
 static void Task_OakSpeech36(u8 taskId)
 {
-    if (gTasks[taskId].data[2] != 0)
-    {
-        StringExpandPlaceholders(gStringVar4, gOakText_LegendAboutToUnfold);
-        OaksSpeechPrintMessage(gStringVar4, sOakSpeechResources->textSpeed);
-        gTasks[taskId].data[3] = 30;
-        gTasks[taskId].func = Task_OakSpeech37;
-    }
+    GetDefaultName(1, 0);
+    StringExpandPlaceholders(gStringVar4, gOakText_LegendAboutToUnfold);
+    OaksSpeechPrintMessage(gStringVar4, sOakSpeechResources->textSpeed);
+    gTasks[taskId].data[3] = 30;
+    gTasks[taskId].func = Task_OakSpeech37;
 }
 
 static void Task_OakSpeech37(u8 taskId)
@@ -1619,9 +1582,9 @@ static void CreateNidoranFSprite(u8 taskId)
 {
     u8 spriteId;
 
-    DecompressPicFromTable(&gMonFrontPicTable[SPECIES_NIDORAN_F], OakSpeechNidoranFGetBuffer(0), SPECIES_NIDORAN_F);
-    LoadCompressedSpritePaletteUsingHeap(&gMonPaletteTable[SPECIES_NIDORAN_F]);
-    SetMultiuseSpriteTemplateToPokemon(SPECIES_NIDORAN_F, 0);
+    DecompressPicFromTable(&gMonFrontPicTable[SPECIES_GLIGAR], OakSpeechNidoranFGetBuffer(0), SPECIES_GLIGAR);
+    LoadCompressedSpritePaletteUsingHeap(&gMonPaletteTable[SPECIES_GLIGAR]);
+    SetMultiuseSpriteTemplateToPokemon(SPECIES_GLIGAR, 0);
     spriteId = CreateSprite(&gMultiuseSpriteTemplate, 0x60, 0x60, 1);
     gSprites[spriteId].callback = SpriteCallbackDummy;
     gSprites[spriteId].oam.priority = 1;
@@ -1881,7 +1844,7 @@ static void GetDefaultName(u8 arg0, u8 namePick)
     if (arg0 == 0)
     {
         if (gSaveBlock2Ptr->playerGender == MALE)
-            src = sMaleNameChoices[Random() % 19];
+            src = sMaleNameChoices[namePick];
         else
             src = sFemaleNameChoices[Random() % 19];
         dest = gSaveBlock2Ptr->playerName;

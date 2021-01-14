@@ -55,10 +55,15 @@ static void SpriteCB_ReleaseMon2FromBall(struct Sprite *sprite);
 static void SpriteCB_OpponentMonSendOut(struct Sprite *sprite);
 static u8 LaunchBallStarsTaskForPokeball(u8 x, u8 y, u8 kindOfStars, u8 d);
 static u8 LaunchBallFadeMonTaskForPokeball(bool8 unFadeLater, u8 battlerId, u32 arg2);
+static u8 LaunchBallFadeMonTaskForOak(bool8 unFadeLater, u8 battlerId, u32 arg2);
 static void sub_804B9E8(struct Sprite *sprite);
+static void OaksSpeechPkmnCallback(struct Sprite *sprite);
 static void sub_804BAA4(struct Sprite *sprite);
+static void OaksSpeechMon2(struct Sprite *sprite);
 static void sub_804BC50(struct Sprite *sprite);
+static void TradeBallOakCallback(struct Sprite *sprite);
 static void sub_804BCF8(struct Sprite *sprite);
+static void OakTradeCB2(struct Sprite *sprite);
 static void sub_804BD6C(struct Sprite *sprite);
 static void sub_804BE24(struct Sprite *sprite);
 static void sub_804BE48(struct Sprite *sprite);
@@ -325,7 +330,7 @@ const struct SpriteTemplate gBallSpriteTemplates[POKEBALL_COUNT] =
 u8 DoPokeballSendOutAnimation(s16 pan, u8 kindOfThrow)
 {
     u8 taskId;
-    
+
     gDoingBattleAnim = TRUE;
     gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].ballAnimActive = TRUE;
     taskId = CreateTask(Task_DoPokeballSendOutAnim, 5);
@@ -361,12 +366,12 @@ static void Task_DoPokeballSendOutAnim(u8 taskId)
 
     ballId = ItemIdToBallId(itemId);
     LoadBallGfx(ballId);
-    
+
     if (gBattleTypeFlags & BATTLE_TYPE_LINK)
         gender = gLinkPlayers[GetBattlerMultiplayerId(battlerId)].gender;
     else
         gender = gSaveBlock2Ptr->playerGender;
-    
+
     ballSpriteId = CreateSprite(&gBallSpriteTemplates[ballId], 32, 80, 29);
     gSprites[ballSpriteId].data[0] = 0x80;
     gSprites[ballSpriteId].data[1] = 0;
@@ -386,7 +391,7 @@ static void Task_DoPokeballSendOutAnim(u8 taskId)
             x = 48;
             y = 70;
         }
-        
+
         gBattlerTarget = battlerId;
         gSprites[ballSpriteId].pos1.x = x;
         gSprites[ballSpriteId].pos1.y = y;
@@ -478,7 +483,7 @@ static void sub_804AD00(struct Sprite *sprite)
     sprite->data[5]++;
     if (sprite->data[5] == 11)
         PlaySE(SE_BALL_TRADE);
-    
+
     if (gSprites[gBattlerSpriteIds[sprite->sBattler]].affineAnimEnded)
     {
         StartSpriteAnim(sprite, 2);
@@ -648,7 +653,7 @@ static void sub_804AF24(struct Sprite *sprite)
                 StartSpriteAffineAnim(sprite, 2);
             else
                 StartSpriteAffineAnim(sprite, 1);
-            
+
             PlaySE(SE_BALL);
         }
         break;
@@ -684,7 +689,7 @@ static void Task_PlayCryWhenReleasedFromBall(u8 taskId)
             PlayCry3(species, pan, 0);
         else
             PlayCry3(species, pan, 11);
-        
+
         DestroyTask(taskId);
         break;
     case 2:
@@ -732,7 +737,7 @@ static void Task_PlayCryWhenReleasedFromBall(u8 taskId)
             gTasks[taskId].tCryTaskFrames--;
             break;
         }
-        
+
         if (ShouldPlayNormalPokeCry(mon) == TRUE)
             PlayCry4(species, pan, 0);
         else
@@ -794,7 +799,7 @@ static void SpriteCB_ReleaseMonFromBall(struct Sprite *sprite)
             wantedCryCase = 1;
         else
             wantedCryCase = 2;
-        
+
         taskId = CreateTask(Task_PlayCryWhenReleasedFromBall, 3);
         gTasks[taskId].tCryTaskSpecies = species;
         gTasks[taskId].tCryTaskPan = pan;
@@ -995,6 +1000,11 @@ static u8 LaunchBallFadeMonTaskForPokeball(bool8 unFadeLater, u8 battlerId, u32 
     return LaunchBallFadeMonTask(unFadeLater, battlerId, arg2, BALL_POKE);
 }
 
+static u8 LaunchBallFadeMonTaskForOak(bool8 unFadeLater, u8 battlerId, u32 arg2)
+{
+    return LaunchBallFadeMonTask(unFadeLater, battlerId, arg2, BALL_POKE);
+}
+
 void CreatePokeballSpriteToReleaseMon(u8 monSpriteId, u8 battlerId, u8 x, u8 y, u8 oamPriority, u8 subpriortiy, u8 g, u32 h)
 {
     u8 spriteId;
@@ -1013,6 +1023,27 @@ void CreatePokeballSpriteToReleaseMon(u8 monSpriteId, u8 battlerId, u8 x, u8 y, 
     gSprites[spriteId].data[4] = h >> 0x10;
     gSprites[spriteId].oam.priority = oamPriority;
     gSprites[spriteId].callback = sub_804B9E8;
+    gSprites[monSpriteId].invisible = TRUE;
+}
+
+void CreatePokeballSpriteForOaksSpeech(u8 monSpriteId, u8 battlerId, u8 x, u8 y, u8 oamPriority, u8 subpriortiy, u8 g, u32 h)
+{
+    u8 spriteId;
+
+    LoadCompressedSpriteSheetUsingHeap(&gBallSpriteSheets[0]);
+    LoadCompressedSpritePaletteUsingHeap(&gBallSpritePalettes[0]);
+    spriteId = CreateSprite(&gBallSpriteTemplates[0], x, y, subpriortiy);
+    gSprites[spriteId].data[0] = monSpriteId;
+    gSprites[spriteId].data[5] = gSprites[monSpriteId].pos1.x;
+    gSprites[spriteId].data[6] = gSprites[monSpriteId].pos1.y;
+    gSprites[monSpriteId].pos1.x = x;
+    gSprites[monSpriteId].pos1.y = y;
+    gSprites[spriteId].data[1] = g;
+    gSprites[spriteId].data[2] = battlerId;
+    gSprites[spriteId].data[3] = h;
+    gSprites[spriteId].data[4] = h >> 0x10;
+    gSprites[spriteId].oam.priority = oamPriority;
+    gSprites[spriteId].callback = OaksSpeechPkmnCallback;
     gSprites[monSpriteId].invisible = TRUE;
 }
 
@@ -1046,6 +1077,36 @@ static void sub_804B9E8(struct Sprite *sprite)
     }
 }
 
+static void OaksSpeechPkmnCallback(struct Sprite *sprite)
+{
+    if (sprite->data[1] == 0)
+    {
+        u8 r5;
+        u8 r7 = sprite->data[0];
+        u8 battlerId = sprite->data[2];
+        u32 r4 = (u16)sprite->data[3] | ((u16)sprite->data[4] << 16);
+
+        if (sprite->subpriority != 0)
+            r5 = sprite->subpriority - 1;
+        else
+            r5 = 0;
+
+        StartSpriteAnim(sprite, 1);
+        LaunchBallStarsTaskForPokeball(sprite->pos1.x, sprite->pos1.y - 5, sprite->oam.priority, r5);
+        sprite->data[1] = LaunchBallFadeMonTaskForPokeball(1, battlerId, r4);
+        sprite->callback = OaksSpeechMon2;
+        gSprites[r7].invisible = FALSE;
+        StartSpriteAffineAnim(&gSprites[r7], 1);
+        AnimateSprite(&gSprites[r7]);
+        gSprites[r7].data[1] = 0x1000;
+        sprite->data[7] = 0;
+    }
+    else
+    {
+        sprite->data[1]--;
+    }
+}
+
 static void sub_804BAA4(struct Sprite *sprite)
 {
     bool8 r12 = FALSE;
@@ -1056,13 +1117,13 @@ static void sub_804BAA4(struct Sprite *sprite)
 
     if (sprite->animEnded)
         sprite->invisible = TRUE;
-    
+
     if (gSprites[monSpriteId].affineAnimEnded)
     {
         StartSpriteAffineAnim(&gSprites[monSpriteId], 0);
         r12 = TRUE;
     }
-    
+
     var1 = (sprite->data[5] - sprite->pos1.x) * sprite->data[7] / 128 + sprite->pos1.x;
     var2 = (sprite->data[6] - sprite->pos1.y) * sprite->data[7] / 128 + sprite->pos1.y;
     gSprites[monSpriteId].pos1.x = var1;
@@ -1083,7 +1144,36 @@ static void sub_804BAA4(struct Sprite *sprite)
         gSprites[monSpriteId].pos2.y = 0;
         r6 = TRUE;
     }
-    
+
+    if (sprite->animEnded && r12 && r6)
+        DestroySpriteAndFreeResources(sprite);
+}
+
+static void OaksSpeechMon2(struct Sprite *sprite)
+{
+    bool8 r12 = FALSE;
+    bool8 r6 = FALSE;
+    u8 monSpriteId = sprite->data[0];
+    u16 var1;
+    u16 var2;
+
+    if (sprite->animEnded)
+        sprite->invisible = TRUE;
+
+    if (gSprites[monSpriteId].affineAnimEnded)
+    {
+        StartSpriteAffineAnim(&gSprites[monSpriteId], 0);
+        r12 = TRUE;
+    }
+
+    sprite->data[7] += 2;
+    gSprites[monSpriteId].pos1.x = gSprites[monSpriteId].pos1.x + 2;
+    gSprites[monSpriteId].pos1.y = gSprites[monSpriteId].pos1.y - 2 + (sprite->data[7] % 3 != 0);
+    if (sprite->data[7] > 50)
+    {
+        r6 = TRUE;
+    }
+
     if (sprite->animEnded && r12 && r6)
         DestroySpriteAndFreeResources(sprite);
 }
@@ -1102,6 +1192,23 @@ u8 CreateTradePokeballSprite(u8 a, u8 b, u8 x, u8 y, u8 oamPriority, u8 subPrior
     gSprites[spriteId].data[4] = h >> 16;
     gSprites[spriteId].oam.priority = oamPriority;
     gSprites[spriteId].callback = sub_804BC50;
+    return spriteId;
+}
+
+u8 CreateTradePokeballOakSprite(u8 a, u8 b, u8 x, u8 y, u8 oamPriority, u8 subPriority, u8 g, u32 h)
+{
+    u8 spriteId;
+
+    LoadCompressedSpriteSheetUsingHeap(&gBallSpriteSheets[0]);
+    LoadCompressedSpritePaletteUsingHeap(&gBallSpritePalettes[0]);
+    spriteId = CreateSprite(&gBallSpriteTemplates[0], x, y, subPriority);
+    gSprites[spriteId].data[0] = a;
+    gSprites[spriteId].data[1] = g;
+    gSprites[spriteId].data[2] = b;
+    gSprites[spriteId].data[3] = h;
+    gSprites[spriteId].data[4] = h >> 16;
+    gSprites[spriteId].oam.priority = oamPriority;
+    gSprites[spriteId].callback = TradeBallOakCallback;
     return spriteId;
 }
 
@@ -1133,6 +1240,34 @@ static void sub_804BC50(struct Sprite *sprite)
     }
 }
 
+static void TradeBallOakCallback(struct Sprite *sprite)
+{
+    if (sprite->data[1] == 0)
+    {
+        u8 r6;
+        u8 r7 = sprite->data[0];
+        u8 r8 = sprite->data[2];
+        u32 r5 = (u16)sprite->data[3] | ((u16)sprite->data[4] << 16);
+
+        if (sprite->subpriority != 0)
+            r6 = sprite->subpriority - 1;
+        else
+            r6 = 0;
+
+        StartSpriteAnim(sprite, 1);
+        LaunchBallStarsTaskForPokeball(sprite->pos1.x, sprite->pos1.y - 5, sprite->oam.priority, r6);
+        sprite->data[1] = LaunchBallFadeMonTaskForOak(1, r8, r5);
+        sprite->callback = OakTradeCB2;
+        StartSpriteAffineAnim(&gSprites[r7], 2);
+        AnimateSprite(&gSprites[r7]);
+        gSprites[r7].data[1] = 0;
+    }
+    else
+    {
+        sprite->data[1]--;
+    }
+}
+
 static void sub_804BCF8(struct Sprite *sprite)
 {
     u8 r1;
@@ -1140,7 +1275,7 @@ static void sub_804BCF8(struct Sprite *sprite)
     sprite->data[5]++;
     if (sprite->data[5] == 11)
         PlaySE(SE_BALL_TRADE);
-    
+
     r1 = sprite->data[0];
     if (gSprites[r1].affineAnimEnded)
     {
@@ -1153,6 +1288,30 @@ static void sub_804BCF8(struct Sprite *sprite)
     {
         gSprites[r1].data[1] += 96;
         gSprites[r1].pos2.y = -gSprites[r1].data[1] >> 8;
+    }
+}
+
+static void OakTradeCB2(struct Sprite *sprite)
+{
+    u8 r1;
+
+    sprite->data[5]++;
+    if (sprite->data[5] == 11)
+        PlaySE(SE_BALL_TRADE);
+
+    r1 = sprite->data[0];
+    if (gSprites[r1].affineAnimEnded)
+    {
+        StartSpriteAnim(sprite, 2);
+        gSprites[r1].invisible = TRUE;
+        sprite->data[5] = 0;
+        sprite->callback = sub_804BD6C;
+    }
+    else
+    {
+        gSprites[r1].data[1] += 96;
+        gSprites[r1].pos2.x = 0x88;
+        gSprites[r1].pos2.y = 0x50;
     }
 }
 
@@ -1183,7 +1342,7 @@ void sub_804BD94(u8 battlerId)
         healthboxSprite->pos2.x = -healthboxSprite->pos2.x;
         healthboxSprite->pos2.y = -healthboxSprite->pos2.y;
     }
-    
+
     gSprites[healthboxSprite->data[5]].callback(&gSprites[healthboxSprite->data[5]]);
     if (GetBattlerPosition(battlerId) == B_POSITION_PLAYER_RIGHT)
         healthboxSprite->callback = sub_804BE24;
@@ -1241,7 +1400,7 @@ void LoadBallGfx(u8 ballId)
         LoadCompressedSpriteSheetUsingHeap(&gBallSpriteSheets[ballId]);
         LoadCompressedSpritePaletteUsingHeap(&gBallSpritePalettes[ballId]);
     }
-    
+
     switch (ballId)
     {
     case BALL_DIVE:
@@ -1268,4 +1427,3 @@ static u16 GetBattlerPokeballItemId(u8 battlerId)
     else
         return GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_POKEBALL);
 }
-
