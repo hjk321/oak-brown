@@ -413,6 +413,7 @@ __attribute__((section(".rodata"))) struct CompressedSpritePalette gMonPaletteTa
     SPECIES_PAL(JIRACHI, gMonPalette_Jirachi),
     SPECIES_PAL(DEOXYS, gMonPalette_Deoxys),
     SPECIES_PAL(CHIMECHO, gMonPalette_Chimecho),
+    SPECIES_PAL(TURTWIG, gMonPalette_Turtwig),
     SPECIES_PAL(EGG, gMonPalette_Egg),
     SPECIES_PAL(UNOWN_B, gMonPalette_Unown),
     SPECIES_PAL(UNOWN_C, gMonPalette_Unown),

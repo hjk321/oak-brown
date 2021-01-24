@@ -1855,6 +1855,9 @@ Cry_Deoxys::
 Cry_Chimecho::
 	.incbin "sound/direct_sound_samples/cry_chimecho.bin"
 
+	.align 2
+Cry_Turtwig::
+	.incbin "sound/direct_sound_samples/cry_not_turtwig.bin"
 
 	.align 2
 DirectSoundWaveData_register_noise::

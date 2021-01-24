@@ -1306,5 +1306,8 @@ const u16 gEggMoves[] = {
               MOVE_HYPNOSIS,
               MOVE_DREAM_EATER),
 
+    egg_moves(TURTWIG,
+              MOVE_TACKLE), // TODO
+
     EGG_MOVES_TERMINATOR
 };

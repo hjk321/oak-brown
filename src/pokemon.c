@@ -515,6 +515,7 @@ static const u16 sSpeciesToHoennPokedexNum[] = // Assigns all species to the Hoe
     SPECIES_TO_HOENN(JIRACHI),
     SPECIES_TO_HOENN(DEOXYS),
     SPECIES_TO_HOENN(CHIMECHO),
+    SPECIES_TO_HOENN(TURTWIG),
 };
 
 static const u16 sSpeciesToNationalPokedexNum[] = // Assigns all species to the National Dex Index (Summary No. for National Dex)
@@ -930,6 +931,7 @@ static const u16 sSpeciesToNationalPokedexNum[] = // Assigns all species to the 
     SPECIES_TO_NATIONAL(JIRACHI),
     SPECIES_TO_NATIONAL(DEOXYS),
     SPECIES_TO_NATIONAL(CHIMECHO),
+    SPECIES_TO_NATIONAL(TURTWIG),
 };
 
 static const u16 sHoennToNationalOrder[] = // Assigns Hoenn Dex Pokémon (Using National Dex Index)
@@ -1320,6 +1322,7 @@ static const u16 sHoennToNationalOrder[] = // Assigns Hoenn Dex Pokémon (Using 
     HOENN_TO_NATIONAL(LUGIA),
     HOENN_TO_NATIONAL(HO_OH),
     HOENN_TO_NATIONAL(CELEBI),
+    HOENN_TO_NATIONAL(TURTWIG),
     HOENN_TO_NATIONAL(OLD_UNOWN_B),
     HOENN_TO_NATIONAL(OLD_UNOWN_C),
     HOENN_TO_NATIONAL(OLD_UNOWN_D),
@@ -1438,7 +1441,7 @@ const u8 gStatStageRatios[][2] =
     { 10, 35 },
     { 10, 30 },
     { 10, 25 },
-    { 10, 20 }, 
+    { 10, 20 },
     { 10, 15 },
     { 10, 10 },
     { 15, 10 },
@@ -1453,7 +1456,7 @@ const u8 gStatStageRatios[][2] =
 
 static const u8 sFiller = _("");
 
-static const u8 sHoldEffectToType[][2] = 
+static const u8 sHoldEffectToType[][2] =
 {
     {HOLD_EFFECT_BUG_POWER, TYPE_BUG},
     {HOLD_EFFECT_STEEL_POWER, TYPE_STEEL},
@@ -1474,13 +1477,13 @@ static const u8 sHoldEffectToType[][2] =
     {HOLD_EFFECT_NORMAL_POWER, TYPE_NORMAL},
 };
 
-const struct SpriteTemplate gUnknown_825DEF0[] = 
+const struct SpriteTemplate gUnknown_825DEF0[] =
 {
     {
         .tileTag = SPRITE_INVALID_TAG,
         .paletteTag = 0,
         .oam = &gOamData_824F018,
-        .anims = NULL, 
+        .anims = NULL,
         .images = gUnknown_8234698,
         .affineAnims = gSpriteAffineAnimTable_82348C8,
         .callback = sub_80120C4,
@@ -1489,7 +1492,7 @@ const struct SpriteTemplate gUnknown_825DEF0[] =
         .tileTag = SPRITE_INVALID_TAG,
         .paletteTag = 0,
         .oam = &gOamData_824F010,
-        .anims = NULL, 
+        .anims = NULL,
         .images = gUnknown_82346B8,
         .affineAnims = gSpriteAffineAnimTable_8234944,
         .callback = SpriteCB_WildMon,
@@ -1498,7 +1501,7 @@ const struct SpriteTemplate gUnknown_825DEF0[] =
         .tileTag = SPRITE_INVALID_TAG,
         .paletteTag = 0,
         .oam = &gOamData_824F018,
-        .anims = NULL, 
+        .anims = NULL,
         .images = gUnknown_82346D8,
         .affineAnims = gSpriteAffineAnimTable_82348C8,
         .callback = sub_80120C4,
@@ -1507,20 +1510,20 @@ const struct SpriteTemplate gUnknown_825DEF0[] =
         .tileTag = SPRITE_INVALID_TAG,
         .paletteTag = 0,
         .oam = &gOamData_824F010,
-        .anims = NULL, 
+        .anims = NULL,
         .images = gUnknown_82346F8,
         .affineAnims = gSpriteAffineAnimTable_8234944,
         .callback = SpriteCB_WildMon,
     },
 };
 
-const struct SpriteTemplate gUnknown_825DF50[] = 
+const struct SpriteTemplate gUnknown_825DF50[] =
 {
     {
         .tileTag = SPRITE_INVALID_TAG,
         .paletteTag = 0,
         .oam = &gOamData_824F018,
-        .anims = NULL, 
+        .anims = NULL,
         .images = gTrainerBackPicTable_Red,
         .affineAnims = gSpriteAffineAnimTable_82348C8,
         .callback = sub_80120C4,
@@ -1529,7 +1532,7 @@ const struct SpriteTemplate gUnknown_825DF50[] =
         .tileTag = SPRITE_INVALID_TAG,
         .paletteTag = 0,
         .oam = &gOamData_824F018,
-        .anims = NULL, 
+        .anims = NULL,
         .images = gTrainerBackPicTable_Leaf,
         .affineAnims = gSpriteAffineAnimTable_82348C8,
         .callback = sub_80120C4,
@@ -1538,7 +1541,7 @@ const struct SpriteTemplate gUnknown_825DF50[] =
         .tileTag = SPRITE_INVALID_TAG,
         .paletteTag = 0,
         .oam = &gOamData_824F018,
-        .anims = NULL, 
+        .anims = NULL,
         .images = gTrainerBackPicTable_RSBrendan,
         .affineAnims = gSpriteAffineAnimTable_82348C8,
         .callback = sub_80120C4,
@@ -1547,7 +1550,7 @@ const struct SpriteTemplate gUnknown_825DF50[] =
         .tileTag = SPRITE_INVALID_TAG,
         .paletteTag = 0,
         .oam = &gOamData_824F018,
-        .anims = NULL, 
+        .anims = NULL,
         .images = gTrainerBackPicTable_RSMay,
         .affineAnims = gSpriteAffineAnimTable_82348C8,
         .callback = sub_80120C4,
@@ -1556,7 +1559,7 @@ const struct SpriteTemplate gUnknown_825DF50[] =
         .tileTag = SPRITE_INVALID_TAG,
         .paletteTag = 0,
         .oam = &gOamData_824F018,
-        .anims = NULL, 
+        .anims = NULL,
         .images = gTrainerBackPicTable_Pokedude,
         .affineAnims = gSpriteAffineAnimTable_82348C8,
         .callback = sub_80120C4,
@@ -1565,20 +1568,20 @@ const struct SpriteTemplate gUnknown_825DF50[] =
         .tileTag = SPRITE_INVALID_TAG,
         .paletteTag = 0,
         .oam = &gOamData_824F018,
-        .anims = NULL, 
+        .anims = NULL,
         .images = gTrainerBackPicTable_OldMan,
         .affineAnims = gSpriteAffineAnimTable_82348C8,
         .callback = sub_80120C4,
     },
 };
 
-static const u8 sSecretBaseFacilityClasses[][5] = 
+static const u8 sSecretBaseFacilityClasses[][5] =
 {
     { FACILITY_CLASS_YOUNGSTER_2, FACILITY_CLASS_YOUNGSTER_2, FACILITY_CLASS_YOUNGSTER_2, FACILITY_CLASS_YOUNGSTER_2, FACILITY_CLASS_YOUNGSTER_2 },
     { FACILITY_CLASS_YOUNGSTER_2, FACILITY_CLASS_YOUNGSTER_2, FACILITY_CLASS_YOUNGSTER_2, FACILITY_CLASS_YOUNGSTER_2, FACILITY_CLASS_YOUNGSTER_2 },
 };
 
-static const u8 sGetMonDataEVConstants[] = 
+static const u8 sGetMonDataEVConstants[] =
 {
     MON_DATA_HP_EV,
     MON_DATA_ATK_EV,
@@ -1588,12 +1591,12 @@ static const u8 sGetMonDataEVConstants[] =
     MON_DATA_SPATK_EV
 };
 
-static const u8 gUnknown_825DFF0[] = 
+static const u8 gUnknown_825DFF0[] =
 {
     STAT_ATK, STAT_ATK, STAT_SPEED, STAT_DEF, STAT_SPATK, STAT_ACC
 };
 
-static const s8 sFriendshipEventDeltas[][3] = 
+static const s8 sFriendshipEventDeltas[][3] =
 {
     { 5,  3,  2 },
     { 5,  3,  2 },
@@ -1607,14 +1610,14 @@ static const s8 sFriendshipEventDeltas[][3] =
     {-5, -5, -10 },
 };
 
-static const u16 sHMMoves[] = 
+static const u16 sHMMoves[] =
 {
     MOVE_CUT, MOVE_FLY, MOVE_SURF, MOVE_STRENGTH, MOVE_FLASH,
     MOVE_ROCK_SMASH, MOVE_WATERFALL, MOVE_DIVE, 0xFFFF
 };
 
 #if defined(FIRERED)
-static const u16 sDeoxysBaseStats[] = 
+static const u16 sDeoxysBaseStats[] =
 {
     50, // Hp
     180, // Attack
@@ -1635,7 +1638,7 @@ static const u16 sDeoxysBaseStats[] =
 };
 #endif
 
-const u16 gLinkPlayerFacilityClasses[] = 
+const u16 gLinkPlayerFacilityClasses[] =
 {
     FACILITY_CLASS_COOLTRAINER_3, FACILITY_CLASS_BLACK_BELT_2, FACILITY_CLASS_CAMPER_2, FACILITY_CLASS_YOUNGSTER_2, FACILITY_CLASS_PSYCHIC_3,
     FACILITY_CLASS_BUG_CATCHER_2, FACILITY_CLASS_TAMER, FACILITY_CLASS_JUGGLER, FACILITY_CLASS_COOLTRAINER_4, FACILITY_CLASS_CHANNELER,
@@ -1643,7 +1646,7 @@ const u16 gLinkPlayerFacilityClasses[] =
     FACILITY_CLASS_BEAUTY_2, FACILITY_CLASS_AQUA_LEADER,
 };
 
-static const struct OamData sOakSpeechNidoranFDummyOamData = 
+static const struct OamData sOakSpeechNidoranFDummyOamData =
 {
     .y = 0,
     .affineMode = 0,
@@ -1659,12 +1662,12 @@ static const struct OamData sOakSpeechNidoranFDummyOamData =
     .paletteNum = 0,
 };
 
-static const struct SpriteTemplate sOakSpeechNidoranFDummyTemplate = 
+static const struct SpriteTemplate sOakSpeechNidoranFDummyTemplate =
 {
     .tileTag = SPRITE_INVALID_TAG,
     .paletteTag = SPRITE_INVALID_TAG,
     .oam = &sOakSpeechNidoranFDummyOamData,
-    .anims = gDummySpriteAnimTable, 
+    .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCallbackDummy,
@@ -4101,7 +4104,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                 {
                     u16 evCount;
                     s32 r5;
-     
+
                     switch (sp28)
                     {
                     case 0:
@@ -4464,7 +4467,7 @@ bool8 PokemonItemUseNoEffect(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mo
              cmdIndex < gBattlersCount;
              cmdIndex += 2)
         {
-            if (gBattlerPartyIndexes[cmdIndex] == partyIndex) 
+            if (gBattlerPartyIndexes[cmdIndex] == partyIndex)
             {
                 battlerId = cmdIndex;
                 break;
@@ -6040,7 +6043,7 @@ void CreateObedientEnemyMon(void)
     if (itemId)
     {
         u8 heldItem[2];
-        
+
         heldItem[0] = itemId;
         heldItem[1] = itemId >> 8;
         SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, heldItem);
@@ -6050,7 +6053,7 @@ void CreateObedientEnemyMon(void)
 void HandleSetPokedexFlag(u16 nationalNum, u8 caseId, u32 personality)
 {
     u8 getFlagCaseId = (caseId == FLAG_SET_SEEN) ? FLAG_GET_SEEN : FLAG_GET_CAUGHT;
-    
+
     if (!GetSetPokedexFlag(nationalNum, getFlagCaseId))
     {
         GetSetPokedexFlag(nationalNum, caseId);
@@ -6092,7 +6095,7 @@ static void OakSpeechNidoranFSetupTemplate(struct OakSpeechNidoranFStruct *struc
     else
     {
         const struct SpriteTemplate *template = &gUnknown_825DEF0[battlePosition];
-        
+
         structPtr->templates[0] = *template;
         for (j = 0; j < structPtr->frameCount; ++j)
                 structPtr->frameImages[j].data = &structPtr->bufferPtrs[0][j * 0x800];
@@ -6240,7 +6243,7 @@ void OakSpeechNidoranFFreeResources(void)
             if (sOakSpeechNidoranResources->templates != NULL)
                 FREE_AND_SET_NULL(sOakSpeechNidoranResources->templates);
             if (sOakSpeechNidoranResources->bufferPtrs != NULL)
-                FREE_AND_SET_NULL(sOakSpeechNidoranResources->bufferPtrs);                    
+                FREE_AND_SET_NULL(sOakSpeechNidoranResources->bufferPtrs);
             if (sOakSpeechNidoranResources->dataBuffer != NULL)
                 FREE_AND_SET_NULL(sOakSpeechNidoranResources->dataBuffer);
             memset(sOakSpeechNidoranResources, 0, sizeof(struct OakSpeechNidoranFStruct));

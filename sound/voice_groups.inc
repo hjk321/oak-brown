@@ -1382,6 +1382,7 @@ gCryTable:: @ 848C914
 	cry Cry_Jirachi @ 848DB20
 	cry Cry_Deoxys @ 848DB2C
 	cry Cry_Chimecho @ 848DB38
+	cry Cry_Turtwig
 
 gCryTable2:: @ 848DB44
 	cry2 Cry_Bulbasaur @ 848DB44
@@ -1772,6 +1773,7 @@ gCryTable2:: @ 848DB44
 	cry2 Cry_Jirachi @ 848ED50
 	cry2 Cry_Deoxys @ 848ED5C
 	cry2 Cry_Chimecho @ 848ED68
+	cry2 Cry_Turtwig
 
 	.align 2
 voicegroup129:: @ 848ED74

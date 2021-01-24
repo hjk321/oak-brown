@@ -5030,4 +5030,16 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 337,
         .trainerOffset = 2,
     },
+
+    [NATIONAL_DEX_TURTWIG] =
+    {
+        .categoryName = _("TINYLEAF"),
+        .height = 4,
+        .weight = 102,
+        .description = gTurtwigPokedexText,
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
 };

@@ -2718,3 +2718,8 @@ const u8 gDeoxysPokedexText[] = _(
     "altering its appearance.");
 
 const u8 gDeoxysPokedexTextUnused[] = _("");
+
+const u8 gTurtwigPokedexText[] = _(
+    "It might not be very fast, or smart,\n"
+    "for that matter, but come on! Isn't\n"
+    "it the cutest thing you've ever seen?");
