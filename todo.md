@@ -27,3 +27,4 @@
 * Missingno special type effectiveness (Bird Type?)
 * Eeveelutions
 * New Pokeballs, and "alternate" class TrainerBall types
+* Add >4 regionmap support

@@ -28,6 +28,8 @@
 #define SWITCH_BUTTON_Y 11
 
 enum {
+    REGIONMAP_RIJON,
+    REGIONMAP_JOHTO,
     REGIONMAP_KANTO,
     REGIONMAP_SEVII123,
     REGIONMAP_SEVII45,
@@ -101,7 +103,7 @@ struct RegionMap
     u16 dungeonWinTop;    // Never read
     u16 dungeonWinRight;  // Never read
     u16 dungeonWinBottom; // Never read
-    u8 filler[6]; 
+    u8 filler[6];
     TaskFunc mainTask;
     MainCallback savedCallback;
 }; // size = 0x47C0
@@ -135,6 +137,7 @@ struct SwitchMapMenu
     u8 maxSelection;
     u8 alpha;
     u16 yOffset;
+    bool32 twoColumns;
     TaskFunc exitTask;
     struct GpuWindowParams highlight;
     u16 blendY;
@@ -403,15 +406,17 @@ static const u32 sPlayerIcon_Red[] = INCBIN_U32("graphics/region_map/player_icon
 static const u32 sPlayerIcon_Leaf[] = INCBIN_U32("graphics/region_map/player_icon_leaf.4bpp.lz");
 static const u32 sRegionMap_Gfx[] = INCBIN_U32("graphics/region_map/region_map.4bpp.lz");
 static const u32 sMapEdge_Gfx[] = INCBIN_U32("graphics/region_map/map_edge.4bpp.lz");
-static const u32 sSwitchMapMenu_Gfx[] = INCBIN_U32("graphics/region_map/switch_map_menu.bin.lz");
+static const u32 sSwitchMapMenu_Gfx[] = INCBIN_U32("graphics/region_map/switch_map_menu.4bpp.lz");
 static const u32 sKanto_Tilemap[] = INCBIN_U32("graphics/region_map/kanto.bin.lz");
 static const u32 sSevii123_Tilemap[] = INCBIN_U32("graphics/region_map/sevii_123.bin.lz");
 static const u32 sSevii45_Tilemap[] = INCBIN_U32("graphics/region_map/sevii_45.bin.lz");
 static const u32 sSevii67_Tilemap[] = INCBIN_U32("graphics/region_map/sevii_67.bin.lz");
 static const u32 sMapEdge_Tilemap[] = INCBIN_U32("graphics/region_map/map_edge.bin.lz");
-static const u32 sSwitchMap_KantoSeviiAll_Tilemap[] = INCBIN_U32("graphics/region_map/switch_map_kanto_sevii_all.bin.lz");
-static const u32 sSwitchMap_KantoSevii123_Tilemap[] = INCBIN_U32("graphics/region_map/switch_map_kanto_sevii_123.bin.lz");
-static const u32 sSwitchMap_KantoSeviiAll2_Tilemap[] = INCBIN_U32("graphics/region_map/switch_map_kanto_sevii_all2.bin.lz");
+static const u32 sSwitchMap_RijonJohto_Tilemap[] = INCBIN_U32("graphics/region_map/switch_map_rijon_johto.bin.lz");
+static const u32 sSwitchMap_RijonJohtoKanto_Tilemap[] = INCBIN_U32("graphics/region_map/switch_map_rijon_johto_kanto.bin.lz");
+static const u32 sSwitchMap_SeviiTri_Tilemap[] = INCBIN_U32("graphics/region_map/switch_map_sevii_tri.bin.lz");
+static const u32 sSwitchMap_SeviiPenta_Tilemap[] = INCBIN_U32("graphics/region_map/switch_map_sevii_penta.bin.lz");
+static const u32 sSwitchMap_SeviiAll_Tilemap[] = INCBIN_U32("graphics/region_map/switch_map_sevii_all.bin.lz");
 static const u32 sMapEdge_TopLeft[] = INCBIN_U32("graphics/region_map/map_edge_top_left.4bpp.lz");
 static const u32 sMapEdge_TopRight[] = INCBIN_U32("graphics/region_map/map_edge_top_right.4bpp.lz");
 static const u32 sMapEdge_MidLeft[] = INCBIN_U32("graphics/region_map/map_edge_mid_left.4bpp.lz");
@@ -460,7 +465,7 @@ static const struct BgTemplate sRegionMapBgTemplates[] = {
 };
 
 static const struct WindowTemplate sRegionMapWindowTemplates[] = {
-    [WIN_MAP_NAME] = 
+    [WIN_MAP_NAME] =
     {
         .bg = 3,
         .tilemapLeft = 3,
@@ -469,7 +474,7 @@ static const struct WindowTemplate sRegionMapWindowTemplates[] = {
         .height = 2,
         .paletteNum = 12,
         .baseBlock = 0x001
-    }, 
+    },
     [WIN_DUNGEON_NAME] =
     {
         .bg = 3,
@@ -479,7 +484,7 @@ static const struct WindowTemplate sRegionMapWindowTemplates[] = {
         .height = 2,
         .paletteNum = 12,
         .baseBlock = 0x01f
-    }, 
+    },
     [WIN_MAP_PREVIEW] =
     {
         .bg = 3,
@@ -499,7 +504,7 @@ static const struct WindowTemplate sRegionMapWindowTemplates[] = {
         .height = 2,
         .paletteNum = 12,
         .baseBlock = 0x150
-    }, 
+    },
     [WIN_TOPBAR_RIGHT] =
     {
         .bg = 3,
@@ -522,7 +527,7 @@ static const u8 *const sTextColorTable[] = {
 };
 
 static const u8 sSeviiMapsecs[3][30] = {
-    [REGIONMAP_SEVII123 - 1] =
+    [REGIONMAP_SEVII123 - REGIONMAP_SEVII123] =
     {
         MAPSEC_ONE_ISLAND,
         MAPSEC_TWO_ISLAND,
@@ -537,8 +542,8 @@ static const u8 sSeviiMapsecs[3][30] = {
         MAPSEC_THREE_ISLE_PATH,
         MAPSEC_EMBER_SPA,
         MAPSEC_NONE
-    }, 
-    [REGIONMAP_SEVII45 - 1] =
+    },
+    [REGIONMAP_SEVII45 - REGIONMAP_SEVII123] =
     {
         MAPSEC_FOUR_ISLAND,
         MAPSEC_FIVE_ISLAND,
@@ -555,8 +560,8 @@ static const u8 sSeviiMapsecs[3][30] = {
         MAPSEC_ROCKET_WAREHOUSE,
         MAPSEC_LOST_CAVE,
         MAPSEC_NONE
-    }, 
-    [REGIONMAP_SEVII67 - 1] = 
+    },
+    [REGIONMAP_SEVII67 - REGIONMAP_SEVII123] =
     {
         MAPSEC_SEVEN_ISLAND,
         MAPSEC_SIX_ISLAND,
@@ -590,26 +595,26 @@ static const u8 sSeviiMapsecs[3][30] = {
 };
 
 ALIGNED(4) static const bool8 sRegionMapPermissions[REGIONMAP_TYPE_COUNT][MAPPERM_COUNT] = {
-    [REGIONMAP_TYPE_NORMAL] = 
+    [REGIONMAP_TYPE_NORMAL] =
     {
-        [MAPPERM_HAS_SWITCH_BUTTON]    = TRUE, 
-        [MAPPERM_HAS_MAP_PREVIEW]      = TRUE, 
-        [MAPPERM_HAS_OPEN_ANIM]        = TRUE, 
+        [MAPPERM_HAS_SWITCH_BUTTON]    = TRUE,
+        [MAPPERM_HAS_MAP_PREVIEW]      = TRUE,
+        [MAPPERM_HAS_OPEN_ANIM]        = TRUE,
         [MAPPERM_HAS_FLY_DESTINATIONS] = FALSE
     },
-    [REGIONMAP_TYPE_WALL] = 
+    [REGIONMAP_TYPE_WALL] =
     {
-        [MAPPERM_HAS_SWITCH_BUTTON]    = FALSE, 
-        [MAPPERM_HAS_MAP_PREVIEW]      = FALSE, 
-        [MAPPERM_HAS_OPEN_ANIM]        = FALSE, 
+        [MAPPERM_HAS_SWITCH_BUTTON]    = FALSE,
+        [MAPPERM_HAS_MAP_PREVIEW]      = FALSE,
+        [MAPPERM_HAS_OPEN_ANIM]        = FALSE,
         [MAPPERM_HAS_FLY_DESTINATIONS] = FALSE
     },
-    [REGIONMAP_TYPE_FLY] = 
+    [REGIONMAP_TYPE_FLY] =
     {
-        [MAPPERM_HAS_SWITCH_BUTTON]    = FALSE, 
-        [MAPPERM_HAS_MAP_PREVIEW]      = FALSE, 
-        [MAPPERM_HAS_OPEN_ANIM]        = FALSE, 
-        [MAPPERM_HAS_FLY_DESTINATIONS] = TRUE 
+        [MAPPERM_HAS_SWITCH_BUTTON]    = FALSE,
+        [MAPPERM_HAS_MAP_PREVIEW]      = FALSE,
+        [MAPPERM_HAS_OPEN_ANIM]        = FALSE,
+        [MAPPERM_HAS_FLY_DESTINATIONS] = TRUE
     }
 };
 
@@ -729,9 +734,9 @@ static const union AnimCmd *const sAnims_MapEdge[] = {
 };
 
 static const struct GpuWindowParams gUnknown_83F1C34 = {
-    .left = 24, 
-    .top = 16, 
-    .right = 216, 
+    .left = 24,
+    .top = 16,
+    .right = 216,
     .bottom = 160
 };
 
@@ -1113,7 +1118,7 @@ static const u16 sMapSectionDimensions[MAPSEC_COUNT][2] = {
 };
 
 static const u8 sRegionMapSections_Kanto[LAYER_COUNT][MAP_HEIGHT][MAP_WIDTH] = {
-    [LAYER_MAP] = 
+    [LAYER_MAP] =
     {
         {MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE},
         {MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_ROUTE_24, MAPSEC_ROUTE_25, MAPSEC_ROUTE_25, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE},
@@ -1130,7 +1135,7 @@ static const u8 sRegionMapSections_Kanto[LAYER_COUNT][MAP_HEIGHT][MAP_WIDTH] = {
         {MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_ROUTE_21, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_ROUTE_18, MAPSEC_ROUTE_18, MAPSEC_ROUTE_18, MAPSEC_ROUTE_18, MAPSEC_ROUTE_18, MAPSEC_FUCHSIA_CITY, MAPSEC_ROUTE_15, MAPSEC_ROUTE_15, MAPSEC_ROUTE_14, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE},
         {MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_ROUTE_21, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_ROUTE_19, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE},
         {MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_CINNABAR_ISLAND, MAPSEC_ROUTE_20, MAPSEC_ROUTE_20, MAPSEC_ROUTE_20, MAPSEC_ROUTE_20, MAPSEC_ROUTE_20, MAPSEC_ROUTE_20, MAPSEC_ROUTE_20, MAPSEC_ROUTE_19, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE}
-    }, 
+    },
     [LAYER_DUNGEON] =
     {
         {MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE},
@@ -1169,7 +1174,7 @@ static const u8 sRegionMapSections_Sevii123[LAYER_COUNT][MAP_HEIGHT][MAP_WIDTH] 
         {MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_BOND_BRIDGE, MAPSEC_BOND_BRIDGE, MAPSEC_BOND_BRIDGE, MAPSEC_BOND_BRIDGE, MAPSEC_THREE_ISLAND, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE},
         {MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_THREE_ISLE_PORT, MAPSEC_THREE_ISLE_PORT, MAPSEC_NONE, MAPSEC_NONE},
         {MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE}
-    }, 
+    },
     [LAYER_DUNGEON] =
     {
         {MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE},
@@ -1208,7 +1213,7 @@ static const u8 sRegionMapSections_Sevii45[LAYER_COUNT][MAP_HEIGHT][MAP_WIDTH] =
         {MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_FIVE_ISLE_MEADOW, MAPSEC_MEMORIAL_PILLAR, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE},
         {MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_MEMORIAL_PILLAR, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE},
         {MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_MEMORIAL_PILLAR, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE}
-    }, 
+    },
     [LAYER_DUNGEON] =
     {
         {MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE},
@@ -1247,7 +1252,7 @@ static const u8 sRegionMapSections_Sevii67[LAYER_COUNT][MAP_HEIGHT][MAP_WIDTH] =
         {MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_TANOBY_RUINS, MAPSEC_TANOBY_RUINS, MAPSEC_TANOBY_RUINS, MAPSEC_TANOBY_RUINS, MAPSEC_TANOBY_RUINS, MAPSEC_TANOBY_RUINS, MAPSEC_TANOBY_RUINS, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE},
         {MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_BIRTH_ISLAND, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE},
         {MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE}
-    }, 
+    },
     [LAYER_DUNGEON] =
     {
         {MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_ALTERING_CAVE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE, MAPSEC_NONE},
@@ -1468,8 +1473,8 @@ static void InitRegionMapType(void)
     {
         sRegionMap->permissions[i] = sRegionMapPermissions[sRegionMap->type][i];
     }
-    if (!FlagGet(FLAG_SYS_SEVII_MAP_123))
-        sRegionMap->permissions[MAPPERM_HAS_SWITCH_BUTTON] = FALSE;
+    // TODO
+    sRegionMap->permissions[MAPPERM_HAS_SWITCH_BUTTON] = TRUE;
     region = REGIONMAP_KANTO;
     j = REGIONMAP_KANTO;
     if (gMapHeader.regionMapSectionId >= MAPSECS_SEVII_123)
@@ -1612,7 +1617,7 @@ static void PlaySEForSelectedMapsec(void)
 {
     if (SelectedMapsecSEEnabled())
     {
-        if ((GetSelectedMapsecType(LAYER_MAP) != MAPSECTYPE_ROUTE && GetSelectedMapsecType(LAYER_MAP) != MAPSECTYPE_NONE) 
+        if ((GetSelectedMapsecType(LAYER_MAP) != MAPSECTYPE_ROUTE && GetSelectedMapsecType(LAYER_MAP) != MAPSECTYPE_NONE)
          || (GetSelectedMapsecType(LAYER_DUNGEON) != MAPSECTYPE_ROUTE && GetSelectedMapsecType(LAYER_DUNGEON) != MAPSECTYPE_NONE))
             PlaySE(SE_DEX_SCROLL);
         if (GetMapCursorX() == SWITCH_BUTTON_X && GetMapCursorY() == SWITCH_BUTTON_Y && GetRegionMapPermission(MAPPERM_HAS_SWITCH_BUTTON) == TRUE)
@@ -1994,29 +1999,36 @@ static void SetRegionMapPlayerIsOn(u8 region)
 static void InitSwitchMapMenu(u8 whichMap, u8 taskId, TaskFunc taskFunc)
 {
     sSwitchMapMenu = AllocZeroed(sizeof(struct SwitchMapMenu));
-    if (FlagGet(FLAG_SYS_SEVII_MAP_4567))
-        sSwitchMapMenu->maxSelection = 3;
-    else if (FlagGet(FLAG_SYS_SEVII_MAP_123))
-        sSwitchMapMenu->maxSelection = 1;
-    else
-        sSwitchMapMenu->maxSelection = 0;
+    // TODO replace with flag checks
+    sSwitchMapMenu->maxSelection = 5;
     sSwitchMapMenu->cursorSubsprite[0].x = 88;
     sSwitchMapMenu->cursorSubsprite[1].x = 152;
 
     switch (sSwitchMapMenu->maxSelection)
     {
     case 1:
-        LZ77UnCompWram(sSwitchMap_KantoSevii123_Tilemap, sSwitchMapMenu->switchMapTilemap);
+        LZ77UnCompWram(sSwitchMap_RijonJohto_Tilemap, sSwitchMapMenu->switchMapTilemap);
         sSwitchMapMenu->yOffset = 6;
         break;
-    case 2: // never reached
-        LZ77UnCompWram(sSwitchMap_KantoSeviiAll2_Tilemap, sSwitchMapMenu->switchMapTilemap);
-        sSwitchMapMenu->yOffset = 4;
+    case 2:
+        LZ77UnCompWram(sSwitchMap_RijonJohtoKanto_Tilemap, sSwitchMapMenu->switchMapTilemap);
+        sSwitchMapMenu->yOffset = 5;
         break;
     case 3:
+        sSwitchMapMenu->yOffset = 5;
+        sSwitchMapMenu->twoColumns = TRUE;
+        LZ77UnCompWram(sSwitchMap_SeviiTri_Tilemap, sSwitchMapMenu->switchMapTilemap);
+        break;
+    case 4:
+        sSwitchMapMenu->yOffset = 5;
+        sSwitchMapMenu->twoColumns = TRUE;
+        LZ77UnCompWram(sSwitchMap_SeviiPenta_Tilemap, sSwitchMapMenu->switchMapTilemap);
+        break;
     default:
-        sSwitchMapMenu->yOffset = 3;
-        LZ77UnCompWram(sSwitchMap_KantoSeviiAll_Tilemap, sSwitchMapMenu->switchMapTilemap);
+    case 5:
+        sSwitchMapMenu->yOffset = 5;
+        sSwitchMapMenu->twoColumns = TRUE;
+        LZ77UnCompWram(sSwitchMap_SeviiAll_Tilemap, sSwitchMapMenu->switchMapTilemap);
         break;
     }
     LZ77UnCompWram(sSwitchMapMenu_Gfx, sSwitchMapMenu->switchMapTiles);
@@ -2109,10 +2121,8 @@ static void Task_SwitchMapMenu(u8 taskId)
         }
         break;
     case 8:
-        if (CreateSwitchMapCursor() == TRUE)
-        {
-            sSwitchMapMenu->mainState++;
-        }
+        // if (CreateSwitchMapCursor() == TRUE)
+        sSwitchMapMenu->mainState++;
         break;
     case 9:
         if (HandleSwitchMapInput() == TRUE)
@@ -2198,10 +2208,18 @@ static void LoadSwitchMapTilemap(u8 bg, u16 *map)
 static void DrawSwitchMapSelectionHighlight(void)
 {
     struct GpuWindowParams data;
-    data.left = sSwitchMapMenu->highlight.left = 72;
-    data.top = sSwitchMapMenu->highlight.top = 8 * (sSwitchMapMenu->yOffset + 4 * sSwitchMapMenu->currentSelection);
-    data.right = sSwitchMapMenu->highlight.right = 168;
+    data.top = sSwitchMapMenu->highlight.top = 8 * (sSwitchMapMenu->yOffset + 4 * (sSwitchMapMenu->currentSelection % 3));
     data.bottom = sSwitchMapMenu->highlight.bottom = sSwitchMapMenu->highlight.top + 32;
+    if (sSwitchMapMenu->twoColumns)
+    {
+        data.left = sSwitchMapMenu->highlight.left = 56 + (sSwitchMapMenu->currentSelection / 3 * 64);
+        data.right = sSwitchMapMenu->highlight.right = data.left + 64;
+    }
+    else
+    {
+        data.left = sSwitchMapMenu->highlight.left = 72;
+        data.right = sSwitchMapMenu->highlight.right = 168;
+    }
     ResetGpuRegs();
     SetBldCnt(0, (BLDCNT_TGT1_BG0 | BLDCNT_TGT1_BG2 | BLDCNT_TGT1_OBJ), BLDCNT_EFFECT_DARKEN);
     SetWinIn(31, 21);
@@ -2228,20 +2246,41 @@ static bool8 HandleSwitchMapInput(void)
 {
     bool8 changedSelection = FALSE;
     struct GpuWindowParams data;
-    data.left = sSwitchMapMenu->highlight.left = 72;
-    data.top = sSwitchMapMenu->highlight.top = 8 * (sSwitchMapMenu->yOffset + 4 * sSwitchMapMenu->currentSelection);
-    data.right = sSwitchMapMenu->highlight.right = 168;
+    data.top = sSwitchMapMenu->highlight.top = 8 * (sSwitchMapMenu->yOffset + 4 * (sSwitchMapMenu->currentSelection % 3));
     data.bottom = sSwitchMapMenu->highlight.bottom = sSwitchMapMenu->highlight.top + 32;
-    if (JOY_NEW(DPAD_UP) && sSwitchMapMenu->currentSelection != 0)
+    if (sSwitchMapMenu->twoColumns)
     {
-        PlaySE(SE_BAG_CURSOR);
-        sSwitchMapMenu->currentSelection--;
+        data.left = sSwitchMapMenu->highlight.left = 56 + (sSwitchMapMenu->currentSelection / 3 * 64);
+        data.right = sSwitchMapMenu->highlight.right = data.left + 64;
+    }
+    else
+    {
+        data.left = sSwitchMapMenu->highlight.left = 72;
+        data.right = sSwitchMapMenu->highlight.right = 168;
+    }
+    if (JOY_NEW(DPAD_UP))
+    {
+        if (sSwitchMapMenu->currentSelection == 0)
+            sSwitchMapMenu->currentSelection = sSwitchMapMenu->maxSelection;
+        else
+            sSwitchMapMenu->currentSelection--;
+        PlaySE(SE_SELECT);
         changedSelection = TRUE;
     }
-    if (JOY_NEW(DPAD_DOWN) && sSwitchMapMenu->currentSelection < sSwitchMapMenu->maxSelection)
+    if (JOY_NEW(DPAD_DOWN))
     {
-        PlaySE(SE_BAG_CURSOR);
-        sSwitchMapMenu->currentSelection++;
+        if (sSwitchMapMenu->currentSelection == sSwitchMapMenu->maxSelection)
+            sSwitchMapMenu->currentSelection = 0;
+        else
+            sSwitchMapMenu->currentSelection++;
+        PlaySE(SE_SELECT);
+        changedSelection = TRUE;
+    }
+    if ((JOY_NEW(DPAD_LEFT) || JOY_NEW(DPAD_RIGHT)) && sSwitchMapMenu->twoColumns && (sSwitchMapMenu->currentSelection + 3) % 6 <= sSwitchMapMenu->maxSelection)
+    {
+        PlaySE(SE_SELECT);
+        sSwitchMapMenu->currentSelection += 3;
+        sSwitchMapMenu->currentSelection %= 6;
         changedSelection = TRUE;
     }
     if (JOY_NEW(A_BUTTON) && sSwitchMapMenu->blendY == (BLDCNT_TGT1_BG1 | BLDCNT_TGT1_BG2))
@@ -2252,6 +2291,7 @@ static bool8 HandleSwitchMapInput(void)
     }
     if (JOY_NEW(B_BUTTON))
     {
+        PlaySE(SE_M_SWIFT);
         sSwitchMapMenu->currentSelection = sSwitchMapMenu->chosenRegion;
         BufferRegionMapBg(0, sRegionMap->layouts[sSwitchMapMenu->currentSelection]);
         CopyBgTilemapBufferToVram(0);
@@ -3234,14 +3274,14 @@ static u8 HandleRegionMapInput(void)
     if (JOY_NEW(A_BUTTON))
     {
         input = MAP_INPUT_A_BUTTON;
-        if (sMapCursor->x == CANCEL_BUTTON_X 
+        if (sMapCursor->x == CANCEL_BUTTON_X
          && sMapCursor->y == CANCEL_BUTTON_Y)
         {
             PlaySE(SE_M_HYPER_BEAM2);
             input = MAP_INPUT_CANCEL;
         }
-        if (sMapCursor->x == SWITCH_BUTTON_X 
-         && sMapCursor->y == SWITCH_BUTTON_Y 
+        if (sMapCursor->x == SWITCH_BUTTON_X
+         && sMapCursor->y == SWITCH_BUTTON_Y
          && GetRegionMapPermission(MAPPERM_HAS_SWITCH_BUTTON) == TRUE)
         {
             PlaySE(SE_M_HYPER_BEAM2);
