@@ -938,7 +938,7 @@ static void Task_UpdateLvlInHealthbox(u8 taskId)
     {
         u8 monIndex = gTasks[taskId].tExpTask_monId;
 
-        GetMonData(&gPlayerParty[monIndex], MON_DATA_LEVEL);  // Unused return value. 
+        GetMonData(&gPlayerParty[monIndex], MON_DATA_LEVEL);  // Unused return value.
         if (IsDoubleBattle() == TRUE && monIndex == gBattlerPartyIndexes[battlerId ^ BIT_FLANK])
             UpdateHealthboxAttribute(gHealthboxSpriteIds[battlerId ^ BIT_FLANK], &gPlayerParty[monIndex], HEALTHBOX_ALL);
         else
@@ -1750,9 +1750,9 @@ static void PokedudeHandleTrainerSlide(void)
 {
     DecompressTrainerBackPalette(4, gActiveBattler);
     SetMultiuseSpriteTemplateToTrainerBack(4, GetBattlerPosition(gActiveBattler));
-    gBattlerSpriteIds[gActiveBattler] = CreateSprite(&gMultiuseSpriteTemplate, 
-                                                     80, 
-                                                     (8 - gTrainerBackPicCoords[4].size) * 4 + 80, 
+    gBattlerSpriteIds[gActiveBattler] = CreateSprite(&gMultiuseSpriteTemplate,
+                                                     80,
+                                                     (8 - gTrainerBackPicCoords[4].size) * 4 + 80,
                                                      30);
     gSprites[gBattlerSpriteIds[gActiveBattler]].oam.paletteNum = gActiveBattler;
     gSprites[gBattlerSpriteIds[gActiveBattler]].pos2.x = -96;
@@ -2017,13 +2017,13 @@ static void PokedudeHandleHealthBarUpdate(void)
     {
         u32 maxHP = GetMonData(mon, MON_DATA_MAX_HP);
         u32 curHP = GetMonData(mon, MON_DATA_HP);
-        
+
         SetBattleBarStruct(gActiveBattler, gHealthboxSpriteIds[gActiveBattler], maxHP, curHP, hpVal);
     }
     else
     {
         u32 maxHP = GetMonData(mon, MON_DATA_MAX_HP);
-        
+
         SetBattleBarStruct(gActiveBattler, gHealthboxSpriteIds[gActiveBattler], maxHP, 0, hpVal);
         UpdateHpTextInHealthbox(gHealthboxSpriteIds[gActiveBattler], 0, HP_CURRENT);
     }
@@ -2358,7 +2358,7 @@ static void PokedudeCmdEnd(void)
 static void sub_8159824(void)
 {
     const u8 (*r7)[8] = gUnknown_8479060[gBattleStruct->field_96];
-    
+
     if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
     {
         DoBounceEffect(gActiveBattler, BOUNCE_HEALTHBOX, 7, 1);
@@ -2532,7 +2532,7 @@ static void sub_8159D04(void)
             u32 mask = (gBitTable[gBattleStruct->field_95] | gBitTable[gBattleStruct->field_94]) << 16;
 
             ++mask; // It's possible that this is influenced by other functions, as
-            --mask; // this also striked in battle_controller_oak_old_man.c but was naturally fixed. 
+            --mask; // this also striked in battle_controller_oak_old_man.c but was naturally fixed.
             BeginNormalPaletteFade(mask, 4, 8, 0, RGB_BLACK);
             ++gUnknown_3005EE0[gActiveBattler][2];
         }
@@ -2620,7 +2620,7 @@ void InitPokedudePartyAndOpponent(void)
             mon = &gPlayerParty[myIdx++];
         else
             mon = &gEnemyParty[opIdx++];
-        CreateMonWithGenderNatureLetter(mon, data[i].species, data[i].level, 0, data[i].gender, data[i].nature, 0);
+        CreateMonWithGenderNatureLetter(mon, data[i].species, data[i].level, 0, data[i].gender, data[i].nature, 0, OT_ID_RANDOM_NO_SHINY);
         for (j = 0; j < 4; ++j)
             SetMonMoveSlot(mon, data[i].moves[j], j);
     } while (data[++i].side != 0xFF);

@@ -1,5 +1,6 @@
 ## TODO:
 
+* FIX PRIZE MONEY!
 * Pokedex entries updated text
 * Pokedex size comparisons
 * Tutor moves
@@ -25,3 +26,4 @@
 * EVO_TRADE_SPECIFIC_MON
 * Missingno special type effectiveness (Bird Type?)
 * Eeveelutions
+* New Pokeballs, and "alternate" class TrainerBall types

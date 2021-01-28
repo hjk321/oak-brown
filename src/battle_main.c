@@ -284,7 +284,7 @@ static const union AnimCmd gUnknown_824F020[] =
 };
 
 // not used
-static const union AnimCmd *const gUnknown_824F028[] = 
+static const union AnimCmd *const gUnknown_824F028[] =
 {
     gUnknown_824F020,
 };
@@ -557,6 +557,115 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     { CLASS_AQUA_LEADER, 20 },
     { CLASS_BOSS, 25 },
     { 0xFF, 5 },
+};
+
+// Defines the default ball used per class
+const struct TrainerBall gTrainerBallTable[] = {
+    { CLASS_LEADER_2, ITEM_ULTRA_BALL },
+    { CLASS_ELITE_FOUR_2, ITEM_ULTRA_BALL },
+    { CLASS_PKMN_PROF, ITEM_POKE_BALL },
+    { CLASS_RIVAL, ITEM_GREAT_BALL },
+    { CLASS_RIVAL_2, ITEM_GREAT_BALL },
+    { CLASS_CHAMPION_2, ITEM_ULTRA_BALL },
+    { CLASS_YOUNGSTER_2, ITEM_NEST_BALL },
+    { CLASS_BUG_CATCHER_2, ITEM_NET_BALL },
+    { CLASS_HIKER_2, ITEM_POKE_BALL },
+    { CLASS_BIRD_KEEPER_2, ITEM_POKE_BALL },
+    { CLASS_PICNICKER_2, ITEM_POKE_BALL },
+    { CLASS_SUPER_NERD, ITEM_REPEAT_BALL },
+    { CLASS_FISHERMAN_2, ITEM_NET_BALL },
+    { CLASS_TEAM_ROCKET, ITEM_POKE_BALL },
+    { CLASS_LASS_2, ITEM_POKE_BALL },
+    { CLASS_BEAUTY_2, ITEM_LUXURY_BALL },
+    { CLASS_BLACK_BELT_2, ITEM_ULTRA_BALL },
+    { CLASS_CUE_BALL, ITEM_POKE_BALL },
+    { CLASS_CHANNELER, ITEM_PREMIER_BALL },
+    { CLASS_ROCKER, ITEM_GREAT_BALL },
+    { CLASS_GENTLEMAN_2, ITEM_LUXURY_BALL },
+    { CLASS_BURGLAR, ITEM_POKE_BALL },
+    { CLASS_SWIMMER_MALE_2, ITEM_DIVE_BALL },
+    { CLASS_ENGINEER, ITEM_TIMER_BALL },
+    { CLASS_JUGGLER, ITEM_PREMIER_BALL },
+    { CLASS_SAILOR_2, ITEM_DIVE_BALL },
+    { CLASS_COOLTRAINER_2, ITEM_ULTRA_BALL },
+    { CLASS_POKEMANIAC_2, ITEM_LUXURY_BALL },
+    { CLASS_TAMER, ITEM_SAFARI_BALL },
+    { CLASS_CAMPER_2, ITEM_SAFARI_BALL },
+    { CLASS_PSYCHIC_2, ITEM_PREMIER_BALL },
+    { CLASS_BIKER, ITEM_POKE_BALL },
+    { CLASS_GAMER, ITEM_PREMIER_BALL },
+    { CLASS_SCIENTIST, ITEM_TIMER_BALL },
+    { CLASS_CRUSH_GIRL, ITEM_POKE_BALL },
+    { CLASS_TUBER_3, ITEM_DIVE_BALL },
+    { CLASS_PKMN_BREEDER_2, ITEM_POKE_BALL },
+    { CLASS_PKMN_RANGER_2, ITEM_SAFARI_BALL },
+    { CLASS_AROMA_LADY_2, ITEM_GREAT_BALL },
+    { CLASS_RUIN_MANIAC_2, ITEM_GREAT_BALL },
+    { CLASS_LADY_2, ITEM_LUXURY_BALL },
+    { CLASS_PAINTER, ITEM_POKE_BALL },
+    { CLASS_TWINS_2, ITEM_NEST_BALL },
+    { CLASS_YOUNG_COUPLE_2, ITEM_POKE_BALL },
+    { CLASS_SIS_AND_BRO_2, ITEM_POKE_BALL },
+    { CLASS_COOL_COUPLE, ITEM_ULTRA_BALL },
+    { CLASS_CRUSH_KIN, ITEM_POKE_BALL },
+    { CLASS_SWIMMER_FEMALE_2, ITEM_DIVE_BALL },
+    { CLASS_PLAYER, ITEM_POKE_BALL },
+    { CLASS_LEADER, ITEM_ULTRA_BALL },
+    { CLASS_ELITE_FOUR, ITEM_ULTRA_BALL },
+    { CLASS_LASS, ITEM_POKE_BALL },
+    { CLASS_YOUNGSTER, ITEM_NEST_BALL },
+    { CLASS_PKMN_TRAINER_3, ITEM_POKE_BALL },
+    { CLASS_HIKER, ITEM_GREAT_BALL },
+    { CLASS_BEAUTY, ITEM_LUXURY_BALL },
+    { CLASS_FISHERMAN, ITEM_NET_BALL },
+    { CLASS_LADY, ITEM_LUXURY_BALL },
+    { CLASS_TRIATHLETE, ITEM_GREAT_BALL },
+    { CLASS_TEAM_AQUA, ITEM_NET_BALL },
+    { CLASS_TWINS, ITEM_POKE_BALL },
+    { CLASS_SWIMMER_FEMALE, ITEM_DIVE_BALL },
+    { CLASS_BUG_CATCHER, ITEM_NET_BALL },
+    { CLASS_SCHOOL_KID, ITEM_POKE_BALL },
+    { CLASS_RICH_BOY, ITEM_LUXURY_BALL },
+    { CLASS_SR_AND_JR, ITEM_POKE_BALL },
+    { CLASS_BLACK_BELT, ITEM_ULTRA_BALL },
+    { CLASS_TUBER, ITEM_NET_BALL },
+    { CLASS_HEX_MANIAC, ITEM_PREMIER_BALL },
+    { CLASS_PKMN_BREEDER, ITEM_POKE_BALL },
+    { CLASS_TEAM_MAGMA, ITEM_REPEAT_BALL },
+    { CLASS_INTERVIEWER, ITEM_TIMER_BALL },
+    { CLASS_TUBER_2, ITEM_NET_BALL },
+    { CLASS_YOUNG_COUPLE, ITEM_POKE_BALL },
+    { CLASS_GUITARIST, ITEM_POKE_BALL },
+    { CLASS_GENTLEMAN, ITEM_LUXURY_BALL },
+    { CLASS_CHAMPION, ITEM_ULTRA_BALL },
+    { CLASS_MAGMA_LEADER, ITEM_ULTRA_BALL },
+    { CLASS_BATTLE_GIRL, ITEM_ULTRA_BALL },
+    { CLASS_SWIMMER_MALE, ITEM_DIVE_BALL },
+    { CLASS_POKEFAN, ITEM_POKE_BALL },
+    { CLASS_EXPERT, ITEM_ULTRA_BALL },
+    { CLASS_DRAGON_TAMER, ITEM_ULTRA_BALL },
+    { CLASS_BIRD_KEEPER, ITEM_NEST_BALL },
+    { CLASS_NINJA_BOY, ITEM_GREAT_BALL },
+    { CLASS_PARASOL_LADY, ITEM_PREMIER_BALL },
+    { CLASS_BUG_MANIAC, ITEM_NET_BALL },
+    { CLASS_SAILOR, ITEM_NET_BALL },
+    { CLASS_COLLECTOR, ITEM_REPEAT_BALL },
+    { CLASS_PKMN_RANGER, ITEM_SAFARI_BALL },
+    { CLASS_MAGMA_ADMIN, ITEM_ULTRA_BALL },
+    { CLASS_AROMA_LADY, ITEM_PREMIER_BALL },
+    { CLASS_RUIN_MANIAC, ITEM_GREAT_BALL },
+    { CLASS_COOLTRAINER, ITEM_GREAT_BALL },
+    { CLASS_POKEMANIAC, ITEM_LUXURY_BALL },
+    { CLASS_KINDLER, ITEM_POKE_BALL },
+    { CLASS_CAMPER, ITEM_SAFARI_BALL },
+    { CLASS_PICNICKER, ITEM_POKE_BALL },
+    { CLASS_PSYCHIC, ITEM_PREMIER_BALL },
+    { CLASS_SIS_AND_BRO, ITEM_POKE_BALL },
+    { CLASS_OLD_COUPLE, ITEM_PREMIER_BALL },
+    { CLASS_AQUA_ADMIN, ITEM_ULTRA_BALL },
+    { CLASS_AQUA_LEADER, ITEM_ULTRA_BALL },
+    { CLASS_BOSS, ITEM_ULTRA_BALL },
+    { 0xFF, ITEM_POKE_BALL },
 };
 
 #include "data/text/abilities.h"
@@ -1508,89 +1617,134 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
 {
     u32 nameHash = 0;
     u32 personalityValue;
-    u8 fixedIV;
+    u8 level;
     s32 i, j;
-    
+    u16 ev;
+    u8 monsCount;
+    u8 ability;
+    u8 friendship;
+    u8 nickname[POKEMON_NAME_LENGTH + 1];
+    u8 trainerName[(PLAYER_NAME_LENGTH * 3) + 1];
+
     if (trainerNum == TRAINER_SECRET_BASE)
         return 0;
+
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER
      && !(gBattleTypeFlags & (BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_TRAINER_TOWER)))
     {
-        ZeroEnemyPartyMons();
-        for (i = 0; i < gTrainers[trainerNum].partySize; ++i)
+        monsCount = gTrainers[trainerNum].partySize;
+
+        for (i = 0; i < monsCount; i++)
         {
+            const struct TrainerMon *partyData = gTrainers[trainerNum].party.TrainerMon;
+            u8 fixedIV = partyData[i].iv + TRAINER_IV_MODIFIER;
 
-            if (gTrainers[trainerNum].doubleBattle == TRUE)
-                personalityValue = 0x80;
-            else if (gTrainers[trainerNum].encounterMusic_gender & 0x80)
-                personalityValue = 0x78;
-            else
-                personalityValue = 0x88;
-            for (j = 0; gTrainers[trainerNum].trainerName[j] != EOS; ++j)
+            fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
+
+            for (j = 0; gTrainers[trainerNum].trainerName[j] != EOS; j++)
                 nameHash += gTrainers[trainerNum].trainerName[j];
-            switch (gTrainers[trainerNum].partyFlags)
-            {
-            case 0:
-            {
-                const struct TrainerMonNoItemDefaultMoves *partyData = gTrainers[trainerNum].party.NoItemDefaultMoves;
 
-                for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; ++j)
-                    nameHash += gSpeciesNames[partyData[i].species][j];
-                personalityValue += nameHash << 8;
-                fixedIV = partyData[i].iv * 31 / 255;
-                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
-                break;
+// MON_MALE and NATURE_HARDY share the default values. If one is set, assume the other is also meant to be set.
+// Enforced male pokemon cannot be Hardy. All pokemon with set natures will be male unless otherwise stated.
+            if ((partyData[i].nature > 0) || (partyData[i].gender > 0))
+            {
+                CreateMonWithGenderNatureLetter(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, partyData[i].gender, partyData[i].nature, 0, partyData[i].shiny ? OT_ID_SHINY : OT_ID_RANDOM_NO_SHINY);
             }
-            case F_TRAINER_PARTY_CUSTOM_MOVESET:
+            else
             {
-                const struct TrainerMonNoItemCustomMoves *partyData = gTrainers[trainerNum].party.NoItemCustomMoves;
+                if (gTrainers[trainerNum].doubleBattle == TRUE)
+                    personalityValue = 0x80;
+                else if (gTrainers[trainerNum].encounterMusic_gender & 0x80)
+                    personalityValue = 0x78;
+                else
+                    personalityValue = 0x88;
 
-                for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; ++j)
-                    nameHash += gSpeciesNames[partyData[i].species][j];
-                personalityValue += nameHash << 8;
-                fixedIV = partyData[i].iv * 31 / 255;
-                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
-                for (j = 0; j < MAX_MON_MOVES; ++j)
+                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, partyData[i].shiny ? OT_ID_SHINY : OT_ID_RANDOM_NO_SHINY, 0);
+            }
+
+            if (partyData[i].friendship == FRIENDSHIP_FRUSTRATION)
+            {
+                friendship = 0;
+                SetMonData(&party[i], MON_DATA_FRIENDSHIP, &friendship);
+            }
+            else if (partyData[i].friendship > 0)
+                SetMonData(&party[i], MON_DATA_FRIENDSHIP, &partyData[i].friendship);
+
+            if (partyData[i].nickname[0] != '\0')
+                SetMonData(&party[i], MON_DATA_NICKNAME, &partyData[i].nickname);
+
+// Should take only constants of ABILITY_SLOT_1, ABILITY_SLOT_2, or ABILITY_HIDDEN.
+// If desired, implement else where undefined abilities are chosen between slots 1 and 2, a la gen IV.
+            if (partyData[i].ability > 0)
+            {
+                ability = partyData[i].ability;
+
+                if (partyData[i].ability == ABILITY_SLOT_1)
+                    ability = 0;
+
+                SetMonData(&party[i], MON_DATA_ABILITY_NUM, &ability);
+            }
+
+// Check if ball was defined for that pokemon.
+            if (partyData[i].ball > 0)
+                SetMonData(&party[i], MON_DATA_POKEBALL, &partyData[i].ball);
+            else
+            {
+                // Calculate ball type based on trainer class
+                for (j = 0; gTrainerBallTable[j].classId != 0xFF; j++)
+                {
+                    if (gTrainerBallTable[j].classId == gTrainers[trainerNum].trainerClass)
+                        break;
+                }
+                SetMonData(&party[i], MON_DATA_POKEBALL, &gTrainerBallTable[j].ball);
+            }
+
+// Check if heldItem was defined.
+            if (partyData[i].heldItem > 0)
+                SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
+
+// Check if moves were defined.
+            if (partyData[i].moves[0] != 0)
+            {
+                for (j = 0; j < MAX_MON_MOVES; j++)
                 {
                     SetMonData(&party[i], MON_DATA_MOVE1 + j, &partyData[i].moves[j]);
-                    SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
-                }
-                break;
-            }
-            case F_TRAINER_PARTY_HELD_ITEM:
-            {
-                const struct TrainerMonItemDefaultMoves *partyData = gTrainers[trainerNum].party.ItemDefaultMoves;
-
-                for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; ++j)
-                    nameHash += gSpeciesNames[partyData[i].species][j];
-                personalityValue += nameHash << 8;
-                fixedIV = partyData[i].iv * 31 / 255;
-                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
-
-                SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
-                break;
-            }
-            case F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM:
-            {
-                const struct TrainerMonItemCustomMoves *partyData = gTrainers[trainerNum].party.ItemCustomMoves;
-
-                for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; ++j)
-                    nameHash += gSpeciesNames[partyData[i].species][j];
-                personalityValue += nameHash << 8;
-                fixedIV = partyData[i].iv * 31 / 255;
-                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
-                SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
-                for (j = 0; j < MAX_MON_MOVES; ++j)
-                {
                     SetMonData(&party[i], MON_DATA_MOVE1 + j, &partyData[i].moves[j]);
                     SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
+                    SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
                 }
-                break;
             }
+
+// Check for non-constant IV spread.
+            if (partyData[i].iv == 0)
+            {
+                for (j = 0; j < NUM_STATS; j++)
+                {
+                    SetMonData(&party[i], MON_DATA_HP_IV + j, &partyData[i].ivs[j]);
+                }
             }
+            else if (partyData[i].iv == WORST_IVS)
+            {
+                for (j = 0; j < NUM_STATS; j++)
+                {
+                    SetMonData(&party[i], MON_DATA_HP_IV + j, 0);
+                }
+            }
+
+// Set effort values regardless.  Default is 0.
+            for (j = 0; j < NUM_STATS; j++)
+            {
+                SetMonData(&party[i], MON_DATA_HP_EV + j, &partyData[i].evs[j]);
+            }
+
+            StringCopy(trainerName, gTrainers[trainerNum].trainerName);
+            SetMonData(&party[i], MON_DATA_OT_NAME, trainerName);
+            CalculateMonStats(&party[i]);
         }
+
         gBattleTypeFlags |= gTrainers[trainerNum].doubleBattle;
     }
+
     return gTrainers[trainerNum].partySize;
 }
 
@@ -1603,7 +1757,7 @@ static void sub_80116CC(void)
 
 void VBlankCB_Battle(void)
 {
-    // Change gRngSeed every vblank. 
+    // Change gRngSeed every vblank.
     Random();
     SetGpuReg(REG_OFFSET_BG0HOFS, gBattle_BG0_X);
     SetGpuReg(REG_OFFSET_BG0VOFS, gBattle_BG0_Y);
@@ -2624,8 +2778,8 @@ static void BattleIntroDrawPartySummaryScreens(void)
         else
         {
             // The struct gets set here, but nothing is ever done with it since
-            // wild battles don't show the party summary. 
-            // Still, there's no point in having dead code. 
+            // wild battles don't show the party summary.
+            // Still, there's no point in having dead code.
             for (i = 0; i < PARTY_SIZE; ++i)
             {
                 if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2) == SPECIES_NONE

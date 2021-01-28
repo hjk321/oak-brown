@@ -23,6 +23,12 @@ struct UnknownPokemonStruct4
     /*0x1D*/ u8 language;
 };
 
+struct TrainerBall
+{
+    u8 classId;
+    u16 ball;
+};
+
 #define TYPE_NAME_LENGTH 6
 #define ABILITY_NAME_LENGTH 12
 
@@ -59,6 +65,7 @@ extern const u8 gStatusConditionString_LoveJpn[8];
 extern const u8 *const gStatusConditionStringsTable[7][2];
 extern const u8 gTypeEffectiveness[336];
 extern const struct TrainerMoney gTrainerMoneyTable[];
+extern const struct TrainerBall gTrainerBallTable[];
 extern const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT];
 extern const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1];
 
