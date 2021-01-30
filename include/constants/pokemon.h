@@ -160,6 +160,9 @@
 #define NATURE_CAREFUL 23
 #define NATURE_QUIRKY 24
 
+// Used for custom trainer battles, to avoid using default value
+#define NATURE_HARDY_NPCMON 25
+
 // Pokemon Stats
 #define STAT_HP 0
 #define STAT_ATK 1
@@ -198,6 +201,12 @@
 #define MON_MALE       0x00
 #define MON_FEMALE     0xFE
 #define MON_GENDERLESS 0xFF
+
+// For use in custom trainer battles
+#define NPCMON_RANDOM 0
+#define NPCMON_MALE 1
+#define NPCMON_FEMALE 2
+#define NPCMON_GENDERLESS 3
 
 #define FRIENDSHIP_EVENT_GROW_LEVEL           0x0
 #define FRIENDSHIP_EVENT_VITAMIN              0x1

@@ -1625,6 +1625,15 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
     u8 friendship;
     u8 nickname[POKEMON_NAME_LENGTH + 1];
     u8 trainerName[(PLAYER_NAME_LENGTH * 3) + 1];
+    u8 gender;
+    u8 nature;
+    u16 rng;
+
+    rng = gTrainers[trainerNum].rngSeed;
+    if (rng == 0)
+        rng = trainerNum;
+
+    SeedRng(rng * 1337);
 
     if (trainerNum == TRAINER_SECRET_BASE)
         return 0;
@@ -1644,23 +1653,24 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
             for (j = 0; gTrainers[trainerNum].trainerName[j] != EOS; j++)
                 nameHash += gTrainers[trainerNum].trainerName[j];
 
-// MON_MALE and NATURE_HARDY share the default values. If one is set, assume the other is also meant to be set.
-// Enforced male pokemon cannot be Hardy. All pokemon with set natures will be male unless otherwise stated.
-            if ((partyData[i].nature > 0) || (partyData[i].gender > 0))
-            {
-                CreateMonWithGenderNatureLetter(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, partyData[i].gender, partyData[i].nature, 0, partyData[i].shiny ? OT_ID_SHINY : OT_ID_RANDOM_NO_SHINY);
-            }
-            else
-            {
-                if (gTrainers[trainerNum].doubleBattle == TRUE)
-                    personalityValue = 0x80;
-                else if (gTrainers[trainerNum].encounterMusic_gender & 0x80)
-                    personalityValue = 0x78;
-                else
-                    personalityValue = 0x88;
+// Use NPCMON_MALE, etc for gender, since the default zero value is treated as random.
+// Since the default value, 0, is treated to be random, use NATURE_HARDY_NPCMON.
 
-                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, partyData[i].shiny ? OT_ID_SHINY : OT_ID_RANDOM_NO_SHINY, 0);
-            }
+            if (partyData[i].nature == NATURE_HARDY) // Default value, randomize
+                nature = Random() % 25;
+            else if (partyData[i].nature == NATURE_HARDY_NPCMON)
+                nature = NATURE_HARDY;
+
+            if (partyData[i].gender == NPCMON_MALE)
+                gender = MON_MALE;
+            else if (partyData[i].gender == NPCMON_FEMALE)
+                gender = MON_FEMALE;
+            else if (partyData[i].gender == NPCMON_GENDERLESS)
+                gender = MON_GENDERLESS;
+            else // Default value, randomize
+                gender = GetGenderFromSpeciesAndPersonality(partyData[i].species, Random());
+
+            CreateMonWithGenderNatureLetter(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, gender, nature, 0, partyData[i].shiny ? OT_ID_SHINY : OT_ID_RANDOM_NO_SHINY);
 
             if (partyData[i].friendship == FRIENDSHIP_FRUSTRATION)
             {
