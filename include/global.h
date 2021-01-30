@@ -5,6 +5,7 @@
 #include "gba/gba.h"
 #include <string.h>
 #include "constants/global.h"
+#include "mgba.h"
 
 // Prevent cross-jump optimization.
 #define BLOCK_CROSS_JUMP asm("");

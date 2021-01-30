@@ -15,6 +15,7 @@
 #include "scanline_effect.h"
 #include "save_failed_screen.h"
 #include "quest_log.h"
+#include "mgba.h"
 
 extern u32 intr_main[];
 
@@ -134,6 +135,7 @@ void AgbMain()
     ResetBgs();
     InitHeap(gHeap, HEAP_SIZE);
     SetDefaultFontsPointer();
+    mgba_open();
 
     gSoftResetDisabled = FALSE;
     gHelpSystemEnabled = FALSE;
