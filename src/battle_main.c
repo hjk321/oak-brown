@@ -1628,19 +1628,21 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
     u8 gender;
     u8 nature;
     u16 rng;
-
-    rng = gTrainers[trainerNum].rngSeed;
-    if (rng == 0)
-        rng = trainerNum;
-
-    SeedRng(rng * 1337);
+    u16 rngOld;
 
     if (trainerNum == TRAINER_SECRET_BASE)
         return 0;
 
+    rngOld = gRngValue;
+    rng = gTrainers[trainerNum].rngSeed;
+    if (rng == 0)
+        rng = trainerNum;
+    SeedRng(rng * 1337);
+
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER
      && !(gBattleTypeFlags & (BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_TRAINER_TOWER)))
     {
+        ZeroEnemyPartyMons();
         monsCount = gTrainers[trainerNum].partySize;
 
         for (i = 0; i < monsCount; i++)
@@ -1754,7 +1756,8 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
 
         gBattleTypeFlags |= gTrainers[trainerNum].doubleBattle;
     }
-
+    
+    SeedRng(rngOld);
     return gTrainers[trainerNum].partySize;
 }
 
