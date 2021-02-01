@@ -5170,7 +5170,10 @@ static void atk5D_getmoneyreward(void)
             moneyReward = gBattleResources->secretBase->party.levels[0] * 20 * gBattleStruct->moneyMultiplier;
         }
         else
+        {
             lastMonLevel = party[gTrainers[gTrainerBattleOpponent_A].partySize - 1].lvl;
+            moneyReward = 4 * lastMonLevel * gBattleStruct->moneyMultiplier * (gBattleTypeFlags & BATTLE_TYPE_DOUBLE ? 2 : 1) * gTrainerMoneyTable[i].value;
+        }
         AddMoney(&gSaveBlock1Ptr->money, moneyReward);
     }
     else
