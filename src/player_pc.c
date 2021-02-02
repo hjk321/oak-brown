@@ -37,7 +37,7 @@ static EWRAM_DATA const u8 *sItemOrder = NULL;
 static EWRAM_DATA u8 sTopMenuItemCount = 0;
 EWRAM_DATA struct PlayerPCItemPageStruct gPlayerPcMenuManager = {};
 
-#define SELECTED_MAIL (gSaveBlock1Ptr->mail[PC_MAIL_NUM(gPlayerPcMenuManager.itemsAbove) + gPlayerPcMenuManager.cursorPos])
+#define SELECTED_MAIL (gSaveBlock2Ptr->mail[PC_MAIL_NUM(gPlayerPcMenuManager.itemsAbove) + gPlayerPcMenuManager.cursorPos])
 
 static void Task_DrawPlayerPcTopMenu(u8 taskId);
 static void Task_TopMenuHandleInput(u8 taskId);
@@ -426,7 +426,7 @@ static u8 CountPCMail(void)
 
     for (i = PC_MAIL_NUM(0); i < MAIL_COUNT; i++)
     {
-        if (gSaveBlock1Ptr->mail[i].itemId != ITEM_NONE)
+        if (gSaveBlock2Ptr->mail[i].itemId != ITEM_NONE)
             count++;
     }
     return count;
@@ -440,11 +440,11 @@ static void PCMailCompaction(void)
     {
         for (j = i + 1; j < MAIL_COUNT; j++)
         {
-            if (gSaveBlock1Ptr->mail[i].itemId == ITEM_NONE)
+            if (gSaveBlock2Ptr->mail[i].itemId == ITEM_NONE)
             {
-                struct MailStruct mail = gSaveBlock1Ptr->mail[i];
-                gSaveBlock1Ptr->mail[i] = gSaveBlock1Ptr->mail[j];
-                gSaveBlock1Ptr->mail[j] = mail;
+                struct MailStruct mail = gSaveBlock2Ptr->mail[i];
+                gSaveBlock2Ptr->mail[i] = gSaveBlock2Ptr->mail[j];
+                gSaveBlock2Ptr->mail[j] = mail;
             }
         }
     }

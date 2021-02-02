@@ -355,7 +355,7 @@ void ResetGameStats(void)
 
     for (i = 0; i < NUM_GAME_STATS; i++)
     {
-        gSaveBlock1Ptr->gameStats[i] = 0;
+        gSaveBlock2Ptr->gameStats[i] = 0;
     }
 }
 
@@ -377,14 +377,14 @@ u32 GetGameStat(u8 statId)
     if (statId >= NUM_USED_GAME_STATS)
         return 0;
     else
-        return gSaveBlock1Ptr->gameStats[statId] ^ gSaveBlock2Ptr->encryptionKey;
+        return gSaveBlock2Ptr->gameStats[statId] ^ gSaveBlock2Ptr->encryptionKey;
 }
 
 void SetGameStat(u8 statId, u32 statVal)
 {
     if (statId >= NUM_USED_GAME_STATS)
         return;
-    gSaveBlock1Ptr->gameStats[statId] = statVal ^ gSaveBlock2Ptr->encryptionKey;
+    gSaveBlock2Ptr->gameStats[statId] = statVal ^ gSaveBlock2Ptr->encryptionKey;
 }
 
 void ApplyNewEncryptionKeyToGameStats(u32 newKey)
@@ -392,7 +392,7 @@ void ApplyNewEncryptionKeyToGameStats(u32 newKey)
     u8 i;
     for (i = 0; i < NUM_GAME_STATS; i++)
     {
-        ApplyNewEncryptionKeyToWord(&gSaveBlock1Ptr->gameStats[i], newKey);
+        ApplyNewEncryptionKeyToWord(&gSaveBlock2Ptr->gameStats[i], newKey);
     }
 }
 

@@ -188,6 +188,45 @@ struct BerryCrush
 
 #define LINK_B_RECORDS_COUNT 5
 
+#define MAIL_COUNT         (PARTY_SIZE + 10)
+#define PC_MAIL_NUM(i)     (PARTY_SIZE + (i))
+
+struct MailStruct
+{
+    /*0x00*/ u16 words[9];
+    /*0x12*/ u8 playerName[8];
+    /*0x1A*/ u8 trainerId[4];
+    /*0x1E*/ u16 species;
+    /*0x20*/ u16 itemId;
+};
+
+struct DayCareMail
+{
+    struct MailStruct message;
+    u8 OT_name[OT_NAME_LENGTH + 1];
+    u8 monName[POKEMON_NAME_LENGTH + 1];
+    u8 gameLanguage:4;
+    u8 monLanguage:4;
+};
+
+#include "pokemon.h"
+
+struct DaycareMon
+{
+    struct BoxPokemon mon;
+    struct DayCareMail mail;
+    u32 steps;
+};
+
+#define DAYCARE_MON_COUNT   2
+
+struct DayCare
+{
+    struct DaycareMon mons[DAYCARE_MON_COUNT];
+    u16 offspringPersonality;
+    u8 stepCounter;
+};
+
 struct LinkBattleRecord
 {
     u8 name[PLAYER_NAME_LENGTH + 1];
@@ -206,7 +245,6 @@ struct LinkBattleRecords
 #include "constants/game_stat.h"
 #include "global.fieldmap.h"
 #include "global.berry.h"
-#include "pokemon.h"
 
 struct BattleTowerRecord // record mixing
 {
@@ -261,6 +299,7 @@ struct BattleTowerData // Leftover from R/S
     /*0x04D1, 0x0581*/ u8 filler_4D1[0x317];
 }; /* size = 0x7E8 */
 
+// None of the pointers are accurate
 struct SaveBlock2
 {
     /*0x000*/ u8 playerName[PLAYER_NAME_LENGTH + 1];
@@ -291,7 +330,10 @@ struct SaveBlock2
     /*0xAF0*/ struct BerryCrush berryCrush;
     /*0xB00*/ struct PokemonJumpResults pokeJump;
     /*0xB10*/ struct BerryPickingResults berryPick;
-    /*0xB20*/ u8 filler_B20[0x400];
+    /*0x???*/ u32 gameStats[NUM_GAME_STATS];
+    /*0x???*/ struct DayCare daycare;
+    /*0x???*/ struct DaycareMon route5DayCareMon;
+    /*0x???*/ struct MailStruct mail[MAIL_COUNT];
     /*0xF20*/ u32 encryptionKey;
 };
 
@@ -390,15 +432,6 @@ struct EasyChatPair
     u16 unk2;
     u16 words[2];
 }; /*size = 0x8*/
-
-struct MailStruct
-{
-    /*0x00*/ u16 words[9];
-    /*0x12*/ u8 playerName[8];
-    /*0x1A*/ u8 trainerId[4];
-    /*0x1E*/ u16 species;
-    /*0x20*/ u16 itemId;
-};
 
 struct MauvilleManCommon
 {
@@ -504,31 +537,6 @@ struct ContestWinner
     u8 contestRank;
 };
 
-struct DayCareMail
-{
-    struct MailStruct message;
-    u8 OT_name[OT_NAME_LENGTH + 1];
-    u8 monName[POKEMON_NAME_LENGTH + 1];
-    u8 gameLanguage:4;
-    u8 monLanguage:4;
-};
-
-struct DaycareMon
-{
-    struct BoxPokemon mon;
-    struct DayCareMail mail;
-    u32 steps;
-};
-
-#define DAYCARE_MON_COUNT   2
-
-struct DayCare
-{
-    struct DaycareMon mons[DAYCARE_MON_COUNT];
-    u16 offspringPersonality;
-    u8 stepCounter;
-};
-
 struct RecordMixingDayCareMail
 {
     struct DayCareMail mail[DAYCARE_MON_COUNT];
@@ -555,8 +563,6 @@ struct QuestLogNPCData
 };
 
 #define BERRY_TREES_COUNT  128
-#define MAIL_COUNT         (PARTY_SIZE + 10)
-#define PC_MAIL_NUM(i)     (PARTY_SIZE + (i))
 
 struct QuestLogObjectEvent
 {
@@ -717,6 +723,7 @@ struct TrainerNameRecord
 
 #define UNION_ROOM_KB_ROW_COUNT 10
 
+// None of the pointers are accurate
 struct SaveBlock1
 {
     /*0x0000*/ struct Coords16 pos;
@@ -742,40 +749,28 @@ struct SaveBlock1
     /*0x0464*/ struct ItemSlot bagPocket_TMHM[BAG_TMHM_COUNT];
     /*0x054c*/ struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
     /*0x05F8*/ u8 seen1[DEX_FLAGS_NO];
-    /*0x062C*/ u16 berryBlenderRecords[3]; // unused
-    /*0x0632*/ u8 field_632[6]; // unused?
     /*0x0638*/ u16 trainerRematchStepCounter;
     /*0x063A*/ u8 ALIGNED(2) trainerRematches[100];
     /*0x06A0*/ struct ObjectEvent objectEvents[OBJECT_EVENTS_COUNT];
     /*0x08E0*/ struct ObjectEventTemplate objectEventTemplates[64];
     /*0x0EE0*/ u8 flags[NUM_FLAG_BYTES];
     /*0x1000*/ u16 vars[VARS_COUNT];
-    /*0x1200*/ u32 gameStats[NUM_GAME_STATS];
     /*0x1300*/ struct QuestLog questLog[QUEST_LOG_SCENE_COUNT];
     /*0x2CA0*/ u16 easyChatProfile[6];
     /*0x2CAC*/ u16 easyChatBattleStart[6];
     /*0x2CB8*/ u16 easyChatBattleWon[6];
     /*0x2CC4*/ u16 easyChatBattleLost[6];
-    /*0x2CD0*/ struct MailStruct mail[MAIL_COUNT];
     /*0x2F10*/ u8 additionalPhrases[EASY_CHAT_EXTRA_PHRASES_SIZE];
-    /*0x2F18*/ OldMan oldMan; // unused
-    /*0x2F54*/ struct EasyChatPair easyChatPairs[5]; // unused
-    /*0x2F80*/ struct DayCare daycare;
     /*0x309C*/ u8 giftRibbons[52];
     /*0x30D0*/ struct Roamer roamer;
     /*0x30EC*/ struct EnigmaBerry enigmaBerry;
     /*0x3120*/ struct MEventBuffers mysteryEventBuffers;
-    /*0x348C*/ u8 filler_348C[400];
     /*0x361C*/ struct RamScript ramScript;
-    /*0x3A08*/ u8 filler3A08[16];
     /*0x3A18*/ u8 seen2[DEX_FLAGS_NO];
     /*0x3A4C*/ u8 rivalName[PLAYER_NAME_LENGTH + 1];
     /*0x3A54*/ struct FameCheckerSaveData fameChecker[NUM_FAMECHECKER_PERSONS];
-    /*0x3A94*/ u8 filler3A94[0x40];
     /*0x3AD4*/ u8 registeredTexts[UNION_ROOM_KB_ROW_COUNT][21];
     /*0x3BA8*/ struct TrainerNameRecord trainerNameRecords[20];
-    /*0x3C98*/ struct DaycareMon route5DayCareMon;
-    /*0x3D24*/ u8 filler3D24[0x10];
     /*0x3D34*/ u32 towerChallengeId;
     /*0x3D38*/ struct TrainerTower trainerTower[NUM_TOWER_CHALLENGE_TYPES];
 };

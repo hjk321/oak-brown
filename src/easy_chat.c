@@ -456,7 +456,7 @@ void InitEasyChatPhrases(void)
     for (i = 0; i < MAIL_COUNT; i++)
     {
         for (j = 0; j < MAIL_WORDS_COUNT; j++)
-            gSaveBlock1Ptr->mail[i].words[j] = EC_WORD_UNDEFINED;
+            gSaveBlock2Ptr->mail[i].words[j] = EC_WORD_UNDEFINED;
     }
 
     // BUG: This is supposed to clear 64 bits, but this loop is clearing 64 bytes.

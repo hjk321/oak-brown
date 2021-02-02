@@ -3555,7 +3555,7 @@ static void CB2_WriteMailToGiveMon(void)
     u8 mail = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_MAIL);
 
     DoEasyChatScreen(EASY_CHAT_TYPE_MAIL,
-                     gSaveBlock1Ptr->mail[mail].words,
+                     gSaveBlock2Ptr->mail[mail].words,
                      CB2_ReturnToPartyMenuFromWritingMail);
 }
 
@@ -3652,7 +3652,7 @@ static void CursorCB_Read(u8 taskId)
 
 static void CB2_ReadHeldMail(void)
 {
-    ReadMail(&gSaveBlock1Ptr->mail[GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_MAIL)], CB2_ReturnToPartyMenuFromReadingMail, 1);
+    ReadMail(&gSaveBlock2Ptr->mail[GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_MAIL)], CB2_ReturnToPartyMenuFromReadingMail, 1);
 }
 
 static void CB2_ReturnToPartyMenuFromReadingMail(void)
@@ -5543,7 +5543,7 @@ static void CB2_WriteMailToGiveMonFromBag(void)
 
     GiveItemToMon(&gPlayerParty[gPartyMenu.slotId], gPartyMenu.bagItem);
     mail = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_MAIL);
-    DoEasyChatScreen(EASY_CHAT_TYPE_MAIL, gSaveBlock1Ptr->mail[mail].words, CB2_ReturnToPartyOrBagMenuFromWritingMail);
+    DoEasyChatScreen(EASY_CHAT_TYPE_MAIL, gSaveBlock2Ptr->mail[mail].words, CB2_ReturnToPartyOrBagMenuFromWritingMail);
 }
 
 static void CB2_ReturnToPartyOrBagMenuFromWritingMail(void)
@@ -5661,7 +5661,7 @@ static void TryGiveMailToSelectedMon(u8 taskId)
     struct MailStruct *mail;
 
     gPartyMenuUseExitCallback = FALSE;
-    mail = &gSaveBlock1Ptr->mail[gPlayerPcMenuManager.itemsAbove + 6 + gPlayerPcMenuManager.cursorPos];
+    mail = &gSaveBlock2Ptr->mail[gPlayerPcMenuManager.itemsAbove + 6 + gPlayerPcMenuManager.cursorPos];
     if (GetMonData(mon, MON_DATA_HELD_ITEM) != ITEM_NONE)
     {
         DisplayPartyMenuMessage(gText_PkmnHoldingItemCantHoldMail, TRUE);
