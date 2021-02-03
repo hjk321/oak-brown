@@ -792,6 +792,7 @@ static void MainMenu_EraseWindow(const struct WindowTemplate * windowTemplate)
 
 static void CheckSaveblockStructSizes(void)
 {  
+#if DEBUG
     mgba_printf(MGBA_LOG_INFO, "SaveBlock2 size (max 3968):");
     mgba_printf(MGBA_LOG_INFO, "%10d", sizeof(struct SaveBlock2));
     mgba_printf(MGBA_LOG_INFO, "SaveBlock1 size (max 15872):");
@@ -802,4 +803,5 @@ static void CheckSaveblockStructSizes(void)
     if (sizeof(struct SaveBlock2) > 3968 || sizeof(struct SaveBlock1) > 15872
         || sizeof(struct PokemonStorage) > 35712)
     mgba_printf(MGBA_LOG_FATAL, "One or more save structs are too big.");
+#endif
 }

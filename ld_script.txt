@@ -316,6 +316,7 @@ SECTIONS {
         src/berry_fix_program.o(.text);
         src/mgba.o(.text);
 		    src/printf.o(.text);
+        src/debug.o(.text);
     } =0
 
     script_data :
@@ -617,13 +618,15 @@ SECTIONS {
         src/berry_fix_program.o(.rodata);
         src/keyboard_text.o(.rodata);
         data/data_8479668.o(.rodata);
-
         /* These should not be moved to C files */
         src/mystery_event_msg.o(.rodata);
         data/mystery_event_msg.o(.rodata);
         src/m4a_tables.o(.rodata);
         data/sound_data.o(.rodata);
+        
+        src/field_control_avatar.o(.rodata);
         src/printf.o(.rodata);
+        src/debug.o(.rodata);
     } =0
 
     song_data :
