@@ -11,6 +11,7 @@
 #include "quest_log.h"
 #include "mystery_gift_menu.h"
 #include "strings.h"
+#include "string_util.h"
 #include "title_screen.h"
 #include "help_system.h"
 #include "pokedex.h"
@@ -67,6 +68,7 @@ static void LoadUserFrameToBg(u8 bgId);
 static void SetStdFrame0OnBg(u8 bgId);
 static void MainMenu_DrawWindow(const struct WindowTemplate * template);
 static void MainMenu_EraseWindow(const struct WindowTemplate * template);
+static void CheckSaveblockStructSizes(void);
 
 static const u8 sString_Dummy[] = _("");
 static const u8 sString_Newline[] = _("\n");
@@ -220,6 +222,7 @@ static bool32 MainMenuGpuInit(u8 a0)
 
 static void Task_SetWin0BldRegsAndCheckSaveFile(u8 taskId)
 {
+    CheckSaveblockStructSizes();
     if (!gPaletteFade.active)
     {
         SetGpuReg(REG_OFFSET_WIN0H, 0);
@@ -785,4 +788,18 @@ static void MainMenu_EraseWindow(const struct WindowTemplate * windowTemplate)
         2
     );
     CopyBgTilemapBufferToVram(windowTemplate->bg);
+}
+
+static void CheckSaveblockStructSizes(void)
+{  
+    mgba_printf(MGBA_LOG_INFO, "SaveBlock2 size (max 3968):");
+    mgba_printf(MGBA_LOG_INFO, "%10d", sizeof(struct SaveBlock2));
+    mgba_printf(MGBA_LOG_INFO, "SaveBlock1 size (max 15872):");
+    mgba_printf(MGBA_LOG_INFO, "%10d", sizeof(struct SaveBlock1));
+    mgba_printf(MGBA_LOG_INFO, "PokemonStorage size (max 35712):");
+    mgba_printf(MGBA_LOG_INFO, "%10d", sizeof(struct PokemonStorage));
+    
+    if (sizeof(struct SaveBlock2) > 3968 || sizeof(struct SaveBlock1) > 15872
+        || sizeof(struct PokemonStorage) > 35712)
+    mgba_printf(MGBA_LOG_FATAL, "One or more save structs are too big.");
 }
