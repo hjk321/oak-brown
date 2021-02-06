@@ -177,7 +177,7 @@ void SetQuestLogRecordAndPlaybackPointers(void * oldPointer)
 
 void ResetQuestLog(void)
 {
-    memset(gSaveBlock1Ptr->questLog, 0, sizeof(gSaveBlock1Ptr->questLog));
+    memset(gSaveBlockDummyPtr->questLog, 0, sizeof(gSaveBlockDummyPtr->questLog));
     sCurrentSceneNum = 0;
     gQuestLogState = 0;
     sQuestLogCB = NULL;
@@ -189,7 +189,7 @@ void ResetQuestLog(void)
 
 static void DestroySav1QuestLogEntry(u8 a0)
 {
-    memset(gSaveBlock1Ptr->questLog + a0, 0, sizeof(struct QuestLog));
+    memset(gSaveBlockDummyPtr->questLog + a0, 0, sizeof(struct QuestLog));
     gUnknown_203AE04 = NULL;
 }
 
@@ -206,8 +206,8 @@ void RunQuestLogCB(void)
 
 bool8 sub_8110944(const void * a0, size_t cmdSize)
 {
-    void * r2 = gSaveBlock1Ptr->questLog[sCurrentSceneNum].script;
-    void * r0 = gSaveBlock1Ptr->questLog[sCurrentSceneNum].end;
+    void * r2 = gSaveBlockDummyPtr->questLog[sCurrentSceneNum].script;
+    void * r0 = gSaveBlockDummyPtr->questLog[sCurrentSceneNum].end;
     r0 -= cmdSize;
     if ((const void *)a0 < r2 || (const void *)a0 > r0)
         return FALSE;
@@ -216,8 +216,8 @@ bool8 sub_8110944(const void * a0, size_t cmdSize)
 
 bool8 WillCommandOfSizeFitInSav1Record(u16 *cursor, size_t size)
 {
-    void * start = gSaveBlock1Ptr->questLog[sCurrentSceneNum].script;
-    void * end = gSaveBlock1Ptr->questLog[sCurrentSceneNum].end;
+    void * start = gSaveBlockDummyPtr->questLog[sCurrentSceneNum].script;
+    void * end = gSaveBlockDummyPtr->questLog[sCurrentSceneNum].end;
     end -= size;
     if ((void *)cursor < start || (void *)cursor > end)
         return FALSE;
@@ -272,7 +272,7 @@ void GetQuestLogState(void)
 
 u8 GetQuestLogStartType(void)
 {
-    return gSaveBlock1Ptr->questLog[sCurrentSceneNum].startType;
+    return gSaveBlockDummyPtr->questLog[sCurrentSceneNum].startType;
 }
 
 void StartRecordingQuestLogEntry(u16 eventId)
@@ -282,11 +282,11 @@ void StartRecordingQuestLogEntry(u16 eventId)
 
     DestroySav1QuestLogEntry(sCurrentSceneNum);
     ResetUnk203B044();
-    sEventRecordingPointer = gSaveBlock1Ptr->questLog[sCurrentSceneNum].script;
+    sEventRecordingPointer = gSaveBlockDummyPtr->questLog[sCurrentSceneNum].script;
     if (IS_LINK_QL_EVENT(eventId) || eventId == QL_EVENT_DEPARTED)
-        gSaveBlock1Ptr->questLog[sCurrentSceneNum].startType = QL_START_WARP;
+        gSaveBlockDummyPtr->questLog[sCurrentSceneNum].startType = QL_START_WARP;
     else
-        gSaveBlock1Ptr->questLog[sCurrentSceneNum].startType = QL_START_NORMAL;
+        gSaveBlockDummyPtr->questLog[sCurrentSceneNum].startType = QL_START_NORMAL;
     QuestLog_GetSaneMonCounts();
     SetPlayerInitialCoordsAtScene(sCurrentSceneNum);
     SetNPCInitialCoordsAtScene(sCurrentSceneNum);
@@ -301,7 +301,7 @@ void StartRecordingQuestLogEntry(u16 eventId)
 
 static void SetPlayerInitialCoordsAtScene(u8 sceneNum)
 {
-    struct QuestLog * questLog = &gSaveBlock1Ptr->questLog[sceneNum];
+    struct QuestLog * questLog = &gSaveBlockDummyPtr->questLog[sceneNum];
     questLog->mapGroup = gSaveBlock1Ptr->location.mapGroup;
     questLog->mapNum = gSaveBlock1Ptr->location.mapNum;
     questLog->warpId = gSaveBlock1Ptr->location.warpId;
@@ -311,7 +311,7 @@ static void SetPlayerInitialCoordsAtScene(u8 sceneNum)
 
 static void SetNPCInitialCoordsAtScene(u8 sceneNum)
 {
-    struct QuestLog * questLog = &gSaveBlock1Ptr->questLog[sceneNum];
+    struct QuestLog * questLog = &gSaveBlockDummyPtr->questLog[sceneNum];
     u16 i;
 
     SetQuestLogObjectEventsData(questLog);
@@ -345,7 +345,7 @@ static void SetNPCInitialCoordsAtScene(u8 sceneNum)
 
 static void SetGameStateAtScene(u8 sceneNum)
 {
-    struct QuestLog * questLog = &gSaveBlock1Ptr->questLog[sceneNum];
+    struct QuestLog * questLog = &gSaveBlockDummyPtr->questLog[sceneNum];
 
     CpuCopy16(gSaveBlock1Ptr->flags, questLog->flags, NUM_FLAG_BYTES * sizeof(u8));
     CpuCopy16(gSaveBlock1Ptr->vars, questLog->vars, VARS_COUNT * sizeof(u16));
@@ -424,7 +424,7 @@ void TrySetUpQuestLogScenes_ElseContinueFromSave(u8 taskId)
     sNumScenes = 0;
     for (i = 0; i < QUEST_LOG_SCENE_COUNT; i++)
     {
-        if (gSaveBlock1Ptr->questLog[i].startType != 0)
+        if (gSaveBlockDummyPtr->questLog[i].startType != 0)
             sNumScenes++;
     }
 
@@ -515,7 +515,7 @@ void CommitQuestLogWindow1(void)
 
 static void QuestLogPlaybackSetObjectEventTemplates(u8 sceneNum)
 {
-    struct QuestLog *questLog = &gSaveBlock1Ptr->questLog[sceneNum];
+    struct QuestLog *questLog = &gSaveBlockDummyPtr->questLog[sceneNum];
     u16 i;
     
     for (i = 0; i < 64; i++)
@@ -541,19 +541,19 @@ static void QLPlayback_SetInitialPlayerPosition(u8 sceneNum, bool8 isWarp)
     
     if (!isWarp)
     {
-        gSaveBlock1Ptr->location.mapGroup = gSaveBlock1Ptr->questLog[sceneNum].mapGroup;
-        gSaveBlock1Ptr->location.mapNum = gSaveBlock1Ptr->questLog[sceneNum].mapNum;
-        gSaveBlock1Ptr->location.warpId = gSaveBlock1Ptr->questLog[sceneNum].warpId;
-        gSaveBlock1Ptr->pos.x = gSaveBlock1Ptr->questLog[sceneNum].x;
-        gSaveBlock1Ptr->pos.y = gSaveBlock1Ptr->questLog[sceneNum].y;
+        gSaveBlock1Ptr->location.mapGroup = gSaveBlockDummyPtr->questLog[sceneNum].mapGroup;
+        gSaveBlock1Ptr->location.mapNum = gSaveBlockDummyPtr->questLog[sceneNum].mapNum;
+        gSaveBlock1Ptr->location.warpId = gSaveBlockDummyPtr->questLog[sceneNum].warpId;
+        gSaveBlock1Ptr->pos.x = gSaveBlockDummyPtr->questLog[sceneNum].x;
+        gSaveBlock1Ptr->pos.y = gSaveBlockDummyPtr->questLog[sceneNum].y;
     }
     else
     {
-        sp0.mapGroup = gSaveBlock1Ptr->questLog[sceneNum].mapGroup;
-        sp0.mapNum = gSaveBlock1Ptr->questLog[sceneNum].mapNum;
-        sp0.warpId = gSaveBlock1Ptr->questLog[sceneNum].warpId;
-        sp0.x = gSaveBlock1Ptr->questLog[sceneNum].x;
-        sp0.y = gSaveBlock1Ptr->questLog[sceneNum].y;
+        sp0.mapGroup = gSaveBlockDummyPtr->questLog[sceneNum].mapGroup;
+        sp0.mapNum = gSaveBlockDummyPtr->questLog[sceneNum].mapNum;
+        sp0.warpId = gSaveBlockDummyPtr->questLog[sceneNum].warpId;
+        sp0.x = gSaveBlockDummyPtr->questLog[sceneNum].x;
+        sp0.y = gSaveBlockDummyPtr->questLog[sceneNum].y;
         Overworld_SetWarpDestinationFromWarp(&sp0);
     }
 }
@@ -581,7 +581,7 @@ static void QLPlayback_InitOverworldState(void)
 
 void sub_81113E4(void)
 {
-    struct QuestLog * questLog = &gSaveBlock1Ptr->questLog[sCurrentSceneNum];
+    struct QuestLog * questLog = &gSaveBlockDummyPtr->questLog[sCurrentSceneNum];
 
     CpuCopy16(questLog->flags, gSaveBlock1Ptr->flags, NUM_FLAG_BYTES * sizeof(u8));
     CpuCopy16(questLog->vars, gSaveBlock1Ptr->vars, VARS_COUNT * sizeof(u16));
@@ -750,7 +750,7 @@ static void ReadQuestLogScriptFromSav1(u8 sceneNum, struct QuestLogEntry * a1)
         gUnknown_203AE0C[i] = NULL;
     }
 
-    r4 = gSaveBlock1Ptr->questLog[sceneNum].script;
+    r4 = gSaveBlockDummyPtr->questLog[sceneNum].script;
     for (i = 0; i < 32; i++)
     {
         switch (r4[0] & 0xFFF)
@@ -795,7 +795,7 @@ static void QuestLog_AdvancePlayhead(void)
     if (!gPaletteFade.active)
     {
         ScriptContext2_Enable();
-        if (++sCurrentSceneNum < QUEST_LOG_SCENE_COUNT && gSaveBlock1Ptr->questLog[sCurrentSceneNum].startType != 0)
+        if (++sCurrentSceneNum < QUEST_LOG_SCENE_COUNT && gSaveBlockDummyPtr->questLog[sCurrentSceneNum].startType != 0)
         {
             sNumScenes--;
             QLPlayback_InitOverworldState();
@@ -1057,7 +1057,7 @@ static void QuestLog_WaitFadeAndCancelPlayback(void)
         ScriptContext2_Enable();
         for (sCurrentSceneNum = sCurrentSceneNum; sCurrentSceneNum < QUEST_LOG_SCENE_COUNT; sCurrentSceneNum++)
         {
-            if (gSaveBlock1Ptr->questLog[sCurrentSceneNum].startType == 0)
+            if (gSaveBlockDummyPtr->questLog[sCurrentSceneNum].startType == 0)
                 break;
             ReadQuestLogScriptFromSav1(sCurrentSceneNum, sQuestLogSceneRecordBuffer);
         }
@@ -1264,15 +1264,15 @@ static void SortQuestLogInSav1(void)
     {
         if (sceneNum >= QUEST_LOG_SCENE_COUNT)
             sceneNum = 0;
-        if (gSaveBlock1Ptr->questLog[sceneNum].startType != 0)
+        if (gSaveBlockDummyPtr->questLog[sceneNum].startType != 0)
         {
-            buffer[count] = gSaveBlock1Ptr->questLog[sceneNum];
+            buffer[count] = gSaveBlockDummyPtr->questLog[sceneNum];
             count++;
         }
         sceneNum++;
     }
     sCurrentSceneNum = count % QUEST_LOG_SCENE_COUNT;
-    CpuCopy16(buffer, gSaveBlock1Ptr->questLog, QUEST_LOG_SCENE_COUNT * sizeof(struct QuestLog));
+    CpuCopy16(buffer, gSaveBlockDummyPtr->questLog, QUEST_LOG_SCENE_COUNT * sizeof(struct QuestLog));
     Free(buffer);
 }
 

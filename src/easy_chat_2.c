@@ -259,16 +259,16 @@ void ShowEasyChatScreen(void)
     switch (gSpecialVar_0x8004)
     {
     case EASY_CHAT_TYPE_PROFILE:
-        words = gSaveBlock1Ptr->easyChatProfile;
+        words = gSaveBlock2Ptr->easyChatProfile;
         break;
     case EASY_CHAT_TYPE_BATTLE_START:
-        words = gSaveBlock1Ptr->easyChatBattleStart;
+        words = gSaveBlock2Ptr->easyChatBattleStart;
         break;
     case EASY_CHAT_TYPE_BATTLE_WON:
-        words = gSaveBlock1Ptr->easyChatBattleWon;
+        words = gSaveBlock2Ptr->easyChatBattleWon;
         break;
     case EASY_CHAT_TYPE_BATTLE_LOST:
-        words = gSaveBlock1Ptr->easyChatBattleLost;
+        words = gSaveBlock2Ptr->easyChatBattleLost;
         break;
     case EASY_CHAT_TYPE_QUESTIONNAIRE:
         words = GetMEventProfileECWordsMaybe();

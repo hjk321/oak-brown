@@ -4359,7 +4359,7 @@ static bool8 IsHPRecoveryItem(u16 item)
     const u8 *effect;
 
     if (item == ITEM_ENIGMA_BERRY)
-        effect = gSaveBlock1Ptr->enigmaBerry.itemEffect;
+        effect = gSaveBlock2Ptr->enigmaBerry.itemEffect;
     else
         effect = gItemEffectTable[item - ITEM_POTION];
     if (effect[4] & ITEM4_HEAL_HP)
@@ -4624,7 +4624,7 @@ void ItemUseCB_PPRecovery(u8 taskId, UNUSED TaskFunc func)
     u16 item = gSpecialVar_ItemId;
 
     if (item == ITEM_ENIGMA_BERRY)
-        effect = gSaveBlock1Ptr->enigmaBerry.itemEffect;
+        effect = gSaveBlock2Ptr->enigmaBerry.itemEffect;
     else
         effect = gItemEffectTable[item - ITEM_POTION];
 
@@ -5364,7 +5364,7 @@ u8 GetItemEffectType(u16 item)
         return ITEM_EFFECT_NONE;
     // Read the item's effect properties.
     if (item == ITEM_ENIGMA_BERRY)
-        itemEffect = gSaveBlock1Ptr->enigmaBerry.itemEffect;
+        itemEffect = gSaveBlock2Ptr->enigmaBerry.itemEffect;
     else
         itemEffect = gItemEffectTable[item - ITEM_POTION];
     if ((itemEffect[0] & (ITEM0_HIGH_CRIT | ITEM0_X_ATTACK)) || itemEffect[1] || itemEffect[2] || (itemEffect[3] & ITEM3_MIST))
@@ -5716,7 +5716,7 @@ static bool8 GetBattleEntryEligibility(struct Pokemon *mon)
             return FALSE;
         break;
     case 1:
-        if (gSaveBlock2Ptr->battleTower.battleTowerLevelType == 0 // level 50
+        if (gSaveBlockDummyPtr->battleTower.battleTowerLevelType == 0 // level 50
          && GetMonData(mon, MON_DATA_LEVEL) > 50)
             return FALSE;
         species = GetMonData(mon, MON_DATA_SPECIES);

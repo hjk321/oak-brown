@@ -580,7 +580,7 @@ void DestroyWonderCard(void)
     ClearRamScript();
     ResetMysteryEventFlags();
     ResetMysteryEventVars();
-    ClearEReaderTrainer(&gSaveBlock2Ptr->battleTower.ereaderTrainer);
+    ClearEReaderTrainer(&gSaveBlockDummyPtr->battleTower.ereaderTrainer);
 }
 
 bool32 OverwriteSavedWonderCardWithReceivedCard(const struct MEWonderCardData * data)
@@ -779,7 +779,7 @@ void BuildMEventClientHeader(struct MEventClientHeaderStruct * data)
     CopyTrainerId(data->playerTrainerId, gSaveBlock2Ptr->playerTrainerId);
     StringCopy(data->playerName, gSaveBlock2Ptr->playerName);
     for (i = 0; i < 6; i++)
-        data->easyChatProfile[i] = gSaveBlock1Ptr->easyChatProfile[i];
+        data->easyChatProfile[i] = gSaveBlock2Ptr->easyChatProfile[i];
     memcpy(data->gameCode, RomHeaderGameCode, 4);
     data->version = RomHeaderSoftwareVersion;
 }

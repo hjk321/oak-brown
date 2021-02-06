@@ -126,7 +126,7 @@ void SetSav1ObjectEventsFromQuestLog(const struct QuestLog * questLog, const str
         }
     }
 
-    CpuCopy16(gObjectEvents, gSaveBlock1Ptr->objectEvents, sizeof(gObjectEvents));
+    CpuCopy16(gObjectEvents, gSaveBlock2Ptr->objectEvents, sizeof(gObjectEvents));
 }
 
 void sub_815A540(void)

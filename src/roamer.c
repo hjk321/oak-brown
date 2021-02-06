@@ -8,7 +8,7 @@
 EWRAM_DATA u8 sLocationHistory[3][2] = {};
 EWRAM_DATA u8 sRoamerLocation[2] = {};
 
-#define saveRoamer (*(&gSaveBlock1Ptr->roamer))
+#define saveRoamer (*(&gSaveBlock2Ptr->roamer))
 
 enum
 {
@@ -48,7 +48,7 @@ const u8 sRoamerLocations[][7] = {
 void ClearRoamerData(void)
 {
     u32 i;
-    gSaveBlock1Ptr->roamer = (struct Roamer){};
+    gSaveBlock2Ptr->roamer = (struct Roamer){};
     sRoamerLocation[MAP_GRP] = 0;
     sRoamerLocation[MAP_NUM] = 0;
     for (i = 0; i < 3; i++)
@@ -188,13 +188,13 @@ void CreateRoamerMonInstance(void)
     ZeroEnemyPartyMons();
     roamer = &saveRoamer;
     CreateMonWithIVsPersonality(mon, roamer->species, roamer->level, roamer->ivs, roamer->personality);
-    SetMonData(mon, MON_DATA_STATUS, &gSaveBlock1Ptr->roamer.status);
-    SetMonData(mon, MON_DATA_HP, &gSaveBlock1Ptr->roamer.hp);
-    SetMonData(mon, MON_DATA_COOL, &gSaveBlock1Ptr->roamer.cool);
-    SetMonData(mon, MON_DATA_BEAUTY, &gSaveBlock1Ptr->roamer.beauty);
-    SetMonData(mon, MON_DATA_CUTE, &gSaveBlock1Ptr->roamer.cute);
-    SetMonData(mon, MON_DATA_SMART, &gSaveBlock1Ptr->roamer.smart);
-    SetMonData(mon, MON_DATA_TOUGH, &gSaveBlock1Ptr->roamer.tough);
+    SetMonData(mon, MON_DATA_STATUS, &gSaveBlock2Ptr->roamer.status);
+    SetMonData(mon, MON_DATA_HP, &gSaveBlock2Ptr->roamer.hp);
+    SetMonData(mon, MON_DATA_COOL, &gSaveBlock2Ptr->roamer.cool);
+    SetMonData(mon, MON_DATA_BEAUTY, &gSaveBlock2Ptr->roamer.beauty);
+    SetMonData(mon, MON_DATA_CUTE, &gSaveBlock2Ptr->roamer.cute);
+    SetMonData(mon, MON_DATA_SMART, &gSaveBlock2Ptr->roamer.smart);
+    SetMonData(mon, MON_DATA_TOUGH, &gSaveBlock2Ptr->roamer.tough);
 }
 
 bool8 TryStartRoamerEncounter(void)

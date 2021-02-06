@@ -300,46 +300,6 @@ struct BattleTowerData // Leftover from R/S
     /*0x04D1, 0x0581*/ u8 filler_4D1[0x317];
 }; /* size = 0x7E8 */
 
-// None of the pointers are accurate
-struct SaveBlock2
-{
-    /*0x000*/ u8 playerName[PLAYER_NAME_LENGTH + 1];
-    /*0x008*/ u8 playerGender; // MALE, FEMALE
-    /*0x009*/ u8 specialSaveWarpFlags;
-    /*0x00A*/ u8 playerTrainerId[4];
-    /*0x00E*/ u16 playTimeHours;
-    /*0x010*/ u8 playTimeMinutes;
-    /*0x011*/ u8 playTimeSeconds;
-    /*0x012*/ u8 playTimeVBlanks;
-    /*0x013*/ u8 optionsButtonMode;  // OPTIONS_BUTTON_MODE_[NORMAL/LR/L_EQUALS_A]
-    /*0x014*/ u16 optionsTextSpeed:3; // OPTIONS_TEXT_SPEED_[SLOW/MID/FAST]
-              u16 optionsWindowFrameType:5; // Specifies one of the 20 decorative borders for text boxes
-    /*0x15*/  u16 optionsSound:1; // OPTIONS_SOUND_[MONO/STEREO]
-              u16 optionsBattleStyle:1; // OPTIONS_BATTLE_STYLE_[SHIFT/SET]
-              u16 optionsBattleSceneOff:1; // whether battle animations are disabled
-              u16 regionMapZoom:1; // whether the map is zoomed in
-    /*0x018*/ struct Pokedex pokedex;
-    /*0x090*/ u8 filler_90[0x8];
-    /*0x098*/ struct Time localTimeOffset;
-    /*0x0A0*/ struct Time lastBerryTreeUpdate;
-    /*0x0A8*/ u32 gcnLinkFlags; // Read by Pokemon Colosseum/XD
-    /*0x0AC*/ u8 field_AC;
-    /*0x0AD*/ u8 field_AD;
-    /*0x0B0*/ struct BattleTowerData battleTower;
-    /*0x898*/ u16 mapView[0x100];
-    /*0xA98*/ struct LinkBattleRecords linkBattleRecords;
-    /*0xAF0*/ struct BerryCrush berryCrush;
-    /*0xB00*/ struct PokemonJumpResults pokeJump;
-    /*0xB10*/ struct BerryPickingResults berryPick;
-    /*0x???*/ u32 gameStats[NUM_GAME_STATS];
-    /*0x???*/ struct DayCare daycare;
-    /*0x???*/ struct DaycareMon route5DayCareMon;
-    /*0x???*/ struct MailStruct mail[MAIL_COUNT];
-    /*0xF20*/ u32 encryptionKey;
-};
-
-extern struct SaveBlock2 *gSaveBlock2Ptr;
-
 struct SecretBaseParty
 {
     u32 personality[PARTY_SIZE];
@@ -724,56 +684,102 @@ struct TrainerNameRecord
 
 #define UNION_ROOM_KB_ROW_COUNT 10
 
+// Contains obsolete data structs that haven't been removed from the game.
+// These structures are held in memory and referenced by code but not saved.
+// Yes, this is extremely lazy. But it's the easiest way to free save space.
+struct SaveBlockDummy
+{
+    struct BattleTowerData battleTower;
+    struct QuestLog questLog[QUEST_LOG_SCENE_COUNT];
+    struct RamScript ramScript;
+};
+
+extern struct SaveBlockDummy *gSaveBlockDummyPtr;
+
+// None of the pointers are accurate
+struct SaveBlock2
+{
+    u8 playerName[PLAYER_NAME_LENGTH + 1];
+    u8 playerGender; // MALE, FEMALE
+    u8 specialSaveWarpFlags;
+    u8 playerTrainerId[4];
+    u16 playTimeHours;
+    u8 playTimeMinutes;
+    u8 playTimeSeconds;
+    u8 playTimeVBlanks;
+    u8 optionsButtonMode;  // OPTIONS_BUTTON_MODE_[NORMAL/LR/L_EQUALS_A]
+    u16 optionsTextSpeed:3; // OPTIONS_TEXT_SPEED_[SLOW/MID/FAST]
+    u16 optionsWindowFrameType:5; // Specifies one of the 20 decorative borders for text boxes
+    u16 optionsSound:1; // OPTIONS_SOUND_[MONO/STEREO]
+    u16 optionsBattleStyle:1; // OPTIONS_BATTLE_STYLE_[SHIFT/SET]
+    u16 optionsBattleSceneOff:1; // whether battle animations are disabled
+    u16 regionMapZoom:1; // whether the map is zoomed in
+    struct Pokedex pokedex;
+    struct Time localTimeOffset;
+    struct Time lastBerryTreeUpdate;
+    u32 gcnLinkFlags; // Read by Pokemon Colosseum/XD
+    u8 field_AC;
+    u8 field_AD;
+    u16 mapView[0x100];
+    struct LinkBattleRecords linkBattleRecords;
+    struct BerryCrush berryCrush;
+    struct PokemonJumpResults pokeJump;
+    struct BerryPickingResults berryPick;
+    u32 gameStats[NUM_GAME_STATS];
+    struct DayCare daycare;
+    struct DaycareMon route5DayCareMon;
+    struct MailStruct mail[MAIL_COUNT];
+    u16 easyChatProfile[6];
+    u16 easyChatBattleStart[6];
+    u16 easyChatBattleWon[6];
+    u16 easyChatBattleLost[6];
+    u8 additionalPhrases[EASY_CHAT_EXTRA_PHRASES_SIZE];
+    u16 registeredItem; // registered for use with SELECT button
+    struct ItemSlot pcItems[PC_ITEMS_COUNT];
+    struct ItemSlot bagPocket_Items[BAG_ITEMS_COUNT];
+    struct ItemSlot bagPocket_KeyItems[BAG_KEYITEMS_COUNT];
+    struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
+    struct ItemSlot bagPocket_TMHM[BAG_TMHM_COUNT];
+    struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
+    struct ObjectEvent objectEvents[OBJECT_EVENTS_COUNT];
+    struct Roamer roamer;
+    struct EnigmaBerry enigmaBerry;
+    struct TrainerNameRecord trainerNameRecords[20];
+    u32 encryptionKey;
+};
+
+extern struct SaveBlock2 *gSaveBlock2Ptr;
+
 // None of the pointers are accurate
 struct SaveBlock1
 {
-    /*0x0000*/ struct Coords16 pos;
-    /*0x0004*/ struct WarpData location;
-    /*0x000C*/ struct WarpData continueGameWarp;
-    /*0x0014*/ struct WarpData dynamicWarp;
-    /*0x001C*/ struct WarpData lastHealLocation;
-    /*0x0024*/ struct WarpData escapeWarp;
-    /*0x002C*/ u16 savedMusic;
-    /*0x002E*/ u8 weather;
-    /*0x002F*/ u8 weatherCycleStage;
-    /*0x0030*/ u8 flashLevel;
-    /*0x0032*/ u16 mapLayoutId;
-    /*0x0034*/ u8 playerPartyCount;
-    /*0x0038*/ struct Pokemon playerParty[PARTY_SIZE];
-    /*0x0290*/ u32 money;
-    /*0x0294*/ u16 coins;
-    /*0x0296*/ u16 registeredItem; // registered for use with SELECT button
-    /*0x0298*/ struct ItemSlot pcItems[PC_ITEMS_COUNT];
-    /*0x0310*/ struct ItemSlot bagPocket_Items[BAG_ITEMS_COUNT];
-    /*0x03b8*/ struct ItemSlot bagPocket_KeyItems[BAG_KEYITEMS_COUNT];
-    /*0x0430*/ struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
-    /*0x0464*/ struct ItemSlot bagPocket_TMHM[BAG_TMHM_COUNT];
-    /*0x054c*/ struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
-    /*0x05F8*/ u8 seen1[DEX_FLAGS_NO];
-    /*0x0638*/ u16 trainerRematchStepCounter;
-    /*0x063A*/ u8 ALIGNED(2) trainerRematches[100];
-    /*0x06A0*/ struct ObjectEvent objectEvents[OBJECT_EVENTS_COUNT];
-    /*0x08E0*/ struct ObjectEventTemplate objectEventTemplates[64];
-    /*0x0EE0*/ u8 flags[NUM_FLAG_BYTES];
-    /*0x1000*/ u16 vars[VARS_COUNT];
-    /*0x1300*/ struct QuestLog questLog[QUEST_LOG_SCENE_COUNT];
-    /*0x2CA0*/ u16 easyChatProfile[6];
-    /*0x2CAC*/ u16 easyChatBattleStart[6];
-    /*0x2CB8*/ u16 easyChatBattleWon[6];
-    /*0x2CC4*/ u16 easyChatBattleLost[6];
-    /*0x2F10*/ u8 additionalPhrases[EASY_CHAT_EXTRA_PHRASES_SIZE];
-    /*0x309C*/ u8 giftRibbons[52];
-    /*0x30D0*/ struct Roamer roamer;
-    /*0x30EC*/ struct EnigmaBerry enigmaBerry;
-    /*0x3120*/ struct MEventBuffers mysteryEventBuffers;
-    /*0x361C*/ struct RamScript ramScript;
-    /*0x3A18*/ u8 seen2[DEX_FLAGS_NO];
-    /*0x3A4C*/ u8 rivalName[PLAYER_NAME_LENGTH + 1];
-    /*0x3A54*/ struct FameCheckerSaveData fameChecker[NUM_FAMECHECKER_PERSONS];
-    /*0x3AD4*/ u8 registeredTexts[UNION_ROOM_KB_ROW_COUNT][21];
-    /*0x3BA8*/ struct TrainerNameRecord trainerNameRecords[20];
-    /*0x3D34*/ u32 towerChallengeId;
-    /*0x3D38*/ struct TrainerTower trainerTower[NUM_TOWER_CHALLENGE_TYPES];
+    struct Coords16 pos;
+    struct WarpData location;
+    struct WarpData continueGameWarp;
+    struct WarpData dynamicWarp;
+    struct WarpData lastHealLocation;
+    struct WarpData escapeWarp;
+    u16 savedMusic;
+    u8 weather;
+    u8 weatherCycleStage;
+    u8 flashLevel;
+    u16 mapLayoutId;
+    u8 playerPartyCount;
+    struct Pokemon playerParty[PARTY_SIZE];
+    u32 money;
+    u16 coins;
+    u16 trainerRematchStepCounter;
+    u8 ALIGNED(2) trainerRematches[100];
+    u8 flags[NUM_FLAG_BYTES];
+    u16 vars[VARS_COUNT];
+    struct ObjectEventTemplate objectEventTemplates[64];
+    struct MEventBuffers mysteryEventBuffers;
+    u8 rivalName[PLAYER_NAME_LENGTH + 1];
+    struct FameCheckerSaveData fameChecker[NUM_FAMECHECKER_PERSONS];
+    u8 registeredTexts[UNION_ROOM_KB_ROW_COUNT][21];
+    u8 giftRibbons[52];
+    u32 towerChallengeId;
+    struct TrainerTower trainerTower[NUM_TOWER_CHALLENGE_TYPES];
 };
 
 struct MapPosition

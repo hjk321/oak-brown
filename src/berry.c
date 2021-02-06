@@ -925,17 +925,17 @@ void sub_809C718(void)
 {
     s32 i;
 
-    gSaveBlock1Ptr->enigmaBerry.berry = ENIGMA_BERRY_STRUCT;
+    gSaveBlock2Ptr->enigmaBerry.berry = ENIGMA_BERRY_STRUCT;
     for (i = 0; i < 18; i++)
-        gSaveBlock1Ptr->enigmaBerry.itemEffect[i] = 0;
-    gSaveBlock1Ptr->enigmaBerry.holdEffect = 0;
-    gSaveBlock1Ptr->enigmaBerry.holdEffectParam = 0;
-    gSaveBlock1Ptr->enigmaBerry.checksum = GetEnigmaBerryChecksum(&gSaveBlock1Ptr->enigmaBerry);
+        gSaveBlock2Ptr->enigmaBerry.itemEffect[i] = 0;
+    gSaveBlock2Ptr->enigmaBerry.holdEffect = 0;
+    gSaveBlock2Ptr->enigmaBerry.holdEffectParam = 0;
+    gSaveBlock2Ptr->enigmaBerry.checksum = GetEnigmaBerryChecksum(&gSaveBlock2Ptr->enigmaBerry);
 }
 
 void sub_809C794(void)
 {
-    CpuFill16(0, &gSaveBlock1Ptr->enigmaBerry, sizeof(gSaveBlock1Ptr->enigmaBerry));
+    CpuFill16(0, &gSaveBlock2Ptr->enigmaBerry, sizeof(gSaveBlock2Ptr->enigmaBerry));
     sub_809C718();
 }
 
@@ -948,14 +948,14 @@ void SetEnigmaBerry(u8 * berry)
 
     {
         const struct Berry2 * src = (const struct Berry2 *)berry;
-        struct Berry2 * dest = &gSaveBlock1Ptr->enigmaBerry.berry;
+        struct Berry2 * dest = &gSaveBlock2Ptr->enigmaBerry.berry;
         *dest = *src;
     }
 
-    enigmaBerry = &gSaveBlock1Ptr->enigmaBerry;
+    enigmaBerry = &gSaveBlock2Ptr->enigmaBerry;
     {
         s32 i = 0;
-        u8 * dest = gSaveBlock1Ptr->enigmaBerry.itemEffect;
+        u8 * dest = gSaveBlock2Ptr->enigmaBerry.itemEffect;
         const u8 * src = berry + 0x516;
 
         for (i = 0; i < 18; i++) dest[i] = src[i];
@@ -1038,11 +1038,11 @@ u32 GetEnigmaBerryChecksum(struct EnigmaBerry * enigmaBerry)
 
 bool32 IsEnigmaBerryValid(void)
 {
-    if (gSaveBlock1Ptr->enigmaBerry.berry.stageDuration == 0)
+    if (gSaveBlock2Ptr->enigmaBerry.berry.stageDuration == 0)
         return FALSE;
-    if (gSaveBlock1Ptr->enigmaBerry.berry.maxYield == 0)
+    if (gSaveBlock2Ptr->enigmaBerry.berry.maxYield == 0)
         return FALSE;
-    if (GetEnigmaBerryChecksum(&gSaveBlock1Ptr->enigmaBerry) != gSaveBlock1Ptr->enigmaBerry.checksum)
+    if (GetEnigmaBerryChecksum(&gSaveBlock2Ptr->enigmaBerry) != gSaveBlock2Ptr->enigmaBerry.checksum)
         return FALSE;
 
     return TRUE;
@@ -1051,7 +1051,7 @@ bool32 IsEnigmaBerryValid(void)
 const struct Berry * GetBerryInfo(u8 berryIdx)
 {
     if (berryIdx == ITEM_TO_BERRY(ITEM_ENIGMA_BERRY) && IsEnigmaBerryValid())
-        return (struct Berry *)&gSaveBlock1Ptr->enigmaBerry.berry;
+        return (struct Berry *)&gSaveBlock2Ptr->enigmaBerry.berry;
 
     if (berryIdx == 0 || berryIdx > ITEM_TO_BERRY(ITEM_ENIGMA_BERRY))
         berryIdx = 1;

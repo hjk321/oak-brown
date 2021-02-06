@@ -58,15 +58,15 @@ void ApplyNewEncryptionKeyToBagItems_(u32 key)
 
 void SetBagPocketsPointers(void)
 {
-    gBagPockets[POCKET_ITEMS - 1].itemSlots = gSaveBlock1Ptr->bagPocket_Items;
+    gBagPockets[POCKET_ITEMS - 1].itemSlots = gSaveBlock2Ptr->bagPocket_Items;
     gBagPockets[POCKET_ITEMS - 1].capacity = BAG_ITEMS_COUNT;
-    gBagPockets[POCKET_KEY_ITEMS - 1].itemSlots = gSaveBlock1Ptr->bagPocket_KeyItems;
+    gBagPockets[POCKET_KEY_ITEMS - 1].itemSlots = gSaveBlock2Ptr->bagPocket_KeyItems;
     gBagPockets[POCKET_KEY_ITEMS - 1].capacity = BAG_KEYITEMS_COUNT;
-    gBagPockets[POCKET_POKE_BALLS - 1].itemSlots = gSaveBlock1Ptr->bagPocket_PokeBalls;
+    gBagPockets[POCKET_POKE_BALLS - 1].itemSlots = gSaveBlock2Ptr->bagPocket_PokeBalls;
     gBagPockets[POCKET_POKE_BALLS - 1].capacity = BAG_POKEBALLS_COUNT;
-    gBagPockets[POCKET_TM_CASE - 1].itemSlots = gSaveBlock1Ptr->bagPocket_TMHM;
+    gBagPockets[POCKET_TM_CASE - 1].itemSlots = gSaveBlock2Ptr->bagPocket_TMHM;
     gBagPockets[POCKET_TM_CASE - 1].capacity = BAG_TMHM_COUNT;
-    gBagPockets[POCKET_BERRY_POUCH - 1].itemSlots = gSaveBlock1Ptr->bagPocket_Berries;
+    gBagPockets[POCKET_BERRY_POUCH - 1].itemSlots = gSaveBlock2Ptr->bagPocket_Berries;
     gBagPockets[POCKET_BERRY_POUCH - 1].capacity = BAG_BERRIES_COUNT;
 }
 
@@ -322,8 +322,8 @@ void ClearPCItemSlots(void)
 
     for (i = 0; i < PC_ITEMS_COUNT; i++)
     {
-        gSaveBlock1Ptr->pcItems[i].itemId = ITEM_NONE;
-        SetPcItemQuantity(&gSaveBlock1Ptr->pcItems[i].quantity, 0);
+        gSaveBlock2Ptr->pcItems[i].itemId = ITEM_NONE;
+        SetPcItemQuantity(&gSaveBlock2Ptr->pcItems[i].quantity, 0);
     }
 }
 
@@ -343,7 +343,7 @@ s8 PCItemsGetFirstEmptySlot(void)
 
     for (i = 0; i < PC_ITEMS_COUNT; i++)
     {
-        if (gSaveBlock1Ptr->pcItems[i].itemId == ITEM_NONE)
+        if (gSaveBlock2Ptr->pcItems[i].itemId == ITEM_NONE)
             return i;
     }
 
@@ -357,7 +357,7 @@ u8 CountItemsInPC(void)
 
     for (i = 0; i < PC_ITEMS_COUNT; i++)
     {
-        if (gSaveBlock1Ptr->pcItems[i].itemId != ITEM_NONE)
+        if (gSaveBlock2Ptr->pcItems[i].itemId != ITEM_NONE)
             count++;
     }
 
@@ -371,9 +371,9 @@ bool8 CheckPCHasItem(u16 itemId, u16 count)
 
     for (i = 0; i < PC_ITEMS_COUNT; i++)
     {
-        if (gSaveBlock1Ptr->pcItems[i].itemId == itemId)
+        if (gSaveBlock2Ptr->pcItems[i].itemId == itemId)
         {
-            quantity = GetPcItemQuantity(&gSaveBlock1Ptr->pcItems[i].quantity);
+            quantity = GetPcItemQuantity(&gSaveBlock2Ptr->pcItems[i].quantity);
             if (quantity >= count)
                 return TRUE;
         }
@@ -390,13 +390,13 @@ bool8 AddPCItem(u16 itemId, u16 count)
 
     for (i = 0; i < PC_ITEMS_COUNT; i++)
     {
-        if (gSaveBlock1Ptr->pcItems[i].itemId == itemId)
+        if (gSaveBlock2Ptr->pcItems[i].itemId == itemId)
         {
-            quantity = GetPcItemQuantity(&gSaveBlock1Ptr->pcItems[i].quantity);
+            quantity = GetPcItemQuantity(&gSaveBlock2Ptr->pcItems[i].quantity);
             if (quantity + count <= 999)
             {
                 quantity += count;
-                SetPcItemQuantity(&gSaveBlock1Ptr->pcItems[i].quantity, quantity);
+                SetPcItemQuantity(&gSaveBlock2Ptr->pcItems[i].quantity, quantity);
                 return TRUE;
             }
             else
@@ -408,8 +408,8 @@ bool8 AddPCItem(u16 itemId, u16 count)
     if (idx == -1)
         return FALSE;
 
-    gSaveBlock1Ptr->pcItems[idx].itemId = itemId;
-    SetPcItemQuantity(&gSaveBlock1Ptr->pcItems[idx].quantity, count);
+    gSaveBlock2Ptr->pcItems[idx].itemId = itemId;
+    SetPcItemQuantity(&gSaveBlock2Ptr->pcItems[idx].quantity, count);
     return TRUE;
 }
 
@@ -423,16 +423,16 @@ void RemovePCItem(u16 itemId, u16 count)
 
     for (i = 0; i < PC_ITEMS_COUNT; i++)
     {
-        if (gSaveBlock1Ptr->pcItems[i].itemId == itemId)
+        if (gSaveBlock2Ptr->pcItems[i].itemId == itemId)
             break;
     }
 
     if (i != PC_ITEMS_COUNT)
     {
-        quantity = GetPcItemQuantity(&gSaveBlock1Ptr->pcItems[i].quantity) - count;
-        SetPcItemQuantity(&gSaveBlock1Ptr->pcItems[i].quantity, quantity);
+        quantity = GetPcItemQuantity(&gSaveBlock2Ptr->pcItems[i].quantity) - count;
+        SetPcItemQuantity(&gSaveBlock2Ptr->pcItems[i].quantity, quantity);
         if (quantity == 0)
-            gSaveBlock1Ptr->pcItems[i].itemId = ITEM_NONE;
+            gSaveBlock2Ptr->pcItems[i].itemId = ITEM_NONE;
     }
 }
 
@@ -445,11 +445,11 @@ void ItemPcCompaction(void)
     {
         for (j = i + 1; j < PC_ITEMS_COUNT; j++)
         {
-            if (gSaveBlock1Ptr->pcItems[i].itemId == ITEM_NONE)
+            if (gSaveBlock2Ptr->pcItems[i].itemId == ITEM_NONE)
             {
-                tmp = gSaveBlock1Ptr->pcItems[i];
-                gSaveBlock1Ptr->pcItems[i] = gSaveBlock1Ptr->pcItems[j];
-                gSaveBlock1Ptr->pcItems[j] = tmp;
+                tmp = gSaveBlock2Ptr->pcItems[i];
+                gSaveBlock2Ptr->pcItems[i] = gSaveBlock2Ptr->pcItems[j];
+                gSaveBlock2Ptr->pcItems[j] = tmp;
             }
         }
     }
@@ -457,13 +457,13 @@ void ItemPcCompaction(void)
 
 void RegisteredItemHandleBikeSwap(void)
 {
-    switch (gSaveBlock1Ptr->registeredItem)
+    switch (gSaveBlock2Ptr->registeredItem)
     {
     case ITEM_MACH_BIKE:
-        gSaveBlock1Ptr->registeredItem = ITEM_ACRO_BIKE;
+        gSaveBlock2Ptr->registeredItem = ITEM_ACRO_BIKE;
         break;
     case ITEM_ACRO_BIKE:
-        gSaveBlock1Ptr->registeredItem = ITEM_MACH_BIKE;
+        gSaveBlock2Ptr->registeredItem = ITEM_MACH_BIKE;
         break;
     }
 }

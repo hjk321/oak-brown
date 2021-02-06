@@ -182,7 +182,7 @@ void BattleTowerMapScript2(void)
 
     for (levelType = 0; levelType < 2; levelType++)
     {
-        switch (gSaveBlock2Ptr->battleTower.var_4AE[levelType])
+        switch (gSaveBlockDummyPtr->battleTower.var_4AE[levelType])
         {
         default:
         case 0:
@@ -213,16 +213,16 @@ void BattleTowerMapScript2(void)
             break;
         }
     }
-    if (gSaveBlock2Ptr->battleTower.var_4AE[0] == 3 && gSaveBlock2Ptr->battleTower.var_4AE[1] == 3)
+    if (gSaveBlockDummyPtr->battleTower.var_4AE[0] == 3 && gSaveBlockDummyPtr->battleTower.var_4AE[1] == 3)
         VarSet(VAR_TEMP_0, BTSPECIAL_RESULT_INACTIVE);
     ValidateBattleTowerRecordChecksums();
 }
 
 static void ResetBattleTowerStreak(u8 levelType)
 {
-    gSaveBlock2Ptr->battleTower.var_4AE[levelType] = 0;
-    gSaveBlock2Ptr->battleTower.curChallengeBattleNum[levelType] = 1;
-    gSaveBlock2Ptr->battleTower.curStreakChallengesNum[levelType] = 1;
+    gSaveBlockDummyPtr->battleTower.var_4AE[levelType] = 0;
+    gSaveBlockDummyPtr->battleTower.curChallengeBattleNum[levelType] = 1;
+    gSaveBlockDummyPtr->battleTower.curStreakChallengesNum[levelType] = 1;
 }
 
 static bool8 ShouldBattleEReaderTrainer(u8 levelType, u16 winStreak)
@@ -238,7 +238,7 @@ static bool8 ShouldBattleEReaderTrainer(u8 levelType, u16 winStreak)
 
     ValidateEReaderTrainer();
 
-    if (gSpecialVar_Result != 0 || gSaveBlock2Ptr->battleTower.ereaderTrainer.winStreak != winStreak)
+    if (gSpecialVar_Result != 0 || gSaveBlockDummyPtr->battleTower.ereaderTrainer.winStreak != winStreak)
         return FALSE;
 
     if (levelType != 0)
@@ -248,13 +248,13 @@ static bool8 ShouldBattleEReaderTrainer(u8 levelType, u16 winStreak)
 
     for (i = 0; i < 3; i++)
     {
-        monLevel = gSaveBlock2Ptr->battleTower.ereaderTrainer.party[i].level;
-        if (gSaveBlock2Ptr->battleTower.ereaderTrainer.party[i].level != trainerTeamLevel)
+        monLevel = gSaveBlockDummyPtr->battleTower.ereaderTrainer.party[i].level;
+        if (gSaveBlockDummyPtr->battleTower.ereaderTrainer.party[i].level != trainerTeamLevel)
             return FALSE;
 
         CheckMonBattleTowerBanlist(
-            gSaveBlock2Ptr->battleTower.ereaderTrainer.party[i].species,
-            gSaveBlock2Ptr->battleTower.ereaderTrainer.party[i].heldItem,
+            gSaveBlockDummyPtr->battleTower.ereaderTrainer.party[i].species,
+            gSaveBlockDummyPtr->battleTower.ereaderTrainer.party[i].heldItem,
             1,
             levelType,
             monLevel,
@@ -276,12 +276,12 @@ static bool8 ChooseSpecialBattleTowerTrainer(void)
     u32 trainerIds[5];
 
     numCandidates = 0;
-    battleTowerLevelType = gSaveBlock2Ptr->battleTower.battleTowerLevelType;
+    battleTowerLevelType = gSaveBlockDummyPtr->battleTower.battleTowerLevelType;
 
     winStreak = GetCurrentBattleTowerWinStreak(battleTowerLevelType);
     if (ShouldBattleEReaderTrainer(battleTowerLevelType, winStreak))
     {
-        gSaveBlock2Ptr->battleTower.battleTowerTrainerId = BATTLE_TOWER_EREADER_TRAINER_ID;
+        gSaveBlockDummyPtr->battleTower.battleTowerTrainerId = BATTLE_TOWER_EREADER_TRAINER_ID;
         retVal = TRUE;
     }
     else
@@ -289,7 +289,7 @@ static bool8 ChooseSpecialBattleTowerTrainer(void)
         // Check if one of the battle tower trainers from record mixing should be the next trainer.
         for (recordIndex = 0; recordIndex < 5; recordIndex++)
         {
-            struct BattleTowerRecord *record = &gSaveBlock2Ptr->battleTower.records[recordIndex];
+            struct BattleTowerRecord *record = &gSaveBlockDummyPtr->battleTower.records[recordIndex];
             u32 recordHasData = 0;
             u32 checksum = 0;
 
@@ -299,10 +299,10 @@ static bool8 ChooseSpecialBattleTowerTrainer(void)
                 checksum += ((u32 *) record)[i];
             }
 
-            if (gSaveBlock2Ptr->battleTower.records[recordIndex].winStreak == winStreak
-                && gSaveBlock2Ptr->battleTower.records[recordIndex].battleTowerLevelType == battleTowerLevelType
+            if (gSaveBlockDummyPtr->battleTower.records[recordIndex].winStreak == winStreak
+                && gSaveBlockDummyPtr->battleTower.records[recordIndex].battleTowerLevelType == battleTowerLevelType
                 && recordHasData
-                && gSaveBlock2Ptr->battleTower.records[recordIndex].checksum == checksum)
+                && gSaveBlockDummyPtr->battleTower.records[recordIndex].checksum == checksum)
             {
                 trainerIds[numCandidates] = recordIndex;
                 numCandidates++;
@@ -315,7 +315,7 @@ static bool8 ChooseSpecialBattleTowerTrainer(void)
         }
         else
         {
-            gSaveBlock2Ptr->battleTower.battleTowerTrainerId =
+            gSaveBlockDummyPtr->battleTower.battleTowerTrainerId =
                 trainerIds[Random() % numCandidates] + BATTLE_TOWER_RECORD_MIXING_TRAINER_BASE_ID;
             retVal = TRUE;
         }
@@ -329,41 +329,41 @@ void ChooseNextBattleTowerTrainer(void)
     u16 trainerId;
     bool8 levelType;
 
-    levelType = gSaveBlock2Ptr->battleTower.battleTowerLevelType;
+    levelType = gSaveBlockDummyPtr->battleTower.battleTowerLevelType;
     if (ChooseSpecialBattleTowerTrainer())
     {
-        SetBattleTowerTrainerGfxId(gSaveBlock2Ptr->battleTower.battleTowerTrainerId);
-        gSaveBlock2Ptr->battleTower.battledTrainerIds[gSaveBlock2Ptr->battleTower.curChallengeBattleNum[levelType] - 1] = gSaveBlock2Ptr->battleTower.battleTowerTrainerId;
+        SetBattleTowerTrainerGfxId(gSaveBlockDummyPtr->battleTower.battleTowerTrainerId);
+        gSaveBlockDummyPtr->battleTower.battledTrainerIds[gSaveBlockDummyPtr->battleTower.curChallengeBattleNum[levelType] - 1] = gSaveBlockDummyPtr->battleTower.battleTowerTrainerId;
         return;
     }
 
-    if (gSaveBlock2Ptr->battleTower.curStreakChallengesNum[levelType] <= 7)
+    if (gSaveBlockDummyPtr->battleTower.curStreakChallengesNum[levelType] <= 7)
     {
-        if (gSaveBlock2Ptr->battleTower.curChallengeBattleNum[levelType] == 7)
+        if (gSaveBlockDummyPtr->battleTower.curChallengeBattleNum[levelType] == 7)
         {
             do
             {
                 trainerId = ((Random() & 0xFF) * 5) >> 7;
-                trainerId += (gSaveBlock2Ptr->battleTower.curStreakChallengesNum[levelType] - 1) * 10 + 20;
+                trainerId += (gSaveBlockDummyPtr->battleTower.curStreakChallengesNum[levelType] - 1) * 10 + 20;
 
                 // Ensure trainer wasn't previously fought in this challenge.
-                for (i = 0; i < gSaveBlock2Ptr->battleTower.curChallengeBattleNum[levelType] - 1 && gSaveBlock2Ptr->battleTower.battledTrainerIds[i] != trainerId; i++);
+                for (i = 0; i < gSaveBlockDummyPtr->battleTower.curChallengeBattleNum[levelType] - 1 && gSaveBlockDummyPtr->battleTower.battledTrainerIds[i] != trainerId; i++);
             }
-            while (i != gSaveBlock2Ptr->battleTower.curChallengeBattleNum[levelType] - 1);
-            gSaveBlock2Ptr->battleTower.battleTowerTrainerId = trainerId;
+            while (i != gSaveBlockDummyPtr->battleTower.curChallengeBattleNum[levelType] - 1);
+            gSaveBlockDummyPtr->battleTower.battleTowerTrainerId = trainerId;
         }
         else
         {
             do
             {
                 trainerId = (((Random() & 0xFF) * 5) >> 6);
-                trainerId += (gSaveBlock2Ptr->battleTower.curStreakChallengesNum[levelType] - 1) * 10;
+                trainerId += (gSaveBlockDummyPtr->battleTower.curStreakChallengesNum[levelType] - 1) * 10;
 
                 // Ensure trainer wasn't previously fought in this challenge.
-                for (i = 0; i < gSaveBlock2Ptr->battleTower.curChallengeBattleNum[levelType] - 1 && gSaveBlock2Ptr->battleTower.battledTrainerIds[i] != trainerId; i++);
+                for (i = 0; i < gSaveBlockDummyPtr->battleTower.curChallengeBattleNum[levelType] - 1 && gSaveBlockDummyPtr->battleTower.battledTrainerIds[i] != trainerId; i++);
             }
-            while (i != gSaveBlock2Ptr->battleTower.curChallengeBattleNum[levelType] - 1);
-            gSaveBlock2Ptr->battleTower.battleTowerTrainerId = trainerId;
+            while (i != gSaveBlockDummyPtr->battleTower.curChallengeBattleNum[levelType] - 1);
+            gSaveBlockDummyPtr->battleTower.battleTowerTrainerId = trainerId;
         }
     }
     else
@@ -373,16 +373,16 @@ void ChooseNextBattleTowerTrainer(void)
             trainerId = (((Random() & 0xFF) * 30) >> 8) + 70;
 
             // Ensure trainer wasn't previously fought in this challenge.
-            for (i = 0; i < gSaveBlock2Ptr->battleTower.curChallengeBattleNum[levelType] - 1 && gSaveBlock2Ptr->battleTower.battledTrainerIds[i] != trainerId; i++);
+            for (i = 0; i < gSaveBlockDummyPtr->battleTower.curChallengeBattleNum[levelType] - 1 && gSaveBlockDummyPtr->battleTower.battledTrainerIds[i] != trainerId; i++);
         }
-        while (i != gSaveBlock2Ptr->battleTower.curChallengeBattleNum[levelType] - 1);
-        gSaveBlock2Ptr->battleTower.battleTowerTrainerId = trainerId;
+        while (i != gSaveBlockDummyPtr->battleTower.curChallengeBattleNum[levelType] - 1);
+        gSaveBlockDummyPtr->battleTower.battleTowerTrainerId = trainerId;
     }
 
-    SetBattleTowerTrainerGfxId(gSaveBlock2Ptr->battleTower.battleTowerTrainerId);
+    SetBattleTowerTrainerGfxId(gSaveBlockDummyPtr->battleTower.battleTowerTrainerId);
     // Don't bother saving this trainer, since it's the last one in the challenge.
-    if (gSaveBlock2Ptr->battleTower.curChallengeBattleNum[levelType] < 7)
-        gSaveBlock2Ptr->battleTower.battledTrainerIds[gSaveBlock2Ptr->battleTower.curChallengeBattleNum[levelType] - 1] = gSaveBlock2Ptr->battleTower.battleTowerTrainerId;
+    if (gSaveBlockDummyPtr->battleTower.curChallengeBattleNum[levelType] < 7)
+        gSaveBlockDummyPtr->battleTower.battledTrainerIds[gSaveBlockDummyPtr->battleTower.curChallengeBattleNum[levelType] - 1] = gSaveBlockDummyPtr->battleTower.battleTowerTrainerId;
 }
 
 static void SetBattleTowerTrainerGfxId(u8 trainerClass)
@@ -412,14 +412,14 @@ static void UpdateOrInsertReceivedBattleTowerRecord(struct BattleTowerRecord * r
         k = 0;
         for (j = 0; j < 4; j++)
         {
-            if (gSaveBlock2Ptr->battleTower.records[i].trainerId[j] != record->trainerId[j])
+            if (gSaveBlockDummyPtr->battleTower.records[i].trainerId[j] != record->trainerId[j])
                 break;
         }
         if (j == 4)
         {
             for (k = 0; k < 7; k++)
             {
-                if (gSaveBlock2Ptr->battleTower.records[i].name[j] != record->name[j])
+                if (gSaveBlockDummyPtr->battleTower.records[i].name[j] != record->name[j])
                     break;
                 if (record->name[j] == EOS)
                 {
@@ -434,23 +434,23 @@ static void UpdateOrInsertReceivedBattleTowerRecord(struct BattleTowerRecord * r
 
     if (i < 5)
     {
-        gSaveBlock2Ptr->battleTower.records[i] = *record;
+        gSaveBlockDummyPtr->battleTower.records[i] = *record;
         return;
     }
 
     for (i = 0; i < 5; i++)
     {
-        if (gSaveBlock2Ptr->battleTower.records[i].winStreak == 0)
+        if (gSaveBlockDummyPtr->battleTower.records[i].winStreak == 0)
             break;
     }
 
     if (i < 5)
     {
-        gSaveBlock2Ptr->battleTower.records[i] = *record;
+        gSaveBlockDummyPtr->battleTower.records[i] = *record;
         return;
     }
 
-    winStreaks[0] = gSaveBlock2Ptr->battleTower.records[0].winStreak;
+    winStreaks[0] = gSaveBlockDummyPtr->battleTower.records[0].winStreak;
     indices[0] = 0;
     l++;
 
@@ -458,77 +458,77 @@ static void UpdateOrInsertReceivedBattleTowerRecord(struct BattleTowerRecord * r
     {
         for (j = 0; j < l; j++)
         {
-            if (gSaveBlock2Ptr->battleTower.records[i].winStreak < winStreaks[j])
+            if (gSaveBlockDummyPtr->battleTower.records[i].winStreak < winStreaks[j])
             {
                 j = 0;
                 l = 1;
-                winStreaks[0] = gSaveBlock2Ptr->battleTower.records[i].winStreak;
+                winStreaks[0] = gSaveBlockDummyPtr->battleTower.records[i].winStreak;
                 indices[0] = i;
                 break;
             }
-            if (gSaveBlock2Ptr->battleTower.records[i].winStreak > winStreaks[j])
+            if (gSaveBlockDummyPtr->battleTower.records[i].winStreak > winStreaks[j])
                 break;
         }
         if (j == l)
         {
-            winStreaks[l] = gSaveBlock2Ptr->battleTower.records[i].winStreak;
+            winStreaks[l] = gSaveBlockDummyPtr->battleTower.records[i].winStreak;
             indices[l] = i;
             l++;
         }
     }
     i = Random() % l;
-    gSaveBlock2Ptr->battleTower.records[indices[i]] = *record;
+    gSaveBlockDummyPtr->battleTower.records[indices[i]] = *record;
 }
 
 u8 GetBattleTowerTrainerFrontSpriteId(void)
 {
-    if (gSaveBlock2Ptr->battleTower.battleTowerTrainerId == BATTLE_TOWER_EREADER_TRAINER_ID)
+    if (gSaveBlockDummyPtr->battleTower.battleTowerTrainerId == BATTLE_TOWER_EREADER_TRAINER_ID)
     {
-        return gFacilityClassToPicIndex[gSaveBlock2Ptr->battleTower.ereaderTrainer.trainerClass];
+        return gFacilityClassToPicIndex[gSaveBlockDummyPtr->battleTower.ereaderTrainer.trainerClass];
     }
-    else if (gSaveBlock2Ptr->battleTower.battleTowerTrainerId < BATTLE_TOWER_RECORD_MIXING_TRAINER_BASE_ID)
+    else if (gSaveBlockDummyPtr->battleTower.battleTowerTrainerId < BATTLE_TOWER_RECORD_MIXING_TRAINER_BASE_ID)
     {
-        return gFacilityClassToPicIndex[gBattleTowerTrainers[gSaveBlock2Ptr->battleTower.battleTowerTrainerId].trainerClass];
+        return gFacilityClassToPicIndex[gBattleTowerTrainers[gSaveBlockDummyPtr->battleTower.battleTowerTrainerId].trainerClass];
     }
     else
     {
-        return gFacilityClassToPicIndex[gSaveBlock2Ptr->battleTower.records[gSaveBlock2Ptr->battleTower.battleTowerTrainerId - BATTLE_TOWER_RECORD_MIXING_TRAINER_BASE_ID].trainerClass];
+        return gFacilityClassToPicIndex[gSaveBlockDummyPtr->battleTower.records[gSaveBlockDummyPtr->battleTower.battleTowerTrainerId - BATTLE_TOWER_RECORD_MIXING_TRAINER_BASE_ID].trainerClass];
     }
 }
 
 u8 GetBattleTowerTrainerClassNameId(void)
 {
-    if (gSaveBlock2Ptr->battleTower.battleTowerTrainerId == BATTLE_TOWER_EREADER_TRAINER_ID)
+    if (gSaveBlockDummyPtr->battleTower.battleTowerTrainerId == BATTLE_TOWER_EREADER_TRAINER_ID)
     {
-        return gFacilityClassToTrainerClass[gSaveBlock2Ptr->battleTower.ereaderTrainer.trainerClass];
+        return gFacilityClassToTrainerClass[gSaveBlockDummyPtr->battleTower.ereaderTrainer.trainerClass];
     }
-    else if (gSaveBlock2Ptr->battleTower.battleTowerTrainerId >= BATTLE_TOWER_RECORD_MIXING_TRAINER_BASE_ID)
+    else if (gSaveBlockDummyPtr->battleTower.battleTowerTrainerId >= BATTLE_TOWER_RECORD_MIXING_TRAINER_BASE_ID)
     {
-        return gFacilityClassToTrainerClass[gSaveBlock2Ptr->battleTower.records[gSaveBlock2Ptr->battleTower.battleTowerTrainerId - BATTLE_TOWER_RECORD_MIXING_TRAINER_BASE_ID].trainerClass];
+        return gFacilityClassToTrainerClass[gSaveBlockDummyPtr->battleTower.records[gSaveBlockDummyPtr->battleTower.battleTowerTrainerId - BATTLE_TOWER_RECORD_MIXING_TRAINER_BASE_ID].trainerClass];
     }
     else
     {
-        return gFacilityClassToTrainerClass[gBattleTowerTrainers[gSaveBlock2Ptr->battleTower.battleTowerTrainerId].trainerClass];
+        return gFacilityClassToTrainerClass[gBattleTowerTrainers[gSaveBlockDummyPtr->battleTower.battleTowerTrainerId].trainerClass];
     }
 }
 
 void GetBattleTowerTrainerName(u8 *dest)
 {
     s32 i;
-    if (gSaveBlock2Ptr->battleTower.battleTowerTrainerId == BATTLE_TOWER_EREADER_TRAINER_ID)
+    if (gSaveBlockDummyPtr->battleTower.battleTowerTrainerId == BATTLE_TOWER_EREADER_TRAINER_ID)
     {
         for (i = 0; i < 7; i++)
-            dest[i] = gSaveBlock2Ptr->battleTower.ereaderTrainer.name[i];
+            dest[i] = gSaveBlockDummyPtr->battleTower.ereaderTrainer.name[i];
     }
-    else if (gSaveBlock2Ptr->battleTower.battleTowerTrainerId < BATTLE_TOWER_RECORD_MIXING_TRAINER_BASE_ID)
+    else if (gSaveBlockDummyPtr->battleTower.battleTowerTrainerId < BATTLE_TOWER_RECORD_MIXING_TRAINER_BASE_ID)
     {
         for (i = 0; i < 3; i++)
-            dest[i] = gBattleTowerTrainers[gSaveBlock2Ptr->battleTower.battleTowerTrainerId].name[i];
+            dest[i] = gBattleTowerTrainers[gSaveBlockDummyPtr->battleTower.battleTowerTrainerId].name[i];
     }
     else
     {
         for (i = 0; i < 7; i++)
-            dest[i] = gSaveBlock2Ptr->battleTower.records[gSaveBlock2Ptr->battleTower.battleTowerTrainerId - BATTLE_TOWER_RECORD_MIXING_TRAINER_BASE_ID].name[i];
+            dest[i] = gSaveBlockDummyPtr->battleTower.records[gSaveBlockDummyPtr->battleTower.battleTowerTrainerId - BATTLE_TOWER_RECORD_MIXING_TRAINER_BASE_ID].name[i];
     }
     dest[i] = EOS;
 }
@@ -555,53 +555,53 @@ static void FillBattleTowerTrainerParty(void)
     // Different trainers have access to different sets of pokemon to use in battle.
     // The pokemon later in gBattleTowerLevel100Mons or gBattleTowerLevel50Mons are
     // stronger. Additionally, the later trainers' pokemon are granted higher IVs.
-    if (gSaveBlock2Ptr->battleTower.battleTowerTrainerId < 20)
+    if (gSaveBlockDummyPtr->battleTower.battleTowerTrainerId < 20)
     {
         fixedIV = 6;
     }
-    else if (gSaveBlock2Ptr->battleTower.battleTowerTrainerId < 30)
+    else if (gSaveBlockDummyPtr->battleTower.battleTowerTrainerId < 30)
     {
         fixedIV = 9;
         battleMonsOffset = 30;
     }
-    else if (gSaveBlock2Ptr->battleTower.battleTowerTrainerId < 40)
+    else if (gSaveBlockDummyPtr->battleTower.battleTowerTrainerId < 40)
     {
         fixedIV = 12;
         battleMonsOffset = 60;
     }
-    else if (gSaveBlock2Ptr->battleTower.battleTowerTrainerId < 50)
+    else if (gSaveBlockDummyPtr->battleTower.battleTowerTrainerId < 50)
     {
         fixedIV = 15;
         battleMonsOffset = 90;
     }
-    else if (gSaveBlock2Ptr->battleTower.battleTowerTrainerId < 60)
+    else if (gSaveBlockDummyPtr->battleTower.battleTowerTrainerId < 60)
     {
         fixedIV = 18;
         battleMonsOffset = 120;
     }
-    else if (gSaveBlock2Ptr->battleTower.battleTowerTrainerId < 70)
+    else if (gSaveBlockDummyPtr->battleTower.battleTowerTrainerId < 70)
     {
         fixedIV = 21;
         battleMonsOffset = 150;
     }
-    else if (gSaveBlock2Ptr->battleTower.battleTowerTrainerId < 80)
+    else if (gSaveBlockDummyPtr->battleTower.battleTowerTrainerId < 80)
     {
         fixedIV = 31;
         battleMonsOffset = 180;
     }
-    else if (gSaveBlock2Ptr->battleTower.battleTowerTrainerId < BATTLE_TOWER_RECORD_MIXING_TRAINER_BASE_ID)
+    else if (gSaveBlockDummyPtr->battleTower.battleTowerTrainerId < BATTLE_TOWER_RECORD_MIXING_TRAINER_BASE_ID)
     {
         fixedIV = 31;
         battleMonsOffset = 200;
         monPoolSize = 100;
     }
-    else if (gSaveBlock2Ptr->battleTower.battleTowerTrainerId == BATTLE_TOWER_EREADER_TRAINER_ID)
+    else if (gSaveBlockDummyPtr->battleTower.battleTowerTrainerId == BATTLE_TOWER_EREADER_TRAINER_ID)
     {
         // Load E-Reader trainer's party.
         do
         {
             for (partyIndex = 0; partyIndex < 3; partyIndex++)
-                CreateBattleTowerMon(&gEnemyParty[partyIndex], &gSaveBlock2Ptr->battleTower.ereaderTrainer.party[partyIndex]);
+                CreateBattleTowerMon(&gEnemyParty[partyIndex], &gSaveBlockDummyPtr->battleTower.ereaderTrainer.party[partyIndex]);
             return;
         } while (0);
     }
@@ -612,14 +612,14 @@ static void FillBattleTowerTrainerParty(void)
         {
             CreateBattleTowerMon(
                 &gEnemyParty[partyIndex],
-                &gSaveBlock2Ptr->battleTower.records[gSaveBlock2Ptr->battleTower.battleTowerTrainerId - BATTLE_TOWER_RECORD_MIXING_TRAINER_BASE_ID].party[partyIndex]);
+                &gSaveBlockDummyPtr->battleTower.records[gSaveBlockDummyPtr->battleTower.battleTowerTrainerId - BATTLE_TOWER_RECORD_MIXING_TRAINER_BASE_ID].party[partyIndex]);
         }
         return;
     }
 
     // Use the appropriate list of pokemon and level depending on the
     // current challenge type. (level 50 or level 100 challenge)
-    if (gSaveBlock2Ptr->battleTower.battleTowerLevelType != 0)
+    if (gSaveBlockDummyPtr->battleTower.battleTowerLevelType != 0)
     {
         battleTowerMons = gBattleTowerLevel100Mons;
         level = 100;
@@ -630,7 +630,7 @@ static void FillBattleTowerTrainerParty(void)
         level = 50;
     }
 
-    teamFlags = gBattleTowerTrainers[gSaveBlock2Ptr->battleTower.battleTowerTrainerId].teamFlags;
+    teamFlags = gBattleTowerTrainers[gSaveBlockDummyPtr->battleTower.battleTowerTrainerId].teamFlags;
 
     // Attempt to fill the trainer's party with random Pokemon until 3 have been
     // successfully chosen. The trainer's party may not have duplicate pokemon species
@@ -819,7 +819,7 @@ void CheckPartyBattleTowerBanlist(void)
     else
     {
         gSpecialVar_0x8004 = 0;
-        gSaveBlock2Ptr->battleTower.battleTowerLevelType = gSpecialVar_Result;
+        gSaveBlockDummyPtr->battleTower.battleTowerLevelType = gSpecialVar_Result;
     }
 }
 
@@ -844,12 +844,12 @@ static void BufferBattleTowerTrainerMessage(const u16 *greeting)
 
 void PrintBattleTowerTrainerGreeting(void)
 {
-    if (gSaveBlock2Ptr->battleTower.battleTowerTrainerId == BATTLE_TOWER_EREADER_TRAINER_ID)
-        BufferBattleTowerTrainerMessage(gSaveBlock2Ptr->battleTower.ereaderTrainer.greeting);
-    else if (gSaveBlock2Ptr->battleTower.battleTowerTrainerId < BATTLE_TOWER_RECORD_MIXING_TRAINER_BASE_ID)
-        BufferBattleTowerTrainerMessage(gBattleTowerTrainers[gSaveBlock2Ptr->battleTower.battleTowerTrainerId].greeting);
+    if (gSaveBlockDummyPtr->battleTower.battleTowerTrainerId == BATTLE_TOWER_EREADER_TRAINER_ID)
+        BufferBattleTowerTrainerMessage(gSaveBlockDummyPtr->battleTower.ereaderTrainer.greeting);
+    else if (gSaveBlockDummyPtr->battleTower.battleTowerTrainerId < BATTLE_TOWER_RECORD_MIXING_TRAINER_BASE_ID)
+        BufferBattleTowerTrainerMessage(gBattleTowerTrainers[gSaveBlockDummyPtr->battleTower.battleTowerTrainerId].greeting);
     else
-        BufferBattleTowerTrainerMessage(gSaveBlock2Ptr->battleTower.records[gSaveBlock2Ptr->battleTower.battleTowerTrainerId - BATTLE_TOWER_RECORD_MIXING_TRAINER_BASE_ID].greeting);
+        BufferBattleTowerTrainerMessage(gSaveBlockDummyPtr->battleTower.records[gSaveBlockDummyPtr->battleTower.battleTowerTrainerId - BATTLE_TOWER_RECORD_MIXING_TRAINER_BASE_ID].greeting);
 }
 
 static void CB2_FinishEReaderBattle(void)
@@ -924,7 +924,7 @@ void StartSpecialBattle(void)
         ZeroEnemyPartyMons();
 
         for (i = 0; i < 3; i++)
-            CreateBattleTowerMon(&gEnemyParty[i], &gSaveBlock2Ptr->battleTower.ereaderTrainer.party[i]);
+            CreateBattleTowerMon(&gEnemyParty[i], &gSaveBlockDummyPtr->battleTower.ereaderTrainer.party[i]);
 
         gBattleTypeFlags = (BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_TRAINER);
         gTrainerBattleOpponent_A = 0;
@@ -940,116 +940,116 @@ void StartSpecialBattle(void)
 void SetBattleTowerProperty(void)
 {
     s32 i;
-    u8 battleTowerLevelType = gSaveBlock2Ptr->battleTower.battleTowerLevelType;
+    u8 battleTowerLevelType = gSaveBlockDummyPtr->battleTower.battleTowerLevelType;
 
     switch (gSpecialVar_0x8004)
     {
     case 0:
-        ewram160FB = gSaveBlock2Ptr->battleTower.var_4AE[battleTowerLevelType];
-        gSaveBlock2Ptr->battleTower.var_4AE[battleTowerLevelType] = gSpecialVar_0x8005;
+        ewram160FB = gSaveBlockDummyPtr->battleTower.var_4AE[battleTowerLevelType];
+        gSaveBlockDummyPtr->battleTower.var_4AE[battleTowerLevelType] = gSpecialVar_0x8005;
         break;
     case 1:
-        gSaveBlock2Ptr->battleTower.battleTowerLevelType = gSpecialVar_0x8005;
+        gSaveBlockDummyPtr->battleTower.battleTowerLevelType = gSpecialVar_0x8005;
         break;
     case 2:
-        gSaveBlock2Ptr->battleTower.curChallengeBattleNum[battleTowerLevelType] = gSpecialVar_0x8005;
+        gSaveBlockDummyPtr->battleTower.curChallengeBattleNum[battleTowerLevelType] = gSpecialVar_0x8005;
         break;
     case 3:
-        gSaveBlock2Ptr->battleTower.curStreakChallengesNum[battleTowerLevelType] = gSpecialVar_0x8005;
+        gSaveBlockDummyPtr->battleTower.curStreakChallengesNum[battleTowerLevelType] = gSpecialVar_0x8005;
         break;
     case 4:
-        gSaveBlock2Ptr->battleTower.battleTowerTrainerId = gSpecialVar_0x8005;
+        gSaveBlockDummyPtr->battleTower.battleTowerTrainerId = gSpecialVar_0x8005;
         break;
     case 5:
         for (i = 0; i < 3; i++)
-            gSaveBlock2Ptr->battleTower.selectedPartyMons[i] = gSelectedOrderFromParty[i];
+            gSaveBlockDummyPtr->battleTower.selectedPartyMons[i] = gSelectedOrderFromParty[i];
         break;
     case 6:
-        if (gSaveBlock2Ptr->battleTower.battleTowerTrainerId == BATTLE_TOWER_EREADER_TRAINER_ID)
-            ClearEReaderTrainer(&gSaveBlock2Ptr->battleTower.ereaderTrainer);
-        if (gSaveBlock2Ptr->battleTower.totalBattleTowerWins < 9999)
-            gSaveBlock2Ptr->battleTower.totalBattleTowerWins++;
-        gSaveBlock2Ptr->battleTower.curChallengeBattleNum[battleTowerLevelType]++;
+        if (gSaveBlockDummyPtr->battleTower.battleTowerTrainerId == BATTLE_TOWER_EREADER_TRAINER_ID)
+            ClearEReaderTrainer(&gSaveBlockDummyPtr->battleTower.ereaderTrainer);
+        if (gSaveBlockDummyPtr->battleTower.totalBattleTowerWins < 9999)
+            gSaveBlockDummyPtr->battleTower.totalBattleTowerWins++;
+        gSaveBlockDummyPtr->battleTower.curChallengeBattleNum[battleTowerLevelType]++;
         SaveCurrentWinStreak();
-        gSpecialVar_Result = gSaveBlock2Ptr->battleTower.curChallengeBattleNum[battleTowerLevelType];
-        gStringVar1[0] = gSaveBlock2Ptr->battleTower.curChallengeBattleNum[battleTowerLevelType] + 0xA1;
+        gSpecialVar_Result = gSaveBlockDummyPtr->battleTower.curChallengeBattleNum[battleTowerLevelType];
+        gStringVar1[0] = gSaveBlockDummyPtr->battleTower.curChallengeBattleNum[battleTowerLevelType] + 0xA1;
         gStringVar1[1] = 0xFF;
         break;
     case 7:
-        if (gSaveBlock2Ptr->battleTower.curStreakChallengesNum[battleTowerLevelType] < 1430)
-            gSaveBlock2Ptr->battleTower.curStreakChallengesNum[battleTowerLevelType]++;
+        if (gSaveBlockDummyPtr->battleTower.curStreakChallengesNum[battleTowerLevelType] < 1430)
+            gSaveBlockDummyPtr->battleTower.curStreakChallengesNum[battleTowerLevelType]++;
         SaveCurrentWinStreak();
-        gSpecialVar_Result = gSaveBlock2Ptr->battleTower.curStreakChallengesNum[battleTowerLevelType];
+        gSpecialVar_Result = gSaveBlockDummyPtr->battleTower.curStreakChallengesNum[battleTowerLevelType];
         break;
     case 8:
-        gSaveBlock2Ptr->battleTower.unk_554 = gSpecialVar_0x8005;
+        gSaveBlockDummyPtr->battleTower.unk_554 = gSpecialVar_0x8005;
         break;
     case 9:
         break;
     case 10:
-        SetGameStat(GAME_STAT_BATTLE_TOWER_BEST_STREAK, gSaveBlock2Ptr->battleTower.bestBattleTowerWinStreak);
+        SetGameStat(GAME_STAT_BATTLE_TOWER_BEST_STREAK, gSaveBlockDummyPtr->battleTower.bestBattleTowerWinStreak);
         break;
     case 11:
-        if (gSaveBlock2Ptr->battleTower.var_4AE[battleTowerLevelType] != 3)
+        if (gSaveBlockDummyPtr->battleTower.var_4AE[battleTowerLevelType] != 3)
             ResetBattleTowerStreak(battleTowerLevelType);
         break;
     case 12:
-        gSaveBlock2Ptr->battleTower.var_4AE[battleTowerLevelType] = ewram160FB;
+        gSaveBlockDummyPtr->battleTower.var_4AE[battleTowerLevelType] = ewram160FB;
         break;
     case 13:
-        gSaveBlock2Ptr->battleTower.currentWinStreaks[battleTowerLevelType] = GetCurrentBattleTowerWinStreak(battleTowerLevelType);
+        gSaveBlockDummyPtr->battleTower.currentWinStreaks[battleTowerLevelType] = GetCurrentBattleTowerWinStreak(battleTowerLevelType);
         break;
     case 14:
-        gSaveBlock2Ptr->battleTower.lastStreakLevelType = gSaveBlock2Ptr->battleTower.battleTowerLevelType;
+        gSaveBlockDummyPtr->battleTower.lastStreakLevelType = gSaveBlockDummyPtr->battleTower.battleTowerLevelType;
         break;
     }
 }
 
 void BattleTowerUtil(void)
 {
-    u8 battleTowerLevelType = gSaveBlock2Ptr->battleTower.battleTowerLevelType;
+    u8 battleTowerLevelType = gSaveBlockDummyPtr->battleTower.battleTowerLevelType;
 
     switch (gSpecialVar_0x8004)
     {
     case 0:
-        gSpecialVar_Result = gSaveBlock2Ptr->battleTower.var_4AE[battleTowerLevelType];
+        gSpecialVar_Result = gSaveBlockDummyPtr->battleTower.var_4AE[battleTowerLevelType];
         break;
     case 1:
-        gSpecialVar_Result = gSaveBlock2Ptr->battleTower.battleTowerLevelType;
+        gSpecialVar_Result = gSaveBlockDummyPtr->battleTower.battleTowerLevelType;
         break;
     case 2:
-        gSpecialVar_Result = gSaveBlock2Ptr->battleTower.curChallengeBattleNum[battleTowerLevelType];
+        gSpecialVar_Result = gSaveBlockDummyPtr->battleTower.curChallengeBattleNum[battleTowerLevelType];
         break;
     case 3:
-        gSpecialVar_Result = gSaveBlock2Ptr->battleTower.curStreakChallengesNum[battleTowerLevelType];
+        gSpecialVar_Result = gSaveBlockDummyPtr->battleTower.curStreakChallengesNum[battleTowerLevelType];
         break;
     case 4:
-        gSpecialVar_Result = gSaveBlock2Ptr->battleTower.battleTowerTrainerId;
+        gSpecialVar_Result = gSaveBlockDummyPtr->battleTower.battleTowerTrainerId;
         break;
     case 5:
     case 6:
     case 7:
         break;
     case 8:
-        gSpecialVar_Result = gSaveBlock2Ptr->battleTower.unk_554;
+        gSpecialVar_Result = gSaveBlockDummyPtr->battleTower.unk_554;
         break;
     case 9:
         gSpecialVar_Result = GetCurrentBattleTowerWinStreak(battleTowerLevelType);
         break;
     case 10:
-        SetGameStat(GAME_STAT_BATTLE_TOWER_BEST_STREAK, gSaveBlock2Ptr->battleTower.bestBattleTowerWinStreak);
+        SetGameStat(GAME_STAT_BATTLE_TOWER_BEST_STREAK, gSaveBlockDummyPtr->battleTower.bestBattleTowerWinStreak);
         break;
     case 11:
         ResetBattleTowerStreak(battleTowerLevelType);
         break;
     case 12:
-        gSaveBlock2Ptr->battleTower.var_4AE[battleTowerLevelType] = ewram160FB;
+        gSaveBlockDummyPtr->battleTower.var_4AE[battleTowerLevelType] = ewram160FB;
         break;
     case 13:
-        gSaveBlock2Ptr->battleTower.currentWinStreaks[battleTowerLevelType] = GetCurrentBattleTowerWinStreak(battleTowerLevelType);
+        gSaveBlockDummyPtr->battleTower.currentWinStreaks[battleTowerLevelType] = GetCurrentBattleTowerWinStreak(battleTowerLevelType);
         break;
     case 14:
-        gSaveBlock2Ptr->battleTower.lastStreakLevelType = gSaveBlock2Ptr->battleTower.battleTowerLevelType;
+        gSaveBlockDummyPtr->battleTower.lastStreakLevelType = gSaveBlockDummyPtr->battleTower.battleTowerLevelType;
         break;
     }
 }
@@ -1059,38 +1059,38 @@ void SetBattleTowerParty(void)
     s32 i;
 
     for (i = 0; i < 3; i++)
-        gSelectedOrderFromParty[i] = gSaveBlock2Ptr->battleTower.selectedPartyMons[i];
+        gSelectedOrderFromParty[i] = gSaveBlockDummyPtr->battleTower.selectedPartyMons[i];
 
     ReducePlayerPartyToThree();
 }
 
 static void SaveCurrentWinStreak(void)
 {
-    u8 levelType = gSaveBlock2Ptr->battleTower.battleTowerLevelType;
+    u8 levelType = gSaveBlockDummyPtr->battleTower.battleTowerLevelType;
     u16 streak = GetCurrentBattleTowerWinStreak(levelType);
 
-    if (gSaveBlock2Ptr->battleTower.recordWinStreaks[levelType] < streak)
-        gSaveBlock2Ptr->battleTower.recordWinStreaks[levelType] = streak;
+    if (gSaveBlockDummyPtr->battleTower.recordWinStreaks[levelType] < streak)
+        gSaveBlockDummyPtr->battleTower.recordWinStreaks[levelType] = streak;
 
-    if (gSaveBlock2Ptr->battleTower.recordWinStreaks[0] > gSaveBlock2Ptr->battleTower.recordWinStreaks[1])
+    if (gSaveBlockDummyPtr->battleTower.recordWinStreaks[0] > gSaveBlockDummyPtr->battleTower.recordWinStreaks[1])
     {
-        streak = gSaveBlock2Ptr->battleTower.recordWinStreaks[0];
+        streak = gSaveBlockDummyPtr->battleTower.recordWinStreaks[0];
         SetGameStat(GAME_STAT_BATTLE_TOWER_BEST_STREAK, streak);
 
         if (streak > 9999)
-            gSaveBlock2Ptr->battleTower.bestBattleTowerWinStreak = 9999;
+            gSaveBlockDummyPtr->battleTower.bestBattleTowerWinStreak = 9999;
         else
-            gSaveBlock2Ptr->battleTower.bestBattleTowerWinStreak = streak;
+            gSaveBlockDummyPtr->battleTower.bestBattleTowerWinStreak = streak;
     }
     else
     {
-        streak = gSaveBlock2Ptr->battleTower.recordWinStreaks[1];
+        streak = gSaveBlockDummyPtr->battleTower.recordWinStreaks[1];
         SetGameStat(GAME_STAT_BATTLE_TOWER_BEST_STREAK, streak);
 
         if (streak > 9999)
-            gSaveBlock2Ptr->battleTower.bestBattleTowerWinStreak = 9999;
+            gSaveBlockDummyPtr->battleTower.bestBattleTowerWinStreak = 9999;
         else
-            gSaveBlock2Ptr->battleTower.bestBattleTowerWinStreak = streak;
+            gSaveBlockDummyPtr->battleTower.bestBattleTowerWinStreak = streak;
     }
 }
 
@@ -1098,8 +1098,8 @@ static void SetPlayerBattleTowerRecord(void)
 {
     s32 i;
     u8 trainerClass;
-    struct BattleTowerRecord *playerRecord = &gSaveBlock2Ptr->battleTower.playerRecord;
-    u8 battleTowerLevelType = gSaveBlock2Ptr->battleTower.battleTowerLevelType;
+    struct BattleTowerRecord *playerRecord = &gSaveBlockDummyPtr->battleTower.playerRecord;
+    u8 battleTowerLevelType = gSaveBlockDummyPtr->battleTower.battleTowerLevelType;
 
     if (gSaveBlock2Ptr->playerGender != MALE)
     {
@@ -1121,35 +1121,35 @@ static void SetPlayerBattleTowerRecord(void)
     playerRecord->winStreak = GetCurrentBattleTowerWinStreak(battleTowerLevelType);
 
     for (i = 0; i < 6; i++)
-        playerRecord->greeting[i] = gSaveBlock1Ptr->easyChatBattleStart[i];
+        playerRecord->greeting[i] = gSaveBlock2Ptr->easyChatBattleStart[i];
 
     for (i = 0; i < 3; i++)
-        sub_803E23C(&gPlayerParty[gSaveBlock2Ptr->battleTower.selectedPartyMons[i] - 1], &playerRecord->party[i]);
+        sub_803E23C(&gPlayerParty[gSaveBlockDummyPtr->battleTower.selectedPartyMons[i] - 1], &playerRecord->party[i]);
 
-    SetBattleTowerRecordChecksum(&gSaveBlock2Ptr->battleTower.playerRecord);
+    SetBattleTowerRecordChecksum(&gSaveBlockDummyPtr->battleTower.playerRecord);
     SaveCurrentWinStreak();
 }
 
 void SaveBattleTowerProgress(void)
 {
-    u8 battleTowerLevelType = gSaveBlock2Ptr->battleTower.battleTowerLevelType;
+    u8 battleTowerLevelType = gSaveBlockDummyPtr->battleTower.battleTowerLevelType;
 
     if (gSpecialVar_0x8004 == 3 || gSpecialVar_0x8004 == 0)
     {
-        if (gSaveBlock2Ptr->battleTower.curStreakChallengesNum[battleTowerLevelType] > 1
-            || gSaveBlock2Ptr->battleTower.curChallengeBattleNum[battleTowerLevelType] > 1)
+        if (gSaveBlockDummyPtr->battleTower.curStreakChallengesNum[battleTowerLevelType] > 1
+            || gSaveBlockDummyPtr->battleTower.curChallengeBattleNum[battleTowerLevelType] > 1)
             SetPlayerBattleTowerRecord();
     }
 
     PopulateBravoTrainerBattleTowerLostData();
 
-    gSaveBlock2Ptr->battleTower.battleOutcome = gBattleOutcome;
+    gSaveBlockDummyPtr->battleTower.battleOutcome = gBattleOutcome;
 
     if (gSpecialVar_0x8004 != 3)
-        gSaveBlock2Ptr->battleTower.var_4AE[battleTowerLevelType] = gSpecialVar_0x8004;
+        gSaveBlockDummyPtr->battleTower.var_4AE[battleTowerLevelType] = gSpecialVar_0x8004;
 
     VarSet(VAR_TEMP_0, BTSPECIAL_TEST);
-    gSaveBlock2Ptr->battleTower.unk_554 = 1;
+    gSaveBlockDummyPtr->battleTower.unk_554 = 1;
     TrySavingData(SAVE_EREADER);
 }
 
@@ -1165,23 +1165,23 @@ static void ValidateBattleTowerRecordChecksums(void)
     struct BattleTowerRecord *record;
     u32 checksum;
 
-    record = &gSaveBlock2Ptr->battleTower.playerRecord;
+    record = &gSaveBlockDummyPtr->battleTower.playerRecord;
     checksum = 0;
     for (i = 0; i < (sizeof(struct BattleTowerRecord) / sizeof(u32)) - 1; i++)
         checksum += ((u32 *)record)[i];
 
-    if (gSaveBlock2Ptr->battleTower.playerRecord.checksum != checksum)
-        ClearBattleTowerRecord(&gSaveBlock2Ptr->battleTower.playerRecord);
+    if (gSaveBlockDummyPtr->battleTower.playerRecord.checksum != checksum)
+        ClearBattleTowerRecord(&gSaveBlockDummyPtr->battleTower.playerRecord);
 
     for (recordIndex = 0; recordIndex < 5; recordIndex++)
     {
-        record = &gSaveBlock2Ptr->battleTower.records[recordIndex];
+        record = &gSaveBlockDummyPtr->battleTower.records[recordIndex];
         checksum = 0;
         for (i = 0; i < (sizeof(struct BattleTowerRecord) / sizeof(u32)) - 1; i++)
             checksum += ((u32 *)record)[i];
 
-        if (gSaveBlock2Ptr->battleTower.records[recordIndex].checksum != checksum)
-            ClearBattleTowerRecord(&gSaveBlock2Ptr->battleTower.records[recordIndex]);
+        if (gSaveBlockDummyPtr->battleTower.records[recordIndex].checksum != checksum)
+            ClearBattleTowerRecord(&gSaveBlockDummyPtr->battleTower.records[recordIndex]);
     }
 }
 
@@ -1206,18 +1206,18 @@ static void PopulateBravoTrainerBattleTowerLostData(void)
 {
     s32 i;
 
-    GetBattleTowerTrainerName(gSaveBlock2Ptr->battleTower.defeatedByTrainerName);
-    gSaveBlock2Ptr->battleTower.defeatedBySpecies = gBattleMons[1].species;
-    gSaveBlock2Ptr->battleTower.firstMonSpecies = gBattleMons[0].species;
+    GetBattleTowerTrainerName(gSaveBlockDummyPtr->battleTower.defeatedByTrainerName);
+    gSaveBlockDummyPtr->battleTower.defeatedBySpecies = gBattleMons[1].species;
+    gSaveBlockDummyPtr->battleTower.firstMonSpecies = gBattleMons[0].species;
 
     for (i = 0; i < POKEMON_NAME_LENGTH; i++)
-        gSaveBlock2Ptr->battleTower.firstMonNickname[i] = gBattleMons[0].nickname[i];
+        gSaveBlockDummyPtr->battleTower.firstMonNickname[i] = gBattleMons[0].nickname[i];
 }
 
 static u16 GetCurrentBattleTowerWinStreak(u8 battleTowerLevelType)
 {
-    u16 winStreak = ((gSaveBlock2Ptr->battleTower.curStreakChallengesNum[battleTowerLevelType] - 1) * 7 - 1)
-                    + gSaveBlock2Ptr->battleTower.curChallengeBattleNum[battleTowerLevelType];
+    u16 winStreak = ((gSaveBlockDummyPtr->battleTower.curStreakChallengesNum[battleTowerLevelType] - 1) * 7 - 1)
+                    + gSaveBlockDummyPtr->battleTower.curChallengeBattleNum[battleTowerLevelType];
 
     if (winStreak > 9999)
         return 9999;
@@ -1227,27 +1227,27 @@ static u16 GetCurrentBattleTowerWinStreak(u8 battleTowerLevelType)
 
 void DetermineBattleTowerPrize(void)
 {
-    u8 levelType = gSaveBlock2Ptr->battleTower.battleTowerLevelType;
+    u8 levelType = gSaveBlockDummyPtr->battleTower.battleTowerLevelType;
 
-    if (gSaveBlock2Ptr->battleTower.curStreakChallengesNum[levelType] - 1 > 5)
-        gSaveBlock2Ptr->battleTower.prizeItem = sLongStreakPrizes[Random() % NELEMS(sLongStreakPrizes)];
+    if (gSaveBlockDummyPtr->battleTower.curStreakChallengesNum[levelType] - 1 > 5)
+        gSaveBlockDummyPtr->battleTower.prizeItem = sLongStreakPrizes[Random() % NELEMS(sLongStreakPrizes)];
     else
-        gSaveBlock2Ptr->battleTower.prizeItem = sShortStreakPrizes[Random() % NELEMS(sShortStreakPrizes)];
+        gSaveBlockDummyPtr->battleTower.prizeItem = sShortStreakPrizes[Random() % NELEMS(sShortStreakPrizes)];
 }
 
 void GiveBattleTowerPrize(void)
 {
-    u8 battleTowerLevelType = gSaveBlock2Ptr->battleTower.battleTowerLevelType;
+    u8 battleTowerLevelType = gSaveBlockDummyPtr->battleTower.battleTowerLevelType;
 
-    if (AddBagItem(gSaveBlock2Ptr->battleTower.prizeItem, 1) == TRUE)
+    if (AddBagItem(gSaveBlockDummyPtr->battleTower.prizeItem, 1) == TRUE)
     {
-        CopyItemName(gSaveBlock2Ptr->battleTower.prizeItem, gStringVar1);
+        CopyItemName(gSaveBlockDummyPtr->battleTower.prizeItem, gStringVar1);
         gSpecialVar_Result = 1;
     }
     else
     {
         gSpecialVar_Result = 0;
-        gSaveBlock2Ptr->battleTower.var_4AE[battleTowerLevelType] = 6;
+        gSaveBlockDummyPtr->battleTower.var_4AE[battleTowerLevelType] = 6;
     }
 }
 
@@ -1257,7 +1257,7 @@ void AwardBattleTowerRibbons(void)
     u32 partyIndex;
     struct Pokemon *pokemon;
     u8 ribbonType;
-    u8 battleTowerLevelType = gSaveBlock2Ptr->battleTower.battleTowerLevelType;
+    u8 battleTowerLevelType = gSaveBlockDummyPtr->battleTower.battleTowerLevelType;
 
     if (battleTowerLevelType != 0)
         ribbonType = MON_DATA_VICTORY_RIBBON;
@@ -1270,7 +1270,7 @@ void AwardBattleTowerRibbons(void)
     {
         for (i = 0; i < 3; i++)
         {
-            partyIndex = gSaveBlock2Ptr->battleTower.selectedPartyMons[i] - 1;
+            partyIndex = gSaveBlockDummyPtr->battleTower.selectedPartyMons[i] - 1;
             pokemon = &gPlayerParty[partyIndex];
             if (!GetMonData(pokemon, ribbonType))
             {
@@ -1292,7 +1292,7 @@ static void Debug_FillEReaderTrainerWithPlayerData(void)
     s32 i;
     s32 j;
 
-    ereaderTrainer = &gSaveBlock2Ptr->battleTower.ereaderTrainer;
+    ereaderTrainer = &gSaveBlockDummyPtr->battleTower.ereaderTrainer;
 
     if (gSaveBlock2Ptr->playerGender != MALE)
     {
@@ -1313,7 +1313,7 @@ static void Debug_FillEReaderTrainerWithPlayerData(void)
     j = 7;
     for (i = 0; i < 6; i++)
     {
-        ereaderTrainer->greeting[i] = gSaveBlock1Ptr->easyChatBattleStart[i];
+        ereaderTrainer->greeting[i] = gSaveBlock2Ptr->easyChatBattleStart[i];
         ereaderTrainer->farewellPlayerLost[i] = j;
         ereaderTrainer->farewellPlayerWon[i] = j + 6;
         j++;
@@ -1327,12 +1327,12 @@ static void Debug_FillEReaderTrainerWithPlayerData(void)
 
 u8 GetEreaderTrainerFrontSpriteId(void)
 {
-    return gFacilityClassToPicIndex[gSaveBlock2Ptr->battleTower.ereaderTrainer.trainerClass];
+    return gFacilityClassToPicIndex[gSaveBlockDummyPtr->battleTower.ereaderTrainer.trainerClass];
 }
 
 u8 GetEreaderTrainerClassId(void)
 {
-    return gFacilityClassToTrainerClass[gSaveBlock2Ptr->battleTower.ereaderTrainer.trainerClass];
+    return gFacilityClassToTrainerClass[gSaveBlockDummyPtr->battleTower.ereaderTrainer.trainerClass];
 }
 
 void CopyEReaderTrainerName5(u8 *trainerName)
@@ -1340,7 +1340,7 @@ void CopyEReaderTrainerName5(u8 *trainerName)
     s32 i;
 
     for (i = 0; i < 5; i++)
-        trainerName[i] = gSaveBlock2Ptr->battleTower.ereaderTrainer.name[i];
+        trainerName[i] = gSaveBlockDummyPtr->battleTower.ereaderTrainer.name[i];
 
     trainerName[i] = EOS;
 }
@@ -1353,7 +1353,7 @@ void ValidateEReaderTrainer(void)
     struct BattleTowerEReaderTrainer *ereaderTrainer;
 
     gSpecialVar_Result = 0;
-    ereaderTrainer = &gSaveBlock2Ptr->battleTower.ereaderTrainer;
+    ereaderTrainer = &gSaveBlockDummyPtr->battleTower.ereaderTrainer;
 
     checksum = 0;
     for (i = 0; i < sizeof(struct BattleTowerEReaderTrainer) / sizeof(u32) - 1; i++)
@@ -1369,9 +1369,9 @@ void ValidateEReaderTrainer(void)
     for (i = 0; i < sizeof(struct BattleTowerEReaderTrainer) / sizeof(u32) - 1; i++)
         checksum += ((u32 *)ereaderTrainer)[i];
 
-    if (gSaveBlock2Ptr->battleTower.ereaderTrainer.checksum != checksum)
+    if (gSaveBlockDummyPtr->battleTower.ereaderTrainer.checksum != checksum)
     {
-        ClearEReaderTrainer(&gSaveBlock2Ptr->battleTower.ereaderTrainer);
+        ClearEReaderTrainer(&gSaveBlockDummyPtr->battleTower.ereaderTrainer);
         gSpecialVar_Result = 1;
     }
 }
@@ -1395,7 +1395,7 @@ void ClearEReaderTrainer(struct BattleTowerEReaderTrainer *ereaderTrainer)
 
 void BufferEReaderTrainerGreeting(void)
 {
-    BufferBattleTowerTrainerMessage(gSaveBlock2Ptr->battleTower.ereaderTrainer.greeting);
+    BufferBattleTowerTrainerMessage(gSaveBlockDummyPtr->battleTower.ereaderTrainer.greeting);
 }
 
 static void PrintEReaderTrainerFarewellMessage(void)
@@ -1403,9 +1403,9 @@ static void PrintEReaderTrainerFarewellMessage(void)
     if (gBattleOutcome == B_OUTCOME_DREW)
         gStringVar4[0] = EOS;
     else if (gBattleOutcome == B_OUTCOME_WON)
-        BufferBattleTowerTrainerMessage(gSaveBlock2Ptr->battleTower.ereaderTrainer.farewellPlayerWon);
+        BufferBattleTowerTrainerMessage(gSaveBlockDummyPtr->battleTower.ereaderTrainer.farewellPlayerWon);
     else
-        BufferBattleTowerTrainerMessage(gSaveBlock2Ptr->battleTower.ereaderTrainer.farewellPlayerLost);
+        BufferBattleTowerTrainerMessage(gSaveBlockDummyPtr->battleTower.ereaderTrainer.farewellPlayerLost);
 }
 
 void Dummy_TryEnableBravoTrainerBattleTower(void)
@@ -1414,7 +1414,7 @@ void Dummy_TryEnableBravoTrainerBattleTower(void)
 
     for (i = 0; i < 2; i++)
     {
-        if (gSaveBlock2Ptr->battleTower.var_4AE[i] == 1)
+        if (gSaveBlockDummyPtr->battleTower.var_4AE[i] == 1)
             TakeBravoTrainerBattleTowerOffTheAir();
     }
 }

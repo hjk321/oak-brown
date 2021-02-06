@@ -833,7 +833,7 @@ static void SetPlayerCardData(struct TrainerCard *trainerCard, u8 cardType)
     trainerCard->rse.money = GetMoney(&gSaveBlock1Ptr->money);
 
     for (i = 0; i < TRAINER_CARD_PROFILE_LENGTH; i++)
-        trainerCard->rse.easyChatProfile[i] = gSaveBlock1Ptr->easyChatProfile[i];
+        trainerCard->rse.easyChatProfile[i] = gSaveBlock2Ptr->easyChatProfile[i];
 
     StringCopy(trainerCard->rse.playerName, gSaveBlock2Ptr->playerName);
 

@@ -3097,7 +3097,7 @@ static void atk23_getexp(void)
                         ++viaSentIn;
                     item = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
                     if (item == ITEM_ENIGMA_BERRY)
-                        holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
+                        holdEffect = gSaveBlock2Ptr->enigmaBerry.holdEffect;
                     else
                         holdEffect = ItemId_GetHoldEffect(item);
                     if (holdEffect == HOLD_EFFECT_EXP_SHARE)
@@ -3131,7 +3131,7 @@ static void atk23_getexp(void)
         {
             item = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_HELD_ITEM);
             if (item == ITEM_ENIGMA_BERRY)
-                holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
+                holdEffect = gSaveBlock2Ptr->enigmaBerry.holdEffect;
             else
                 holdEffect = ItemId_GetHoldEffect(item);
             if (holdEffect != HOLD_EFFECT_EXP_SHARE && !(gBattleStruct->sentInPokes & 1))

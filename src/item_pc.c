@@ -482,7 +482,7 @@ static void ItemPc_BuildListMenuTemplate(void)
 
     for (i = 0; i < sStateDataPtr->nItems; i++)
     {
-        sListMenuItems[i].label = ItemId_GetName(gSaveBlock1Ptr->pcItems[i].itemId);
+        sListMenuItems[i].label = ItemId_GetName(gSaveBlock2Ptr->pcItems[i].itemId);
         sListMenuItems[i].index = i;
     }
     sListMenuItems[i].label = gFameCheckerText_Cancel;
@@ -666,12 +666,12 @@ static u8 ItemPc_GetCursorPosition(void)
 
 static u16 ItemPc_GetItemIdBySlotId(u16 idx)
 {
-    return gSaveBlock1Ptr->pcItems[idx].itemId;
+    return gSaveBlock2Ptr->pcItems[idx].itemId;
 }
 
 static u16 ItemPc_GetItemQuantityBySlotId(u16 idx)
 {
-    return GetPcItemQuantity(&gSaveBlock1Ptr->pcItems[idx].quantity);
+    return GetPcItemQuantity(&gSaveBlock2Ptr->pcItems[idx].quantity);
 }
 
 static void ItemPc_CountPcItems(void)
@@ -682,7 +682,7 @@ static void ItemPc_CountPcItems(void)
     sStateDataPtr->nItems = 0;
     for (i = 0; i < PC_ITEMS_COUNT; sStateDataPtr->nItems++, i++)
     {
-        if (gSaveBlock1Ptr->pcItems[i].itemId == ITEM_NONE)
+        if (gSaveBlock2Ptr->pcItems[i].itemId == ITEM_NONE)
             break;
     }
     sStateDataPtr->maxShowed = sStateDataPtr->nItems + 1 <= 6 ? sStateDataPtr->nItems + 1 : 6;
@@ -808,7 +808,7 @@ static void ItemPc_InsertItemIntoNewSlot(u8 taskId, u32 pos)
         ItemPc_MoveItemModeCancel(taskId, pos);
     else
     {
-        MoveItemSlotInList(gSaveBlock1Ptr->pcItems, data[1], pos);
+        MoveItemSlotInList(gSaveBlock2Ptr->pcItems, data[1], pos);
         DestroyListMenuTask(data[0], &sListMenuState.scroll, &sListMenuState.row);
         if (data[1] < pos)
             sListMenuState.row--;

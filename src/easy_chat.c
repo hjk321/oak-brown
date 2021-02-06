@@ -280,13 +280,13 @@ void ShowEasyChatMessage(void)
     switch (gSpecialVar_0x8004)
     {
     case 0:
-        easyChatWords = gSaveBlock1Ptr->easyChatProfile;
+        easyChatWords = gSaveBlock2Ptr->easyChatProfile;
         columns = 2;
         rows = 2;
         break;
     case 1:
-        easyChatWords = gSaveBlock1Ptr->easyChatBattleStart;
-        if (EC_DoesEasyChatStringFitOnLine(gSaveBlock1Ptr->easyChatBattleStart, 3, 2, 18))
+        easyChatWords = gSaveBlock2Ptr->easyChatBattleStart;
+        if (EC_DoesEasyChatStringFitOnLine(gSaveBlock2Ptr->easyChatBattleStart, 3, 2, 18))
         {
             columns = 2;
             rows = 3;
@@ -298,12 +298,12 @@ void ShowEasyChatMessage(void)
         }
         break;
     case 2:
-        easyChatWords = gSaveBlock1Ptr->easyChatBattleWon;
+        easyChatWords = gSaveBlock2Ptr->easyChatBattleWon;
         columns = 3;
         rows = 2;
         break;
     case 3:
-        easyChatWords = gSaveBlock1Ptr->easyChatBattleLost;
+        easyChatWords = gSaveBlock2Ptr->easyChatBattleLost;
         columns = 3;
         rows = 2;
         break;
@@ -326,7 +326,7 @@ static bool8 IsTrendySayingUnlocked(u8 additionalPhraseId)
 {
     int byteOffset = additionalPhraseId / 8;
     int shift = additionalPhraseId % 8;
-    return (gSaveBlock1Ptr->additionalPhrases[byteOffset] >> shift) & 1;
+    return (gSaveBlock2Ptr->additionalPhrases[byteOffset] >> shift) & 1;
 }
 
 void EnableRareWord(u8 additionalPhraseId)
@@ -335,7 +335,7 @@ void EnableRareWord(u8 additionalPhraseId)
     {
         int byteOffset = additionalPhraseId / 8;
         int shift = additionalPhraseId % 8;
-        gSaveBlock1Ptr->additionalPhrases[byteOffset] |= 1 << shift;
+        gSaveBlock2Ptr->additionalPhrases[byteOffset] |= 1 << shift;
     }
 }
 
@@ -442,15 +442,15 @@ void InitEasyChatPhrases(void)
     u16 i, j;
 
     for (i = 0; i < 4; i++)
-        gSaveBlock1Ptr->easyChatProfile[i] = sDefaultProfileWords[i];
+        gSaveBlock2Ptr->easyChatProfile[i] = sDefaultProfileWords[i];
 
     for (i = 0; i < 6; i++)
-        gSaveBlock1Ptr->easyChatBattleStart[i] = sDefaultBattleStartWords[i];
+        gSaveBlock2Ptr->easyChatBattleStart[i] = sDefaultBattleStartWords[i];
 
     for (i = 0; i < 6; i++)
     {
-        gSaveBlock1Ptr->easyChatBattleWon[i] = EC_WORD_UNDEFINED;
-        gSaveBlock1Ptr->easyChatBattleLost[i] = EC_WORD_UNDEFINED;
+        gSaveBlock2Ptr->easyChatBattleWon[i] = EC_WORD_UNDEFINED;
+        gSaveBlock2Ptr->easyChatBattleLost[i] = EC_WORD_UNDEFINED;
     }
 
     for (i = 0; i < MAIL_COUNT; i++)
@@ -464,7 +464,7 @@ void InitEasyChatPhrases(void)
     // Mauville old man data is corrupted, which is initialized directly after
     // this function is called when starting a new game.
     for (i = 0; i < 64; i++)
-        gSaveBlock1Ptr->additionalPhrases[i] = 0;
+        gSaveBlock2Ptr->additionalPhrases[i] = 0;
 }
 
 void EC_ResetMEventProfileMaybe(void)

@@ -155,9 +155,9 @@ bool8 MEScrCmd_setenigmaberry(struct ScriptContext *ctx)
     const u8 *message;
     bool32 haveBerry = IsEnigmaBerryValid();
     u8 *berry = (u8 *)(ScriptReadWord(ctx) - ctx->data[1] + ctx->data[0]);
-    StringCopyN(gStringVar1, gSaveBlock1Ptr->enigmaBerry.berry.name, BERRY_NAME_LENGTH + 1);
+    StringCopyN(gStringVar1, gSaveBlock2Ptr->enigmaBerry.berry.name, BERRY_NAME_LENGTH + 1);
     SetEnigmaBerry(berry);
-    StringCopyN(gStringVar2, gSaveBlock1Ptr->enigmaBerry.berry.name, BERRY_NAME_LENGTH + 1);
+    StringCopyN(gStringVar2, gSaveBlock2Ptr->enigmaBerry.berry.name, BERRY_NAME_LENGTH + 1);
 
     if (!haveBerry)
     {
@@ -281,7 +281,7 @@ bool8 MEScrCmd_givepokemon(struct ScriptContext *ctx)
 bool8 MEScrCmd_addtrainer(struct ScriptContext *ctx)
 {
     u32 data = ScriptReadWord(ctx) - ctx->data[1] + ctx->data[0];
-    memcpy(&gSaveBlock2Ptr->battleTower.ereaderTrainer, (void *)data, sizeof(struct BattleTowerEReaderTrainer));
+    memcpy(&gSaveBlockDummyPtr->battleTower.ereaderTrainer, (void *)data, sizeof(struct BattleTowerEReaderTrainer));
     ValidateEReaderTrainer();
     StringExpandPlaceholders(gStringVar4, gText_MysteryGiftNewTrainer);
     ctx->data[2] = 2;

@@ -1129,12 +1129,12 @@ static void Task_AfterSale_ReturnToList(u8 taskId)
 void Pokedude_InitTMCase(void)
 {
     sPokedudePackBackup = AllocZeroed(sizeof(*sPokedudePackBackup));
-    memcpy(sPokedudePackBackup->bagPocket_TMHM, gSaveBlock1Ptr->bagPocket_TMHM, sizeof(gSaveBlock1Ptr->bagPocket_TMHM));
-    memcpy(sPokedudePackBackup->bagPocket_KeyItems, gSaveBlock1Ptr->bagPocket_KeyItems, sizeof(gSaveBlock1Ptr->bagPocket_KeyItems));
+    memcpy(sPokedudePackBackup->bagPocket_TMHM, gSaveBlock2Ptr->bagPocket_TMHM, sizeof(gSaveBlock2Ptr->bagPocket_TMHM));
+    memcpy(sPokedudePackBackup->bagPocket_KeyItems, gSaveBlock2Ptr->bagPocket_KeyItems, sizeof(gSaveBlock2Ptr->bagPocket_KeyItems));
     sPokedudePackBackup->unk_160 = sTMCaseStaticResources.selectedRow;
     sPokedudePackBackup->unk_162 = sTMCaseStaticResources.scrollOffset;
-    ClearItemSlots(gSaveBlock1Ptr->bagPocket_TMHM, NELEMS(gSaveBlock1Ptr->bagPocket_TMHM));
-    ClearItemSlots(gSaveBlock1Ptr->bagPocket_KeyItems, NELEMS(gSaveBlock1Ptr->bagPocket_KeyItems));
+    ClearItemSlots(gSaveBlock2Ptr->bagPocket_TMHM, NELEMS(gSaveBlock2Ptr->bagPocket_TMHM));
+    ClearItemSlots(gSaveBlock2Ptr->bagPocket_KeyItems, NELEMS(gSaveBlock2Ptr->bagPocket_KeyItems));
     ResetTMCaseCursorPos();
     AddBagItem(ITEM_TM01, 1);
     AddBagItem(ITEM_TM03, 1);
@@ -1260,8 +1260,8 @@ static void Task_TMCaseDude_Playback(u8 taskId)
     case 21:
         if (!gPaletteFade.active)
         {
-            memcpy(gSaveBlock1Ptr->bagPocket_TMHM, sPokedudePackBackup->bagPocket_TMHM, sizeof(gSaveBlock1Ptr->bagPocket_TMHM));
-            memcpy(gSaveBlock1Ptr->bagPocket_KeyItems, sPokedudePackBackup->bagPocket_KeyItems, sizeof(gSaveBlock1Ptr->bagPocket_KeyItems));
+            memcpy(gSaveBlock2Ptr->bagPocket_TMHM, sPokedudePackBackup->bagPocket_TMHM, sizeof(gSaveBlock2Ptr->bagPocket_TMHM));
+            memcpy(gSaveBlock2Ptr->bagPocket_KeyItems, sPokedudePackBackup->bagPocket_KeyItems, sizeof(gSaveBlock2Ptr->bagPocket_KeyItems));
             DestroyListMenuTask(data[0], NULL, NULL);
             sTMCaseStaticResources.selectedRow = sPokedudePackBackup->unk_160;
             sTMCaseStaticResources.scrollOffset = sPokedudePackBackup->unk_162;

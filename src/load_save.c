@@ -23,6 +23,8 @@ struct LoadedSaveData
 };
 
 // EWRAM DATA
+EWRAM_DATA struct SaveBlockDummy gSaveBlockDummy = {0};
+
 EWRAM_DATA struct SaveBlock2 gSaveBlock2 = {0};
 EWRAM_DATA u8 gSaveBlock2_DMA[SAVEBLOCK_MOVE_RANGE] = {0};
 
@@ -40,6 +42,7 @@ bool32 gFlashMemoryPresent;
 struct SaveBlock1 *gSaveBlock1Ptr;
 struct SaveBlock2 *gSaveBlock2Ptr;
 struct PokemonStorage *gPokemonStoragePtr;
+struct SaveBlockDummy *gSaveBlockDummyPtr;
 
 void CheckForFlashMemory(void)
 {
@@ -74,7 +77,8 @@ void SetSaveBlocksPointers(void)
 
     gSaveBlock2Ptr = (void*)(&gSaveBlock2) + offset;
     *sav1_LocalVar = (void*)(&gSaveBlock1) + offset;
-    gPokemonStoragePtr = (void*)(&gPokemonStorage) + offset;
+    gPokemonStoragePtr = (void*)(&gPokemonStorage) + offset;  
+    gSaveBlockDummyPtr = (void*)(&gSaveBlockDummy) + offset;
 
     SetBagPocketsPointers();
     SetQuestLogRecordAndPlaybackPointers(oldSave);
@@ -177,7 +181,7 @@ void SaveObjectEvents(void)
     int i;
 
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
-        gSaveBlock1Ptr->objectEvents[i] = gObjectEvents[i];
+        gSaveBlock2Ptr->objectEvents[i] = gObjectEvents[i];
 }
 
 void LoadObjectEvents(void)
@@ -185,7 +189,7 @@ void LoadObjectEvents(void)
     int i;
 
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
-        gObjectEvents[i] = gSaveBlock1Ptr->objectEvents[i];
+        gObjectEvents[i] = gSaveBlock2Ptr->objectEvents[i];
 }
 
 void SaveSerializedGame(void)
@@ -206,23 +210,23 @@ void LoadPlayerBag(void)
 
     // load player items.
     for (i = 0; i < BAG_ITEMS_COUNT; i++)
-        gLoadedSaveData.items[i] = gSaveBlock1Ptr->bagPocket_Items[i];
+        gLoadedSaveData.items[i] = gSaveBlock2Ptr->bagPocket_Items[i];
 
     // load player key items.
     for (i = 0; i < BAG_KEYITEMS_COUNT; i++)
-        gLoadedSaveData.keyItems[i] = gSaveBlock1Ptr->bagPocket_KeyItems[i];
+        gLoadedSaveData.keyItems[i] = gSaveBlock2Ptr->bagPocket_KeyItems[i];
 
     // load player pokeballs.
     for (i = 0; i < BAG_POKEBALLS_COUNT; i++)
-        gLoadedSaveData.pokeBalls[i] = gSaveBlock1Ptr->bagPocket_PokeBalls[i];
+        gLoadedSaveData.pokeBalls[i] = gSaveBlock2Ptr->bagPocket_PokeBalls[i];
 
     // load player TMs and HMs.
     for (i = 0; i < BAG_TMHM_COUNT; i++)
-        gLoadedSaveData.TMsHMs[i] = gSaveBlock1Ptr->bagPocket_TMHM[i];
+        gLoadedSaveData.TMsHMs[i] = gSaveBlock2Ptr->bagPocket_TMHM[i];
 
     // load player berries.
     for (i = 0; i < BAG_BERRIES_COUNT; i++)
-        gLoadedSaveData.berries[i] = gSaveBlock1Ptr->bagPocket_Berries[i];
+        gLoadedSaveData.berries[i] = gSaveBlock2Ptr->bagPocket_Berries[i];
 
     // load mail.
     for (i = 0; i < MAIL_COUNT; i++)
@@ -238,23 +242,23 @@ void SavePlayerBag(void)
 
     // save player items.
     for (i = 0; i < BAG_ITEMS_COUNT; i++)
-        gSaveBlock1Ptr->bagPocket_Items[i] = gLoadedSaveData.items[i];
+        gSaveBlock2Ptr->bagPocket_Items[i] = gLoadedSaveData.items[i];
 
     // save player key items.
     for (i = 0; i < BAG_KEYITEMS_COUNT; i++)
-        gSaveBlock1Ptr->bagPocket_KeyItems[i] = gLoadedSaveData.keyItems[i];
+        gSaveBlock2Ptr->bagPocket_KeyItems[i] = gLoadedSaveData.keyItems[i];
 
     // save player pokeballs.
     for (i = 0; i < BAG_POKEBALLS_COUNT; i++)
-        gSaveBlock1Ptr->bagPocket_PokeBalls[i] = gLoadedSaveData.pokeBalls[i];
+        gSaveBlock2Ptr->bagPocket_PokeBalls[i] = gLoadedSaveData.pokeBalls[i];
 
     // save player TMs and HMs.
     for (i = 0; i < BAG_TMHM_COUNT; i++)
-        gSaveBlock1Ptr->bagPocket_TMHM[i] = gLoadedSaveData.TMsHMs[i];
+        gSaveBlock2Ptr->bagPocket_TMHM[i] = gLoadedSaveData.TMsHMs[i];
 
     // save player berries.
     for (i = 0; i < BAG_BERRIES_COUNT; i++)
-        gSaveBlock1Ptr->bagPocket_Berries[i] = gLoadedSaveData.berries[i];
+        gSaveBlock2Ptr->bagPocket_Berries[i] = gLoadedSaveData.berries[i];
 
     // save mail.
     for (i = 0; i < MAIL_COUNT; i++)

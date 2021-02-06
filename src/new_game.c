@@ -77,7 +77,7 @@ static void ClearPokedexFlags(void)
 
 static void sub_80549D4(void)
 {
-    CpuFill32(0, &gSaveBlock2Ptr->battleTower, sizeof(gSaveBlock2Ptr->battleTower));
+    CpuFill32(0, &gSaveBlockDummyPtr->battleTower, sizeof(gSaveBlockDummyPtr->battleTower));
 }
 
 static void WarpToPlayersRoom(void)
@@ -136,7 +136,7 @@ void NewGameInitData(void)
     ZeroPlayerPartyMons();
     ResetPokemonStorageSystem();
     ClearRoamerData();
-    gSaveBlock1Ptr->registeredItem = 0;
+    gSaveBlock2Ptr->registeredItem = 0;
     ClearBag();
     NewGameInitPCItems();
     sub_809C794();
