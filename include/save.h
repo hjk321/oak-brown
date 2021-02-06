@@ -50,14 +50,14 @@ struct SaveSectionOffsets
 };
 
 // Emerald changes this definition to be the sectors per slot.
-#define NUM_SECTORS_PER_SAVE_SLOT 14  // Number of sectors occupied by a save slot
+#define NUM_SECTORS_PER_SAVE_SLOT 15  // Number of sectors occupied by a save slot
 
 #define UNKNOWN_CHECK_VALUE 0x8012025
 
 #define SECTOR_SAVE1(n)  (n)
 #define SECTOR_SAVE2(n)  ((n) + NUM_SECTORS_PER_SAVE_SLOT)
 #define SECTOR_HOF(n)    ((n) + 2 * NUM_SECTORS_PER_SAVE_SLOT)
-#define SECTOR_TTOWER(n) ((n) + 2 * NUM_SECTORS_PER_SAVE_SLOT + 2)
+#define SECTOR_TTOWER(n) ((n) + 2 * NUM_SECTORS_PER_SAVE_SLOT + 2) // Invalid
 
 // SetSectorDamagedStatus states
 enum

@@ -22,18 +22,9 @@
 /*
  * Sector Layout:
  *
- * Sectors 0 - 13:      Save Slot 1
- * Sectors 14 - 27:     Save Slot 2
- * Sectors 28 - 29:     Hall of Fame
- * Sector 30:           e-Reader/Mystery Gift Stuff (note: e-Reader is deprecated in Emerald US)
- * Sector 31:           Recorded Battle
- *
- * There are two save slots for saving the player's game data. We alternate between
- * them each time the game is saved, so that if the current save slot is corrupt,
- * we can load the previous one. We also rotate the sectors in each save slot
- * so that the same data is not always being written to the same sector. This
- * might be done to reduce wear on the flash memory, but I'm not sure, since all
- * 14 sectors get written anyway.
+ * Sectors 0 - 14:      Save Slot 1
+ * Sectors 15 - 29:     Save Slot 2
+ * Sectors 30 - 31:     Hall of Fame
  */
 
 // (u8 *)structure was removed from the first statement of the macro in Emerald
@@ -54,7 +45,6 @@ const struct SaveSectionOffsets gSaveSectionOffsets[] =
     SAVEBLOCK_CHUNK(struct SaveBlock1, 0),
     SAVEBLOCK_CHUNK(struct SaveBlock1, 1),
     SAVEBLOCK_CHUNK(struct SaveBlock1, 2),
-    SAVEBLOCK_CHUNK(struct SaveBlock1, 3),
 
     SAVEBLOCK_CHUNK(struct PokemonStorage, 0),
     SAVEBLOCK_CHUNK(struct PokemonStorage, 1),
@@ -64,7 +54,9 @@ const struct SaveSectionOffsets gSaveSectionOffsets[] =
     SAVEBLOCK_CHUNK(struct PokemonStorage, 5),
     SAVEBLOCK_CHUNK(struct PokemonStorage, 6),
     SAVEBLOCK_CHUNK(struct PokemonStorage, 7),
-    SAVEBLOCK_CHUNK(struct PokemonStorage, 8)
+    SAVEBLOCK_CHUNK(struct PokemonStorage, 8),
+    SAVEBLOCK_CHUNK(struct PokemonStorage, 9),
+    SAVEBLOCK_CHUNK(struct PokemonStorage, 10),
 };
 
 // Sector num to begin writing save data. Sectors are rotated each time the game is saved. (possibly to avoid wear on flash memory?)
@@ -625,13 +617,13 @@ void UpdateSaveAddresses(void)
     gRamSaveSectionLocations[i].data = (void*)(gSaveBlock2Ptr) + gSaveSectionOffsets[i].toAdd;
     gRamSaveSectionLocations[i].size = gSaveSectionOffsets[i].size;
 
-    for (i = 1; i < 5; i++)
+    for (i = 1; i < 4; i++)
     {
         gRamSaveSectionLocations[i].data = (void*)(gSaveBlock1Ptr) + gSaveSectionOffsets[i].toAdd;
         gRamSaveSectionLocations[i].size = gSaveSectionOffsets[i].size;
     }
 
-    for (i = 5; i < 14; i++)
+    for (i = 4; i < 15; i++)
     {
         gRamSaveSectionLocations[i].data = (void*)(gPokemonStoragePtr) + gSaveSectionOffsets[i].toAdd;
         gRamSaveSectionLocations[i].size = gSaveSectionOffsets[i].size;
@@ -804,115 +796,19 @@ u8 Save_LoadGameData(u8 saveType)
 
 u32 TryCopySpecialSaveSection(u8 sector, u8* dst)
 {
-    s32 i;
-    s32 size;
-    u8* savData;
-
-    if (sector != SECTOR_TTOWER(0) && sector != SECTOR_TTOWER(1))
-        return 0xFF;
-    ReadFlash(sector, 0, (u8 *)&gSaveDataBuffer, sizeof(struct SaveSection));
-    if (*(u32*)(&gSaveDataBuffer.data[0]) != 0xB39D)
-        return 0xFF;
-    // copies whole save section except u32 counter
-    i = 0;
-    size = 0xFFB;
-    savData = &gSaveDataBuffer.data[4];
-    for (; i <= size; i++)
-        dst[i] = savData[i];
+    // Let's not and say we did
     return 1;
 }
 
 u32 TryWriteSpecialSaveSection(u8 sector, u8* src)
 {
-    s32 i;
-    s32 size;
-    u8* savData;
-    void* savDataBuffer;
-
-    if (sector != SECTOR_TTOWER(0) && sector != SECTOR_TTOWER(1))
-        return 0xFF;
-
-    savDataBuffer = &gSaveDataBuffer;
-    *(u32*)(savDataBuffer) = 0xB39D;
-
-    // copies whole save section except u32 counter
-    i = 0;
-    size = 0xFFB;
-    savData = &gSaveDataBuffer.data[4];
-    for (; i <= size; i++)
-        savData[i] = src[i];
-    if (ProgramFlashSectorAndVerify(sector, savDataBuffer) != 0)
-        return 0xFF;
+    // Let's not and say we did
     return 1;
 }
 
 void Task_SaveGame_UpdatedLinkRecords(u8 taskId)
 {
-    switch (gTasks[taskId].data[0])
-    {
-    case 0:
-        gSoftResetDisabled = TRUE;
-        gTasks[taskId].data[0] = 1;
-        break;
-    case 1:
-        PrepareSendLinkCmd2FFE_or_RfuCmd6600();
-        gTasks[taskId].data[0] = 2;
-        break;
-    case 2:
-        if (IsLinkTaskFinished())
-        {
-            save_serialize_map();
-            gTasks[taskId].data[0] = 3;
-        }
-        break;
-    case 3:
-        SetContinueGameWarpStatusToDynamicWarp();
-        sub_80DA3AC();
-        gTasks[taskId].data[0] = 4;
-        break;
-    case 4:
-        if (++gTasks[taskId].data[1] == 5)
-        {
-            gTasks[taskId].data[1] = 0;
-            gTasks[taskId].data[0] = 5;
-        }
-        break;
-    case 5:
-        if (sub_80DA3D8())
-            gTasks[taskId].data[0] = 6;
-        else
-            gTasks[taskId].data[0] = 4;
-        break;
-    case 6:
-        sub_80DA40C();
-        gTasks[taskId].data[0] = 7;
-        break;
-    case 7:
-        ClearContinueGameWarpStatus2();
-        PrepareSendLinkCmd2FFE_or_RfuCmd6600();
-        gTasks[taskId].data[0] = 8;
-        break;
-    case 8:
-        if (IsLinkTaskFinished())
-        {
-            sub_80DA434();
-            gTasks[taskId].data[0] = 9;
-        }
-        break;
-    case 9:
-        PrepareSendLinkCmd2FFE_or_RfuCmd6600();
-        gTasks[taskId].data[0] = 10;
-        break;
-    case 10:
-        if (IsLinkTaskFinished())
-            gTasks[taskId].data[0]++;
-        break;
-    case 11:
-        if (++gTasks[taskId].data[1] > 5)
-        {
-            gSoftResetDisabled = FALSE;
-            DestroyTask(taskId);
-        }
-        break;
-    }
+    // Dummy this out just in case
+    gSoftResetDisabled = FALSE;
+    DestroyTask(taskId);
 }
