@@ -3,7 +3,7 @@
 
 #include "global.h"
 
-#define TOTAL_BOXES_COUNT       14
+#define TOTAL_BOXES_COUNT       22
 #define IN_BOX_COUNT            30
 
 enum

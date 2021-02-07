@@ -4,24 +4,14 @@
 #include "global.h"
 #include "sprite.h"
 #include "constants/pokemon.h"
+#include "pokemon_storage_system.h"
 
-struct PokemonSubstruct0
+struct BoxPokemon
 {
-    u16 species;
-    u16 heldItem;
-    u32 experience;
-    u8 ppBonuses;
-    u8 friendship;
-};
-
-struct PokemonSubstruct1
-{
-    u16 moves[4];
-    u8 pp[4];
-};
-
-struct PokemonSubstruct2
-{
+    u8 nickname[POKEMON_NAME_LENGTH];
+    u8 otName[OT_NAME_LENGTH];
+    u8 pokerus;
+    u8 metLocation;
     u8 hpEV;
     u8 attackEV;
     u8 defenseEV;
@@ -34,77 +24,52 @@ struct PokemonSubstruct2
     u8 smart;
     u8 tough;
     u8 sheen;
-};
-
-struct PokemonSubstruct3
-{
- /* 0x00 */ u8 pokerus;
- /* 0x01 */ u8 metLocation;
-
- /* 0x02 */ u16 metLevel:7;
- /* 0x02 */ u16 metGame:4;
- /* 0x03 */ u16 pokeball:4;
- /* 0x03 */ u16 otGender:1;
-
- /* 0x04 */ u32 hpIV:5;
- /* 0x04 */ u32 attackIV:5;
- /* 0x05 */ u32 defenseIV:5;
- /* 0x05 */ u32 speedIV:5;
- /* 0x05 */ u32 spAttackIV:5;
- /* 0x06 */ u32 spDefenseIV:5;
- /* 0x07 */ u32 isEgg:1;
- /* 0x07 */ u32 abilityNum:1;
-
- /* 0x08 */ u32 coolRibbon:3;
- /* 0x08 */ u32 beautyRibbon:3;
- /* 0x08 */ u32 cuteRibbon:3;
- /* 0x09 */ u32 smartRibbon:3;
- /* 0x09 */ u32 toughRibbon:3;
- /* 0x09 */ u32 championRibbon:1;
- /* 0x0A */ u32 winningRibbon:1;
- /* 0x0A */ u32 victoryRibbon:1;
- /* 0x0A */ u32 artistRibbon:1;
- /* 0x0A */ u32 effortRibbon:1;
- /* 0x0A */ u32 giftRibbon1:1;
- /* 0x0A */ u32 giftRibbon2:1;
- /* 0x0A */ u32 giftRibbon3:1;
- /* 0x0A */ u32 giftRibbon4:1;
- /* 0x0B */ u32 giftRibbon5:1;
- /* 0x0B */ u32 giftRibbon6:1;
- /* 0x0B */ u32 giftRibbon7:1;
- /* 0x0B */ u32 fatefulEncounter:4;
- /* 0x0B */ u32 obedient:1;
-};
-
-union PokemonSubstruct
-{
-    struct PokemonSubstruct0 type0;
-    struct PokemonSubstruct1 type1;
-    struct PokemonSubstruct2 type2;
-    struct PokemonSubstruct3 type3;
-    u16 raw[6];
-};
-
-struct BoxPokemon
-{
+    u8 ppBonuses;
+    u8 friendship;
     u32 personality;
     u32 otId;
-    u8 nickname[POKEMON_NAME_LENGTH];
-    u8 language;
-    u8 isBadEgg:1;
-    u8 hasSpecies:1;
-    u8 isEgg:1;
-    u8 unused:5;
-    u8 otName[OT_NAME_LENGTH];
-    u8 markings;
-    u16 checksum;
-    u16 unknown;
+    u8 isEgg;
 
-    union
-    {
-        u32 raw[12];
-        union PokemonSubstruct substructs[4];
-    } secure;
+    u16 species:10;
+    u16 hpIV:5;
+    u16 championRibbon:1;
+
+    u16 heldItem:10;
+    u16 attackIV:5;
+    u16 winningRibbon:1;
+
+    u32 experience:21;
+    u32 move1:10;
+    u32 victoryRibbon:1;
+
+    u16 move2:10;
+    u16 defenseIV:5;
+    u16 artistRibbon:1;
+
+    u16 move3:10;
+    u16 speedIV:5;
+    u16 effortRibbon:1;
+
+    u16 move4:10;
+    u16 spAttackIV:5;
+    u16 giftRibbon1:1;
+
+    u16 metLevel:7;
+    u16 spDefenseIV:5;
+    u16 markings:4;
+
+    u16 coolRibbon:3;
+    u16 beautyRibbon:3;
+    u16 cuteRibbon:3;
+    u16 smartRibbon:3;
+    u16 toughRibbon:3;
+    u16 giftRibbon2:1;
+
+    u8 giftRibbon3:1;
+    u8 giftRibbon4:1;
+    u8 otGender:1;
+    u8 obedient:1;
+    u8 pokeball:4;
 };
 
 struct Pokemon
@@ -125,9 +90,9 @@ struct Pokemon
 struct PokemonStorage
 {
     /*0x0000*/ u8 currentBox;
-    /*0x0001*/ struct BoxPokemon boxes[14][30];
-    /*0x8344*/ u8 boxNames[14][BOX_NAME_LENGTH + 1];
-    /*0x83C2*/ u8 boxWallpapers[14];
+    /*0x0001*/ struct BoxPokemon boxes[TOTAL_BOXES_COUNT][IN_BOX_COUNT];
+    /*0x8344*/ u8 boxNames[TOTAL_BOXES_COUNT][BOX_NAME_LENGTH + 1];
+    /*0x83C2*/ u8 boxWallpapers[TOTAL_BOXES_COUNT];
 };
 
 struct BattleTowerPokemon
