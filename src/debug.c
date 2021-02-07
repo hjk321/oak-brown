@@ -11,29 +11,42 @@
 #include "strings.h"
 #include "task.h"
 #include "constants/songs.h"
+#include "pokemon_storage_system.h"
+#include "constants/species.h"
 
 #define DEBUG_MAIN_MENU_HEIGHT 7
-#define DEBUG_MAIN_MENU_WIDTH 11
+#define DEBUG_MAIN_MENU_WIDTH 13
 
 void Debug_ShowMainMenu(void);
 static void Debug_DestroyMainMenu(u8);
 static void DebugAction_Cancel(u8);
 static void DebugTask_HandleMainMenuInput(u8);
 
+static void DebugAction_LivingDex(u8);
+static void DebugAction_PruneParty(u8);
+
 enum {
     DEBUG_MENU_ITEM_CANCEL,
+    DEBUG_MENU_ITEM_LIVINGDEX,
+    DEBUG_MENU_ITEM_PRUNEPARTY,
 };
 
 static const u8 gDebugText_Cancel[] = _("Cancel");
+static const u8 gDebugText_LivingDex[] = _("Living Dex");
+static const u8 gDebugText_PruneParty[] = _("Prune Party");
 
 static const struct ListMenuItem sDebugMenuItems[] =
 {
-    [DEBUG_MENU_ITEM_CANCEL] = {gDebugText_Cancel, DEBUG_MENU_ITEM_CANCEL}
+    [DEBUG_MENU_ITEM_CANCEL] = {gDebugText_Cancel, DEBUG_MENU_ITEM_CANCEL},
+    [DEBUG_MENU_ITEM_LIVINGDEX] = {gDebugText_LivingDex, DEBUG_MENU_ITEM_LIVINGDEX},
+    [DEBUG_MENU_ITEM_PRUNEPARTY] = {gDebugText_PruneParty, DEBUG_MENU_ITEM_PRUNEPARTY},
 };
 
 static void (*const sDebugMenuActions[])(u8) =
 {
-    [DEBUG_MENU_ITEM_CANCEL] = DebugAction_Cancel
+    [DEBUG_MENU_ITEM_CANCEL] = DebugAction_Cancel,
+    [DEBUG_MENU_ITEM_LIVINGDEX] = DebugAction_LivingDex,
+    [DEBUG_MENU_ITEM_PRUNEPARTY] = DebugAction_PruneParty,
 };
 
 static const struct WindowTemplate sDebugMenuWindowTemplate =
@@ -124,6 +137,52 @@ static void DebugTask_HandleMainMenuInput(u8 taskId)
 static void DebugAction_Cancel(u8 taskId)
 {
     Debug_DestroyMainMenu(taskId);
+}
+
+// Populates boxes with a living dex based on the level of your first party mon.
+static void DebugAction_LivingDex(u8 taskId)
+{
+    u8 level = 0;
+    u16 species = 1;
+    u8 obedience = TRUE;
+    u8 box = 0;
+    u8 pos = 0;
+    
+    Debug_DestroyMainMenu(taskId);
+    
+    level = GetMonData(&gSaveBlock1Ptr->playerParty[0], MON_DATA_LEVEL, NULL);
+    for (box = 0; box < TOTAL_BOXES_COUNT; box++)
+    {
+        for (pos = 0; pos < IN_BOX_COUNT; pos++)
+        {
+            if (species < SPECIES_EGG)
+            {
+                CreateBoxMonAt(box, pos, species, level, 30, FALSE, 0, 
+                    OT_ID_PLAYER_ID, 0);
+                SetBoxMonDataAt(box, pos, MON_DATA_OBEDIENCE, &obedience);
+            }
+            else
+                ZeroBoxMonAt(box, pos);
+            species++;
+            if (species == SPECIES_CELEBI + 1)
+                species = SPECIES_TREECKO;
+        }
+    }
+    PlaySE(SE_SAVE);
+}
+
+// Deletes party mons except the first
+static void DebugAction_PruneParty(u8 taskId)
+{
+    Debug_DestroyMainMenu(taskId);
+    
+    ZeroMonData(&gPlayerParty[1]);
+    ZeroMonData(&gPlayerParty[2]);
+    ZeroMonData(&gPlayerParty[3]);
+    ZeroMonData(&gPlayerParty[4]);
+    ZeroMonData(&gPlayerParty[5]);
+    gSaveBlock1Ptr->playerPartyCount = 1;
+    PlaySE(SE_PC_OFF);
 }
 
 #endif
