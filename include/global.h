@@ -689,8 +689,6 @@ struct TrainerNameRecord
 // Yes, this is extremely lazy. But it's the easiest way to free save space.
 struct SaveBlockDummy
 {
-    struct BattleTowerData battleTower;
-    struct QuestLog questLog[QUEST_LOG_SCENE_COUNT];
     struct RamScript ramScript;
 };
 
