@@ -2239,12 +2239,12 @@ void CreateBattleTowerMon(struct Pokemon *mon, struct BattleTowerPokemon *src)
     CalculateMonStats(mon);
 }
 
-static void CreateObedientMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId)
+static void CreateEventLegalMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId)
 {
-    bool32 obedient = TRUE;
+    bool32 isEventLegal = TRUE;
 
     CreateMon(mon, species, level, fixedIV, hasFixedPersonality, fixedPersonality, otIdType, fixedOtId);
-    SetMonData(mon, MON_DATA_OBEDIENCE, &obedient);
+    SetMonData(mon, MON_DATA_EVENT_LEGAL, &isEventLegal);
 }
 
 void sub_803E23C(struct Pokemon *mon, struct BattleTowerPokemon *dest)
@@ -3264,31 +3264,31 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
     case MON_DATA_EFFORT_RIBBON:
         retVal = boxMon->effortRibbon;
         break;
-    case MON_DATA_GIFT_RIBBON_1:
+    case MON_DATA_MARINE_RIBBON:
         retVal = boxMon->giftRibbon1;
         break;
-    case MON_DATA_GIFT_RIBBON_2:
+    case MON_DATA_LAND_RIBBON:
         retVal = boxMon->giftRibbon2;
         break;
-    case MON_DATA_GIFT_RIBBON_3:
+    case MON_DATA_SKY_RIBBON:
         retVal = boxMon->giftRibbon3;
         break;
-    case MON_DATA_GIFT_RIBBON_4:
+    case MON_DATA_COUNTRY_RIBBON:
         retVal = boxMon->giftRibbon4;
         break;
-    case MON_DATA_GIFT_RIBBON_5:
+    case MON_DATA_NATIONAL_RIBBON:
         retVal = FALSE;
         break;
-    case MON_DATA_GIFT_RIBBON_6:
+    case MON_DATA_EARTH_RIBBON:
         retVal = FALSE;
         break;
-    case MON_DATA_GIFT_RIBBON_7:
+    case MON_DATA_WORLD_RIBBON:
         retVal = FALSE;
         break;
-    case MON_DATA_FATEFUL_ENCOUNTER:
+    case MON_DATA_FILLER:
         retVal = 0;
         break;
-    case MON_DATA_OBEDIENCE:
+    case MON_DATA_EVENT_LEGAL:
         retVal = boxMon->obedient;
         break;
     case MON_DATA_SPECIES2:
@@ -3421,15 +3421,15 @@ void SetMonData(struct Pokemon *mon, s32 field, const void *dataArg)
     case MON_DATA_VICTORY_RIBBON:
     case MON_DATA_ARTIST_RIBBON:
     case MON_DATA_EFFORT_RIBBON:
-    case MON_DATA_GIFT_RIBBON_1:
-    case MON_DATA_GIFT_RIBBON_2:
-    case MON_DATA_GIFT_RIBBON_3:
-    case MON_DATA_GIFT_RIBBON_4:
-    case MON_DATA_GIFT_RIBBON_5:
-    case MON_DATA_GIFT_RIBBON_6:
-    case MON_DATA_GIFT_RIBBON_7:
-    case MON_DATA_FATEFUL_ENCOUNTER:
-    case MON_DATA_OBEDIENCE:
+    case MON_DATA_MARINE_RIBBON:
+    case MON_DATA_LAND_RIBBON:
+    case MON_DATA_SKY_RIBBON:
+    case MON_DATA_COUNTRY_RIBBON:
+    case MON_DATA_NATIONAL_RIBBON:
+    case MON_DATA_EARTH_RIBBON:
+    case MON_DATA_WORLD_RIBBON:
+    case MON_DATA_FILLER:
+    case MON_DATA_EVENT_LEGAL:
     case MON_DATA_KNOWN_MOVES:
     case MON_DATA_RIBBON_COUNT:
     case MON_DATA_RIBBONS:
@@ -3627,27 +3627,26 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
     case MON_DATA_EFFORT_RIBBON:
         SET8(boxMon->effortRibbon);
         break;
-    case MON_DATA_GIFT_RIBBON_1:
+    case MON_DATA_MARINE_RIBBON:
         SET8(boxMon->giftRibbon1);
         break;
-    case MON_DATA_GIFT_RIBBON_2:
+    case MON_DATA_LAND_RIBBON:
         SET8(boxMon->giftRibbon2);
         break;
-    case MON_DATA_GIFT_RIBBON_3:
+    case MON_DATA_SKY_RIBBON:
         SET8(boxMon->giftRibbon3);
         break;
-    case MON_DATA_GIFT_RIBBON_4:
+    case MON_DATA_COUNTRY_RIBBON:
         SET8(boxMon->giftRibbon4);
         break;
-    case MON_DATA_GIFT_RIBBON_5:
-    case MON_DATA_GIFT_RIBBON_6:
-    case MON_DATA_GIFT_RIBBON_7:
+    case MON_DATA_NATIONAL_RIBBON:
+    case MON_DATA_EARTH_RIBBON:
+    case MON_DATA_WORLD_RIBBON:
         break;
-    case MON_DATA_FATEFUL_ENCOUNTER:
+    case MON_DATA_FILLER:
         break;
-    case MON_DATA_OBEDIENCE:
+    case MON_DATA_EVENT_LEGAL:
         SET8(boxMon->obedient);
-        break;
     case MON_DATA_IVS:
     {
         u32 ivs = data[0] | (data[1] << 8) | (data[2] << 16) | (data[3] << 24);
@@ -6082,14 +6081,14 @@ u16 sub_80447F0(void)
     return gFacilityClassToTrainerClass[gLinkPlayerFacilityClasses[arrId]];
 }
 
-void CreateObedientEnemyMon(void)
+void CreateEventLegalEnemyMon(void)
 {
     s32 species = gSpecialVar_0x8004;
     s32 level = gSpecialVar_0x8005;
     s32 itemId = gSpecialVar_0x8006;
 
     ZeroEnemyPartyMons();
-    CreateObedientMon(&gEnemyParty[0], species, level, 32, 0, 0, 0, 0);
+    CreateEventLegalMon(&gEnemyParty[0], species, level, 32, 0, 0, 0, 0);
     if (itemId)
     {
         u8 heldItem[2];

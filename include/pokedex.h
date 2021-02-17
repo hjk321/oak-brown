@@ -21,7 +21,7 @@ enum
 
 struct PokedexEntry
 {
-    /*0x00*/ u8 categoryName[13];
+    /*0x00*/ u8 categoryName[14];
     /*0x0C*/ u16 height; //in decimeters
     /*0x0E*/ u16 weight; //in hectograms
     /*0x10*/ const u8 *description;
@@ -48,6 +48,6 @@ bool16 HasAllHoennMons(void);
 bool16 HasAllKantoMons(void);
 bool16 HasAllMons(void);
 
-u32 sub_8106B60(u16 species);
+u8 sub_8106B60(u16 species);
 
 #endif // GUARD_POKEDEX_H

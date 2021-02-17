@@ -159,7 +159,7 @@ static void DebugAction_LivingDex(u8 taskId)
             {
                 CreateBoxMonAt(box, pos, species, level, 30, FALSE, 0, 
                     OT_ID_PLAYER_ID, 0);
-                SetBoxMonDataAt(box, pos, MON_DATA_OBEDIENCE, &obedience);
+                SetBoxMonDataAt(box, pos, MON_DATA_EVENT_LEGAL, &obedience);
             }
             else
                 ZeroBoxMonAt(box, pos);

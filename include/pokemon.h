@@ -414,7 +414,7 @@ bool8 sub_804455C(u8 caseId, u8 battlerId);
 void SetDeoxysStats(void);
 u16 sub_80447AC(void);
 u16 sub_80447F0(void);
-void CreateObedientEnemyMon(void);
+void CreateEventLegalEnemyMon(void);
 void HandleSetPokedexFlag(u16 nationalNum, u8 caseId, u32 personality);
 bool8 CheckBattleTypeGhost(struct Pokemon *mon, u8 bank);
 struct OakSpeechNidoranFStruct *OakSpeechNidoranFSetup(u8 battlePosition, bool8 enable);
