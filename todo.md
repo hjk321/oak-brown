@@ -1,6 +1,5 @@
 ## TODO:
 
-* FIX PRIZE MONEY!
 * Pokedex entries updated text
 * Pokedex size comparisons
 * Tutor moves
@@ -9,7 +8,6 @@
 * Fix melloetta munchlax and spiritomb icon pal
 * Versus seeker
 * fame checker
-* Continue recaps
 * Decap pokedex_entries.h
 * pokedex_orders.h
 * Update base stats
@@ -27,4 +25,4 @@
 * Missingno special type effectiveness (Bird Type?)
 * Eeveelutions
 * New Pokeballs, and "alternate" class TrainerBall types
-* Add >4 regionmap support
+* Fade in/out Gligar in Tim Intro. Change textbox pal

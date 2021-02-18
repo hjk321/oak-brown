@@ -899,33 +899,24 @@ static void Task_OakSpeech12(u8 taskId)
 
     if (!IsTextPrinterActive(0))
     {
-        if (data[3] != 0)
-            data[3]--;
-        // else {
-        spriteId = gTasks[taskId].data[4];
-        gSprites[spriteId].invisible = FALSE;
-        gSprites[spriteId].data[0] = 0;
-        CreatePokeballSpriteForOaksSpeech(spriteId, gSprites[spriteId].oam.paletteNum, 0x88, 0x50, 0, 0, 32, 0xFFFF1FFF);
-        gTasks[taskId].func = Task_OakSpeech13;
-        gTasks[taskId].data[3] = 0;
-        // }
+        gTasks[taskId].func = Task_OakSpeech17;
     }
 }
 
 static void Task_OakSpeech13(u8 taskId)
 {
-    if (IsCryFinished())
+    if (gTasks[taskId].data[3] >= 100)
+        gTasks[taskId].func = Task_OakSpeech14;
+    else if (gTasks[taskId].data[3] < 0x4000)
     {
-        if (gTasks[taskId].data[3] >= 222)
-            gTasks[taskId].func = Task_OakSpeech14;
-    }
-    if (gTasks[taskId].data[3] < 0x4000)
-    {
+        if (gTasks[taskId].data[3] == 0)
+        {
+            PlayCry1(SPECIES_GLIGAR, 0);
+        }
         gTasks[taskId].data[3]++;
-        if (gTasks[taskId].data[3] == 100)
+        if (gTasks[taskId].data[3] == 50)
         {
             OaksSpeechPrintMessage(gOakText_WorldInhabited2, sOakSpeechResources->textSpeed);
-            PlayCry1(SPECIES_GLIGAR, 0);
         }
     }
 }
@@ -947,7 +938,7 @@ static void Task_OakSpeech15(u8 taskId)
     {
         ClearDialogWindowAndFrame(0, 1);
         spriteId = gTasks[taskId].data[4];
-        gTasks[taskId].data[6] = CreateTradePokeballOakSprite(spriteId, gSprites[spriteId].oam.paletteNum, 0x88, 0x50, 0, 0, 32, 0xFFFF1F3F);
+        gSprites[gTasks[taskId].data[4]].invisible = TRUE;
         gTasks[taskId].data[3] = 48;
         gTasks[taskId].data[0] = 64;
         gTasks[taskId].func = Task_OakSpeech16;
@@ -960,11 +951,6 @@ static void Task_OakSpeech16(u8 taskId)
 
     if (data[0] != 0)
     {
-        if (data[0] < 24)
-        {
-            gSprites[data[4]].pos1.y += 1 * (data[4] % 3 != 0);
-            gSprites[data[4]].pos1.y -= 1;
-        }
         data[0]--;
     }
     else
@@ -981,7 +967,7 @@ static void Task_OakSpeech16(u8 taskId)
         else
         {
             OaksSpeechPrintMessage(gOakText_TellMeALittleAboutYourself, sOakSpeechResources->textSpeed);
-            gTasks[taskId].func = Task_OakSpeech17;
+            gTasks[taskId].func = Task_OakSpeech22;
         }
     }
 }
@@ -1012,7 +998,13 @@ static void Task_OakSpeech18(u8 taskId)
             data[1] = -60;
             DestroyOaksSpeechTrainerPic();
             gSaveBlock2Ptr->playerGender = MALE;
-            gTasks[taskId].func = Task_OakSpeech22;
+            // Load Pokemon
+            gSprites[gTasks[taskId].data[4]].pos1.x = 120;
+            gSprites[gTasks[taskId].data[4]].pos1.y = 80;
+            gSprites[gTasks[taskId].data[4]].data[0] = 0;
+            gSprites[gTasks[taskId].data[4]].invisible = FALSE;
+            gTasks[taskId].data[3] = 0;
+            gTasks[taskId].func = Task_OakSpeech13;
         }
     }
 }
@@ -1084,16 +1076,18 @@ static void Task_OakSpeech22(u8 taskId)
 static void Task_OakSpeech23(u8 taskId)
 {
     s16 * data = gTasks[taskId].data;
-
-    if (data[2] != 0)
+    if (!IsTextPrinterActive(0))
     {
-        if (data[3] != 0)
-            data[3]--;
-        else
+        if (data[2] != 0)
         {
-            data[1] = 0;
-            OaksSpeechPrintMessage(gOakText_AskPlayerName, sOakSpeechResources->textSpeed);
-            gTasks[taskId].func = Task_OakSpeech35;
+            if (data[3] != 0)
+                data[3]--;
+            else
+            {
+                data[1] = 0;
+                OaksSpeechPrintMessage(gOakText_AskPlayerName, sOakSpeechResources->textSpeed);
+                gTasks[taskId].func = Task_OakSpeech35;
+            }
         }
     }
 }
