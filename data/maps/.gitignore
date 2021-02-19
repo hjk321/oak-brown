@@ -3,7 +3,11 @@ events.inc
 groups.inc
 headers.inc
 scripts.inc
+text.inc
+text.pory
 **/connections.inc
 **/events.inc
 **/header.inc
 **/scripts.inc
+**/text.inc
+**/text.pory
