@@ -2,6 +2,8 @@ connections.inc
 events.inc
 groups.inc
 headers.inc
+scripts.inc
 **/connections.inc
 **/events.inc
 **/header.inc
+**/scripts.inc
