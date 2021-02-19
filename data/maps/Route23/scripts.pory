@@ -1,4 +1,11 @@
 raw `
+Route23_Text_VictoryRoadGateSign:: @ 8188C19
+    .string "VICTORY ROAD GATE -\n"
+    .string "POKéMON LEAGUE$"
+
+`
+
+raw `
 .set LOCALID_CASCADE_BADGE_GUARD, 1
 .set LOCALID_THUNDER_BADGE_GUARD, 2
 .set LOCALID_RAINBOW_BADGE_GUARD, 3

@@ -1,4 +1,11 @@
 raw `
+Route7_Text_UndergroundPathSign:: @ 8184097
+    .string "UNDERGROUND PATH\n"
+    .string "CELADON CITY - LAVENDER TOWN$"
+
+`
+
+raw `
 Route7_MapScripts:: @ 8167FBB
 	.byte 0
 

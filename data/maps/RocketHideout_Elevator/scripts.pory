@@ -1,4 +1,10 @@
 raw `
+RocketHideout_Elevator_Text_AppearsToNeedAKey:: @ 81754DD
+    .string "It appears to need a key.$"
+
+`
+
+raw `
 RocketHideout_Elevator_MapScripts:: @ 81614D8
 	.byte 0
 

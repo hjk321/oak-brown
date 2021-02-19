@@ -1,4 +1,10 @@
 raw `
+CeruleanCave_B1F_Text_Mew:: @ 8177F9F
+    .string "Mew!$"
+
+`
+
+raw `
 CeruleanCave_B1F_MapScripts:: @ 81624BE
 	map_script MAP_SCRIPT_ON_RESUME, CeruleanCave_B1F_OnResume
 	map_script MAP_SCRIPT_ON_TRANSITION, CeruleanCave_B1F_OnTransition

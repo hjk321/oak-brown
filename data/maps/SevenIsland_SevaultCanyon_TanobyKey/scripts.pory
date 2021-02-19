@@ -1,4 +1,11 @@
 raw `
+SevenIsland_SevaultCanyon_TanobyKey_Text_MysteriousRumbleFarAway:: @ 817D31B
+    .string "A mysterious rumble echoed\n"
+    .string "somewhere far away.$"
+
+`
+
+raw `
 .set LOCALID_BOULDER1, 1
 .set LOCALID_BOULDER2, 2
 .set LOCALID_BOULDER3, 3

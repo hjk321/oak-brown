@@ -1,4 +1,10 @@
 raw `
+CeladonCity_Condominiums_Roof_Text_IKnowEverything:: @ 81964C4
+    .string "I KNOW EVERYTHING!$"
+
+`
+
+raw `
 CeladonCity_Condominiums_Roof_MapScripts:: @ 816C459
 	.byte 0
 

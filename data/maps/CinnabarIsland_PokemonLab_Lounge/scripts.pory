@@ -1,4 +1,13 @@
 raw `
+CinnabarIsland_PokemonLab_Lounge_Text_FoundFossilInMtMoon:: @ 8199FB3
+    .string "I found this most remarkable fossil\n"
+    .string "inside MT. MOON.\p"
+    .string "I think it's of a rare, prehistoric\n"
+    .string "POKéMON.$"
+
+`
+
+raw `
 CinnabarIsland_PokemonLab_Lounge_MapScripts:: @ 816E2B8
 	.byte 0
 

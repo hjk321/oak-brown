@@ -1,4 +1,10 @@
 raw `
+MtEmber_RubyPath_B3F_Text_FoundARuby:: @ 817ADC5
+    .string "{PLAYER} found a RUBY!$"
+
+`
+
+raw `
 .set LOCALID_RUBY, 1
 
 MtEmber_RubyPath_B3F_MapScripts:: @ 8163C48

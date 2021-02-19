@@ -1,4 +1,10 @@
 raw `
+CeladonCity_Condominiums_2F_Text_GameFreakMeetingRoom:: @ 81962A7
+    .string "GAME FREAK Meeting Room$"
+
+`
+
+raw `
 CeladonCity_Condominiums_2F_MapScripts:: @ 816C3D0
 	.byte 0
 
