@@ -1,0 +1,44 @@
+{
+  "id": "MAP_SEASHORE_CITY",
+  "name": "SeashoreCity",
+  "layout": "LAYOUT_SEASHORE_CITY",
+  "music": "MUS_PEWTER",
+  "region_map_section": "MAPSEC_PALLET_TOWN",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_CITY",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 33,
+      "y": 34,
+      "elevation": 0,
+      "dest_map": "MAP_SEASHORE_CITY_PLAYERS_HOUSE_1F",
+      "dest_warp_id": 1
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+    {
+      "type": "hidden_item",
+      "x": 38,
+      "y": 18,
+      "elevation": 3,
+      "item": "ITEM_RARE_CANDY",
+      "flag": "FLAG_HIDE_ROUTE2_ETHER",
+      "quantity": 1,
+      "underfoot": false
+    }
+  ]
+}

@@ -82,7 +82,7 @@ static void sub_80549D4(void)
 
 static void WarpToPlayersRoom(void)
 {
-    SetWarpDestination(MAP_GROUP(PALLET_TOWN_PLAYERS_HOUSE_2F), MAP_NUM(PALLET_TOWN_PLAYERS_HOUSE_2F), -1, 6, 6);
+    SetWarpDestination(MAP_GROUP(SEASHORE_CITY_PLAYERS_HOUSE_2F), MAP_NUM(SEASHORE_CITY_PLAYERS_HOUSE_2F), -1, 3, 6);
     WarpIntoMap();
 }
 

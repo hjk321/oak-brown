@@ -515,6 +515,9 @@
 
 // Map Group 42
 #define MAP_SEVEN_ISLAND_SEVAULT_CANYON_HOUSE (0 | (42 << 8))
+#define MAP_SEASHORE_CITY_PLAYERS_HOUSE_2F    (1 | (42 << 8))
+#define MAP_SEASHORE_CITY_PLAYERS_HOUSE_1F    (2 | (42 << 8))
+#define MAP_SEASHORE_CITY                     (3 | (42 << 8))
 
 #define MAP_GROUPS_COUNT 43
 

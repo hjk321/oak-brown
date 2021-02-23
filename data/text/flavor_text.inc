@@ -9,7 +9,7 @@ Text_NothingButPokemonBooks:: @ 81C0DD4
 	.string "ポケモンの　ほん　ばかりだ$"
 
 Text_ATownMap:: @ 81C0DF1
-	.string "A TOWN MAP.$"
+	.string "It's a map of the surrounding regions.$"
 
 gUnknown_81C0DFD:: @ 81C0DFD
 	.string "Wow!\n"

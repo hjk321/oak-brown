@@ -1,0 +1,20 @@
+mapscripts SeashoreCity_PlayersHouse_2F_MapScripts {
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE: PalletTown_PlayersHouse_2F_OnWarp
+}
+
+script SeashoreCity_PlayersHouse_2F_PC {
+    lockall
+    setvar(VAR_0x8004, 1)
+	special(AnimatePcTurnOn)
+	playse(SE_PC_ON)
+	msgbox(Text_PlayerBootedUpPC)
+	special(BedroomPC)
+	waitstate
+	releaseall
+}
+
+script SeashoreCity_PlayersHouse_2F_NES {
+    lock
+    msgbox(format("{PLAYER} is playing the SNES!\n...Okay!\lIt's time to go!"))
+    release
+}

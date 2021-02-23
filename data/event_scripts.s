@@ -1068,3 +1068,9 @@ Text_TestMsg:: @ 81ACD45
 	.include "data/text/save.inc"
 	.include "data/text/new_game_intro.inc"
 	.include "data/text/pokedude.inc"
+
+	.include "data/maps/SeashoreCity_PlayersHouse_2F/scripts.inc"
+
+	.include "data/maps/SeashoreCity_PlayersHouse_1F/scripts.inc"
+
+	.include "data/maps/SeashoreCity/scripts.inc"
