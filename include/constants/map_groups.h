@@ -518,6 +518,7 @@
 #define MAP_SEASHORE_CITY_PLAYERS_HOUSE_2F    (1 | (42 << 8))
 #define MAP_SEASHORE_CITY_PLAYERS_HOUSE_1F    (2 | (42 << 8))
 #define MAP_SEASHORE_CITY                     (3 | (42 << 8))
+#define MAP_SEASHORE_CITY_MURAS_HOUSE         (4 | (42 << 8))
 
 #define MAP_GROUPS_COUNT 43
 

@@ -4416,6 +4416,18 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/SeashoreCity/border.bin",
       "blockdata_filepath": "data/layouts/SeashoreCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEASHORE_CITY_MURAS_HOUSE",
+      "name": "SeashoreCity_MurasHouse_Layout",
+      "width": 10,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_FanClubDaycare",
+      "border_filepath": "data/layouts/SeashoreCity_MurasHouse/border.bin",
+      "blockdata_filepath": "data/layouts/SeashoreCity_MurasHouse/map.bin"
     }
   ]
 }

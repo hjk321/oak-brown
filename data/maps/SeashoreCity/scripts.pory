@@ -1,1 +1,35 @@
 mapscripts SeashoreCity_MapScripts {}
+
+script SeashoreCity_OldMan {
+    lock
+    faceplayer
+    msgbox(format("You should never be afraid to follow your dreams.\pBy attempting to reach your goals, things might not work out the way you expect, of course…\p…but you may end up accomplishing something else, instead!\pYou never know where you might end\nup!"))
+    release
+}
+
+script SeashoreCity_YoungBoy {
+    lock
+    faceplayer
+    message(format("Hey! Are you going to become a\nPokémon trainer, {PLAYER}?"))
+    waitmessage
+    yesnobox(2, 2)
+    if (var(VAR_RESULT)) {
+        msgbox(format("Cool! I'm going to be one soon as\nwell!\pIt's very hard, but rewarding!"))
+    } else {
+        msgbox("Well, why not?")
+    }
+    release
+}
+
+script SeashoreCity_Lass {
+    lock
+    faceplayer
+    msgbox("Are those new shoes?\pTry running with them by holding {B_BUTTON}!")
+    release
+}
+
+script SeashoreCity_Sign {
+    lock
+    msgbox(format("Seashore City\pWhere waves of new journeys begin their long travels."))
+    release
+}

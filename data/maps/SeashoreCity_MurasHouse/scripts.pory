@@ -1,0 +1,35 @@
+mapscripts SeashoreCity_MurasHouse_MapScripts {}
+
+script SeashoreCity_MurasHouse_Speary {
+    lock
+    faceplayer
+    playmoncry(SPECIES_SPEAROW, 0)
+    msgbox(format("Speary: Tetweet!"))
+    release
+}
+
+script SeashoreCity_MurasHouse_Dad {
+    lock
+    faceplayer
+    if (!flag(FLAG_SYS_POKEMON_GET)) {
+        msgbox(format("My son is leaving today, like you are.\pHe goes by the name of Mura!"))
+    } elif (!flag(FLAG_BADGE01_GET)) {
+        msgbox(format("Ohohoh! Your first Pokémon battle was with Mura? How did it go?"))
+    } else {
+        msgbox(format("Is Mura doing well on his journey? I wish he'd call home more often."))
+    }
+    release
+}
+
+script SeashoreCity_MurasHouse_Sister {
+    lock
+    faceplayer
+    msgbox(format("My brother is gone on a long journey!"))
+    release
+}
+
+script SeashoreCity_MurasHouse_SpearySign {
+    lock
+    msgbox(format("It's some sort of adoption certificate for a Pokémon.\pName: Speary\nSpecies: Spearow\lLevel: 3\lGender: Male"))
+    release
+}

@@ -2,7 +2,7 @@ mapscripts SeashoreCity_PlayersHouse_1F_MapScripts {}
 
 script SeashoreCity_PlayersHouse_1F_TV {
     lock
-    msgbox("There's a movie playing on TV. Four\nboys are walking on railroad tracks.\p...I'd better go, too.")
+    msgbox("There's a movie playing on TV. Four\nboys are walking on railroad tracks.\p…I'd better go, too.")
     release
 }
 
@@ -10,7 +10,7 @@ script SeashoreCity_PlayersHouse_1F_Mom {
     lock
     faceplayer
     if (!flag(FLAG_SYS_POKEMON_GET)) {
-        msgbox(format("Good luck in following in your dad's footsteps, sweetie!\pGo south and look for Timothy, the Pokémon Tutor."))
+        msgbox(format("Mom: Good luck in following in your dad's footsteps, sweetie!\pGo south and look for Timothy, the Pokémon Tutor."))
     } else {
         goto(PalletTown_PlayersHouse_1F_EventScript_MomHeal)
     }

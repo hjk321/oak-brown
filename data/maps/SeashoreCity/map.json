@@ -26,21 +26,49 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EventScript_CutTree",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY",
       "in_connection": false,
-      "x": 34,
-      "y": 27,
+      "x": 42,
+      "y": 31,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 3,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SeashoreCity_YoungBoy",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "in_connection": false,
+      "x": 38,
+      "y": 24,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SeashoreCity_Lass",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
+      "in_connection": false,
+      "x": 19,
+      "y": 28,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SeashoreCity_OldMan",
       "flag": "0"
     }
   ],
@@ -51,6 +79,13 @@
       "elevation": 0,
       "dest_map": "MAP_SEASHORE_CITY_PLAYERS_HOUSE_1F",
       "dest_warp_id": 1
+    },
+    {
+      "x": 35,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_SEASHORE_CITY_MURAS_HOUSE",
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [
@@ -66,6 +101,14 @@
       "flag": "FLAG_HIDE_ROUTE2_ETHER",
       "quantity": 1,
       "underfoot": false
+    },
+    {
+      "type": "sign",
+      "x": 30,
+      "y": 42,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SeashoreCity_Sign"
     }
   ]
 }
