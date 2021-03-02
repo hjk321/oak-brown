@@ -13,6 +13,9 @@
 #include "constants/songs.h"
 #include "pokemon_storage_system.h"
 #include "constants/species.h"
+#include "constants/maps.h"
+#include "overworld.h"
+#include "field_fadetransition.h"
 
 #define DEBUG_MAIN_MENU_HEIGHT 7
 #define DEBUG_MAIN_MENU_WIDTH 13
@@ -24,22 +27,26 @@ static void DebugTask_HandleMainMenuInput(u8);
 
 static void DebugAction_LivingDex(u8);
 static void DebugAction_PruneParty(u8);
+static void DebugAction_WarpToPallet(u8);
 
 enum {
     DEBUG_MENU_ITEM_CANCEL,
     DEBUG_MENU_ITEM_LIVINGDEX,
     DEBUG_MENU_ITEM_PRUNEPARTY,
+    DEBUG_MENU_ITEM_WARPTOPALLET,
 };
 
 static const u8 gDebugText_Cancel[] = _("Cancel");
 static const u8 gDebugText_LivingDex[] = _("Living Dex");
 static const u8 gDebugText_PruneParty[] = _("Prune Party");
+static const u8 gDebugText_WarpToPallet[] = _("Warp to Pallet");
 
 static const struct ListMenuItem sDebugMenuItems[] =
 {
     [DEBUG_MENU_ITEM_CANCEL] = {gDebugText_Cancel, DEBUG_MENU_ITEM_CANCEL},
     [DEBUG_MENU_ITEM_LIVINGDEX] = {gDebugText_LivingDex, DEBUG_MENU_ITEM_LIVINGDEX},
     [DEBUG_MENU_ITEM_PRUNEPARTY] = {gDebugText_PruneParty, DEBUG_MENU_ITEM_PRUNEPARTY},
+    [DEBUG_MENU_ITEM_WARPTOPALLET] = {gDebugText_WarpToPallet, DEBUG_MENU_ITEM_WARPTOPALLET},
 };
 
 static void (*const sDebugMenuActions[])(u8) =
@@ -47,6 +54,7 @@ static void (*const sDebugMenuActions[])(u8) =
     [DEBUG_MENU_ITEM_CANCEL] = DebugAction_Cancel,
     [DEBUG_MENU_ITEM_LIVINGDEX] = DebugAction_LivingDex,
     [DEBUG_MENU_ITEM_PRUNEPARTY] = DebugAction_PruneParty,
+    [DEBUG_MENU_ITEM_WARPTOPALLET] = DebugAction_WarpToPallet,
 };
 
 static const struct WindowTemplate sDebugMenuWindowTemplate =
@@ -150,7 +158,7 @@ static void DebugAction_LivingDex(u8 taskId)
     
     Debug_DestroyMainMenu(taskId);
     
-    level = GetMonData(&gSaveBlock1Ptr->playerParty[0], MON_DATA_LEVEL, NULL);
+    level = GetMonData(&gPlayerParty[0], MON_DATA_LEVEL, NULL);
     for (box = 0; box < TOTAL_BOXES_COUNT; box++)
     {
         for (pos = 0; pos < IN_BOX_COUNT; pos++)
@@ -183,6 +191,12 @@ static void DebugAction_PruneParty(u8 taskId)
     ZeroMonData(&gPlayerParty[5]);
     gSaveBlock1Ptr->playerPartyCount = 1;
     PlaySE(SE_PC_OFF);
+}
+
+static void DebugAction_WarpToPallet(u8 taskID)
+{
+    SetWarpDestination(MAP_GROUP(PALLET_TOWN), MAP_NUM(PALLET_TOWN), -1, 3, 6);
+    DoTeleportWarp();
 }
 
 #endif

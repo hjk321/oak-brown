@@ -19,19 +19,24 @@ enum
     FLAG_SET_CAUGHT
 };
 
+#define DEX_DESC_PER_MON 3
+
+struct PokedexDesc
+{
+    u16 flag;
+    const u8 *text;
+};
+
 struct PokedexEntry
 {
-    /*0x00*/ u8 categoryName[14];
-    /*0x0C*/ u16 height; //in decimeters
-    /*0x0E*/ u16 weight; //in hectograms
-    /*0x10*/ const u8 *description;
-    /*0x14*/ const u8 *unusedDescription;
-    /*0x18*/ u16 unused;
-    /*0x1A*/ u16 pokemonScale;
-    /*0x1C*/ u16 pokemonOffset;
-    /*0x1E*/ u16 trainerScale;
-    /*0x20*/ u16 trainerOffset;
-};  /*size = 0x24*/
+    u8 categoryName[14];
+    u16 height; //in decimeters
+    u16 weight; //in hectograms
+    u16 pokemonScale;
+    u16 pokemonOffset;
+    u16 trainerScale;
+    u16 trainerOffset;
+};
 
 void ResetPokedex(void);
 void CopyMonCategoryText(u16 species, u8 *dst);
