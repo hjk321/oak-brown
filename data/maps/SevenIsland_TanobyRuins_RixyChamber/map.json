@@ -14,7 +14,6 @@
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_INDOOR_1",
   "connections": null,
-  "object_events": [],
   "warp_events": [
     {
       "x": 11,
@@ -23,7 +22,5 @@
       "dest_map": "MAP_SEVEN_ISLAND_TANOBY_RUINS",
       "dest_warp_id": 5
     }
-  ],
-  "coord_events": [],
-  "bg_events": []
+  ]
 }

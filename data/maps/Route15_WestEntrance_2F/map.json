@@ -14,21 +14,6 @@
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
-  "object_events": [
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
-      "x": 5,
-      "y": 5,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route15_WestEntrance_2F_EventScript_Aide",
-      "flag": "0"
-    }
-  ],
   "warp_events": [
     {
       "x": 10,
@@ -36,25 +21,6 @@
       "elevation": 3,
       "dest_map": "MAP_ROUTE15_WEST_ENTRANCE_1F",
       "dest_warp_id": 4
-    }
-  ],
-  "coord_events": [],
-  "bg_events": [
-    {
-      "type": "sign",
-      "x": 4,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route15_WestEntrance_2F_EventScript_LeftBinoculars"
-    },
-    {
-      "type": "sign",
-      "x": 8,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route15_WestEntrance_2F_EventScript_RightBinoculars"
     }
   ]
 }

@@ -25,7 +25,6 @@
       "direction": "down"
     }
   ],
-  "object_events": [],
   "warp_events": [
     {
       "x": 31,
@@ -54,17 +53,6 @@
       "elevation": 3,
       "dest_map": "MAP_ROUTE5_SOUTH_ENTRANCE",
       "dest_warp_id": 1
-    }
-  ],
-  "coord_events": [],
-  "bg_events": [
-    {
-      "type": "sign",
-      "x": 32,
-      "y": 32,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route5_EventScript_UndergroundPathSign"
     }
   ]
 }

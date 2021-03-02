@@ -14,7 +14,6 @@
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
-  "object_events": [],
   "warp_events": [
     {
       "x": 5,
@@ -30,7 +29,5 @@
       "dest_map": "MAP_FIVE_ISLAND_LOST_CAVE_ROOM1",
       "dest_warp_id": 0
     }
-  ],
-  "coord_events": [],
-  "bg_events": []
+  ]
 }

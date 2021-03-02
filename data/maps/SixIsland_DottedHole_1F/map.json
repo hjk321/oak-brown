@@ -14,7 +14,6 @@
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
-  "object_events": [],
   "warp_events": [
     {
       "x": 6,
@@ -44,7 +43,5 @@
       "dest_map": "MAP_SIX_ISLAND_DOTTED_HOLE_B1F",
       "dest_warp_id": 2
     }
-  ],
-  "coord_events": [],
-  "bg_events": []
+  ]
 }

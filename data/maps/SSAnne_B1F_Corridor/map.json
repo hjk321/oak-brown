@@ -14,7 +14,6 @@
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
-  "object_events": [],
   "warp_events": [
     {
       "x": 19,
@@ -57,19 +56,6 @@
       "elevation": 0,
       "dest_map": "MAP_SSANNE_B1F_ROOM5",
       "dest_warp_id": 0
-    }
-  ],
-  "coord_events": [],
-  "bg_events": [
-    {
-      "type": "hidden_item",
-      "x": 21,
-      "y": 5,
-      "elevation": 3,
-      "item": "ITEM_HYPER_POTION",
-      "flag": "HIDDEN_ITEM_SSANNE_B1F_CORRIDOR_HYPER_POTION",
-      "quantity": 1,
-      "underfoot": false
     }
   ]
 }

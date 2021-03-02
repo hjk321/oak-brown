@@ -14,7 +14,6 @@
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
-  "object_events": [],
   "warp_events": [
     {
       "x": 17,
@@ -37,7 +36,5 @@
       "dest_map": "MAP_FOUR_ISLAND_ICEFALL_CAVE_1F",
       "dest_warp_id": 1
     }
-  ],
-  "coord_events": [],
-  "bg_events": []
+  ]
 }
