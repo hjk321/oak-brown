@@ -202,7 +202,7 @@ static const struct BgTemplate sUnknown_8451EBC[] = {
         .mapBaseIndex = 5,
         .screenSize = 0,
         .paletteMode = 0,
-        .priority = 0,
+        .priority = 1,
         .baseTile = 0x0000
     },
     {
@@ -211,7 +211,7 @@ static const struct BgTemplate sUnknown_8451EBC[] = {
         .mapBaseIndex = 4,
         .screenSize = 0,
         .paletteMode = 0,
-        .priority = 1,
+        .priority = 0,
         .baseTile = 0x0000
     },
     {
@@ -526,8 +526,8 @@ static const struct WindowTemplate sUnknown_84521CC = {
 
 const struct WindowTemplate gUnknown_84521D4 = {
     .bg = 1,
-    .tilemapLeft = 19,
-    .tilemapTop = 3,
+    .tilemapLeft = 21,
+    .tilemapTop = 1,
     .width = 8,
     .height = 8,
     .paletteNum = 9,
@@ -537,7 +537,7 @@ const struct WindowTemplate gUnknown_84521D4 = {
 const struct WindowTemplate gUnknown_84521DC = {
     .bg = 1,
     .tilemapLeft = 2,
-    .tilemapTop = 3,
+    .tilemapTop = 1,
     .width = 13,
     .height = 8,
     .paletteNum = 0,
@@ -547,9 +547,9 @@ const struct WindowTemplate gUnknown_84521DC = {
 const struct WindowTemplate gUnknown_84521E4 = {
     .bg = 1,
     .tilemapLeft = 0,
-    .tilemapTop = 11,
+    .tilemapTop = 9,
     .width = 30,
-    .height = 7,
+    .height = 9,
     .paletteNum = 0,
     .baseBlock = 0x0250
 };
@@ -852,7 +852,7 @@ void sub_810250C(void)
     SetBgTilemapBuffer(2, (u16*)Alloc(BG_SCREEN_SIZE));
     SetBgTilemapBuffer(1, (u16*)Alloc(BG_SCREEN_SIZE));
     SetBgTilemapBuffer(0, (u16*)Alloc(BG_SCREEN_SIZE));
-    if (natDex)
+    if (natDex) // FOOTHOLD
         DecompressAndLoadBgGfxUsingHeap(3, (void*)gUnknown_84403AC, BG_SCREEN_SIZE, 0, 0);
     else
         DecompressAndLoadBgGfxUsingHeap(3, (void*)gUnknown_8440274, BG_SCREEN_SIZE, 0, 0);
@@ -2611,11 +2611,8 @@ void sub_8105800(u8 a0, u16 species, u8 a2, u8 a3)
     index = 0;
     if (sub_8104AB0(species, 1, 0))
     {
-#if REVISION == 0
-        while ((categoryName[index] != CHAR_SPACE) && (index < 11))
-#else
-        while ((categoryName[index] != EOS) && (index < 11))
-#endif
+
+        while ((categoryName[index] != EOS) && (index < 14))
         {
             categoryStr[index] = categoryName[index];
             index++;
@@ -2891,6 +2888,7 @@ void sub_8105D64(u8 a0, u16 species, u8 a2, u8 a3)
     BlitBitmapRectToWindow(a0, buffer, 0, 0, 16, 16, a2, a3, 16, 16);
 }
 
+// FOOTHOLD
 u8 sub_8105E1C(bool8 a0)
 {
     sub_8105594(3, 6);
@@ -2917,7 +2915,7 @@ u8 sub_8105E1C(bool8 a0)
     PutWindowTilemap(gUnknown_203ACF0->field_4A[1]);
     CopyWindowToVram(gUnknown_203ACF0->field_4A[1], 2);
     FillWindowPixelBuffer(gUnknown_203ACF0->field_4A[2], 0);
-    sub_8105CB0(gUnknown_203ACF0->field_4A[2], gUnknown_203ACF0->field_5A, 0, 8);
+    sub_8105CB0(gUnknown_203ACF0->field_4A[2], gUnknown_203ACF0->field_5A, 0, 0);
     PutWindowTilemap(gUnknown_203ACF0->field_4A[2]);
     CopyWindowToVram(gUnknown_203ACF0->field_4A[2], 2);
     FillWindowPixelBuffer(1, 255);

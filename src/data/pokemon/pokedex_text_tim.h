@@ -48,7 +48,7 @@ const u8 gTimNotesCharizard[] = _(
 
 const u8 gTimNotesSquirtle[] = _(
     "It sometimes employs a unique fighting\n"
-    "style, drawin itself into a shell and\n"
+    "style, drawing itself into a shell and\n"
     "spinning toward opponents at high speed.\n"
     "This inspired a company in Kanto to make\n"
     "a game with Squirtle as enemies."

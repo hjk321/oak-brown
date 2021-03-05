@@ -16,6 +16,7 @@
 #include "constants/maps.h"
 #include "overworld.h"
 #include "field_fadetransition.h"
+#include "pokedex.h"
 
 #define DEBUG_MAIN_MENU_HEIGHT 7
 #define DEBUG_MAIN_MENU_WIDTH 13
@@ -28,18 +29,21 @@ static void DebugTask_HandleMainMenuInput(u8);
 static void DebugAction_LivingDex(u8);
 static void DebugAction_PruneParty(u8);
 static void DebugAction_WarpToPallet(u8);
+static void DebugAction_CompletePokedex(u8);
 
 enum {
     DEBUG_MENU_ITEM_CANCEL,
     DEBUG_MENU_ITEM_LIVINGDEX,
     DEBUG_MENU_ITEM_PRUNEPARTY,
     DEBUG_MENU_ITEM_WARPTOPALLET,
+    DEBUG_MENU_ITEM_COMPLETEPOKEDEX,
 };
 
 static const u8 gDebugText_Cancel[] = _("Cancel");
 static const u8 gDebugText_LivingDex[] = _("Living Dex");
 static const u8 gDebugText_PruneParty[] = _("Prune Party");
 static const u8 gDebugText_WarpToPallet[] = _("Warp to Pallet");
+static const u8 gDebugText_CompletePokedex[] = _("Complete Pokédex");
 
 static const struct ListMenuItem sDebugMenuItems[] =
 {
@@ -47,6 +51,7 @@ static const struct ListMenuItem sDebugMenuItems[] =
     [DEBUG_MENU_ITEM_LIVINGDEX] = {gDebugText_LivingDex, DEBUG_MENU_ITEM_LIVINGDEX},
     [DEBUG_MENU_ITEM_PRUNEPARTY] = {gDebugText_PruneParty, DEBUG_MENU_ITEM_PRUNEPARTY},
     [DEBUG_MENU_ITEM_WARPTOPALLET] = {gDebugText_WarpToPallet, DEBUG_MENU_ITEM_WARPTOPALLET},
+    [DEBUG_MENU_ITEM_COMPLETEPOKEDEX] = {gDebugText_CompletePokedex, DEBUG_MENU_ITEM_COMPLETEPOKEDEX},
 };
 
 static void (*const sDebugMenuActions[])(u8) =
@@ -55,6 +60,7 @@ static void (*const sDebugMenuActions[])(u8) =
     [DEBUG_MENU_ITEM_LIVINGDEX] = DebugAction_LivingDex,
     [DEBUG_MENU_ITEM_PRUNEPARTY] = DebugAction_PruneParty,
     [DEBUG_MENU_ITEM_WARPTOPALLET] = DebugAction_WarpToPallet,
+    [DEBUG_MENU_ITEM_COMPLETEPOKEDEX] = DebugAction_CompletePokedex,
 };
 
 static const struct WindowTemplate sDebugMenuWindowTemplate =
@@ -193,10 +199,28 @@ static void DebugAction_PruneParty(u8 taskId)
     PlaySE(SE_PC_OFF);
 }
 
-static void DebugAction_WarpToPallet(u8 taskID)
+static void DebugAction_WarpToPallet(u8 taskId)
 {
+    Debug_DestroyMainMenu(taskId);
+
     SetWarpDestination(MAP_GROUP(PALLET_TOWN), MAP_NUM(PALLET_TOWN), -1, 3, 6);
     DoTeleportWarp();
+}
+
+static void DebugAction_CompletePokedex(u8 taskId)
+{
+    u16 i;
+
+    Debug_DestroyMainMenu(taskId);
+
+    for (i = 0; i < NATIONAL_DEX_COUNT + 1; i++)
+    {
+        GetSetPokedexFlag(i, FLAG_SET_SEEN);
+        GetSetPokedexFlag(i, FLAG_SET_CAUGHT);
+    }
+    gSaveBlock2Ptr->pokedex.unownPersonality = 0xDEADBEEF;
+    gSaveBlock2Ptr->pokedex.spindaPersonality = 0xDEADBEEF;
+    PlaySE(SE_SAVE);
 }
 
 #endif
