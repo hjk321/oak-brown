@@ -1,10 +1,6 @@
 #ifndef GUARD_CONSTANTS_MAP_GROUPS_H
 #define GUARD_CONSTANTS_MAP_GROUPS_H
 
-//
-// DO NOT MODIFY THIS FILE! It is auto-generated from data/maps/map_groups.json
-//
-
 // Map Group 0
 #define MAP_BATTLE_COLOSSEUM_2P (0 | (0 << 8))
 #define MAP_TRADE_CENTER        (1 | (0 << 8))
@@ -518,6 +514,7 @@
 #define MAP_SEASHORE_CITY_PLAYERS_HOUSE_2F    (1 | (42 << 8))
 #define MAP_SEASHORE_CITY_PLAYERS_HOUSE_1F    (2 | (42 << 8))
 #define MAP_SEASHORE_CITY                     (3 | (42 << 8))
+#define MAP_ROUTE53                           (4 | (42 << 8))
 
 #define MAP_GROUPS_COUNT 43
 
