@@ -4428,6 +4428,18 @@
       "secondary_tileset": "gTileset_FanClubDaycare",
       "border_filepath": "data/layouts/SeashoreCity_MurasHouse/border.bin",
       "blockdata_filepath": "data/layouts/SeashoreCity_MurasHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE53",
+      "name": "Route53_Layout",
+      "width": 50,
+      "height": 60,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Dummy3",
+      "border_filepath": "data/layouts/Route53/border.bin",
+      "blockdata_filepath": "data/layouts/Route53/map.bin"
     }
   ]
 }
