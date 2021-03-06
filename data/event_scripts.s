@@ -1076,4 +1076,3 @@ Text_TestMsg:: @ 81ACD45
 	.include "data/maps/SeashoreCity/scripts.inc"
 
 	.include "data/maps/Route53/scripts.inc"
-	.include "data/maps/Route53/text.inc"
