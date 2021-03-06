@@ -70,4 +70,28 @@ const u8 gTimNotesBlastoise[] = _(
     "its body weight in fish every day."
 );
 
+const u8 gTimNotesCaterpie[] = _(
+    "Because they are extremely easy to\n"
+    "breed and care for, some people raise\n"
+    "thousands of Caterpie at once to sell as\n"
+    "a food source for Pokémon such as Pidgey,\n"
+    "Cyndaquil, and Wooper."
+);
+
+const u8 gTimNotesMetapod[] = _(
+    "While in this state, it can barely move.\n"
+    "Because of this, it takes a long while to\n"
+    "turn into Butterfree. Some bug catchers\n"
+    "send Metapod to a special type of daycare\n"
+    "that helps bug-type Pokémon evolve."
+);
+
+const u8 gTimNotesButterfree[] = _(
+    "Butterfree is considered one of the most\n"
+    "rewarding bug-type Pokémon to raise in\n"
+    "terms of personality and companionship.\n"
+    "Every year, trainers in Kanto allow their\n"
+    "Butterfree to mingle in a large festival."
+);
+
 //  "-----------------------------------------"

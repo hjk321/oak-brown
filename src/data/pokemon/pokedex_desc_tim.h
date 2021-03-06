@@ -10,4 +10,7 @@ const struct PokedexDesc gTimNotes[NATIONAL_DEX_COUNT + 1][DEX_DESC_PER_MON] =
     [NATIONAL_DEX_SQUIRTLE] = {{0, gTimNotesSquirtle}},
     [NATIONAL_DEX_WARTORTLE] = {{0, gTimNotesWartortle}},
     [NATIONAL_DEX_BLASTOISE] = {{0, gTimNotesBlastoise}},
+    [NATIONAL_DEX_CATERPIE] = {{0, gTimNotesCaterpie}},
+    [NATIONAL_DEX_METAPOD] = {{0, gTimNotesMetapod}},
+    [NATIONAL_DEX_BUTTERFREE] = {{0, gTimNotesButterfree}}
 };

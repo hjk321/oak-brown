@@ -17,9 +17,11 @@
 #include "overworld.h"
 #include "field_fadetransition.h"
 #include "pokedex.h"
+#include "constants/flags.h"
+#include "event_data.h"
 
 #define DEBUG_MAIN_MENU_HEIGHT 7
-#define DEBUG_MAIN_MENU_WIDTH 13
+#define DEBUG_MAIN_MENU_WIDTH 17
 
 void Debug_ShowMainMenu(void);
 static void Debug_DestroyMainMenu(u8);
@@ -30,6 +32,7 @@ static void DebugAction_LivingDex(u8);
 static void DebugAction_PruneParty(u8);
 static void DebugAction_WarpToPallet(u8);
 static void DebugAction_CompletePokedex(u8);
+static void DebugAction_UnlockAllMenus(u8);
 
 enum {
     DEBUG_MENU_ITEM_CANCEL,
@@ -37,6 +40,7 @@ enum {
     DEBUG_MENU_ITEM_PRUNEPARTY,
     DEBUG_MENU_ITEM_WARPTOPALLET,
     DEBUG_MENU_ITEM_COMPLETEPOKEDEX,
+    DEBUG_MENU_ITEM_UNLOCKALLMENUS,
 };
 
 static const u8 gDebugText_Cancel[] = _("Cancel");
@@ -44,6 +48,7 @@ static const u8 gDebugText_LivingDex[] = _("Living Dex");
 static const u8 gDebugText_PruneParty[] = _("Prune Party");
 static const u8 gDebugText_WarpToPallet[] = _("Warp to Pallet");
 static const u8 gDebugText_CompletePokedex[] = _("Complete Pokédex");
+static const u8 gDebugText_UnlockAllMenus[] = _("Unlock All Menus");
 
 static const struct ListMenuItem sDebugMenuItems[] =
 {
@@ -52,6 +57,7 @@ static const struct ListMenuItem sDebugMenuItems[] =
     [DEBUG_MENU_ITEM_PRUNEPARTY] = {gDebugText_PruneParty, DEBUG_MENU_ITEM_PRUNEPARTY},
     [DEBUG_MENU_ITEM_WARPTOPALLET] = {gDebugText_WarpToPallet, DEBUG_MENU_ITEM_WARPTOPALLET},
     [DEBUG_MENU_ITEM_COMPLETEPOKEDEX] = {gDebugText_CompletePokedex, DEBUG_MENU_ITEM_COMPLETEPOKEDEX},
+    [DEBUG_MENU_ITEM_UNLOCKALLMENUS] = {gDebugText_UnlockAllMenus, DEBUG_MENU_ITEM_UNLOCKALLMENUS},
 };
 
 static void (*const sDebugMenuActions[])(u8) =
@@ -61,6 +67,7 @@ static void (*const sDebugMenuActions[])(u8) =
     [DEBUG_MENU_ITEM_PRUNEPARTY] = DebugAction_PruneParty,
     [DEBUG_MENU_ITEM_WARPTOPALLET] = DebugAction_WarpToPallet,
     [DEBUG_MENU_ITEM_COMPLETEPOKEDEX] = DebugAction_CompletePokedex,
+    [DEBUG_MENU_ITEM_UNLOCKALLMENUS] = DebugAction_UnlockAllMenus,
 };
 
 static const struct WindowTemplate sDebugMenuWindowTemplate =
@@ -221,6 +228,14 @@ static void DebugAction_CompletePokedex(u8 taskId)
     gSaveBlock2Ptr->pokedex.unownPersonality = 0xDEADBEEF;
     gSaveBlock2Ptr->pokedex.spindaPersonality = 0xDEADBEEF;
     PlaySE(SE_SAVE);
+}
+
+static void DebugAction_UnlockAllMenus(u8 taskId)
+{
+    Debug_DestroyMainMenu(taskId);
+
+    FlagSet(FLAG_SYS_POKEMON_GET);
+    FlagSet(FLAG_SYS_POKEDEX_GET);
 }
 
 #endif
