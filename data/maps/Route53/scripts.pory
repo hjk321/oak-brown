@@ -1,1 +1,47 @@
 mapscripts Route53_MapScripts {}
+
+script Route53_Hiker {
+    lock
+    faceplayer
+    msgbox(format("This road is pretty straight-forward.\pIt's impossible to get lost on this road!\p…Wait, where am I, again?"))
+    release
+}
+
+script Route53_Youngster {
+    lock
+    faceplayer
+    msgbox(format("You're going to Gravel Town to get your first Pokémon?\pCool! When you get one, then we can battle!"))
+    release
+}
+
+script Route53_Clerk {
+    lock
+    faceplayer
+    if (flag(FLAG_GOT_POTION_ON_ROUTE_53)) {
+        msgbox(format("Sorry! I'm all out of free samples!\pIf you need potions, get some at any Pokémart!"))
+    } else {
+        msgbox(format("Hi!\pThe Gravel Town Pokémart is giving out free samples today, so go ahead and take this potion!"))
+        checkitemspace(ITEM_POTION, 1)
+        if (var(VAR_RESULT)) {
+            textcolor(3)
+            getitemname(1, ITEM_POTION)
+	        playfanfare(MUS_OBTAIN_ITEM)
+	        message(Text_ObtainedTheX)
+	        waitmessage
+	        waitfanfare
+	        additem(ITEM_POTION)
+            setflag(FLAG_GOT_POTION_ON_ROUTE_53)
+            call(EventScript_RestorePrevTextColor)
+            msgbox(format("Don't hesitate to head to a Pokémart for all of your training needs!"))
+        } else {
+            msgbox(format("…Whoops! You don't have any room in your bag!\pCome back later!"))
+        }
+    }
+    release
+}
+
+script Route53_Sign {
+    lock
+    msgbox("Route 53\nGravel Town - Seashore City")
+    release
+}
