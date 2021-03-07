@@ -25,11 +25,11 @@ script Route53_Clerk {
         if (var(VAR_RESULT)) {
             textcolor(3)
             getitemname(1, ITEM_POTION)
-	        playfanfare(MUS_OBTAIN_ITEM)
-	        message(Text_ObtainedTheX)
-	        waitmessage
-	        waitfanfare
-	        additem(ITEM_POTION)
+            playfanfare(MUS_OBTAIN_ITEM)
+            message(Text_ObtainedTheX)
+            waitmessage
+            waitfanfare
+            additem(ITEM_POTION)
             setflag(FLAG_GOT_POTION_ON_ROUTE_53)
             call(EventScript_RestorePrevTextColor)
             msgbox(format("Don't hesitate to head to a Pokémart for all of your training needs!"))
