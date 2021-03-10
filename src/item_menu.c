@@ -2398,3 +2398,4 @@ static void Task_Bag_TeachyTvTMs(u8 taskId)
         data[8]++;
     }
 }
+

@@ -740,7 +740,6 @@ struct SaveBlockDummy
 
 extern struct SaveBlockDummy *gSaveBlockDummyPtr;
 
-// None of the pointers are accurate
 struct SaveBlock2
 {
     u8 playerName[PLAYER_NAME_LENGTH + 1];
@@ -794,7 +793,10 @@ struct SaveBlock2
 
 extern struct SaveBlock2 *gSaveBlock2Ptr;
 
-// None of the pointers are accurate
+// Quest Menu
+#include "constants/quests.h"
+#define SIDE_QUEST_FLAGS_COUNT     ((SIDE_QUEST_COUNT / 8) + ((SIDE_QUEST_COUNT % 8) ? 1 : 0))
+
 struct SaveBlock1
 {
     struct Coords16 pos;
@@ -826,6 +828,9 @@ struct SaveBlock1
     struct ExternalEventFlags externalEventFlags;
     u32 towerChallengeId;
     struct TrainerTower trainerTower[NUM_TOWER_CHALLENGE_TYPES];
+    u8 unlockedQuests[SIDE_QUEST_FLAGS_COUNT];
+    u8 completedQuests[SIDE_QUEST_FLAGS_COUNT];
+    u8 activeQuest;
 };
 
 struct MapPosition
