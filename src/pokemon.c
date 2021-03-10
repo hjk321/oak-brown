@@ -3853,8 +3853,8 @@ static bool8 IsPokemonStorageFull(void)
 {
     s32 i, j;
 
-    for (i = 0; i < 14; i++)
-        for (j = 0; j < 30; j++)
+    for (i = 0; i < TOTAL_BOXES_COUNT; i++)
+        for (j = 0; j < IN_BOX_COUNT; j++)
             if (GetBoxMonDataAt(i, j, MON_DATA_SPECIES) == SPECIES_NONE)
                 return FALSE;
 
@@ -6314,4 +6314,26 @@ void *OakSpeechNidoranFGetBuffer(u8 bufferId)
             bufferId = 0;
         return sOakSpeechNidoranResources->bufferPtrs[bufferId];
     }
+}
+
+bool8 BoxMonMatchesUid(struct BoxPokemon *boxMon, struct MonUid *uid)
+{
+    return GetBoxMonData(boxMon, MON_DATA_SPECIES, NULL) == uid->species && 
+        GetBoxMonData(boxMon, MON_DATA_PERSONALITY, NULL) == uid->personality;
+}
+
+bool8 MonMatchesUid(struct Pokemon *mon, struct MonUid *uid)
+{
+    return BoxMonMatchesUid(&mon->box, uid);
+}
+
+void CreateBoxMonUid(struct BoxPokemon *src, struct MonUid *dest)
+{
+    dest->species = GetBoxMonData(src, MON_DATA_SPECIES, NULL);
+    dest->personality = GetBoxMonData(src, MON_DATA_PERSONALITY, NULL);
+}
+
+void CreateMonUid(struct Pokemon *src, struct MonUid *dest)
+{
+    CreateBoxMonUid(&src->box, dest);
 }

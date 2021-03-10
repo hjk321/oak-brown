@@ -87,6 +87,12 @@ struct Pokemon
     u16 spDefense;
 };
 
+struct MonUid
+{
+    u16 species;
+    u32 personality;
+};
+
 struct PokemonStorage
 {
     /*0x0000*/ u8 currentBox;
@@ -420,5 +426,9 @@ bool8 CheckBattleTypeGhost(struct Pokemon *mon, u8 bank);
 struct OakSpeechNidoranFStruct *OakSpeechNidoranFSetup(u8 battlePosition, bool8 enable);
 void OakSpeechNidoranFFreeResources(void);
 void *OakSpeechNidoranFGetBuffer(u8 bufferId);
+bool8 BoxMonMatchesUid(struct BoxPokemon *boxMon, struct MonUid *uid);
+bool8 MonMatchesUid(struct Pokemon *mon, struct MonUid *uid);
+void CreateBoxMonUid(struct BoxPokemon *src, struct MonUid *dest);
+void CreateMonUid(struct Pokemon *src, struct MonUid *dest);
 
 #endif // GUARD_POKEMON_H
