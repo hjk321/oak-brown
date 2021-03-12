@@ -236,6 +236,7 @@ static void DebugAction_UnlockAllMenus(u8 taskId)
 
     FlagSet(FLAG_SYS_POKEMON_GET);
     FlagSet(FLAG_SYS_POKEDEX_GET);
+    FlagSet(FLAG_SYS_QUEST_MENU_GET);
 }
 
 #endif

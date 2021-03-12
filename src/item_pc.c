@@ -25,6 +25,7 @@
 #include "constants/items.h"
 #include "constants/quest_log.h"
 #include "constants/songs.h"
+#include "overworld.h"
 
 struct ItemPcResources
 {
@@ -113,7 +114,7 @@ static void Task_QuestMenuDetails(u8 taskId);
 static void Task_QuestMenuCancel(u8 taskId);
 static void Task_QuestMenuReward(u8 taskId);
 
-static const u8 sText_Quests[] = _("  Side\n Quests");
+static const u8 sText_Quests[] = _(" Quests");
 static const u8 sText_QuestMenu_Begin[] = _("Begin");
 static const u8 sText_QuestMenu_End[] = _("End");
 static const u8 sText_QuestMenu_Details[] = _("Details");
@@ -122,7 +123,7 @@ static const u8 sText_Cancel[] = _("Cancel");
 static const u8 sText_QuestMenu_Unk[] = _("{COLOR GREEN}?????????");    //light gray
 static const u8 sText_QuestMenu_Active[] = _("{COLOR BLUE}Active");
 static const u8 sText_QuestMenu_Complete[] = _("{COLOR CYAN}Done");     //green
-static const u8 sText_QuestMenu_Exit[] = _("Exit the Quest Menu");
+static const u8 sText_QuestMenu_Exit[] = _("Exit the quest menu.");
 static const u8 sText_QuestMenu_SelectedQuest[] = _("Do what with\nthis quest?");
 static const u8 sText_QuestMenu_DisplayDetails[] = _("POC: {STR_VAR_1}\nMap: {STR_VAR_2}");
 static const u8 sText_QuestMenu_DisplayReward[] = _("Reward:\n{STR_VAR_1}");
@@ -1593,6 +1594,11 @@ static void Task_QuestMenuBeginQuest(u8 taskId)
 void CopyQuestName(u8 *dst, u8 questId)
 {
     StringCopy(dst, sSideQuests[questId].name);
+}
+
+void CB2_QuestMenuFromStartMenu(void)
+{
+    ItemPc_Init(0, CB2_ReturnToField);
 }
 
 /*

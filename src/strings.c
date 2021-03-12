@@ -15,7 +15,7 @@ const u8 gExpandedPlaceholder_Groudon[] = _("GROUDON");
 const u8 gExpandedPlaceholder_Red[] = _("RED");
 const u8 gExpandedPlaceholder_Green[] = _("GREEN");
 const u8 gText_EggNickname[] = _("EGG");
-const u8 gStartMenuText_Pokemon[] = _("POKéMON");
+const u8 gStartMenuText_Pokemon[] = _("Pokémon");
 const u8 gText_NewGame[] = _("NEW GAME");
 const u8 gText_Continue[] = _("CONTINUE");
 const u8 gTextJP_Options[] = _("せっていを かえる");
@@ -156,14 +156,15 @@ const u8 gText_SelectorArrow2[] = _("▶");
 const u8 gUnknown_841623D[] = _("YES\nNO");
 const u8 gText_GoBackToThePreviousMenu[] = _("Go back to the\nprevious menu.");
 const u8 gText_WhatWouldYouLikeToDo[] = _("What would you like to do?");
-const u8 gStartMenuText_Pokedex[] = _("POKéDEX");
-const u8 gStartMenuText_Bag[] = _("BAG");
+const u8 gStartMenuText_Pokedex[] = _("Pokédex");
+const u8 gStartMenuText_Bag[] = _("Bag");
 const u8 gUnknown_8416289[] = _("ポケナビ");
 const u8 gStartMenuText_Player[] = _("{PLAYER}");
-const u8 gStartMenuText_Save[] = _("SAVE");
-const u8 gStartMenuText_Option[] = _("OPTION");
-const u8 gStartMenuText_Exit[] = _("EXIT");
-const u8 gStartMenuText_Retire[] = _("RETIRE");
+const u8 gStartMenuText_Save[] = _("Save");
+const u8 gStartMenuText_Option[] = _("Option");
+const u8 gStartMenuText_Exit[] = _("Exit");
+const u8 gStartMenuText_Retire[] = _("Retire");
+const u8 gStartMenuText_Quests[] = _("Quests");
 const u8 gUnknown_84162A9[] = _("{STR_VAR_1}/{STR_VAR_2}\nBALLS  {STR_VAR_3}");
 const u8 gText_TimesStrVar1[] = _("×{STR_VAR_1}");
 const u8 gUnknown_84162BD[] = _(" BERRY");
@@ -896,14 +897,15 @@ const u8 gUnknown_8419F2D[] = _("ゲ-ムない じかんの しゅうせい シ�
 const u8 gText_SavingDontTurnOffThePower2[] = _("SAVING…\nDON'T TURN OFF THE POWER.");
 
 // Start menu option descriptions
-const u8 gStartMenuDesc_Pokedex[] = _("A device that records POKéMON secrets\nupon meeting or catching them.");
-const u8 gStartMenuDesc_Pokemon[] = _("Check and organize POKéMON that are\ntraveling with you in your party.");
+const u8 gStartMenuDesc_Pokedex[] = _("A device that records Pokémon data\nupon meeting or catching them.");
+const u8 gStartMenuDesc_Pokemon[] = _("Check and organize Pokémon that are\ntraveling with you in your party.");
 const u8 gStartMenuDesc_Bag[] = _("Equipped with pockets for storing items\nyou bought, received, or found.");
 const u8 gStartMenuDesc_Player[] = _("Check your money and other game data.");
 const u8 gStartMenuDesc_Save[] = _("Save your game with a complete record\nof your progress to take a break.");
 const u8 gStartMenuDesc_Option[] = _("Adjust various game settings such as text\nspeed, game rules, etc.");
 const u8 gStartMenuDesc_Exit[] = _("Close this MENU window.");
 const u8 gStartMenuDesc_Retire[] = _("Retire from the SAFARI GAME and return to\nthe registration counter.");
+const u8 gStartMenuDesc_Quests[] = _("View information on active and completed\nquests.");
 
 #include "data/text/quest_log.h"
 

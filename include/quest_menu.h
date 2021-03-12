@@ -1,7 +1,6 @@
 #ifndef GUARD_QUESTS_H
 #define GUARD_QUESTS_H
 
-//#define FLAG_QUEST_MENU_ACTIVE              0x200 //constants/flags.h
 #define NO_ACTIVE_QUEST                     -1
 
 //structs
@@ -34,6 +33,7 @@ enum QuestCases
 };
 
 //functions
+void CB2_QuestMenuFromStartMenu(void);
 void SetQuestMenuActive(void);
 void SetActiveQuest(u8 questId);
 void CopyQuestName(u8 *dst, u8 questId);
