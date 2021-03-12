@@ -717,11 +717,11 @@ static bool8 SaveDialog_Wait60FramesThenCheckAButtonHeld(void)
 
 static u8 SaveDialogCB_PrintAskSaveText(void)
 {
-    ClearStdWindowAndFrame(GetStartMenuWindowId(), FALSE);
-    RemoveStartMenuWindow();
-    DestroyHelpMessageWindow(0);
     PrintSaveStats();
-    PrintSaveTextWithFollowupFunc(gText_WouldYouLikeToSaveTheGame, SaveDialogCB_AskSavePrintYesNoMenu);
+    if (gDifferentSaveFile)
+        sSaveDialogCB = SaveDialogCB_PrintAskOverwriteText;
+    else
+        sSaveDialogCB = SaveDialogCB_PrintSavingDontTurnOffPower;
     return SAVECB_RETURN_CONTINUE;
 }
 
@@ -753,10 +753,7 @@ static u8 SaveDialogCB_AskSaveHandleInput(void)
 
 static u8 SaveDialogCB_PrintAskOverwriteText(void)
 {
-    if (gDifferentSaveFile == TRUE)
-        PrintSaveTextWithFollowupFunc(gText_DifferentGameFile, SaveDialogCB_AskReplacePreviousFilePrintYesNoMenu);
-    else
-        PrintSaveTextWithFollowupFunc(gText_AlreadySaveFile_WouldLikeToOverwrite, SaveDialogCB_AskOverwritePrintYesNoMenu);
+    PrintSaveTextWithFollowupFunc(gText_DifferentGameFile, SaveDialogCB_AskReplacePreviousFilePrintYesNoMenu);
     return SAVECB_RETURN_CONTINUE;
 }
 
@@ -769,6 +766,8 @@ static u8 SaveDialogCB_AskOverwritePrintYesNoMenu(void)
 
 static u8 SaveDialogCB_AskReplacePreviousFilePrintYesNoMenu(void)
 {
+    ClearStdWindowAndFrame(GetStartMenuWindowId(), FALSE);
+    RemoveStartMenuWindow();
     DisplayYesNoMenuDefaultNo();
     sSaveDialogCB = SaveDialogCB_AskOverwriteOrReplacePreviousFileHandleInput;
     return SAVECB_RETURN_CONTINUE;
@@ -837,6 +836,9 @@ static u8 SaveDialogCB_ReturnSuccess(void)
 {
     if (!IsSEPlaying() && SaveDialog_Wait60FramesOrAButtonHeld())
     {
+        ClearStdWindowAndFrame(GetStartMenuWindowId(), FALSE);
+        RemoveStartMenuWindow();
+        DestroyHelpMessageWindow(0);
         CloseSaveStatsWindow_();
         return SAVECB_RETURN_OKAY;
     }
