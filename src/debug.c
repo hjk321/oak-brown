@@ -19,6 +19,8 @@
 #include "pokedex.h"
 #include "constants/flags.h"
 #include "event_data.h"
+#include "constants/quests.h"
+#include "quest_menu.h"
 
 #define DEBUG_MAIN_MENU_HEIGHT 7
 #define DEBUG_MAIN_MENU_WIDTH 17
@@ -33,6 +35,7 @@ static void DebugAction_PruneParty(u8);
 static void DebugAction_WarpToPallet(u8);
 static void DebugAction_CompletePokedex(u8);
 static void DebugAction_UnlockAllMenus(u8);
+static void DebugAction_UnlockAllQuests(u8);
 
 enum {
     DEBUG_MENU_ITEM_CANCEL,
@@ -41,6 +44,7 @@ enum {
     DEBUG_MENU_ITEM_WARPTOPALLET,
     DEBUG_MENU_ITEM_COMPLETEPOKEDEX,
     DEBUG_MENU_ITEM_UNLOCKALLMENUS,
+    DEBUG_MENU_ITEM_UNLOCKALLQUESTS,
 };
 
 static const u8 gDebugText_Cancel[] = _("Cancel");
@@ -49,6 +53,7 @@ static const u8 gDebugText_PruneParty[] = _("Prune Party");
 static const u8 gDebugText_WarpToPallet[] = _("Warp to Pallet");
 static const u8 gDebugText_CompletePokedex[] = _("Complete Pokédex");
 static const u8 gDebugText_UnlockAllMenus[] = _("Unlock All Menus");
+static const u8 gDebugText_UnlockAllQuests[] = _("Unlock All Quests");
 
 static const struct ListMenuItem sDebugMenuItems[] =
 {
@@ -58,6 +63,7 @@ static const struct ListMenuItem sDebugMenuItems[] =
     [DEBUG_MENU_ITEM_WARPTOPALLET] = {gDebugText_WarpToPallet, DEBUG_MENU_ITEM_WARPTOPALLET},
     [DEBUG_MENU_ITEM_COMPLETEPOKEDEX] = {gDebugText_CompletePokedex, DEBUG_MENU_ITEM_COMPLETEPOKEDEX},
     [DEBUG_MENU_ITEM_UNLOCKALLMENUS] = {gDebugText_UnlockAllMenus, DEBUG_MENU_ITEM_UNLOCKALLMENUS},
+    [DEBUG_MENU_ITEM_UNLOCKALLQUESTS] = {gDebugText_UnlockAllQuests, DEBUG_MENU_ITEM_UNLOCKALLQUESTS},
 };
 
 static void (*const sDebugMenuActions[])(u8) =
@@ -68,6 +74,7 @@ static void (*const sDebugMenuActions[])(u8) =
     [DEBUG_MENU_ITEM_WARPTOPALLET] = DebugAction_WarpToPallet,
     [DEBUG_MENU_ITEM_COMPLETEPOKEDEX] = DebugAction_CompletePokedex,
     [DEBUG_MENU_ITEM_UNLOCKALLMENUS] = DebugAction_UnlockAllMenus,
+    [DEBUG_MENU_ITEM_UNLOCKALLQUESTS] = DebugAction_UnlockAllQuests,
 };
 
 static const struct WindowTemplate sDebugMenuWindowTemplate =
@@ -237,6 +244,18 @@ static void DebugAction_UnlockAllMenus(u8 taskId)
     FlagSet(FLAG_SYS_POKEMON_GET);
     FlagSet(FLAG_SYS_POKEDEX_GET);
     FlagSet(FLAG_SYS_QUEST_MENU_GET);
+}
+
+static void DebugAction_UnlockAllQuests(u8 taskId)
+{
+    u16 i;
+
+    Debug_DestroyMainMenu(taskId);
+
+    for (i = 0; i < SIDE_QUEST_COUNT; i++)
+    {
+        GetSetQuestFlag(i, FLAG_SET_UNLOCKED);
+    }
 }
 
 #endif

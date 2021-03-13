@@ -120,15 +120,22 @@ static const u8 sText_QuestMenu_End[] = _("End");
 static const u8 sText_QuestMenu_Details[] = _("Details");
 static const u8 sText_QuestMenu_Reward[] = _("Reward");
 static const u8 sText_Cancel[] = _("Cancel");
-static const u8 sText_QuestMenu_Unk[] = _("{COLOR GREEN}?????????");    //light gray
+static const u8 sText_QuestMenu_Unk[] = _("{COLOR GREEN}{SHADOW RED}?????????");    // Gray
 static const u8 sText_QuestMenu_Active[] = _("{COLOR BLUE}Active");
-static const u8 sText_QuestMenu_Complete[] = _("{COLOR CYAN}Done");     //green
+static const u8 sText_QuestMenu_Complete[] = _("{COLOR CYAN}Done"); // Green
 static const u8 sText_QuestMenu_Exit[] = _("Exit the quest menu.");
 static const u8 sText_QuestMenu_SelectedQuest[] = _("Do what with\nthis quest?");
 static const u8 sText_QuestMenu_DisplayDetails[] = _("POC: {STR_VAR_1}\nMap: {STR_VAR_2}");
 static const u8 sText_QuestMenu_DisplayReward[] = _("Reward:\n{STR_VAR_1}");
 static const u8 sText_QuestMenu_BeginQuest[] = _("Initiating Quest:\n{STR_VAR_1}");
 static const u8 sText_QuestMenu_EndQuest[] = _("Cancelling Quest:\n{STR_VAR_1}");
+static const u8 sText_QuestMenu_Difficulty[] = _("Difficulty: {STR_VAR_1}{COLOR DARK_GREY}{SHADOW RED}\n"); // Normal Text Color
+static const u8 sText_QuestMenu_DifficultyEasy[] = _("{COLOR MAGENTA}{SHADOW CYAN}Easy"); // Green
+static const u8 sText_QuestMenu_DifficultyNormal[] = _("{COLOR SILVER}{SHADOW LIGHT_BLUE}Normal"); // Blue
+static const u8 sText_QuestMenu_DifficultyChallenging[] = _("{COLOR YELLOW}Challenging"); // Orange
+static const u8 sText_QuestMenu_DifficultyHard[] = _("{COLOR BLUE}Hard"); // Red
+static const u8 sText_QuestMenu_DifficultyExtreme[] = _("{COLOR LIGHT_GRAY}{SHADOW SKY_BLUE}Extreme"); // Purple
+static const u8 sText_QuestMenu_DifficultySpecial[] = _("{COLOR BLACK}Special"); // Ice Blue
 
 //menu actions
 // Selected an incomplete quest
@@ -193,20 +200,35 @@ static const struct SideQuest sSideQuests[SIDE_QUEST_COUNT] =
 // the item IDs that correspond to the quest's difficulty
 static const u16 sSideQuestDifficultyItemIds[] = 
 {
-	ITEM_POKE_BALL,
-	ITEM_GREAT_BALL,
-	ITEM_ULTRA_BALL,
-	ITEM_MASTER_BALL,
+    ITEM_NEST_BALL,
+    ITEM_POKE_BALL,
+    ITEM_GREAT_BALL,
+    ITEM_ULTRA_BALL,
+    ITEM_MASTER_BALL,
+    ITEM_PREMIER_BALL,
 };
+
+// The difficulty text displayed in the quest's description
+static const u8 *const sSideQuestDifficultyText[] =
+{
+    sText_QuestMenu_DifficultyEasy,
+    sText_QuestMenu_DifficultyNormal,
+    sText_QuestMenu_DifficultyChallenging,
+    sText_QuestMenu_DifficultyHard,
+    sText_QuestMenu_DifficultyExtreme,
+    sText_QuestMenu_DifficultySpecial,
+};
+
+
 
 static const u8 sSideQuestDifficulties[SIDE_QUEST_COUNT] = 
 {
     [SIDE_QUEST_1] =  QUEST_DIFFICULTY_EASY,
-    [SIDE_QUEST_2] =  QUEST_DIFFICULTY_EASY,
-    [SIDE_QUEST_3] =  QUEST_DIFFICULTY_EASY,
-    [SIDE_QUEST_4] =  QUEST_DIFFICULTY_EASY,
-    [SIDE_QUEST_5] =  QUEST_DIFFICULTY_EASY,
-    [SIDE_QUEST_6] =  QUEST_DIFFICULTY_EASY,
+    [SIDE_QUEST_2] =  QUEST_DIFFICULTY_NORMAL,
+    [SIDE_QUEST_3] =  QUEST_DIFFICULTY_CHALLENGING,
+    [SIDE_QUEST_4] =  QUEST_DIFFICULTY_HARD,
+    [SIDE_QUEST_5] =  QUEST_DIFFICULTY_EXTREME,
+    [SIDE_QUEST_6] =  QUEST_DIFFICULTY_SPECIAL,
     [SIDE_QUEST_7] =  QUEST_DIFFICULTY_EASY,
     [SIDE_QUEST_8] =  QUEST_DIFFICULTY_EASY,
     [SIDE_QUEST_9] =  QUEST_DIFFICULTY_EASY,
@@ -696,7 +718,8 @@ static void ItemPc_MoveCursorFunc(s32 itemIndex, bool8 onInit, struct ListMenu *
                 if (GetSetQuestFlag(itemIndex, FLAG_GET_UNLOCKED))
                 {
                     itemId = sSideQuestDifficultyItemIds[sSideQuestDifficulties[itemIndex]];
-                    desc = sSideQuests[itemIndex].desc;
+                    desc = sText_QuestMenu_Difficulty;
+                    StringCopy(gStringVar1, sSideQuestDifficultyText[sSideQuestDifficulties[itemIndex]]);
                 }
                 else
                 {
@@ -714,7 +737,10 @@ static void ItemPc_MoveCursorFunc(s32 itemIndex, bool8 onInit, struct ListMenu *
         }
         sStateDataPtr->itemMenuIconSlot ^= 1;
         FillWindowPixelBuffer(1, 0);
-        ItemPc_AddTextPrinterParameterized(1, 2, desc, 0, 3, 2, 0, 0, 3);
+        StringExpandPlaceholders(gStringVar4, desc);
+        if (IsQuestMenuActive() && GetSetQuestFlag(itemIndex, FLAG_GET_UNLOCKED))
+            StringAppend(gStringVar4, sSideQuests[itemIndex].desc);
+        ItemPc_AddTextPrinterParameterized(1, 2, gStringVar4, 0, 3, 2, 0, 0, 3);
     }
 }
 
