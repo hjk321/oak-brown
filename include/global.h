@@ -830,7 +830,6 @@ struct SaveBlock1
     struct TrainerTower trainerTower[NUM_TOWER_CHALLENGE_TYPES];
     u8 unlockedQuests[SIDE_QUEST_FLAGS_COUNT];
     u8 completedQuests[SIDE_QUEST_FLAGS_COUNT];
-    u8 activeQuest;
 };
 
 struct MapPosition
