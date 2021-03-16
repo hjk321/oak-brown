@@ -18,6 +18,11 @@
       "direction": "up",
       "offset": -8,
       "map": "MAP_SEASHORE_CITY"
+    },
+    {
+      "direction": "down",
+      "offset": -3,
+      "map": "MAP_GRAVEL_TOWN"
     }
   ],
   "object_events": [

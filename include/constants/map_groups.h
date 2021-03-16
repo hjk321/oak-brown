@@ -520,6 +520,10 @@
 #define MAP_SEASHORE_CITY                     (3 | (42 << 8))
 #define MAP_SEASHORE_CITY_MURAS_HOUSE         (4 | (42 << 8))
 #define MAP_ROUTE53                           (5 | (42 << 8))
+#define MAP_GRAVEL_TOWN                       (6 | (42 << 8))
+#define MAP_GRAVEL_TOWN_HOUSE                 (7 | (42 << 8))
+#define MAP_GRAVEL_TOWN_POKE_MART             (8 | (42 << 8))
+#define MAP_GRAVEL_TOWN_TIMS_LAB              (9 | (42 << 8))
 
 #define MAP_GROUPS_COUNT 43
 

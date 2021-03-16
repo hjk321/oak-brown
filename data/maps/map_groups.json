@@ -559,6 +559,10 @@
     "SeashoreCity_PlayersHouse_1F",
     "SeashoreCity",
     "SeashoreCity_MurasHouse",
-    "Route53"
+    "Route53",
+    "GravelTown",
+    "GravelTown_House",
+    "GravelTown_PokeMart",
+    "GravelTown_TimsLab"
   ]
 }

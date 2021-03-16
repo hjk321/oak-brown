@@ -1079,3 +1079,11 @@ Text_TestMsg:: @ 81ACD45
 	.include "data/maps/SeashoreCity_MurasHouse/scripts.inc"
 
 	.include "data/maps/Route53/scripts.inc"
+
+	.include "data/maps/GravelTown/scripts.inc"
+
+	.include "data/maps/GravelTown_House/scripts.inc"
+
+	.include "data/maps/GravelTown_PokeMart/scripts.inc"
+
+	.include "data/maps/GravelTown_TimsLab/scripts.inc"

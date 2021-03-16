@@ -4440,6 +4440,54 @@
       "secondary_tileset": "gTileset_Dummy3",
       "border_filepath": "data/layouts/Route53/border.bin",
       "blockdata_filepath": "data/layouts/Route53/map.bin"
+    },
+    {
+      "id": "LAYOUT_GRAVEL_TOWN",
+      "name": "GravelTown_Layout",
+      "width": 59,
+      "height": 65,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/GravelTown/border.bin",
+      "blockdata_filepath": "data/layouts/GravelTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_GRAVEL_TOWN_HOUSE",
+      "name": "GravelTown_House_Layout",
+      "width": 14,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding1",
+      "border_filepath": "data/layouts/GravelTown_House/border.bin",
+      "blockdata_filepath": "data/layouts/GravelTown_House/map.bin"
+    },
+    {
+      "id": "LAYOUT_GRAVEL_TOWN_POKE_MART",
+      "name": "GravelTown_PokeMart_Layout",
+      "width": 8,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Mart",
+      "border_filepath": "data/layouts/GravelTown_PokeMart/border.bin",
+      "blockdata_filepath": "data/layouts/GravelTown_PokeMart/map.bin"
+    },
+    {
+      "id": "LAYOUT_GRAVEL_TOWN_TIMS_LAB",
+      "name": "GravelTown_TimsLab_Layout",
+      "width": 13,
+      "height": 17,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/GravelTown_TimsLab/border.bin",
+      "blockdata_filepath": "data/layouts/GravelTown_TimsLab/map.bin"
     }
   ]
 }
