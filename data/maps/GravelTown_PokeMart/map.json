@@ -18,7 +18,13 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 4,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_GRAVEL_TOWN",
+      "dest_warp_id": 1
+    }
   ],
   "coord_events": [
 

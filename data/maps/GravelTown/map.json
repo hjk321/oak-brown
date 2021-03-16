@@ -24,7 +24,27 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 40,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_GRAVEL_TOWN_TIMS_LAB",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 16,
+      "y": 32,
+      "elevation": 0,
+      "dest_map": "MAP_GRAVEL_TOWN_POKE_MART",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 44,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_GRAVEL_TOWN_HOUSE",
+      "dest_warp_id": 0
+    }
   ],
   "coord_events": [
 
