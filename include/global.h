@@ -10,6 +10,9 @@
 #include "constants/species.h"
 #include "mgba.h"
 
+// MGBA Breakpoint
+#define BREAKPOINT asm(".2byte 0xBE00");
+
 // Prevent cross-jump optimization.
 #define BLOCK_CROSS_JUMP asm("");
 
