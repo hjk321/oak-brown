@@ -10,7 +10,7 @@ EWRAM_DATA u8 gUnknownStringVar[16] = {0};
 
 static const u8 sDigits[] = __("0123456789ABCDEF");
 
-static const s32 sPowersOfTen[] =
+const s32 sPowersOfTen[] =
 {
              1,
             10,
@@ -37,6 +37,21 @@ extern u8 gExpandedPlaceholder_Kyogre[];
 extern u8 gExpandedPlaceholder_Groudon[];
 extern u8 gExpandedPlaceholder_Red[];
 extern u8 gExpandedPlaceholder_Green[];
+
+u8 NumDigits(u32 num)
+{
+    u8 i;
+
+    num += 1;
+
+    for (i = 0; i < ARRAY_COUNT(sPowersOfTen); i++)
+    {
+        if (num >= sPowersOfTen[i])
+            continue;
+
+        return i;
+    }
+}
 
 u8 *StringCopy10(u8 *dest, const u8 *src)
 {

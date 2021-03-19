@@ -10,6 +10,7 @@ enum StringConvertMode
     STR_CONV_MODE_LEADING_ZEROS
 };
 
+u8 NumDigits(u32 num);
 u8 *StringCopy10(u8 *dest, const u8 *src);
 u8 *StringGetEnd10(u8 *str);
 u8 *StringCopy7(u8 *dest, const u8 *src);

@@ -1,6 +1,8 @@
 #ifndef GUARD_QUESTS_H
 #define GUARD_QUESTS_H
 
+typedef const u16 (*ObjectiveFunc)(void);
+
 struct SideQuest 
 {
 	const u8* name;
@@ -8,6 +10,8 @@ struct SideQuest
 	const u8* poc;
 	const u8* map;
 	u8 difficulty;
+	u16 objectives;
+	ObjectiveFunc completedObjectives;
 };
 
 extern const struct SideQuest gSideQuests[SIDE_QUEST_COUNT];
@@ -18,7 +22,7 @@ enum
 	QUEST_DIFFICULTY_NORMAL,
 	QUEST_DIFFICULTY_CHALLENGING,
 	QUEST_DIFFICULTY_HARD,
-	QUEST_DIFFICULTY_EXTREME,
+	QUEST_DIFFICULTY_MASTER,
 	QUEST_DIFFICULTY_SPECIAL,
 };
 

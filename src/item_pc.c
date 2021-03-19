@@ -114,7 +114,9 @@ static const u8 sText_Quests[] = _(" Quests");
 static const u8 sText_QuestMenu_Details[] = _("Details");
 static const u8 sText_Cancel[] = _("Cancel");
 static const u8 sText_QuestMenu_Unk[] = _("{COLOR GREEN}{SHADOW RED}?????????");    // Gray
-static const u8 sText_QuestMenu_Active[] = _("{COLOR BLUE}Active");
+static const u8 sText_QuestMenu_Active[] = _("{COLOR LIGHT_GRAY}{SHADOW BLACK}Active"); // Blue
+static const u8 sText_QuestMenu_Objectives[] = _("{COLOR LIGHT_GRAY}{SHADOW BLACK}{STR_VAR_1}/{STR_VAR_2}"); // Blue
+static const u8 sText_QuestMenu_TurnIn[] = _("{COLOR BLUE}Turn In"); // Red
 static const u8 sText_QuestMenu_Complete[] = _("{COLOR CYAN}Done"); // Green
 static const u8 sText_QuestMenu_Exit[] = _("Exit the quest menu.");
 static const u8 sText_QuestMenu_SelectedQuest[] = _("Do what with\nthis quest?");
@@ -124,7 +126,7 @@ static const u8 sText_QuestMenu_DifficultyEasy[] = _("{COLOR MAGENTA}{SHADOW CYA
 static const u8 sText_QuestMenu_DifficultyNormal[] = _("{COLOR SILVER}{SHADOW LIGHT_BLUE}Normal"); // Blue
 static const u8 sText_QuestMenu_DifficultyChallenging[] = _("{COLOR YELLOW}Challenging"); // Orange
 static const u8 sText_QuestMenu_DifficultyHard[] = _("{COLOR BLUE}Hard"); // Red
-static const u8 sText_QuestMenu_DifficultyExtreme[] = _("{COLOR LIGHT_GRAY}{SHADOW SKY_BLUE}Extreme"); // Purple
+static const u8 sText_QuestMenu_DifficultyExtreme[] = _("{COLOR LIGHT_GRAY}{SHADOW SKY_BLUE}Master"); // Purple
 static const u8 sText_QuestMenu_DifficultySpecial[] = _("{COLOR BLACK}Special"); // Ice Blue
 
 //menu actions
@@ -164,6 +166,7 @@ static const u8 *const sSideQuestDifficultyText[] =
     sText_QuestMenu_DifficultySpecial,
 };
 
+#include "data/quest_objective_funcs.c"
 #include "data/quests.c"
 
 // ITEM PC MENU
@@ -278,7 +281,7 @@ void ItemPc_Init(u8 kind, MainCallback callback)
 {
     u8 i;
 
-    //DebugSideQuestMenu();
+    GetSetQuestFlag(SIDE_QUEST_4, QUEST_MENU_COMPLETE_QUEST); // FOOTHOLD
     
     if (kind >= 2)
     {
@@ -656,6 +659,9 @@ static void ItemPc_MoveCursorFunc(s32 itemIndex, bool8 onInit, struct ListMenu *
 
 static void ItemPc_ItemPrintFunc(u8 windowId, s32 itemId, u8 y)
 {
+    u8 i, j, temp;
+    s8 offset;
+
     if (sStateDataPtr->moveModeOrigPos != 0xFF)
     {
         if (sStateDataPtr->moveModeOrigPos == (u8)itemId)
@@ -668,12 +674,39 @@ static void ItemPc_ItemPrintFunc(u8 windowId, s32 itemId, u8 y)
     {
         if (IsQuestMenuActive())
         {
+            i = 0;
+            j = 0;
+            offset = 0;
+            temp = 0;
+
             if (GetSetQuestFlag(itemId, FLAG_GET_COMPLETED))
+            {
+                offset = 15;
                 StringCopy(gStringVar4, sText_QuestMenu_Complete);
-            else
+            }
+            else if (!GetSetQuestFlag(itemId, FLAG_GET_UNLOCKED))
                 StringCopy(gStringVar4, gExpandedPlaceholder_Empty);
+            else if (sSideQuests[itemId].completedObjectives() >= sSideQuests[itemId].objectives)
+            {
+                offset = 2;
+                StringCopy(gStringVar4, sText_QuestMenu_TurnIn);
+            }
+            else if (sSideQuests[itemId].objectives == 1)
+            {
+                offset = 6;
+                StringCopy(gStringVar4, sText_QuestMenu_Active);
+            }
+            else
+            {
+                i = NumDigits(sSideQuests[itemId].completedObjectives());
+                j = NumDigits(sSideQuests[itemId].objectives);
+                offset = 30 - 5 * (i + j);
+                ConvertIntToDecimalStringN(gStringVar1, sSideQuests[itemId].completedObjectives(), STR_CONV_MODE_RIGHT_ALIGN, i);
+                ConvertIntToDecimalStringN(gStringVar2, sSideQuests[itemId].objectives, STR_CONV_MODE_LEFT_ALIGN, j);
+                StringExpandPlaceholders(gStringVar4, sText_QuestMenu_Objectives);
+            }
             
-            ItemPc_AddTextPrinterParameterized(windowId, 0, gStringVar4, 110, y, 0, 0, TEXT_SPEED_FF, 1);
+            ItemPc_AddTextPrinterParameterized(windowId, 0, gStringVar4, 100 + offset, y, 0, 0, TEXT_SPEED_FF, 1);
         }
         else
         {
