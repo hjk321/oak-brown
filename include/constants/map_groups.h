@@ -454,6 +454,10 @@
 #define MAP_GRAVEL_TOWN_HOUSE              (6 | (7 << 8))
 #define MAP_GRAVEL_TOWN_POKE_MART          (7 | (7 << 8))
 #define MAP_GRAVEL_TOWN_TIMS_LAB           (8 | (7 << 8))
+#define MAP_MERSON_CAVE_1F                 (9 | (7 << 8))
+#define MAP_MERSON_CAVE_1BF                (10 | (7 << 8))
+#define MAP_MERSON_CAVE_2BF                (11 | (7 << 8))
+#define MAP_MERSON_CAVE_OUTDOOR            (12 | (7 << 8))
 
 #define MAP_GROUPS_COUNT 8
 

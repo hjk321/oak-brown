@@ -458,6 +458,10 @@
     "GravelTown",
     "GravelTown_House",
     "GravelTown_PokeMart",
-    "GravelTown_TimsLab"
+    "GravelTown_TimsLab",
+    "MersonCave_1F",
+    "MersonCave_1BF",
+    "MersonCave_2BF",
+    "MersonCave_Outdoor"
   ]
 }

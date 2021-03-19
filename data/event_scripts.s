@@ -1023,3 +1023,11 @@ Text_TestMsg:: @ 81ACD45
 	.include "data/maps/GravelTown_PokeMart/scripts.inc"
 
 	.include "data/maps/GravelTown_TimsLab/scripts.inc"
+
+	.include "data/maps/MersonCave_1F/scripts.inc"
+
+	.include "data/maps/MersonCave_1BF/scripts.inc"
+
+	.include "data/maps/MersonCave_2BF/scripts.inc"
+
+	.include "data/maps/MersonCave_Outdoor/scripts.inc"

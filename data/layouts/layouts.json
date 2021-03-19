@@ -4488,6 +4488,54 @@
       "secondary_tileset": "gTileset_Lab",
       "border_filepath": "data/layouts/GravelTown_TimsLab/border.bin",
       "blockdata_filepath": "data/layouts/GravelTown_TimsLab/map.bin"
+    },
+    {
+      "id": "LAYOUT_MERSON_CAVE_1F",
+      "name": "MersonCave_1F_Layout",
+      "width": 75,
+      "height": 58,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/MersonCave_1F/border.bin",
+      "blockdata_filepath": "data/layouts/MersonCave_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_MERSON_CAVE_1BF",
+      "name": "MersonCave_1BF_Layout",
+      "width": 53,
+      "height": 48,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/MersonCave_1BF/border.bin",
+      "blockdata_filepath": "data/layouts/MersonCave_1BF/map.bin"
+    },
+    {
+      "id": "LAYOUT_MERSON_CAVE_2BF",
+      "name": "MersonCave_2BF_Layout",
+      "width": 24,
+      "height": 24,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/MersonCave_2BF/border.bin",
+      "blockdata_filepath": "data/layouts/MersonCave_2BF/map.bin"
+    },
+    {
+      "id": "LAYOUT_MERSON_CAVE_OUTDOOR",
+      "name": "MersonCave_Outdoor_Layout",
+      "width": 24,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Dummy1",
+      "border_filepath": "data/layouts/MersonCave_Outdoor/border.bin",
+      "blockdata_filepath": "data/layouts/MersonCave_Outdoor/map.bin"
     }
   ]
 }
