@@ -121,7 +121,7 @@ static const u8 sText_QuestMenu_Complete[] = _("{COLOR CYAN}Done"); // Green
 static const u8 sText_QuestMenu_Exit[] = _("Exit the quest menu.");
 static const u8 sText_QuestMenu_SelectedQuest[] = _("Do what with\nthis quest?");
 static const u8 sText_QuestMenu_DisplayDetails[] = _("Contact: {STR_VAR_1}\nLocation: {STR_VAR_2}");
-static const u8 sText_QuestMenu_Difficulty[] = _("Difficulty: {STR_VAR_1}{COLOR DARK_GREY}{SHADOW RED}\n"); // Normal Text Color
+static const u8 sText_QuestMenu_Difficulty[] = _("{COLOR GREEN}{SHADOW RED}Difficulty: {STR_VAR_1}{COLOR DARK_GREY}{SHADOW RED}\n");
 static const u8 sText_QuestMenu_DifficultyEasy[] = _("{COLOR MAGENTA}{SHADOW CYAN}Easy"); // Green
 static const u8 sText_QuestMenu_DifficultyNormal[] = _("{COLOR SILVER}{SHADOW LIGHT_BLUE}Normal"); // Blue
 static const u8 sText_QuestMenu_DifficultyChallenging[] = _("{COLOR YELLOW}Challenging"); // Orange
@@ -653,7 +653,7 @@ static void ItemPc_MoveCursorFunc(s32 itemIndex, bool8 onInit, struct ListMenu *
         StringExpandPlaceholders(gStringVar4, desc);
         if (IsQuestMenuActive() && GetSetQuestFlag(itemIndex, FLAG_GET_UNLOCKED))
             StringAppend(gStringVar4, sSideQuests[itemIndex].desc);
-        ItemPc_AddTextPrinterParameterized(1, 2, gStringVar4, 0, 3, 2, 0, 0, 3);
+        ItemPc_AddTextPrinterParameterized(1, 2, gStringVar4, 0, 3, 2, -4, 0, 3);
     }
 }
 

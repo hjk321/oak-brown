@@ -1552,8 +1552,8 @@ extern const u8 gUnknown_8419B18[];
 
 //// Side Quests
 // Names
-extern const u8 gText_SideQuestName_1[];
-extern const u8 gText_SideQuestName_2[];
+extern const u8 gText_SideQuestName_PokedexMaster[];
+extern const u8 gText_SideQuestName_CatchEmAll[];
 extern const u8 gText_SideQuestName_3[];
 extern const u8 gText_SideQuestName_4[];
 extern const u8 gText_SideQuestName_5[];
@@ -1584,8 +1584,8 @@ extern const u8 gText_SideQuestName_29[];
 extern const u8 gText_SideQuestName_30[];
 
 // Descriptions
-extern const u8 gText_SideQuestDesc_1[];
-extern const u8 gText_SideQuestDesc_2[];
+extern const u8 gText_SideQuestDesc_PokedexMaster[];
+extern const u8 gText_SideQuestDesc_CatchEmAll[];
 extern const u8 gText_SideQuestDesc_3[];
 extern const u8 gText_SideQuestDesc_4[];
 extern const u8 gText_SideQuestDesc_5[];
@@ -1616,8 +1616,7 @@ extern const u8 gText_SideQuestDesc_29[];
 extern const u8 gText_SideQuestDesc_30[];
 
 // Point of Contact
-extern const u8 gText_SideQuestPOC_1[];
-extern const u8 gText_SideQuestPOC_2[];
+extern const u8 gText_SideQuestPOC_Tim[];
 extern const u8 gText_SideQuestPOC_3[];
 extern const u8 gText_SideQuestPOC_4[];
 extern const u8 gText_SideQuestPOC_5[];
@@ -1648,8 +1647,7 @@ extern const u8 gText_SideQuestPOC_29[];
 extern const u8 gText_SideQuestPOC_30[];
 
 // Map
-extern const u8 gText_SideQuestMap_1[];
-extern const u8 gText_SideQuestMap_2[];
+extern const u8 gText_SideQuestMap_GravelTown[];
 extern const u8 gText_SideQuestMap_3[];
 extern const u8 gText_SideQuestMap_4[];
 extern const u8 gText_SideQuestMap_5[];

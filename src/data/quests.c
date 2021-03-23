@@ -1,9 +1,9 @@
 #define side_quest(n, dif, d, p, m, o, c) {.name = n, .difficulty = dif, .desc = d, .poc = p, .map = m, .objectives = o, .completedObjectives = c}
 static const struct SideQuest sSideQuests[SIDE_QUEST_COUNT] =
 {
-    side_quest(gText_SideQuestName_1,  QUEST_DIFFICULTY_NORMAL, gText_SideQuestDesc_1,  gText_SideQuestPOC_1,  gText_SideQuestMap_1, 1, Objective_Dummy),
-    side_quest(gText_SideQuestName_2,  QUEST_DIFFICULTY_NORMAL, gText_SideQuestDesc_2,  gText_SideQuestPOC_2,  gText_SideQuestMap_2, 1, Objective_Dummy),
-    side_quest(gText_SideQuestName_3,  QUEST_DIFFICULTY_NORMAL, gText_SideQuestDesc_3,  gText_SideQuestPOC_3,  gText_SideQuestMap_3, 1, Objective_DummyComplete),
+    side_quest(gText_SideQuestName_PokedexMaster,  QUEST_DIFFICULTY_MASTER, gText_SideQuestDesc_PokedexMaster,  gText_SideQuestPOC_Tim,  gText_SideQuestMap_GravelTown, NATIONAL_DEX_COUNT, Objective_PokedexMaster),
+    side_quest(gText_SideQuestName_CatchEmAll,  QUEST_DIFFICULTY_MASTER, gText_SideQuestDesc_CatchEmAll,  gText_SideQuestPOC_Tim,  gText_SideQuestMap_GravelTown, NATIONAL_DEX_COUNT, Objective_CatchEmAll),
+    side_quest(gText_SideQuestName_3,  QUEST_DIFFICULTY_NORMAL, gText_SideQuestDesc_3,  gText_SideQuestPOC_3,  gText_SideQuestMap_3, 1, Objective_Dummy),
     side_quest(gText_SideQuestName_4,  QUEST_DIFFICULTY_NORMAL, gText_SideQuestDesc_4,  gText_SideQuestPOC_4,  gText_SideQuestMap_4, 1, Objective_Dummy),
     side_quest(gText_SideQuestName_5,  QUEST_DIFFICULTY_NORMAL, gText_SideQuestDesc_5,  gText_SideQuestPOC_5,  gText_SideQuestMap_5, 1, Objective_Dummy),
     side_quest(gText_SideQuestName_6,  QUEST_DIFFICULTY_NORMAL, gText_SideQuestDesc_6,  gText_SideQuestPOC_6,  gText_SideQuestMap_6, 1, Objective_Dummy),

@@ -1338,8 +1338,8 @@ const u8 gUnknown_841EE2B[] = _("DEL. ALL{CLEAR_TO 0x57}CANCEL{CLEAR_TO 0xA4}OK"
 
 //// side quest data
 //names
-const u8 gText_SideQuestName_1[] = _("Side Quest 1");
-const u8 gText_SideQuestName_2[] = _("Side Quest 2");
+const u8 gText_SideQuestName_PokedexMaster[] = _("Pokédex Master");
+const u8 gText_SideQuestName_CatchEmAll[] = _("Catch 'em All!");
 const u8 gText_SideQuestName_3[] = _("Side Quest 3");
 const u8 gText_SideQuestName_4[] = _("Side Quest 4");
 const u8 gText_SideQuestName_5[] = _("Side Quest 5");
@@ -1369,8 +1369,8 @@ const u8 gText_SideQuestName_28[] = _("Side Quest 28");
 const u8 gText_SideQuestName_29[] = _("Side Quest 29");
 const u8 gText_SideQuestName_30[] = _("Side Quest 30");
 //descriptions
-const u8 gText_SideQuestDesc_1[] = _("Description 1");
-const u8 gText_SideQuestDesc_2[] = _("Description 2");
+const u8 gText_SideQuestDesc_PokedexMaster[] = _("Tim has given you a Pokédex. Find\nand record data on every Pokémon\nto complete the Pokédex!");
+const u8 gText_SideQuestDesc_CatchEmAll[] = _("You've seen a lot of Pokémon, but\nTim wants you to record better data\nfor the Pokédex. Catch 'em all!");
 const u8 gText_SideQuestDesc_3[] = _("Description 3");
 const u8 gText_SideQuestDesc_4[] = _("Description 4");
 const u8 gText_SideQuestDesc_5[] = _("Description 5");
@@ -1400,8 +1400,7 @@ const u8 gText_SideQuestDesc_28[] = _("Description 28");
 const u8 gText_SideQuestDesc_29[] = _("Description 29");
 const u8 gText_SideQuestDesc_30[] = _("Description 30");
 //point of contact
-const u8 gText_SideQuestPOC_1[] = _("POC 1");
-const u8 gText_SideQuestPOC_2[] = _("POC 2");
+const u8 gText_SideQuestPOC_Tim[] = _("Tim");
 const u8 gText_SideQuestPOC_3[] = _("POC 3");
 const u8 gText_SideQuestPOC_4[] = _("POC 4");
 const u8 gText_SideQuestPOC_5[] = _("POC 5");
@@ -1431,8 +1430,7 @@ const u8 gText_SideQuestPOC_28[] = _("POC 28");
 const u8 gText_SideQuestPOC_29[] = _("POC 29");
 const u8 gText_SideQuestPOC_30[] = _("POC 30");
 //map
-const u8 gText_SideQuestMap_1[] = _("Map 1");
-const u8 gText_SideQuestMap_2[] = _("Map 2");
+const u8 gText_SideQuestMap_GravelTown[] = _("Gravel Town");
 const u8 gText_SideQuestMap_3[] = _("Map 3");
 const u8 gText_SideQuestMap_4[] = _("Map 4");
 const u8 gText_SideQuestMap_5[] = _("Map 5");
