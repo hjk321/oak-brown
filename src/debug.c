@@ -92,7 +92,7 @@ static const struct ListMenuTemplate sDebugMenuListTemplate =
 {
     .items = sDebugMenuItems,
     .moveCursorFunc = ListMenuDefaultCursorMoveFunc,
-    .totalItems = ARRAY_COUNT(sDebugMenuItems),
+    .totalItems = NELEMS(sDebugMenuItems),
     .maxShowed = DEBUG_MAIN_MENU_HEIGHT,
     .windowId = 0,
     .header_X = 0,

@@ -44,7 +44,7 @@ u8 NumDigits(u32 num)
 
     num += 1;
 
-    for (i = 0; i < ARRAY_COUNT(sPowersOfTen); i++)
+    for (i = 0; i < NELEMS(sPowersOfTen); i++)
     {
         if (num >= sPowersOfTen[i])
             continue;
