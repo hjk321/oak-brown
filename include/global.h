@@ -20,7 +20,7 @@
 #define asm_comment(x) asm volatile("@ -- " x " -- ")
 #define asm_unified(x) asm(".syntax unified\n" x "\n.syntax divided")
 
-#if defined (__APPLE__) || defined (__CYGWIN__)
+#if defined (__APPLE__) || defined (__CYGWIN__) || defined(__CLION_IDE__)
 // Get the IDE to stfu
 
 // We define it this way to fool preproc.
@@ -35,9 +35,7 @@
 #define __(x) (x)
 #endif // __APPLE__
 
-#define ARRAY_COUNT(array) (sizeof(array) / sizeof((array)[0]))
-// GF's lingo
-#define NELEMS ARRAY_COUNT
+#define NELEMS(array) (sizeof(array) / sizeof((array)[0]))
 
 #define SWAP(a, b, temp)    \
 {                           \
