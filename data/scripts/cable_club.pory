@@ -1,4 +1,4 @@
-raw `
+raw`
 CableClub_OnTransition:: @ 81BB1B4
 	call CableClub_EventScript_HideOrShowMysteryGiftMan
 	end
@@ -1145,7 +1145,7 @@ CableClub_EventScript_EnterWirelessLinkRoom:: @ 81BBF88
 	waitstate
 	end
 
-CableClub_EventScript_81BBFD8:: @ 81BBFD8
+CableClub_EventScript_ShowWirelessCommunicationScreen:: @ 81BBFD8
 	goto_if_questlog EventScript_ReleaseEnd
 	lockall
 	goto_if_unset FLAG_SYS_POKEDEX_GET, CableClub_EventScript_NotReadyYet
@@ -1189,6 +1189,10 @@ CableClub_EventScript_OpenGameCornerBarrier:: @ 81BC048
 CableClub_EventScript_CloseGameCornerBarrier:: @ 81BC052
 	setmetatile 5, 3, METATILE_GameCorner_CounterBarrier, 1
 	return
+
+CableClub_OnResume:: @ 81BC05C
+	special InitUnionRoom
+	end
 
 JoyfulGameCorner_EventScript_InfoMan2:: @ 81BC060
 	goto_if_questlog EventScript_ReleaseEnd
