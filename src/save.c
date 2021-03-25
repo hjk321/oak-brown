@@ -694,7 +694,7 @@ OK:
     return 1;
 }
 
-u8 sub_80DA3AC(void)
+u8 SaveGame_AfterLinkTrade(void)
 {
     if (gFlashMemoryPresent != TRUE)
         return 1;
@@ -704,18 +704,18 @@ u8 sub_80DA3AC(void)
     return 0;
 }
 
-bool8 sub_80DA3D8(void) 
+bool8 AfterLinkTradeSaveFailed(void) 
 {
     u8 retVal = sub_80D9AA4(0xE, gRamSaveSectionLocations);
     if (gDamagedSaveSectors)
         DoSaveFailedScreen(SAVE_NORMAL);
-    if (retVal == 0xFF)
+    if (retVal == SAVE_STATUS_ERROR)
         return 1;
     else
         return 0;
 }
 
-u8 sub_80DA40C(void)
+u8 ClearSaveAfterLinkTradeSaveFailure(void)
 {
     sub_80D9B04(0xE, gRamSaveSectionLocations);
     if (gDamagedSaveSectors)
