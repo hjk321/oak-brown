@@ -12,7 +12,10 @@ script SeashoreCity_PlayersHouse_1F_Mom {
     if (!flag(FLAG_SYS_POKEMON_GET)) {
         msgbox(format("Mom: Good luck in following in your dad's footsteps, sweetie!\pGo south and look for Timothy, the Pokémon Tutor."))
     } else {
-        goto(PalletTown_PlayersHouse_1F_EventScript_MomHeal)
+        msgbox(format("Mom: {PLAYER}, you look tired!\nYou should take a quick rest."))
+        closemessage
+        call(EventScript_OutOfCenterPartyHeal)
+        msgbox(format("Mom: Oh, good! You and your Pokémon are looking great!\pTake care, now!"))
     }
     release
 }
