@@ -36,6 +36,7 @@ extern const struct CompressedSpriteSheet gTrainerFrontPicTable[];
 #define FIELD_EFFECT_COUNT 32
 
 EWRAM_DATA u32 gFieldEffectArguments[8] = {0};
+EWRAM_DATA u16 gReflectionPaletteBuffer[0x10] = {0};
 
 static u8 sFieldEffectActiveList[FIELD_EFFECT_COUNT];
 
@@ -53,7 +54,6 @@ static void FieldEffectScript_LoadFadedPal(const u8 **script);
 static void FieldEffectScript_LoadPal(const u8 **script);
 static void FieldEffectScript_CallNative(const u8 **script, u32 *result);
 static void FieldEffectFreeTilesIfUnused(u16 tilesTag);
-static void FieldEffectFreePaletteIfUnused(u8 paletteNum);
 static void Task_PokecenterHeal(u8 taskId);
 static void SpriteCB_PokeballGlow(struct Sprite * sprite);
 static void SpriteCB_PokecenterMonitor(struct Sprite * sprite);
@@ -449,6 +449,7 @@ static void FieldEffectScript_LoadFadedPal(const u8 **script)
     const struct SpritePalette * spritePalette = (const struct SpritePalette * )FieldEffectScript_ReadWord(script);
     u8 idx = IndexOfSpritePaletteTag(spritePalette->tag);
     LoadSpritePalette(spritePalette);
+    UpdatePaletteGammaType(IndexOfSpritePaletteTag(spritePalette->tag), GAMMA_NORMAL);
     if (idx == 0xFF)
         ApplyGlobalFieldPaletteTint(IndexOfSpritePaletteTag(spritePalette->tag));
     UpdateSpritePaletteWithWeather(IndexOfSpritePaletteTag(spritePalette->tag));
@@ -501,7 +502,7 @@ static void FieldEffectFreeTilesIfUnused(u16 tileStart)
     FreeSpriteTilesByTag(tileTag);
 }
 
-static void FieldEffectFreePaletteIfUnused(u8 paletteNum)
+void FieldEffectFreePaletteIfUnused(u8 paletteNum)
 {
     u8 i;
     u16 paletteTag = GetSpritePaletteTagByPaletteNum(paletteNum);
@@ -3048,10 +3049,13 @@ static void sub_8086D94(struct Sprite * sprite);
 
 u8 FldEff_NpcFlyOut(void)
 {
-    u8 spriteId = CreateSprite(gFieldEffectObjectTemplatePointers[26], 0x78, 0, 1);
-    struct Sprite * sprite = &gSprites[spriteId];
+    u8 spriteId;
+    struct Sprite *sprite;
 
-    sprite->oam.paletteNum = 0;
+    LoadFieldEffectPalette(26);
+    spriteId = CreateSprite(gFieldEffectObjectTemplatePointers[26], 0x78, 0, 1);
+    sprite = &gSprites[spriteId];
+
     sprite->oam.priority = 1;
     sprite->callback = sub_8086D94;
     sprite->data[1] = gFieldEffectArguments[0];
