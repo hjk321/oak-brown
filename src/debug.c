@@ -21,8 +21,10 @@
 #include "event_data.h"
 #include "constants/quests.h"
 #include "quest_menu.h"
+#include "script.h"
+#include "event_scripts.h"
 
-#define DEBUG_MAIN_MENU_HEIGHT 7
+#define DEBUG_MAIN_MENU_HEIGHT 8
 #define DEBUG_MAIN_MENU_WIDTH 17
 
 void Debug_ShowMainMenu(void);
@@ -36,6 +38,7 @@ static void DebugAction_WarpToPallet(u8);
 static void DebugAction_CompletePokedex(u8);
 static void DebugAction_UnlockAllMenus(u8);
 static void DebugAction_UnlockAllQuests(u8);
+static void DebugAction_AccessPC(u8);
 
 enum {
     DEBUG_MENU_ITEM_CANCEL,
@@ -45,6 +48,7 @@ enum {
     DEBUG_MENU_ITEM_COMPLETEPOKEDEX,
     DEBUG_MENU_ITEM_UNLOCKALLMENUS,
     DEBUG_MENU_ITEM_UNLOCKALLQUESTS,
+    DEBUG_MENU_ITEM_ACCESSPC,
 };
 
 static const u8 gDebugText_Cancel[] = _("Cancel");
@@ -54,6 +58,7 @@ static const u8 gDebugText_WarpToPallet[] = _("Warp to Pallet");
 static const u8 gDebugText_CompletePokedex[] = _("Complete Pokédex");
 static const u8 gDebugText_UnlockAllMenus[] = _("Unlock All Menus");
 static const u8 gDebugText_UnlockAllQuests[] = _("Unlock All Quests");
+static const u8 gDebugText_AccessPC[] = _("Access PC");
 
 static const struct ListMenuItem sDebugMenuItems[] =
 {
@@ -64,6 +69,7 @@ static const struct ListMenuItem sDebugMenuItems[] =
     [DEBUG_MENU_ITEM_COMPLETEPOKEDEX] = {gDebugText_CompletePokedex, DEBUG_MENU_ITEM_COMPLETEPOKEDEX},
     [DEBUG_MENU_ITEM_UNLOCKALLMENUS] = {gDebugText_UnlockAllMenus, DEBUG_MENU_ITEM_UNLOCKALLMENUS},
     [DEBUG_MENU_ITEM_UNLOCKALLQUESTS] = {gDebugText_UnlockAllQuests, DEBUG_MENU_ITEM_UNLOCKALLQUESTS},
+    [DEBUG_MENU_ITEM_ACCESSPC] = {gDebugText_AccessPC, DEBUG_MENU_ITEM_ACCESSPC},
 };
 
 static void (*const sDebugMenuActions[])(u8) =
@@ -75,6 +81,7 @@ static void (*const sDebugMenuActions[])(u8) =
     [DEBUG_MENU_ITEM_COMPLETEPOKEDEX] = DebugAction_CompletePokedex,
     [DEBUG_MENU_ITEM_UNLOCKALLMENUS] = DebugAction_UnlockAllMenus,
     [DEBUG_MENU_ITEM_UNLOCKALLQUESTS] = DebugAction_UnlockAllQuests,
+    [DEBUG_MENU_ITEM_ACCESSPC] = DebugAction_AccessPC,
 };
 
 static const struct WindowTemplate sDebugMenuWindowTemplate =
@@ -179,6 +186,8 @@ static void DebugAction_LivingDex(u8 taskId)
     Debug_DestroyMainMenu(taskId);
     
     level = GetMonData(&gPlayerParty[0], MON_DATA_LEVEL, NULL);
+    if (level < 1)
+        level = 1;
     for (box = 0; box < TOTAL_BOXES_COUNT; box++)
     {
         for (pos = 0; pos < IN_BOX_COUNT; pos++)
@@ -258,4 +267,12 @@ static void DebugAction_UnlockAllQuests(u8 taskId)
     }
 }
 
-#endif
+static void DebugAction_AccessPC(u8 taskId)
+{
+    Debug_DestroyMainMenu(taskId);
+
+    ScriptContext1_SetupScript(EventScript_PCDebug);
+    ScriptContext2_Enable();
+}
+
+#endif // DEBUG

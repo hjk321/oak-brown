@@ -18,6 +18,13 @@ EventScript_PCDisabled:: @ 81A698E
 	releaseall
 	end
 
+@ Boot PC from anywhere
+EventScript_PCDebug::
+	lockall
+	msgbox Text_BootedUpPC
+	goto EventScript_PCMainMenu
+	end
+
 EventScript_PCMainMenu:: @ 81A6998
 	message Text_AccessWhichPC
 	waitmessage
