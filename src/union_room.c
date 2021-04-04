@@ -392,7 +392,13 @@ static const struct ListMenuItem sListMenuItems_TypeNames[] = {
     {gTypeNames[TYPE_DRAGON],     TYPE_DRAGON},
     {gTypeNames[TYPE_STEEL],       TYPE_STEEL},
     {gTypeNames[TYPE_DARK],         TYPE_DARK},
-    {gUnknown_8459360,           NUMBER_OF_MON_TYPES}
+    {gTypeNames[TYPE_FAIRY],       TYPE_FAIRY},
+    {gTypeNames[TYPE_WIND],         TYPE_WIND},
+    {gTypeNames[TYPE_SOUND],       TYPE_SOUND},
+    {gTypeNames[TYPE_GAS],           TYPE_GAS},
+    {gTypeNames[TYPE_WOOD],         TYPE_WOOD},
+    {gTypeNames[TYPE_ABNORMAL], TYPE_ABNORMAL},
+    {gUnknown_8459360,    NUMBER_OF_MON_TYPES}
 };
 
 static const struct ListMenuTemplate sListMenuTemplate_TypeNames = {

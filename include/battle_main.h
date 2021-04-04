@@ -42,6 +42,7 @@ struct TrainerBall
 #define TYPE_MUL_NOT_EFFECTIVE      5
 #define TYPE_MUL_NORMAL             10
 #define TYPE_MUL_SUPER_EFFECTIVE    20
+#define TYPE_MUL_ULTRA_EFFECTIVE    40
 
 // special type table Ids
 #define TYPE_FORESIGHT  0xFE
@@ -63,7 +64,7 @@ extern const u8 gStatusConditionString_IceJpn[8];
 extern const u8 gStatusConditionString_ConfusionJpn[8];
 extern const u8 gStatusConditionString_LoveJpn[8];
 extern const u8 *const gStatusConditionStringsTable[7][2];
-extern const u8 gTypeEffectiveness[336];
+extern const u8 gTypeEffectiveness[573];
 extern const struct TrainerMoney gTrainerMoneyTable[];
 extern const struct TrainerBall gTrainerBallTable[];
 extern const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT];

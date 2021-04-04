@@ -93,6 +93,12 @@ const struct MoveMenuInfoIcon gMoveMenuInfoIcons[] =
     { 32, 12, 0x4C },       // Ice icon
     { 32, 12, 0xA0 },       // Dragon icon
     { 32, 12, 0x8C },       // Dark icon
+    { 32, 12, 0x04 },       // Fairy icon
+    { 32, 12, 0x100 },      // Wind icon
+    { 32, 12, 0x104 },      // Sound icon
+    { 32, 12, 0x10C },      // Gas icon
+    { 32, 12, 0x108 },      // Wood icon
+    { 32, 12, 0x08 },       // Abnormal icon
     { 40, 12, 0xA8 },       // -Type- icon
     { 40, 12, 0xC0 },       // -Power- icon
     { 40, 12, 0xC8 },       // -Accuracy- icon
