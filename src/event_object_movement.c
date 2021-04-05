@@ -479,6 +479,7 @@ const u8 gInitialMovementTypeFacingDirections[NUM_FIELD_MAP_OBJECT_TEMPLATES] = 
 #define OBJ_EVENT_PAL_TAG_32 0x1121
 #define OBJ_EVENT_PAL_TAG_33 0x1122
 #define OBJ_EVENT_PAL_TAG_34 0x1123
+#define OBJ_EVENT_PAL_TAG_TIM 0x1124
 #define OBJ_EVENT_PAL_TAG_NONE 0x11FF
 
 #include "data/field_effects/field_effect_object_template_pointers.h"
@@ -508,6 +509,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gUnknown_8394EA8, OBJ_EVENT_PAL_TAG_20},
     {gUnknown_8395AE8, OBJ_EVENT_PAL_TAG_11},
     {gUnknown_83952C8, OBJ_EVENT_PAL_TAG_21},
+    {gObjectEventPalette_Tim, OBJ_EVENT_PAL_TAG_TIM},
     {},
 };
 
