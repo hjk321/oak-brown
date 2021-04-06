@@ -288,8 +288,6 @@ movement Movement_TimWalkToLab5 {
     walk_down * 5
     walk_right * 14
     delay_8
-    face_up
-    delay_16
     walk_in_place_fastest_up
     delay_16 * 3
     walk_up
