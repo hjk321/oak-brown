@@ -18,7 +18,7 @@ script Route53_Clerk {
     lock
     faceplayer
     if (flag(FLAG_GOT_POTION_ON_ROUTE_53)) {
-        msgbox(format("Sorry! I'm all out of free samples!\pIf you need potions, get some at any Pokémart!"))
+        msgbox(format("Sorry, I'm all out of free samples!\pIf you need potions, get some at any Pokémart!"))
     } else {
         msgbox(format("Hi!\pThe Gravel Town Pokémart is giving out free samples today, so go ahead and take this potion!"))
         checkitemspace(ITEM_POTION, 1)
@@ -44,4 +44,296 @@ script Route53_Sign {
     lock
     msgbox("Route 53\nGravel Town - Seashore City")
     release
+}
+
+// -----------------------
+// Meeting Tim for the first time takes place mostly in Gravel Town,
+// But it starts in Route 53 so all the scripts are here.
+
+const TIM_ID = 6
+const PLAYER_ID = OBJ_EVENT_ID_PLAYER
+
+script Route53_MeetTim_Start {
+    lockall
+    setvar(VAR_MAP_SCENE_ROUTE53, 1)
+    playbgm(MUS_OAK, 0)
+
+    // Figure out which trigger we are at
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_F)
+    switch(var(VAR_TEMP_0)) {
+        case 25:
+            setvar(VAR_TEMP_0, 1)
+        case 24:
+            setvar(VAR_TEMP_0, 2)
+        case 23:
+            setvar(VAR_TEMP_0, 3)
+        case 22:
+            setvar(VAR_TEMP_0, 4)
+        case 21:
+            setvar(VAR_TEMP_0, 5)
+    }
+
+    // Then apply the proper movement for Tim
+    switch(var(VAR_TEMP_0)) {
+        case 1:
+            applymovement(TIM_ID, Movement_TimStart1)
+        case 2:
+            applymovement(TIM_ID, Movement_TimStart2)
+        case 3:
+            applymovement(TIM_ID, Movement_TimStart3)
+        case 4:
+            applymovement(TIM_ID, Movement_TimStart4)
+        case 5:
+            applymovement(TIM_ID, Movement_TimStart5)
+    }
+    waitmovement(TIM_ID)
+    textcolor(0)
+    msgbox(format("There you are!\nYou're late!"))
+    goto(Route53_MeetTim_Main)
+}
+
+script Route53_MeetTim_SequenceBreak {
+    lockall
+    playbgm(MUS_OAK, 0)
+    setvar(VAR_MAP_SCENE_ROUTE53, 1)
+    setvar(VAR_TEMP_0, 4)
+    applymovement(TIM_ID, Movement_TimSequenceBreak)
+    waitmovement(TIM_ID)
+    textcolor(0)
+    applymovement(PLAYER_ID, Movement_FaceRight)
+    msgbox(format("There you are!\nYou're late!\pAnd…\nErm…\pYou're in someone's backyard???"))
+    closemessage
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_F)
+    if (var(VAR_TEMP_0) == 18) {
+        applymovement(PLAYER_ID, Movement_PlayerUndoSequenceBreakFar)
+        applymovement(TIM_ID, Movement_TimStarePlayerSequenceBreakFar)
+    } else {
+        applymovement(PLAYER_ID, Movement_PlayerUndoSequenceBreakNear)
+        applymovement(TIM_ID, Movement_TimStarePlayerSequenceBreakNear)
+    }
+    waitmovement(PLAYER_ID)
+    setvar(VAR_TEMP_0, 4)
+    msgbox(format("A-Anyway!"))
+    goto(Route53_MeetTim_Main)
+}
+
+script Route53_MeetTim_Main {
+    msgbox(format("I've been waiting for you to get here!\pYou need your very own Pokémon, so come with me to my lab right away!"))
+    closemessage
+    setflag(FLAG_DONT_TRANSITION_MUSIC)
+    switch(var(VAR_TEMP_0)) {
+        case 1:
+            applymovement(TIM_ID, Movement_TimWalkToLab1)
+            applymovement(PLAYER_ID, Movement_PlayerWalkToLab1)
+        case 2:
+            applymovement(TIM_ID, Movement_TimWalkToLab2)
+            applymovement(PLAYER_ID, Movement_PlayerWalkToLab2)
+        case 3:
+            applymovement(TIM_ID, Movement_TimWalkToLab3)
+            applymovement(PLAYER_ID, Movement_PlayerWalkToLab3)
+        case 4:
+            applymovement(TIM_ID, Movement_TimWalkToLab4)
+            applymovement(PLAYER_ID, Movement_PlayerWalkToLab4)
+        case 5:
+            applymovement(TIM_ID, Movement_TimWalkToLab5)
+            applymovement(PLAYER_ID, Movement_PlayerWalkToLab5)
+    }
+    // Tim's overworld can't be referenced properly after unloading Route 53.
+    // We have to rely on the player movement and thus Tim's movement manually delays
+    // for door animation before Tim enters.
+    waitmovement(PLAYER_ID)
+    delay(24)
+    opendoor(40, 16)
+	waitdooranim
+    applymovement(PLAYER_ID, Movement_PlayerEnterLab)
+    waitmovement(PLAYER_ID)
+    closedoor(40, 16)
+	waitdooranim
+    warp(MAP_GRAVEL_TOWN_TIMS_LAB, 0, 0, 0)
+}
+
+movement Movement_TimStart1 {
+    walk_up
+    walk_left
+    walk_up * 4
+}
+
+movement Movement_TimStart2 {
+    walk_up
+    walk_left
+    walk_up
+    walk_left
+    walk_up * 3
+}
+
+movement Movement_TimStart3 {
+    walk_up
+    walk_left
+    walk_up
+    walk_left * 2
+    walk_up * 3
+}
+
+movement Movement_TimStart4 {
+    walk_up
+    walk_left
+    walk_up
+    walk_left
+    walk_up
+    walk_left * 2
+    walk_up * 2
+}
+
+movement Movement_TimStart5 {
+    walk_up
+    walk_left * 2
+    walk_up * 2
+    walk_left * 3
+    walk_up * 2
+}
+
+movement Movement_TimSequenceBreak {
+    walk_left * 3
+    walk_up * 3
+    delay_16 * 4
+    face_left
+    delay_16 * 3
+    face_right
+    delay_16 * 3
+    face_down
+    delay_16 * 2
+    walk_up * 2
+    face_right
+    delay_16 * 2
+    face_left
+    delay_16
+    emote_exclamation_mark
+    delay_16 * 3
+    walk_left
+    delay_16 * 2
+}
+
+movement Movement_PlayerUndoSequenceBreakNear {
+    walk_up * 4
+    walk_right * 3
+    walk_down * 4
+    delay_16 * 2
+}
+
+movement Movement_PlayerUndoSequenceBreakFar {
+    walk_up
+    walk_right
+    walk_up * 3
+    walk_right * 3
+    walk_down * 4
+    delay_16 * 2
+}
+
+// He disapproves of your shennanigans.
+movement Movement_TimStarePlayerSequenceBreakNear {
+    delay_16 * 6
+    face_up
+}
+
+movement Movement_TimStarePlayerSequenceBreakFar {
+    delay_16 * 8
+    face_up
+}
+
+movement Movement_TimWalkToLab1 {
+    walk_down * 17
+    walk_right * 12
+    delay_8
+    walk_in_place_fastest_up
+    delay_16 * 3
+    walk_up
+    set_invisible
+}
+
+movement Movement_TimWalkToLab2 {
+    walk_down * 17
+    walk_right * 13
+    delay_8
+    walk_in_place_fastest_up
+    delay_16 * 3
+    walk_up
+    set_invisible
+}
+
+movement Movement_TimWalkToLab3 {
+    walk_down * 17
+    walk_right * 14
+    delay_8
+    walk_in_place_fastest_up
+    delay_16 * 3
+    walk_up
+    set_invisible
+}
+
+movement Movement_TimWalkToLab4 {
+    walk_down * 12
+    walk_right
+    walk_down * 5
+    walk_right * 14
+    delay_8
+    walk_in_place_fastest_up
+    delay_16 * 3
+    walk_up
+    set_invisible
+}
+
+movement Movement_TimWalkToLab5 {
+    walk_down * 12
+    walk_right * 2
+    walk_down * 5
+    walk_right * 14
+    delay_8
+    face_up
+    delay_16
+    walk_in_place_fastest_up
+    delay_16 * 3
+    walk_up
+    set_invisible
+}
+
+movement Movement_TimEnterLab {
+    emote_exclamation_mark
+    walk_up
+    set_invisible
+}
+
+movement Movement_PlayerWalkToLab1 {
+    walk_down * 18
+    walk_right * 11
+}
+
+movement Movement_PlayerWalkToLab2 {
+    walk_down * 18
+    walk_right * 12
+}
+
+movement Movement_PlayerWalkToLab3 {
+    walk_down * 18
+    walk_right * 13
+}
+
+movement Movement_PlayerWalkToLab4 {
+    walk_down * 13
+    walk_right
+    walk_down * 5
+    walk_right * 13
+}
+
+movement Movement_PlayerWalkToLab5 {
+    walk_down * 13
+    walk_right * 2
+    walk_down * 5
+    walk_right * 13
+}
+
+movement Movement_PlayerEnterLab {
+    delay_16
+    walk_right
+    walk_up
+    set_invisible
 }
