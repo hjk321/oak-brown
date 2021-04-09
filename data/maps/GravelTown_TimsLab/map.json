@@ -21,12 +21,12 @@
       "x": 5,
       "y": 5,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "GravelTown_TimsLab_Mura",
       "flag": "0"
     },
     {
@@ -40,8 +40,50 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "GravelTown_TimsLab_Tim",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "in_connection": false,
+      "x": 8,
+      "y": 4,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GravelTown_TimsLab_PokeballCharmander",
+      "flag": "FLAG_HIDE_CHARMANDER_BALL"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "in_connection": false,
+      "x": 10,
+      "y": 4,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GravelTown_TimsLab_PokeballBulbasaur",
+      "flag": "FLAG_HIDE_BULBASAUR_BALL"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "in_connection": false,
+      "x": 9,
+      "y": 4,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GravelTown_TimsLab_PokeballSquirtle",
+      "flag": "FLAG_HIDE_SQUIRTLE_BALL"
     }
   ],
   "warp_events": [
@@ -54,7 +96,33 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_GRAVELTOWN",
+      "var_value": "1",
+      "script": "GravelTown_TimsLab_BookshelfTriggers"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_GRAVELTOWN",
+      "var_value": "1",
+      "script": "GravelTown_TimsLab_BookshelfTriggers"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_GRAVELTOWN",
+      "var_value": "1",
+      "script": "GravelTown_TimsLab_BookshelfTriggers"
+    }
   ],
   "bg_events": [
 

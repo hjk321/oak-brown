@@ -1,1 +1,320 @@
-mapscripts GravelTown_TimsLab_MapScripts {}
+const TIM_ID = 2
+const MURA_ID = 1
+const PLAYER_ID = OBJ_EVENT_ID_PLAYER
+const CHARMANDER_ID = 3
+const SQUIRTLE_ID = 5
+const BULBASAUR_ID = 4
+
+const TEMPVAR_STARTERCHOICE = VAR_TEMP_1
+
+mapscripts GravelTown_TimsLab_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        if (var(VAR_MAP_SCENE_GRAVELTOWN) == 0) { // Setup starter scene
+            savebgm(MUS_OAK)
+            setobjectxyperm(TIM_ID, 6, 14)
+            setobjectmovementtype(TIM_ID, MOVEMENT_TYPE_FACE_UP)
+        }
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_MAP_SCENE_GRAVELTOWN, 0: GravelTown_TimsLab_StartChooseStarterScene
+    ]
+}
+
+script GravelTown_TimsLab_StartChooseStarterScene {
+    lockall
+    textcolor(0)
+    setvar(VAR_MAP_SCENE_GRAVELTOWN, 1)
+    applymovement(TIM_ID, Movement_TimWalkFromEntrance)
+    applymovement(PLAYER_ID, Movement_PlayerWalkFromEntrance)
+    delay(32)
+    applymovement(MURA_ID, Movement_FaceDown)
+    waitmovement(PLAYER_ID)
+    applymovement(MURA_ID, Movement_FaceRight)
+    clearflag(FLAG_DONT_TRANSITION_MUSIC)
+    fadedefaultbgm
+    savebgm(MUS_OAK_LAB)
+    delay(24)
+    msgbox(format("Mura: Finally, he's here!\pLet's hurry up, already!"))
+    applymovement(MURA_ID, Movement_FaceUp)
+    msgbox(format(
+        "Tim: Mura, be patient. This is a momentous occasion, after all!\p"
+        "Now then, are you both ready for your first Pokémon?\p"
+        "I have three newly-hatched Pokémon here.\p"
+        "My grandfather wanted me to carry on the tradition of being a master trainer.\p"
+        "I'm passing his legacy to you two!\p"
+        "Mura: Yeah, yeah. Get on with it!\p"
+        "Tim: … … …\p{PLAYER}, go ahead and take a Pokémon."))
+    applymovement(MURA_ID, Movement_FaceRight)
+    msgbox(format("Mura: Hey, how come he gets to pick first?"))
+    releaseall
+    setobjectmovementtype(MURA_ID, MOVEMENT_TYPE_LOOK_AROUND)
+}
+
+script GravelTown_TimsLab_BookshelfTriggers {
+    if (!flag(FLAG_SYS_POKEMON_GET)) {
+        lock
+        applymovement(TIM_ID, Movement_FaceDown)
+        textcolor(0)
+        msgbox(format("Tim: H-Hey! Don't go away yet!"))
+        closemessage
+        applymovement(PLAYER_ID, Movement_WalkUp)
+        waitmovement(PLAYER_ID)
+        release
+    } elif (var(VAR_MAP_SCENE_GRAVELTOWN) == 1) {
+        lock
+        setvar(VAR_MAP_SCENE_GRAVELTOWN, 2)
+        playbgm(MUS_RIVAL_EXIT, 0)
+        getplayerxy(VAR_TEMP_9, VAR_TEMP_8)
+        switch(var(VAR_STARTER_MON)) {
+            case STARTER_BULBASAUR:
+                switch(var(VAR_TEMP_9)) {
+                    case 5:
+                        applymovement(MURA_ID, Movement_MuraWalk3)
+                    case 6:
+                        applymovement(MURA_ID, Movement_MuraWalk2)
+                    case 7:
+                        applymovement(MURA_ID, Movement_MuraWalk1)
+                }
+            case STARTER_SQUIRTLE:
+                switch(var(VAR_TEMP_9)) {
+                    case 5:
+                        applymovement(MURA_ID, Movement_MuraWalk5)
+                    case 6:
+                        applymovement(MURA_ID, Movement_MuraWalk4)
+                    case 7:
+                        applymovement(MURA_ID, Movement_MuraWalk3)
+                }
+            case STARTER_CHARMANDER:
+                switch(var(VAR_TEMP_9)) {
+                    case 5:
+                        applymovement(MURA_ID, Movement_MuraWalk4)
+                    case 6:
+                        applymovement(MURA_ID, Movement_MuraWalk3)
+                    case 7:
+                        applymovement(MURA_ID, Movement_MuraWalk2)
+                }
+        }
+        waitmovement(MURA_ID)
+        applymovement(TIM_ID, Movement_FaceDown)
+        textcolor(0)
+        msgbox(format("Mura: Wait, {PLAYER}!\pLet's check out our Pokémon!"))
+        release
+    }
+}
+
+script GravelTown_TimsLab_Mura {
+    if (!flag(FLAG_SYS_POKEMON_GET)) {
+        lock
+        faceplayer
+        msgbox(format("Mura: Hurry up!\nI want my turn!"))
+        release
+    } else {
+        lock
+        faceplayer
+        switch(var(VAR_STARTER_MON)) {
+            case STARTER_BULBASAUR:
+                msgbox(format("Mura: I made the best choice!\nCharmander's the best!"))
+            case STARTER_SQUIRTLE:
+                msgbox(format("Mura: My Pokémon has the type advantage, and that's what's important!"))
+            case STARTER_CHARMANDER:
+                msgbox(format("Mura: Hmph! You're just lucky you got to choose first!"))
+        }
+        release
+    }
+}
+
+script GravelTown_TimsLab_Tim {
+    lock
+    faceplayer
+    if (!flag(FLAG_SYS_POKEMON_GET)) {
+        msgbox(format("Tim: Now then, {PLAYER}.\nWhich Pokémon will you choose?"))
+    } elif (var(VAR_MAP_SCENE_GRAVELTOWN) == 1) {
+        msgbox(format(
+            "Tim: I remember when I was in your shoes, all those years ago…\p"
+            "Of course, things were a little different back then."))
+    }
+    release
+}
+
+text Text_BelongsToTim {
+    "That belongs to Tim."
+}
+
+script GravelTown_TimsLab_PokeballCharmander {
+    if (flag(FLAG_SYS_POKEMON_GET)) {
+        lock
+        msgbox(Text_BelongsToTim)
+        release
+        end
+    }
+    lockall
+    applymovement(TIM_ID, Movement_FaceRight)
+    applymovement(MURA_ID, Movement_FaceRight)
+    drawmonpic(SPECIES_CHARMANDER, 0, 0)
+    textcolor(0)
+    setvar(TEMPVAR_STARTERCHOICE, SPECIES_CHARMANDER)
+    msgbox("Tim: So, you want the Fire Pokémon,\nCharmander?", MSGBOX_YESNO)
+    goto(GravelTown_TimsLab_GetStarter)
+}
+
+script GravelTown_TimsLab_PokeballSquirtle {
+    if (flag(FLAG_SYS_POKEMON_GET)) {
+        lock
+        msgbox(Text_BelongsToTim)
+        release
+        end
+    }
+    lockall
+    applymovement(TIM_ID, Movement_FaceRight)
+    applymovement(MURA_ID, Movement_FaceRight)
+    drawmonpic(SPECIES_SQUIRTLE, 0, 0)
+    textcolor(0)
+    setvar(TEMPVAR_STARTERCHOICE, SPECIES_SQUIRTLE)
+    msgbox("Tim: So, you want the Water Pokémon,\nSquirtle?", MSGBOX_YESNO)
+    goto(GravelTown_TimsLab_GetStarter)
+}
+
+script GravelTown_TimsLab_PokeballBulbasaur {
+    if (flag(FLAG_SYS_POKEMON_GET)) {
+        lock
+        msgbox(Text_BelongsToTim)
+        release
+        end
+    }
+    lockall
+    applymovement(TIM_ID, Movement_FaceRight)
+    applymovement(MURA_ID, Movement_FaceRight)
+    drawmonpic(SPECIES_BULBASAUR, 0, 0)
+    textcolor(0)
+    setvar(TEMPVAR_STARTERCHOICE, SPECIES_BULBASAUR)
+    msgbox("Tim: So, you want the Grass Pokémon,\nBulbasaur?", MSGBOX_YESNO)
+    goto(GravelTown_TimsLab_GetStarter)
+}
+
+script GravelTown_TimsLab_GetStarter {
+    erasemonpic
+    if(!var(VAR_RESULT)) {
+        release
+        end
+    }
+    textcolor(2)
+    setflag(FLAG_SYS_POKEMON_GET)
+    clearflag(FLAG_PROLOGUE)
+    givemon(TEMPVAR_STARTERCHOICE, 5, ITEM_NONE)
+    removeobject(VAR_LAST_TALKED)
+    getspeciesname(0, TEMPVAR_STARTERCHOICE)
+    playfanfare(MUS_OBTAIN_KEY_ITEM)
+    message("{PLAYER} received the\n{STR_VAR_1} from Tim!")
+    waitmessage
+    waitfanfare
+    msgbox("Give a nickname to your {STR_VAR_1}?", MSGBOX_YESNO)
+    if (var(VAR_RESULT)) {
+        setvar(VAR_0x8004, 0)
+	    call(EventScript_ChangePokemonNickname)
+    }
+    switch(var(TEMPVAR_STARTERCHOICE)) {
+        case SPECIES_BULBASAUR:
+            setflag(FLAG_CHOSE_BULBASAUR)
+            setvar(VAR_STARTER_MON, STARTER_BULBASAUR)
+            setflag(FLAG_HIDE_BULBASAUR_BALL)
+            setflag(FLAG_HIDE_CHARMANDER_BALL)
+        case SPECIES_SQUIRTLE:
+            setflag(FLAG_CHOSE_SQUIRTLE)
+            setvar(VAR_STARTER_MON, STARTER_SQUIRTLE)
+            setflag(FLAG_HIDE_SQUIRTLE_BALL)
+            setflag(FLAG_HIDE_BULBASAUR_BALL)
+        case SPECIES_CHARMANDER:
+            setflag(FLAG_CHOSE_CHARMANDER)
+            setvar(VAR_STARTER_MON, STARTER_CHARMANDER)
+            setflag(FLAG_HIDE_CHARMANDER_BALL)
+            setflag(FLAG_HIDE_SQUIRTLE_BALL)
+    }
+    goto(GravelTown_TimsLab_RivalPicksStarter)
+}
+
+script GravelTown_TimsLab_RivalPicksStarter {
+    textcolor(0)
+    switch(var(VAR_STARTER_MON)) {
+        case STARTER_BULBASAUR:
+            msgbox(format("Mura: Hah! You made the wrong choice!"))
+            closemessage
+            applymovement(MURA_ID, Movement_MuraWalkToCharmander)
+            waitmovement(MURA_ID)
+            msgbox(format("I'll pick this one, then!"))
+            removeobject(CHARMANDER_ID)
+            getspeciesname(0, SPECIES_CHARMANDER)
+        case STARTER_SQUIRTLE:
+            closemessage
+            applymovement(MURA_ID, Movement_MuraWalkToBulbasaur)
+            waitmovement(MURA_ID)
+            msgbox(format("Mura: I'll pick this one, then!"))
+            removeobject(BULBASAUR_ID)
+            getspeciesname(0, SPECIES_BULBASAUR)
+        case STARTER_CHARMANDER:
+            msgbox(format("Mura: Ulp! That was the one I was going to…!"))
+            closemessage
+            applymovement(MURA_ID, Movement_MuraWalkToSquirtle)
+            waitmovement(MURA_ID)
+            msgbox(format("Well, I-I'll pick this one, then!"))
+            removeobject(SQUIRTLE_ID)
+            getspeciesname(0, SPECIES_SQUIRTLE)
+    }
+    textcolor(2)
+    playfanfare(MUS_OBTAIN_KEY_ITEM)
+    message("Mura received the\n{STR_VAR_1} from Tim!")
+    waitmessage
+    waitfanfare
+    closemessage
+    releaseall
+}
+
+movement Movement_TimWalkFromEntrance {
+    walk_up * 11
+    face_down
+}
+
+movement Movement_PlayerWalkFromEntrance {
+    walk_up * 10
+}
+
+movement Movement_MuraWalkToBulbasaur {
+    walk_down
+    walk_right * 5
+    walk_up
+}
+
+movement Movement_MuraWalkToCharmander {
+    walk_right * 3
+    face_up
+}
+
+movement Movement_MuraWalkToSquirtle {
+    walk_down
+    walk_right * 4
+    walk_up
+}
+
+movement Movement_MuraWalk1 {
+    walk_left
+    walk_down * 2
+}
+
+movement Movement_MuraWalk2 {
+    walk_left * 2
+    walk_down * 2
+}
+
+movement Movement_MuraWalk3 {
+    walk_left * 3
+    walk_down * 2
+}
+
+movement Movement_MuraWalk4 {
+    walk_left * 4
+    walk_down * 2
+}
+
+movement Movement_MuraWalk5 {
+    walk_left * 5
+    walk_down * 2
+}

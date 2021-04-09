@@ -214,6 +214,11 @@
 #define NPCMON_FEMALE 2
 #define NPCMON_GENDERLESS 3
 
+// Which starter did player choose?
+#define STARTER_BULBASAUR 0
+#define STARTER_SQUIRTLE 1
+#define STARTER_CHARMANDER 2
+
 #define FRIENDSHIP_EVENT_GROW_LEVEL           0
 #define FRIENDSHIP_EVENT_VITAMIN              1
 #define FRIENDSHIP_EVENT_BATTLE_ITEM          2

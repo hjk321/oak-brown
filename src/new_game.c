@@ -151,6 +151,7 @@ void NewGameInitData(void)
     StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
     ResetTrainerTowerResults();
     FlagSet(FLAG_SYS_B_DASH);
+    FlagSet(FLAG_PROLOGUE);
 }
 
 static void ResetMiniGamesResults(void)

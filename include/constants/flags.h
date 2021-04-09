@@ -521,8 +521,7 @@
 #define FLAG_HIDE_SEVEN_ISLAND_SEVAULT_CANYON_HOUSE_LUCKY_PUNCH 0x1FD
 #define FLAG_HIDE_SILPH_CO_4F_TM41                              0x1FE
 
-// Unused?
-#define FLAG_0x1FF               0x1FF
+#define FLAG_PROLOGUE            0x1FF
 #define FLAG_QUEST_MENU_ACTIVE   0x200
 #define FLAG_0x201               0x201
 #define FLAG_0x202               0x202
@@ -783,10 +782,11 @@
 #define FLAG_NO_ROOM_FOR_JOYFUL_GAME_CORNER_MOON_STONE   0x2FE
 #define FLAG_OAKS_RATING_IS_VIA_PC                       0x2FF
 
-// Unused?
-#define FLAG_0x300               0x300
-#define FLAG_0x301               0x301
-#define FLAG_0x302               0x302
+// Redundant based on VAR_STARTER_MON but may be useful in some cases
+#define FLAG_CHOSE_BULBASAUR     0x300
+#define FLAG_CHOSE_CHARMANDER    0x301
+#define FLAG_CHOSE_SQUIRTLE      0x302
+
 #define FLAG_0x303               0x303
 #define FLAG_0x304               0x304
 #define FLAG_0x305               0x305
