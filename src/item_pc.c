@@ -281,7 +281,7 @@ void ItemPc_Init(u8 kind, MainCallback callback)
 {
     u8 i;
 
-    GetSetQuestFlag(SIDE_QUEST_4, QUEST_MENU_COMPLETE_QUEST); // FOOTHOLD
+    GetSetQuestFlag(SIDE_QUEST_4, QUEST_MENU_COMPLETE_QUEST);
     
     if (kind >= 2)
     {

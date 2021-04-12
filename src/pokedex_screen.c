@@ -852,7 +852,7 @@ void sub_810250C(void)
     SetBgTilemapBuffer(2, (u16*)Alloc(BG_SCREEN_SIZE));
     SetBgTilemapBuffer(1, (u16*)Alloc(BG_SCREEN_SIZE));
     SetBgTilemapBuffer(0, (u16*)Alloc(BG_SCREEN_SIZE));
-    if (natDex) // FOOTHOLD
+    if (natDex)
         DecompressAndLoadBgGfxUsingHeap(3, (void*)gUnknown_84403AC, BG_SCREEN_SIZE, 0, 0);
     else
         DecompressAndLoadBgGfxUsingHeap(3, (void*)gUnknown_8440274, BG_SCREEN_SIZE, 0, 0);
@@ -2888,7 +2888,6 @@ void sub_8105D64(u8 a0, u16 species, u8 a2, u8 a3)
     BlitBitmapRectToWindow(a0, buffer, 0, 0, 16, 16, a2, a3, 16, 16);
 }
 
-// FOOTHOLD
 u8 sub_8105E1C(bool8 a0)
 {
     sub_8105594(3, 6);
