@@ -118,7 +118,7 @@ const struct SpriteTemplate gDummySpriteTemplate;
 // It means "The DMA transfer request table has exceeded its limit."
 static const u8 sDmaOverErrorMsg[] =
     _(
-    "DMA OVER\n"
+    "DMA Over\n"
     "DMAてんそう\n"
     "リクエストテーブルが\n"
     "オーバーしました"

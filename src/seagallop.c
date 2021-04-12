@@ -454,7 +454,7 @@ static bool8 GetDirectionOfTravel(void)
     return (sTravelDirectionMatrix[gSpecialVar_0x8004] >> gSpecialVar_0x8006) & 1;
 }
 
-// For "All aboard SEAGALLOP HI-SPEED ##" text
+// For "All aboard Seagallop Hi-Speed ##" text
 u8 GetSeagallopNumber(void)
 {
     u16 originId, destId;

@@ -27,6 +27,6 @@ script SeashoreCity_PlayersHouse_2F_PC {
 
 script SeashoreCity_PlayersHouse_2F_NES {
     lock
-    msgbox(format("{PLAYER} is playing the SNES!\n...Okay!\lIt's time to go!"))
+    msgbox(format("{PLAYER} is playing the Snes!\n...Okay!\lIt's time to go!"))
     release
 }

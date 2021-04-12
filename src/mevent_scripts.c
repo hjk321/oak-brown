@@ -4,7 +4,7 @@
 extern const struct mevent_server_cmd gMEventSrvScript_OtherTrainerCanceled[];
 
 // Unreferenced
-const u8 gUnknown_84687A0[] = _("You have collected all STAMPs!\nWant to input a CARD as a prize?");
+const u8 gUnknown_84687A0[] = _("You have collected all Stamps!\nWant to input a Card as a prize?");
 
 /* CLIENT SCRIPTS */
 

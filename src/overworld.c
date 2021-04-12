@@ -3463,7 +3463,7 @@ static void MovementStatusHandler_TryAdvanceScript(struct LinkPlayerObjectEvent 
 }
 
 // Flip Up/Down facing codes. If newFacing doesn't specify a direction, default
-// to oldFacing. Note that this clears also the "FORCED" part of the facing code,
+// to oldFacing. Note that this clears also the "Forced" part of the facing code,
 // even for Left/Right codes.
 static u8 FlipVerticalAndClearForced(u8 newFacing, u8 oldFacing)
 {

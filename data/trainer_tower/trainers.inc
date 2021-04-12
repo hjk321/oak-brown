@@ -40,7 +40,7 @@
 	.align 2
 gUnknown_847ABAC::
 	.byte 0x01, 0x08, 0x00, 0x07
-	.string "COLE$", 11
+	.string "Cole$", 11
 	.byte FACILITY_CLASS_YOUNGSTER_2, 0x01
 	.align 1
 	.2byte EC_WORD_AHAHA, EC_WORD_YOU_RE, EC_WORD_NOT, EC_WORD_GOING, EC_WORD_ANYWHERE, EC_WORD_EXCL
@@ -57,7 +57,7 @@ gUnknown_847ABAC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x00000016 @ personality
-	.string "RATICATE$", 11
+	.string "Raticate$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -69,7 +69,7 @@ gUnknown_847ABAC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000056 @ personality
-	.string "MAGMAR$", 11
+	.string "Magmar$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -81,7 +81,7 @@ gUnknown_847ABAC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x00000002 @ personality
-	.string "MAGCARGO$", 11
+	.string "Magcargo$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -93,7 +93,7 @@ gUnknown_847ABAC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000087 @ personality
-	.string "PRIMEAPE$", 11
+	.string "Primeape$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -105,7 +105,7 @@ gUnknown_847ABAC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000081 @ personality
-	.string "GOLBAT$", 11
+	.string "Golbat$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -117,7 +117,7 @@ gUnknown_847ABAC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x00000011 @ personality
-	.string "SLOWBRO$", 11
+	.string "Slowbro$", 11
 	.byte 255 @ friendship
 
 	dummy_tower_team
@@ -127,7 +127,7 @@ gUnknown_847ABAC::
 	.align 2
 gUnknown_847AF8C::
 	.byte 0x02, 0x08, 0x00, 0x0d
-	.string "JAC$", 11
+	.string "Jac$", 11
 	.byte FACILITY_CLASS_BURGLAR, 0x01
 	.align 1
 	.2byte EC_WORD_I_AM, EC_WORD_A, EC_MOVE2(THIEF), EC_WORD_EXCL, EC_WORD_GIVE_ME, EC_WORD_SOMETHING
@@ -144,7 +144,7 @@ gUnknown_847AF8C::
 	trainerid 138, 0 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000008A @ personality
-	.string "MEOWTH$", 11
+	.string "Meowth$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -156,7 +156,7 @@ gUnknown_847AF8C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000007 @ personality
-	.string "FLAREON$", 11
+	.string "Flareon$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -168,7 +168,7 @@ gUnknown_847AF8C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000007 @ personality
-	.string "PORYGON$", 11
+	.string "Porygon$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -180,7 +180,7 @@ gUnknown_847AF8C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000010 @ personality
-	.string "CHANSEY$", 11
+	.string "Chansey$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -192,7 +192,7 @@ gUnknown_847AF8C::
 	trainerid 133, 0 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000085 @ personality
-	.string "FARFETCH'D$", 11
+	.string "Farfetch'd$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -204,7 +204,7 @@ gUnknown_847AF8C::
 	trainerid 130, 0 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000082 @ personality
-	.string "MR. MIME$", 11
+	.string "Mr. Mime$", 11
 	.byte 255 @ friendship
 
 	dummy_tower_team
@@ -214,7 +214,7 @@ gUnknown_847AF8C::
 	.align 2
 gUnknown_847B36C::
 	.byte 0x03, 0x08, 0x00, 0x02
-	.string "MILY$", 11
+	.string "Mily$", 11
 	.byte FACILITY_CLASS_PSYCHIC_4, 0x01
 	.align 1
 	.2byte EC_WORD_LOOK, EC_WORD_AT, EC_WORD_MY, EC_WORD_POKEMON, EC_MOVE2(SUPERPOWER), EC_WORD_EXCL
@@ -231,7 +231,7 @@ gUnknown_847B36C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000008 @ personality
-	.string "CHANSEY$", 11
+	.string "Chansey$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -243,7 +243,7 @@ gUnknown_847B36C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000016 @ personality
-	.string "CLEFABLE$", 11
+	.string "Clefable$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -255,7 +255,7 @@ gUnknown_847B36C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000016 @ personality
-	.string "TOGETIC$", 11
+	.string "Togetic$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -267,7 +267,7 @@ gUnknown_847B36C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000020 @ personality
-	.string "TOGETIC$", 11
+	.string "Togetic$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -279,7 +279,7 @@ gUnknown_847B36C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000005 @ personality
-	.string "CHANSEY$", 11
+	.string "Chansey$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -291,7 +291,7 @@ gUnknown_847B36C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x000000C0 @ personality
-	.string "CLEFABLE$", 11
+	.string "Clefable$", 11
 	.byte 255 @ friendship
 
 	dummy_tower_team
@@ -301,7 +301,7 @@ gUnknown_847B36C::
 	.align 2
 gUnknown_847B74C::
 	.byte 0x04, 0x08, 0x01, 0x09
-	.string "JOS & ANNE$", 11
+	.string "Jos & Anne$", 11
 	.byte FACILITY_CLASS_COOL_COUPLE, 0x07
 	.align 1
 	.2byte EC_WORD_I, EC_WORD_CAN_T, EC_WORD_LOSE, EC_WORD_TO, EC_WORD_YOU, EC_WORD_HERE
@@ -318,7 +318,7 @@ gUnknown_847B74C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 1 @ IVs, ability
 	.4byte 0x00000010 @ personality
-	.string "RAPIDASH$", 11
+	.string "Rapidash$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -330,7 +330,7 @@ gUnknown_847B74C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000015 @ personality
-	.string "NINETALES$", 11
+	.string "Ninetales$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -342,7 +342,7 @@ gUnknown_847B74C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x0000000A @ personality
-	.string "MISDREAVUS$", 11
+	.string "Misdreavus$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -354,7 +354,7 @@ gUnknown_847B74C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x0000000A @ personality
-	.string "ALAKAZAM$", 11
+	.string "Alakazam$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -366,7 +366,7 @@ gUnknown_847B74C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 1 @ IVs, ability
 	.4byte 0x00000016 @ personality
-	.string "BLISSEY$", 11
+	.string "Blissey$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -378,10 +378,10 @@ gUnknown_847B74C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000017 @ personality
-	.string "CROBAT$", 11
+	.string "Crobat$", 11
 	.byte 255 @ friendship
 
-	.string "JOS & ANNE$", 11
+	.string "Jos & Anne$", 11
 	.byte FACILITY_CLASS_COOL_COUPLE, 0x07
 	.align 1
 	.2byte EC_WORD_HERE_GOES, EC_WORD_EXCL_EXCL, EC_WORD_GET, EC_WORD_READY, EC_WORD_TO, EC_WORD_LOSE
@@ -398,7 +398,7 @@ gUnknown_847B74C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 1 @ IVs, ability
 	.4byte 0x00000082 @ personality
-	.string "HOUNDOOM$", 11
+	.string "Houndoom$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -410,7 +410,7 @@ gUnknown_847B74C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 1 @ IVs, ability
 	.4byte 0x00000033 @ personality
-	.string "AERODACTYL$", 11
+	.string "Aerodactyl$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -422,7 +422,7 @@ gUnknown_847B74C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000056 @ personality
-	.string "ARCANINE$", 11
+	.string "Arcanine$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -434,7 +434,7 @@ gUnknown_847B74C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x0000008E @ personality
-	.string "WEEZING$", 11
+	.string "Weezing$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -446,7 +446,7 @@ gUnknown_847B74C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000033 @ personality
-	.string "CHARIZARD$", 11
+	.string "Charizard$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -458,7 +458,7 @@ gUnknown_847B74C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000087 @ personality
-	.string "GENGAR$", 11
+	.string "Gengar$", 11
 	.byte 255 @ friendship
 
 	dummy_tower_team
@@ -467,7 +467,7 @@ gUnknown_847B74C::
 	.align 2
 gUnknown_847BB2C::
 	.byte 0x05, 0x08, 0x01, 0x04
-	.string "EMY & ALEK$", 11
+	.string "Emy & Alek$", 11
 	.byte FACILITY_CLASS_YOUNG_COUPLE_2, 0x01
 	.align 1
 	.2byte EC_WORD_I_AM, EC_WORD_SO, EC_WORD_LOST, EC_WORD_IN, EC_WORD_LOVEY_DOVEY, EC_WORD_HAPPINESS
@@ -484,7 +484,7 @@ gUnknown_847BB2C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000A @ personality
-	.string "TAUROS$", 11
+	.string "Tauros$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -496,7 +496,7 @@ gUnknown_847BB2C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000002 @ personality
-	.string "KANGASKHAN$", 11
+	.string "Kangaskhan$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -508,7 +508,7 @@ gUnknown_847BB2C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000094 @ personality
-	.string "FEAROW$", 11
+	.string "Fearow$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -520,7 +520,7 @@ gUnknown_847BB2C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x00000024 @ personality
-	.string "TOGETIC$", 11
+	.string "Togetic$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -532,7 +532,7 @@ gUnknown_847BB2C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000D @ personality
-	.string "PIDGEOT$", 11
+	.string "Pidgeot$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -544,10 +544,10 @@ gUnknown_847BB2C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000008A @ personality
-	.string "URSARING$", 11
+	.string "Ursaring$", 11
 	.byte 255 @ friendship
 
-	.string "EMY & ALEK$", 11
+	.string "Emy & Alek$", 11
 	.byte FACILITY_CLASS_YOUNG_COUPLE_2, 0x01
 	.align 1
 	.2byte EC_WORD_I_AM, EC_WORD_GIDDY, EC_WORD_WITH, EC_WORD_LOVEY_DOVEY, EC_WORD_JOY, EC_WORD_EXCL_EXCL
@@ -564,7 +564,7 @@ gUnknown_847BB2C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x00000016 @ personality
-	.string "LICKITUNG$", 11
+	.string "Lickitung$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -576,7 +576,7 @@ gUnknown_847BB2C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000B @ personality
-	.string "NOCTOWL$", 11
+	.string "Noctowl$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -588,7 +588,7 @@ gUnknown_847BB2C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x0000000E @ personality
-	.string "FURRET$", 11
+	.string "Furret$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -600,7 +600,7 @@ gUnknown_847BB2C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x0000008A @ personality
-	.string "RATICATE$", 11
+	.string "Raticate$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -612,7 +612,7 @@ gUnknown_847BB2C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000B @ personality
-	.string "WIGGLYTUFF$", 11
+	.string "Wigglytuff$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -624,7 +624,7 @@ gUnknown_847BB2C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000A @ personality
-	.string "PORYGON2$", 11
+	.string "Porygon2$", 11
 	.byte 255 @ friendship
 
 	dummy_tower_team
@@ -633,7 +633,7 @@ gUnknown_847BB2C::
 	.align 2
 gUnknown_847BF0C::
 	.byte 0x06, 0x08, 0x01, 0x00
-	.string "JO & HALEY$", 11
+	.string "Jo & Haley$", 11
 	.byte FACILITY_CLASS_CRUSH_KIN, 0x05
 	.align 1
 	.2byte EC_WORD_WE_RE, EC_WORD_USING, EC_WORD_THAT, EC_WORD_STRATEGY, EC_WORD_OKAY, EC_WORD_QUES
@@ -650,7 +650,7 @@ gUnknown_847BF0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x0000000D @ personality
-	.string "SNEASEL$", 11
+	.string "Sneasel$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -662,7 +662,7 @@ gUnknown_847BF0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000005 @ personality
-	.string "ALAKAZAM$", 11
+	.string "Alakazam$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -686,7 +686,7 @@ gUnknown_847BF0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x0000000A @ personality
-	.string "GIRAFARIG$", 11
+	.string "Girafarig$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -698,7 +698,7 @@ gUnknown_847BF0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000014 @ personality
-	.string "XATU$", 11
+	.string "Xatu$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -710,10 +710,10 @@ gUnknown_847BF0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000005 @ personality
-	.string "MR. MIME$", 11
+	.string "Mr. Mime$", 11
 	.byte 255 @ friendship
 
-	.string "JO & HALEY$", 11
+	.string "Jo & Haley$", 11
 	.byte FACILITY_CLASS_CRUSH_KIN, 0x05
 	.align 1
 	.2byte EC_WORD_YOU, EC_WORD_YOU, EC_WORD_YOU, EC_WORD_BETTER, EC_WORD_NOT, EC_WORD_WIN
@@ -730,7 +730,7 @@ gUnknown_847BF0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000087 @ personality
-	.string "HYPNO$", 11
+	.string "Hypno$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -754,7 +754,7 @@ gUnknown_847BF0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000043 @ personality
-	.string "MACHAMP$", 11
+	.string "Machamp$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -766,7 +766,7 @@ gUnknown_847BF0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000087 @ personality
-	.string "HOUNDOOM$", 11
+	.string "Houndoom$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -778,7 +778,7 @@ gUnknown_847BF0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000008C @ personality
-	.string "PRIMEAPE$", 11
+	.string "Primeape$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -790,7 +790,7 @@ gUnknown_847BF0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000085 @ personality
-	.string "HERACROSS$", 11
+	.string "Heracross$", 11
 	.byte 255 @ friendship
 
 	dummy_tower_team
@@ -799,7 +799,7 @@ gUnknown_847BF0C::
 	.align 2
 gUnknown_847C2EC::
 	.byte 0x07, 0x08, 0x02, 0x0c
-	.string "JORDY$", 11
+	.string "Jordy$", 11
 	.byte FACILITY_CLASS_BIKER, 0x03
 	.align 1
 	.2byte EC_WORD_DON_T, EC_WORD_MAKE, EC_WORD_ME, EC_WORD_GIGGLE, EC_WORD_YOU, EC_WORD_PUSHOVER
@@ -816,7 +816,7 @@ gUnknown_847C2EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000043 @ personality
-	.string "MAGBY$", 11
+	.string "Magby$", 11
 	.byte 0 @ friendship
 
 	.align 2
@@ -828,7 +828,7 @@ gUnknown_847C2EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x000000CA @ personality
-	.string "CLEFFA$", 11
+	.string "Cleffa$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -840,7 +840,7 @@ gUnknown_847C2EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x000000D2 @ personality
-	.string "IGGLYBUFF$", 11
+	.string "Igglybuff$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -852,7 +852,7 @@ gUnknown_847C2EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000011 @ personality
-	.string "SMOOCHUM$", 11
+	.string "Smoochum$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -864,7 +864,7 @@ gUnknown_847C2EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000034 @ personality
-	.string "TOGEPI$", 11
+	.string "Togepi$", 11
 	.byte 0 @ friendship
 
 	.align 2
@@ -876,10 +876,10 @@ gUnknown_847C2EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000008E @ personality
-	.string "PICHU$", 11
+	.string "Pichu$", 11
 	.byte 0 @ friendship
 
-	.string "ERNEST$", 11
+	.string "Ernest$", 11
 	.byte FACILITY_CLASS_BIKER, 0x01
 	.align 1
 	.2byte EC_WORD_IT_S, EC_WORD_SLEEP, EC_WORD_TIME, EC_WORD_FOR, EC_WORD_CHILDREN, EC_WORD_EXCL
@@ -896,7 +896,7 @@ gUnknown_847C2EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x000000CA @ personality
-	.string "CLEFFA$", 11
+	.string "Cleffa$", 11
 	.byte 0 @ friendship
 
 	.align 2
@@ -908,7 +908,7 @@ gUnknown_847C2EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000004D @ personality
-	.string "MAGBY$", 11
+	.string "Magby$", 11
 	.byte 0 @ friendship
 
 	.align 2
@@ -920,7 +920,7 @@ gUnknown_847C2EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000034 @ personality
-	.string "TOGEPI$", 11
+	.string "Togepi$", 11
 	.byte 0 @ friendship
 
 	.align 2
@@ -932,7 +932,7 @@ gUnknown_847C2EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000016 @ personality
-	.string "SMOOCHUM$", 11
+	.string "Smoochum$", 11
 	.byte 0 @ friendship
 
 	.align 2
@@ -944,7 +944,7 @@ gUnknown_847C2EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000000A @ personality
-	.string "IGGLYBUFF$", 11
+	.string "Igglybuff$", 11
 	.byte 0 @ friendship
 
 	.align 2
@@ -956,10 +956,10 @@ gUnknown_847C2EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000080 @ personality
-	.string "PICHU$", 11
+	.string "Pichu$", 11
 	.byte 0 @ friendship
 
-	.string "GABRIEL$", 11
+	.string "Gabriel$", 11
 	.byte FACILITY_CLASS_CUE_BALL, 0x01
 	.align 1
 	.2byte EC_WORD_YAHOO, EC_WORD_EXCL, EC_WORD_HERE_I_COME, EC_WORD_TO, EC_WORD_SWARM, EC_WORD_YOU
@@ -976,7 +976,7 @@ gUnknown_847C2EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000081 @ personality
-	.string "PICHU$", 11
+	.string "Pichu$", 11
 	.byte 0 @ friendship
 
 	.align 2
@@ -988,7 +988,7 @@ gUnknown_847C2EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000033 @ personality
-	.string "TOGEPI$", 11
+	.string "Togepi$", 11
 	.byte 0 @ friendship
 
 	.align 2
@@ -1000,7 +1000,7 @@ gUnknown_847C2EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x000000CF @ personality
-	.string "CLEFFA$", 11
+	.string "Cleffa$", 11
 	.byte 0 @ friendship
 
 	.align 2
@@ -1012,7 +1012,7 @@ gUnknown_847C2EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x000000CF @ personality
-	.string "IGGLYBUFF$", 11
+	.string "Igglybuff$", 11
 	.byte 0 @ friendship
 
 	.align 2
@@ -1024,7 +1024,7 @@ gUnknown_847C2EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000016 @ personality
-	.string "SMOOCHUM$", 11
+	.string "Smoochum$", 11
 	.byte 0 @ friendship
 
 	.align 2
@@ -1036,7 +1036,7 @@ gUnknown_847C2EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000004D @ personality
-	.string "MAGBY$", 11
+	.string "Magby$", 11
 	.byte 0 @ friendship
 
 	.byte 0x4a, 0x7a, 0x01
@@ -1044,7 +1044,7 @@ gUnknown_847C2EC::
 	.align 2
 gUnknown_847C6CC::
 	.byte 0x08, 0x08, 0x02, 0x0e
-	.string "MIKE$", 11
+	.string "Mike$", 11
 	.byte FACILITY_CLASS_HIKER_2, 0x05
 	.align 1
 	.2byte EC_WORD_MY, EC_WORD_POKEMON, EC_WORD_ARE, EC_WORD_FULL, EC_WORD_OF, EC_WORD_POWER
@@ -1061,7 +1061,7 @@ gUnknown_847C6CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000080 @ personality
-	.string "PINSIR$", 11
+	.string "Pinsir$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1073,7 +1073,7 @@ gUnknown_847C6CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000035 @ personality
-	.string "CHARIZARD$", 11
+	.string "Charizard$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1085,7 +1085,7 @@ gUnknown_847C6CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000009 @ personality
-	.string "RHYDON$", 11
+	.string "Rhydon$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1097,7 +1097,7 @@ gUnknown_847C6CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x0000003F @ personality
-	.string "ARCANINE$", 11
+	.string "Arcanine$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1109,7 +1109,7 @@ gUnknown_847C6CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000002 @ personality
-	.string "GOLEM$", 11
+	.string "Golem$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1121,10 +1121,10 @@ gUnknown_847C6CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 1 @ IVs, ability
 	.4byte 0x00000008 @ personality
-	.string "HOUNDOOM$", 11
+	.string "Houndoom$", 11
 	.byte 255 @ friendship
 
-	.string "REBECCA$", 11
+	.string "Rebecca$", 11
 	.byte FACILITY_CLASS_CRUSH_GIRL, 0x05
 	.align 1
 	.2byte EC_WORD_I, EC_WORD_WILL, EC_WORD_WIN, EC_WORD_EXCL_EXCL, 0xFFFF, 0xFFFF
@@ -1141,7 +1141,7 @@ gUnknown_847C6CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x0000000D @ personality
-	.string "SANDSLASH$", 11
+	.string "Sandslash$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1153,7 +1153,7 @@ gUnknown_847C6CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000003 @ personality
-	.string "DRAGONAIR$", 11
+	.string "Dragonair$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1165,7 +1165,7 @@ gUnknown_847C6CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 1 @ IVs, ability
 	.4byte 0x00000094 @ personality
-	.string "RAPIDASH$", 11
+	.string "Rapidash$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1177,7 +1177,7 @@ gUnknown_847C6CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000021 @ personality
-	.string "FLAREON$", 11
+	.string "Flareon$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1189,7 +1189,7 @@ gUnknown_847C6CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000017 @ personality
-	.string "NIDOQUEEN$", 11
+	.string "Nidoqueen$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1201,10 +1201,10 @@ gUnknown_847C6CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000080 @ personality
-	.string "PERSIAN$", 11
+	.string "Persian$", 11
 	.byte 255 @ friendship
 
-	.string "NICOLAS$", 11
+	.string "Nicolas$", 11
 	.byte FACILITY_CLASS_BLACK_BELT_2, 0x05
 	.align 1
 	.2byte EC_WORD_THIS, EC_WORD_IS, EC_WORD_WHERE, EC_WORD_YOU, EC_WORD_STOP, EC_WORD_EXCL
@@ -1233,7 +1233,7 @@ gUnknown_847C6CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000017 @ personality
-	.string "SCYTHER$", 11
+	.string "Scyther$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1245,7 +1245,7 @@ gUnknown_847C6CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000053 @ personality
-	.string "MAGMAR$", 11
+	.string "Magmar$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1257,7 +1257,7 @@ gUnknown_847C6CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x0000003F @ personality
-	.string "MACHAMP$", 11
+	.string "Machamp$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1269,7 +1269,7 @@ gUnknown_847C6CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000008 @ personality
-	.string "PRIMEAPE$", 11
+	.string "Primeape$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1281,7 +1281,7 @@ gUnknown_847C6CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x0000000D @ personality
-	.string "POLIWRATH$", 11
+	.string "Poliwrath$", 11
 	.byte 255 @ friendship
 
 	.byte 0x05, 0x6f, 0x01
@@ -1289,7 +1289,7 @@ gUnknown_847C6CC::
 	.align 2
 gUnknown_847CAAC::
 	.byte 0x09, 0x08, 0x00, 0x00
-	.string "JOEY$", 11
+	.string "Joey$", 11
 	.byte FACILITY_CLASS_CAMPER_2, 0x01
 	.align 1
 	.2byte EC_WORD_MY, EC_WORD_POKEMON, EC_WORD_ARE, EC_WORD_SCARY, EC_WORD_STRONG, EC_WORD_EXCL
@@ -1306,7 +1306,7 @@ gUnknown_847CAAC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000089 @ personality
-	.string "MURKROW$", 11
+	.string "Murkrow$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1318,7 +1318,7 @@ gUnknown_847CAAC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000C @ personality
-	.string "TAUROS$", 11
+	.string "Tauros$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1330,7 +1330,7 @@ gUnknown_847CAAC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x00000089 @ personality
-	.string "SLOWBRO$", 11
+	.string "Slowbro$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1342,7 +1342,7 @@ gUnknown_847CAAC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x00000089 @ personality
-	.string "ARBOK$", 11
+	.string "Arbok$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1354,7 +1354,7 @@ gUnknown_847CAAC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000C @ personality
-	.string "NIDOKING$", 11
+	.string "Nidoking$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1366,7 +1366,7 @@ gUnknown_847CAAC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x00000089 @ personality
-	.string "RAPIDASH$", 11
+	.string "Rapidash$", 11
 	.byte 255 @ friendship
 
 	dummy_tower_team
@@ -1376,7 +1376,7 @@ gUnknown_847CAAC::
 	.align 2
 gUnknown_847CE8C::
 	.byte 0x0a, 0x08, 0x00, 0x0c
-	.string "LILY$", 11
+	.string "Lily$", 11
 	.byte FACILITY_CLASS_PKMN_BREEDER_3, 0x01
 	.align 1
 	.2byte EC_WORD_I, EC_WORD_WANT, EC_WORD_SOMETHING, EC_WORD_IN, EC_MOVE(RETURN), EC_WORD_EXCL
@@ -1393,7 +1393,7 @@ gUnknown_847CE8C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000000C @ personality
-	.string "CLEFAIRY$", 11
+	.string "Clefairy$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1405,7 +1405,7 @@ gUnknown_847CE8C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x0000000C @ personality
-	.string "TOGEPI$", 11
+	.string "Togepi$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1417,7 +1417,7 @@ gUnknown_847CE8C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000089 @ personality
-	.string "MEOWTH$", 11
+	.string "Meowth$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1429,7 +1429,7 @@ gUnknown_847CE8C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000000C @ personality
-	.string "JIGGLYPUFF$", 11
+	.string "Jigglypuff$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1441,7 +1441,7 @@ gUnknown_847CE8C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000025 @ personality
-	.string "SNORLAX$", 11
+	.string "Snorlax$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1453,7 +1453,7 @@ gUnknown_847CE8C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000000C @ personality
-	.string "SNUBBULL$", 11
+	.string "Snubbull$", 11
 	.byte 255 @ friendship
 
 	dummy_tower_team
@@ -1463,7 +1463,7 @@ gUnknown_847CE8C::
 	.align 2
 gUnknown_847D26C::
 	.byte 0x0b, 0x08, 0x00, 0x0e
-	.string "BRANDON$", 11
+	.string "Brandon$", 11
 	.byte FACILITY_CLASS_BUG_CATCHER_2, 0x01
 	.align 1
 	.2byte EC_WORD_POISON, EC_WORD_IS, EC_WORD_JUST, EC_WORD_SO, EC_WORD_AWFUL, EC_WORD_ISN_T_IT_QUES
@@ -1480,7 +1480,7 @@ gUnknown_847D26C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x0000008A @ personality
-	.string "BUTTERFREE$", 11
+	.string "Butterfree$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1492,7 +1492,7 @@ gUnknown_847D26C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x0000008A @ personality
-	.string "BEEDRILL$", 11
+	.string "Beedrill$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1504,7 +1504,7 @@ gUnknown_847D26C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x0000008A @ personality
-	.string "PARASECT$", 11
+	.string "Parasect$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1516,7 +1516,7 @@ gUnknown_847D26C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 1 @ IVs, ability
 	.4byte 0x0000008A @ personality
-	.string "YANMA$", 11
+	.string "Yanma$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1528,7 +1528,7 @@ gUnknown_847D26C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x0000008A @ personality
-	.string "SHUCKLE$", 11
+	.string "Shuckle$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1540,7 +1540,7 @@ gUnknown_847D26C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x0000008A @ personality
-	.string "FORRETRESS$", 11
+	.string "Forretress$", 11
 	.byte 255 @ friendship
 
 	dummy_tower_team
@@ -1550,7 +1550,7 @@ gUnknown_847D26C::
 	.align 2
 gUnknown_847D64C::
 	.byte 0x0c, 0x08, 0x01, 0x02
-	.string "RIC & RENE$", 11
+	.string "Ric & Rene$", 11
 	.byte FACILITY_CLASS_CRUSH_KIN, 0x05
 	.align 1
 	.2byte EC_WORD_MY, EC_WORD_BIG, EC_WORD_BROTHER, EC_WORD_IS, EC_WORD_REALLY, EC_WORD_AWESOME
@@ -1579,7 +1579,7 @@ gUnknown_847D64C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000007F @ personality
-	.string "RHYDON$", 11
+	.string "Rhydon$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1591,7 +1591,7 @@ gUnknown_847D64C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x00000002 @ personality
-	.string "GOLEM$", 11
+	.string "Golem$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1603,7 +1603,7 @@ gUnknown_847D64C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000004F @ personality
-	.string "MAGMAR$", 11
+	.string "Magmar$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1615,7 +1615,7 @@ gUnknown_847D64C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000007F @ personality
-	.string "HERACROSS$", 11
+	.string "Heracross$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1627,10 +1627,10 @@ gUnknown_847D64C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000097 @ personality
-	.string "POLIWRATH$", 11
+	.string "Poliwrath$", 11
 	.byte 255 @ friendship
 
-	.string "RIC & RENE$", 11
+	.string "Ric & Rene$", 11
 	.byte FACILITY_CLASS_CRUSH_KIN, 0x05
 	.align 1
 	.2byte EC_WORD_I_AM, EC_WORD_REALLY, EC_WORD_AWESOME, EC_WORD_EXCL, 0xFFFF, 0xFFFF
@@ -1647,7 +1647,7 @@ gUnknown_847D64C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000004E @ personality
-	.string "MACHAMP$", 11
+	.string "Machamp$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1659,7 +1659,7 @@ gUnknown_847D64C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000080 @ personality
-	.string "PINSIR$", 11
+	.string "Pinsir$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1671,7 +1671,7 @@ gUnknown_847D64C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x00000003 @ personality
-	.string "MAROWAK$", 11
+	.string "Marowak$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1695,7 +1695,7 @@ gUnknown_847D64C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000004F @ personality
-	.string "ELECTABUZZ$", 11
+	.string "Electabuzz$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1707,7 +1707,7 @@ gUnknown_847D64C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000097 @ personality
-	.string "POLIWRATH$", 11
+	.string "Poliwrath$", 11
 	.byte 255 @ friendship
 
 	dummy_tower_team
@@ -1716,7 +1716,7 @@ gUnknown_847D64C::
 	.align 2
 gUnknown_847DA2C::
 	.byte 0x0d, 0x08, 0x01, 0x0d
-	.string "JEN & KIRA$", 11
+	.string "Jen & Kira$", 11
 	.byte FACILITY_CLASS_TWINS_2, 0x05
 	.align 1
 	.2byte EC_WORD_I_AM, EC_WORD_GOING, EC_WORD_TO, EC_WORD_TRY, EC_WORD_HARD, EC_WORD_EXCL
@@ -1733,7 +1733,7 @@ gUnknown_847DA2C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000029 @ personality
-	.string "JOLTEON$", 11
+	.string "Jolteon$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1745,7 +1745,7 @@ gUnknown_847DA2C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000029 @ personality
-	.string "ESPEON$", 11
+	.string "Espeon$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1757,7 +1757,7 @@ gUnknown_847DA2C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000033 @ personality
-	.string "FLAREON$", 11
+	.string "Flareon$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1769,7 +1769,7 @@ gUnknown_847DA2C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000010 @ personality
-	.string "VAPOREON$", 11
+	.string "Vaporeon$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1781,7 +1781,7 @@ gUnknown_847DA2C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000010 @ personality
-	.string "EEVEE$", 11
+	.string "Eevee$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1793,10 +1793,10 @@ gUnknown_847DA2C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000010 @ personality
-	.string "UMBREON$", 11
+	.string "Umbreon$", 11
 	.byte 255 @ friendship
 
-	.string "JEN & KIRA$", 11
+	.string "Jen & Kira$", 11
 	.byte FACILITY_CLASS_TWINS_2, 0x03
 	.align 1
 	.2byte EC_WORD_LET_S, EC_WORD_TRY, EC_WORD_HARD, EC_WORD_EXCL, 0xFFFF, 0xFFFF
@@ -1813,7 +1813,7 @@ gUnknown_847DA2C::
 	trainerid 10, 0 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000000A @ personality
-	.string "JOLTEON$", 11
+	.string "Jolteon$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1825,7 +1825,7 @@ gUnknown_847DA2C::
 	trainerid 10, 0 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000000A @ personality
-	.string "ESPEON$", 11
+	.string "Espeon$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1837,7 +1837,7 @@ gUnknown_847DA2C::
 	trainerid 13, 0 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000000D @ personality
-	.string "FLAREON$", 11
+	.string "Flareon$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1849,7 +1849,7 @@ gUnknown_847DA2C::
 	trainerid 35, 0 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000023 @ personality
-	.string "VAPOREON$", 11
+	.string "Vaporeon$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1861,7 +1861,7 @@ gUnknown_847DA2C::
 	trainerid 35, 0 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000023 @ personality
-	.string "EEVEE$", 11
+	.string "Eevee$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1873,7 +1873,7 @@ gUnknown_847DA2C::
 	trainerid 35, 0 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000023 @ personality
-	.string "UMBREON$", 11
+	.string "Umbreon$", 11
 	.byte 255 @ friendship
 
 	dummy_tower_team
@@ -1882,7 +1882,7 @@ gUnknown_847DA2C::
 	.align 2
 gUnknown_847DE0C::
 	.byte 0x0e, 0x08, 0x01, 0x08
-	.string "ISAC & MAG$", 11
+	.string "Isac & Mag$", 11
 	.byte FACILITY_CLASS_COOL_COUPLE, 0x01
 	.align 1
 	.2byte EC_WORD_OUR, EC_MOVE(EARTHQUAKE), EC_WORD_WILL, EC_WORD_MAKE, EC_WORD_YOU, EC_WORD_SHAKY
@@ -1899,7 +1899,7 @@ gUnknown_847DE0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000003 @ personality
-	.string "NIDOKING$", 11
+	.string "Nidoking$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1911,7 +1911,7 @@ gUnknown_847DE0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000080 @ personality
-	.string "GLIGAR$", 11
+	.string "Gligar$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1923,7 +1923,7 @@ gUnknown_847DE0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000080 @ personality
-	.string "QUAGSIRE$", 11
+	.string "Quagsire$", 11
 	.byte 0 @ friendship
 
 	.align 2
@@ -1935,7 +1935,7 @@ gUnknown_847DE0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000080 @ personality
-	.string "PILOSWINE$", 11
+	.string "Piloswine$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1947,7 +1947,7 @@ gUnknown_847DE0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x00000080 @ personality
-	.string "GOLEM$", 11
+	.string "Golem$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1959,10 +1959,10 @@ gUnknown_847DE0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000080 @ personality
-	.string "STEELIX$", 11
+	.string "Steelix$", 11
 	.byte 255 @ friendship
 
-	.string "ISAC & MAG$", 11
+	.string "Isac & Mag$", 11
 	.byte FACILITY_CLASS_COOL_COUPLE, 0x01
 	.align 1
 	.2byte EC_WORD_MY, EC_WORD_POKEMON, EC_WORD_DOESN_T, EC_WORD_GET, EC_WORD_ALL, EC_WORD_SHAKY
@@ -1979,7 +1979,7 @@ gUnknown_847DE0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000B @ personality
-	.string "SKARMORY$", 11
+	.string "Skarmory$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -1991,7 +1991,7 @@ gUnknown_847DE0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x0000000B @ personality
-	.string "MANTINE$", 11
+	.string "Mantine$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2003,7 +2003,7 @@ gUnknown_847DE0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000B @ personality
-	.string "JUMPLUFF$", 11
+	.string "Jumpluff$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2015,7 +2015,7 @@ gUnknown_847DE0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000B @ personality
-	.string "GENGAR$", 11
+	.string "Gengar$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2027,7 +2027,7 @@ gUnknown_847DE0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000B @ personality
-	.string "CROBAT$", 11
+	.string "Crobat$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2039,7 +2039,7 @@ gUnknown_847DE0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000B @ personality
-	.string "XATU$", 11
+	.string "Xatu$", 11
 	.byte 255 @ friendship
 
 	dummy_tower_team
@@ -2048,7 +2048,7 @@ gUnknown_847DE0C::
 	.align 2
 gUnknown_847E1EC::
 	.byte 0x0f, 0x08, 0x02, 0x06
-	.string "CHELSEA$", 11
+	.string "Chelsea$", 11
 	.byte FACILITY_CLASS_PKMN_RANGER_4, 0x07
 	.align 1
 	.2byte EC_WORD_THE, EC_WORD_GREEN, EC_WORD_WORLD, EC_WORD_IS, EC_WORD_IMPORTANT, EC_WORD_ISN_T_IT_QUES
@@ -2065,7 +2065,7 @@ gUnknown_847E1EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000011 @ personality
-	.string "VILEPLUME$", 11
+	.string "Vileplume$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2077,7 +2077,7 @@ gUnknown_847E1EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 1 @ IVs, ability
 	.4byte 0x00000010 @ personality
-	.string "STARMIE$", 11
+	.string "Starmie$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2089,7 +2089,7 @@ gUnknown_847E1EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000001 @ personality
-	.string "URSARING$", 11
+	.string "Ursaring$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2101,7 +2101,7 @@ gUnknown_847E1EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000001 @ personality
-	.string "NOCTOWL$", 11
+	.string "Noctowl$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2113,7 +2113,7 @@ gUnknown_847E1EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000010 @ personality
-	.string "NINETALES$", 11
+	.string "Ninetales$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2125,10 +2125,10 @@ gUnknown_847E1EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000001 @ personality
-	.string "LEDIAN$", 11
+	.string "Ledian$", 11
 	.byte 255 @ friendship
 
-	.string "TRENTON$", 11
+	.string "Trenton$", 11
 	.byte FACILITY_CLASS_PKMN_RANGER_3, 0x07
 	.align 1
 	.2byte EC_WORD_I, EC_MOVE2(PROTECT), EC_WORD_THE, EC_WORD_GREAT, EC_WORD_GREEN, EC_WORD_WORLD
@@ -2145,7 +2145,7 @@ gUnknown_847E1EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000088 @ personality
-	.string "GYARADOS$", 11
+	.string "Gyarados$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2157,7 +2157,7 @@ gUnknown_847E1EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x0000008E @ personality
-	.string "VICTREEBEL$", 11
+	.string "Victreebel$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2169,7 +2169,7 @@ gUnknown_847E1EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000097 @ personality
-	.string "DONPHAN$", 11
+	.string "Donphan$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2181,7 +2181,7 @@ gUnknown_847E1EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000097 @ personality
-	.string "FEAROW$", 11
+	.string "Fearow$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2193,7 +2193,7 @@ gUnknown_847E1EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x0000004F @ personality
-	.string "ARCANINE$", 11
+	.string "Arcanine$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2205,10 +2205,10 @@ gUnknown_847E1EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000097 @ personality
-	.string "ARIADOS$", 11
+	.string "Ariados$", 11
 	.byte 255 @ friendship
 
-	.string "ALBERT$", 11
+	.string "Albert$", 11
 	.byte FACILITY_CLASS_COOLTRAINER_3, 0x07
 	.align 1
 	.2byte EC_WORD_LET_S, EC_WORD_HAVE, EC_WORD_AN, EC_WORD_EXCITING, EC_WORD_TIME, EC_WORD_HERE
@@ -2225,7 +2225,7 @@ gUnknown_847E1EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000015 @ personality
-	.string "KINGDRA$", 11
+	.string "Kingdra$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2237,7 +2237,7 @@ gUnknown_847E1EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 1 @ IVs, ability
 	.4byte 0x0000007F @ personality
-	.string "GOLEM$", 11
+	.string "Golem$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2249,7 +2249,7 @@ gUnknown_847E1EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000001 @ personality
-	.string "DRAGONITE$", 11
+	.string "Dragonite$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2261,7 +2261,7 @@ gUnknown_847E1EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000097 @ personality
-	.string "TYRANITAR$", 11
+	.string "Tyranitar$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2273,7 +2273,7 @@ gUnknown_847E1EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000013 @ personality
-	.string "AMPHAROS$", 11
+	.string "Ampharos$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2285,7 +2285,7 @@ gUnknown_847E1EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x0000002A @ personality
-	.string "VENUSAUR$", 11
+	.string "Venusaur$", 11
 	.byte 255 @ friendship
 
 	.byte 0x4c, 0x84, 0x01
@@ -2293,7 +2293,7 @@ gUnknown_847E1EC::
 	.align 2
 gUnknown_847E5CC::
 	.byte 0x10, 0x08, 0x02, 0x04
-	.string "CAMRYN$", 11
+	.string "Camryn$", 11
 	.byte FACILITY_CLASS_PICNICKER_2, 0x01
 	.align 1
 	.2byte EC_WORD_LET_S, EC_WORD_BATTLE, EC_WORD_I, EC_WORD_WON_T, EC_WORD_LOSE, EC_WORD_EXCL
@@ -2310,7 +2310,7 @@ gUnknown_847E5CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000089 @ personality
-	.string "MURKROW$", 11
+	.string "Murkrow$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2322,7 +2322,7 @@ gUnknown_847E5CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x0000000C @ personality
-	.string "RAPIDASH$", 11
+	.string "Rapidash$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2334,7 +2334,7 @@ gUnknown_847E5CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000C @ personality
-	.string "MILTANK$", 11
+	.string "Miltank$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2346,7 +2346,7 @@ gUnknown_847E5CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000089 @ personality
-	.string "GOLDUCK$", 11
+	.string "Golduck$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2358,7 +2358,7 @@ gUnknown_847E5CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000089 @ personality
-	.string "SANDSLASH$", 11
+	.string "Sandslash$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2370,10 +2370,10 @@ gUnknown_847E5CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000C @ personality
-	.string "NIDOQUEEN$", 11
+	.string "Nidoqueen$", 11
 	.byte 255 @ friendship
 
-	.string "NATALIA$", 11
+	.string "Natalia$", 11
 	.byte FACILITY_CLASS_AROMA_LADY_2, 0x01
 	.align 1
 	.2byte EC_WORD_THIS, EC_MOVE(SWEET_SCENT), EC_WORD_YOU, EC_WORD_LIKE, EC_WORD_IT, EC_WORD_QUES
@@ -2390,7 +2390,7 @@ gUnknown_847E5CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000C @ personality
-	.string "BELLOSSOM$", 11
+	.string "Bellossom$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2402,7 +2402,7 @@ gUnknown_847E5CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000089 @ personality
-	.string "VICTREEBEL$", 11
+	.string "Victreebel$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2414,7 +2414,7 @@ gUnknown_847E5CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000089 @ personality
-	.string "PARASECT$", 11
+	.string "Parasect$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2426,7 +2426,7 @@ gUnknown_847E5CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000C @ personality
-	.string "VILEPLUME$", 11
+	.string "Vileplume$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2438,7 +2438,7 @@ gUnknown_847E5CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000C @ personality
-	.string "VENUSAUR$", 11
+	.string "Venusaur$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2450,10 +2450,10 @@ gUnknown_847E5CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000025 @ personality
-	.string "MEGANIUM$", 11
+	.string "Meganium$", 11
 	.byte 255 @ friendship
 
-	.string "KATHLEEN$", 11
+	.string "Kathleen$", 11
 	.byte FACILITY_CLASS_COOLTRAINER_4, 0x07
 	.align 1
 	.2byte EC_WORD_TOO, EC_WORD_BAD, EC_WORD_IT_S, EC_WORD_OVER, EC_WORD_FOR, EC_WORD_YOU
@@ -2470,7 +2470,7 @@ gUnknown_847E5CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000089 @ personality
-	.string "MAROWAK$", 11
+	.string "Marowak$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2482,7 +2482,7 @@ gUnknown_847E5CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x0000000C @ personality
-	.string "LAPRAS$", 11
+	.string "Lapras$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2494,7 +2494,7 @@ gUnknown_847E5CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x00000057 @ personality
-	.string "ARCANINE$", 11
+	.string "Arcanine$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2506,7 +2506,7 @@ gUnknown_847E5CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000089 @ personality
-	.string "RAICHU$", 11
+	.string "Raichu$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2518,7 +2518,7 @@ gUnknown_847E5CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x0000000C @ personality
-	.string "TOGETIC$", 11
+	.string "Togetic$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2530,7 +2530,7 @@ gUnknown_847E5CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x0000000C @ personality
-	.string "SNORLAX$", 11
+	.string "Snorlax$", 11
 	.byte 255 @ friendship
 
 	.byte 0x8c, 0x73, 0x01
@@ -2538,7 +2538,7 @@ gUnknown_847E5CC::
 	.align 2
 gUnknown_847E9AC::
 	.byte 0x11, 0x08, 0x00, 0x03
-	.string "BRADEN$", 11
+	.string "Braden$", 11
 	.byte FACILITY_CLASS_SWIMMER_MALE_2, 0x01
 	.align 1
 	.2byte EC_WORD_I_AM, EC_WORD_PRETTY, EC_WORD_HAPPY, EC_WORD_WITH, EC_WORD_MY, EC_WORD_TOUGHNESS
@@ -2555,7 +2555,7 @@ gUnknown_847E9AC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000011 @ personality
-	.string "VAPOREON$", 11
+	.string "Vaporeon$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2567,7 +2567,7 @@ gUnknown_847E9AC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x00000091 @ personality
-	.string "SLOWBRO$", 11
+	.string "Slowbro$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2579,7 +2579,7 @@ gUnknown_847E9AC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x00000096 @ personality
-	.string "POLITOED$", 11
+	.string "Politoed$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2591,7 +2591,7 @@ gUnknown_847E9AC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x00000000 @ personality
-	.string "TENTACRUEL$", 11
+	.string "Tentacruel$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2603,7 +2603,7 @@ gUnknown_847E9AC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x00000080 @ personality
-	.string "RATICATE$", 11
+	.string "Raticate$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2615,7 +2615,7 @@ gUnknown_847E9AC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000007F @ personality
-	.string "DUNSPARCE$", 11
+	.string "Dunsparce$", 11
 	.byte 255 @ friendship
 
 	dummy_tower_team
@@ -2625,7 +2625,7 @@ gUnknown_847E9AC::
 	.align 2
 gUnknown_847ED8C::
 	.byte 0x12, 0x08, 0x00, 0x0a
-	.string "ALLYSON$", 11
+	.string "Allyson$", 11
 	.byte FACILITY_CLASS_COOLTRAINER_4, 0x07
 	.align 1
 	.2byte EC_WORD_I_AM, EC_WORD_NOT, EC_WORD_ABOUT, EC_WORD_TO, EC_WORD_LOSE, EC_WORD_TODAY
@@ -2642,7 +2642,7 @@ gUnknown_847ED8C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 1 @ IVs, ability
 	.4byte 0x0000000F @ personality
-	.string "STARMIE$", 11
+	.string "Starmie$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2654,7 +2654,7 @@ gUnknown_847ED8C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000032 @ personality
-	.string "BLASTOISE$", 11
+	.string "Blastoise$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2666,7 +2666,7 @@ gUnknown_847ED8C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x0000008C @ personality
-	.string "KINGDRA$", 11
+	.string "Kingdra$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2678,7 +2678,7 @@ gUnknown_847ED8C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000016 @ personality
-	.string "QUAGSIRE$", 11
+	.string "Quagsire$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2690,7 +2690,7 @@ gUnknown_847ED8C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 1 @ IVs, ability
 	.4byte 0x0000000F @ personality
-	.string "LAPRAS$", 11
+	.string "Lapras$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2702,7 +2702,7 @@ gUnknown_847ED8C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000096 @ personality
-	.string "DRAGONITE$", 11
+	.string "Dragonite$", 11
 	.byte 255 @ friendship
 
 	dummy_tower_team
@@ -2712,7 +2712,7 @@ gUnknown_847ED8C::
 	.align 2
 gUnknown_847F16C::
 	.byte 0x13, 0x08, 0x00, 0x0e
-	.string "ALBERTO$", 11
+	.string "Alberto$", 11
 	.byte FACILITY_CLASS_SAILOR_2, 0x05
 	.align 1
 	.2byte EC_WORD_LET_S, EC_WORD_GET, EC_WORD_WITH, EC_WORD_IT, EC_WORD_RIGHT, EC_WORD_AWAY
@@ -2729,7 +2729,7 @@ gUnknown_847F16C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000032 @ personality
-	.string "FERALIGATR$", 11
+	.string "Feraligatr$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2741,7 +2741,7 @@ gUnknown_847F16C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 1 @ IVs, ability
 	.4byte 0x00000096 @ personality
-	.string "POLIWRATH$", 11
+	.string "Poliwrath$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2753,7 +2753,7 @@ gUnknown_847F16C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000003 @ personality
-	.string "KANGASKHAN$", 11
+	.string "Kangaskhan$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2765,7 +2765,7 @@ gUnknown_847F16C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000003 @ personality
-	.string "MILTANK$", 11
+	.string "Miltank$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2777,7 +2777,7 @@ gUnknown_847F16C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 1 @ IVs, ability
 	.4byte 0x00000096 @ personality
-	.string "GOLDUCK$", 11
+	.string "Golduck$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2789,7 +2789,7 @@ gUnknown_847F16C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x000000CA @ personality
-	.string "GRANBULL$", 11
+	.string "Granbull$", 11
 	.byte 255 @ friendship
 
 	dummy_tower_team
@@ -2799,7 +2799,7 @@ gUnknown_847F16C::
 	.align 2
 gUnknown_847F54C::
 	.byte 0x14, 0x08, 0x01, 0x0c
-	.string "KAT & KIPP$", 11
+	.string "Kat & Kipp$", 11
 	.byte FACILITY_CLASS_SIS_AND_BRO_2, 0x04
 	.align 1
 	.2byte EC_WORD_I_AM, EC_WORD_GOING, EC_WORD_TO, EC_WORD_TRY, EC_WORD_MY, EC_WORD_BEST
@@ -2816,7 +2816,7 @@ gUnknown_847F54C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x0000000D @ personality
-	.string "SNEASEL$", 11
+	.string "Sneasel$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2828,7 +2828,7 @@ gUnknown_847F54C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000002D @ personality
-	.string "OMASTAR$", 11
+	.string "Omastar$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2840,7 +2840,7 @@ gUnknown_847F54C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000014 @ personality
-	.string "DEWGONG$", 11
+	.string "Dewgong$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2852,7 +2852,7 @@ gUnknown_847F54C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000091 @ personality
-	.string "QUAGSIRE$", 11
+	.string "Quagsire$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2864,7 +2864,7 @@ gUnknown_847F54C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000017 @ personality
-	.string "CORSOLA$", 11
+	.string "Corsola$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2876,10 +2876,10 @@ gUnknown_847F54C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000094 @ personality
-	.string "SANDSLASH$", 11
+	.string "Sandslash$", 11
 	.byte 255 @ friendship
 
-	.string "KAT & KIPP$", 11
+	.string "Kat & Kipp$", 11
 	.byte FACILITY_CLASS_SIS_AND_BRO_2, 0x04
 	.align 1
 	.2byte EC_WORD_FUFUFU, EC_WORD_ELLIPSIS, EC_WORD_WE, EC_WORD_NEVER, EC_WORD_LOSE, EC_WORD_EXCL
@@ -2896,7 +2896,7 @@ gUnknown_847F54C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000080 @ personality
-	.string "FURRET$", 11
+	.string "Furret$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2908,7 +2908,7 @@ gUnknown_847F54C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000014 @ personality
-	.string "AZUMARILL$", 11
+	.string "Azumarill$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2920,7 +2920,7 @@ gUnknown_847F54C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000091 @ personality
-	.string "KINGLER$", 11
+	.string "Kingler$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2932,7 +2932,7 @@ gUnknown_847F54C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000014 @ personality
-	.string "CLOYSTER$", 11
+	.string "Cloyster$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2944,7 +2944,7 @@ gUnknown_847F54C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000094 @ personality
-	.string "QUAGSIRE$", 11
+	.string "Quagsire$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2956,7 +2956,7 @@ gUnknown_847F54C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000030 @ personality
-	.string "KABUTOPS$", 11
+	.string "Kabutops$", 11
 	.byte 255 @ friendship
 
 	dummy_tower_team
@@ -2965,7 +2965,7 @@ gUnknown_847F54C::
 	.align 2
 gUnknown_847F92C::
 	.byte 0x15, 0x08, 0x01, 0x08
-	.string "GEB&MEGAN$", 11
+	.string "Geb&Megan$", 11
 	.byte FACILITY_CLASS_COOL_COUPLE, 0x07
 	.align 1
 	.2byte EC_WORD_YOU_RE, EC_WORD_OUR, EC_WORD_OPPONENT, EC_WORD_QUES, EC_WORD_PUSHOVER, EC_WORD_HAHAHA
@@ -2982,7 +2982,7 @@ gUnknown_847F92C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x0000008C @ personality
-	.string "POLITOED$", 11
+	.string "Politoed$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -2994,7 +2994,7 @@ gUnknown_847F92C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000096 @ personality
-	.string "GYARADOS$", 11
+	.string "Gyarados$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3006,7 +3006,7 @@ gUnknown_847F92C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x0000000F @ personality
-	.string "LAPRAS$", 11
+	.string "Lapras$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3018,7 +3018,7 @@ gUnknown_847F92C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000000 @ personality
-	.string "NIDOQUEEN$", 11
+	.string "Nidoqueen$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3030,7 +3030,7 @@ gUnknown_847F92C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000000 @ personality
-	.string "JYNX$", 11
+	.string "Jynx$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3042,10 +3042,10 @@ gUnknown_847F92C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x0000008C @ personality
-	.string "GIRAFARIG$", 11
+	.string "Girafarig$", 11
 	.byte 255 @ friendship
 
-	.string "GEB&MEGAN$", 11
+	.string "Geb&Megan$", 11
 	.byte FACILITY_CLASS_COOL_COUPLE, 0x07
 	.align 1
 	.2byte EC_WORD_YOU_RE, EC_WORD_OUR, EC_WORD_FOE, EC_WORD_QUES, EC_WORD_GIGGLE, EC_WORD_ELLIPSIS
@@ -3062,7 +3062,7 @@ gUnknown_847F92C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x00000094 @ personality
-	.string "MAROWAK$", 11
+	.string "Marowak$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3074,7 +3074,7 @@ gUnknown_847F92C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000080 @ personality
-	.string "URSARING$", 11
+	.string "Ursaring$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3086,7 +3086,7 @@ gUnknown_847F92C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x00000011 @ personality
-	.string "SLOWKING$", 11
+	.string "Slowking$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3098,7 +3098,7 @@ gUnknown_847F92C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000041 @ personality
-	.string "ALAKAZAM$", 11
+	.string "Alakazam$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3110,7 +3110,7 @@ gUnknown_847F92C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000000 @ personality
-	.string "NIDOKING$", 11
+	.string "Nidoking$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3122,7 +3122,7 @@ gUnknown_847F92C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000093 @ personality
-	.string "RHYDON$", 11
+	.string "Rhydon$", 11
 	.byte 255 @ friendship
 
 	dummy_tower_team
@@ -3131,7 +3131,7 @@ gUnknown_847F92C::
 	.align 2
 gUnknown_847FD0C::
 	.byte 0x16, 0x08, 0x01, 0x05
-	.string "LISA&LEAH$", 11
+	.string "Lisa&Leah$", 11
 	.byte FACILITY_CLASS_TWINS_2, 0x01
 	.align 1
 	.2byte EC_WORD_ABSOLUTELY, EC_WORD_WE_RE, EC_WORD_GOING, EC_WORD_TO, EC_WORD_WIN, EC_WORD_EXCL
@@ -3148,7 +3148,7 @@ gUnknown_847FD0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000087 @ personality
-	.string "POLIWAG$", 11
+	.string "Poliwag$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3160,7 +3160,7 @@ gUnknown_847FD0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x0000002D @ personality
-	.string "SQUIRTLE$", 11
+	.string "Squirtle$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3172,7 +3172,7 @@ gUnknown_847FD0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x0000000F @ personality
-	.string "CHINCHOU$", 11
+	.string "Chinchou$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3184,7 +3184,7 @@ gUnknown_847FD0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000000 @ personality
-	.string "NIDORAN♀$", 11
+	.string "Nidoran♀$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3196,7 +3196,7 @@ gUnknown_847FD0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x0000000F @ personality
-	.string "CLEFAIRY$", 11
+	.string "Clefairy$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3208,10 +3208,10 @@ gUnknown_847FD0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x0000002D @ personality
-	.string "HORSEA$", 11
+	.string "Horsea$", 11
 	.byte 255 @ friendship
 
-	.string "LISA&LEAH$", 11
+	.string "Lisa&Leah$", 11
 	.byte FACILITY_CLASS_TWINS_2, 0x01
 	.align 1
 	.2byte EC_WORD_CAN, EC_WORD_WE, EC_WORD_WIN, EC_WORD_QUES, EC_WORD_IT_S, EC_WORD_EXCITING
@@ -3228,7 +3228,7 @@ gUnknown_847FD0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000093 @ personality
-	.string "WOOPER$", 11
+	.string "Wooper$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3240,7 +3240,7 @@ gUnknown_847FD0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 1 @ IVs, ability
 	.4byte 0x00000096 @ personality
-	.string "PSYDUCK$", 11
+	.string "Psyduck$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3252,7 +3252,7 @@ gUnknown_847FD0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000000 @ personality
-	.string "SNUBBULL$", 11
+	.string "Snubbull$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3264,7 +3264,7 @@ gUnknown_847FD0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x0000000F @ personality
-	.string "JIGGLYPUFF$", 11
+	.string "Jigglypuff$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3276,7 +3276,7 @@ gUnknown_847FD0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000000 @ personality
-	.string "NIDORAN♂$", 11
+	.string "Nidoran♂$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3288,7 +3288,7 @@ gUnknown_847FD0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x0000002D @ personality
-	.string "TOTODILE$", 11
+	.string "Totodile$", 11
 	.byte 255 @ friendship
 
 	.string "$", 11
@@ -3376,7 +3376,7 @@ gUnknown_847FD0C::
 	.align 2
 gUnknown_84800EC::
 	.byte 0x17, 0x08, 0x02, 0x01
-	.string "PRISCILLA$", 11
+	.string "Priscilla$", 11
 	.byte FACILITY_CLASS_TUBER_3, 0x01
 	.align 1
 	.2byte EC_WORD_I_AM, EC_WORD_A_LITTLE, EC_WORD_POKEMON, EC_WORD_GIRL, EC_WORD_HERE_I_COME, EC_WORD_EXCL
@@ -3393,7 +3393,7 @@ gUnknown_84800EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000096 @ personality
-	.string "GOLDEEN$", 11
+	.string "Goldeen$", 11
 	.byte 0 @ friendship
 
 	.align 2
@@ -3405,7 +3405,7 @@ gUnknown_84800EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000000 @ personality
-	.string "SEAKING$", 11
+	.string "Seaking$", 11
 	.byte 0 @ friendship
 
 	.align 2
@@ -3417,7 +3417,7 @@ gUnknown_84800EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000008C @ personality
-	.string "LANTURN$", 11
+	.string "Lanturn$", 11
 	.byte 0 @ friendship
 
 	.align 2
@@ -3429,7 +3429,7 @@ gUnknown_84800EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000000F @ personality
-	.string "LANTURN$", 11
+	.string "Lanturn$", 11
 	.byte 0 @ friendship
 
 	.align 2
@@ -3441,7 +3441,7 @@ gUnknown_84800EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000000 @ personality
-	.string "GOLDEEN$", 11
+	.string "Goldeen$", 11
 	.byte 0 @ friendship
 
 	.align 2
@@ -3453,10 +3453,10 @@ gUnknown_84800EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000096 @ personality
-	.string "SEAKING$", 11
+	.string "Seaking$", 11
 	.byte 0 @ friendship
 
-	.string "CHARLOTTE$", 11
+	.string "Charlotte$", 11
 	.byte FACILITY_CLASS_LADY_2, 0x01
 	.align 1
 	.2byte EC_WORD_HELLO, EC_WORD_THERE, EC_WORD_I_AM, EC_WORD_A, EC_WORD_POKEMON, EC_WORD_LADY
@@ -3473,7 +3473,7 @@ gUnknown_84800EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000000F @ personality
-	.string "OCTILLERY$", 11
+	.string "Octillery$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3485,7 +3485,7 @@ gUnknown_84800EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000014 @ personality
-	.string "QWILFISH$", 11
+	.string "Qwilfish$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3497,7 +3497,7 @@ gUnknown_84800EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000096 @ personality
-	.string "REMORAID$", 11
+	.string "Remoraid$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3509,7 +3509,7 @@ gUnknown_84800EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000000 @ personality
-	.string "REMORAID$", 11
+	.string "Remoraid$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3521,7 +3521,7 @@ gUnknown_84800EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000093 @ personality
-	.string "OCTILLERY$", 11
+	.string "Octillery$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3533,10 +3533,10 @@ gUnknown_84800EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000096 @ personality
-	.string "QWILFISH$", 11
+	.string "Qwilfish$", 11
 	.byte 255 @ friendship
 
-	.string "SHANIA$", 11
+	.string "Shania$", 11
 	.byte FACILITY_CLASS_SWIMMER_FEMALE_2, 0x01
 	.align 1
 	.2byte EC_WORD_A, EC_WORD_POKEMON, EC_WORD_HEROINE, EC_WORD_THAT_S, EC_WORD_WHAT, EC_WORD_I_AM
@@ -3553,7 +3553,7 @@ gUnknown_84800EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000080 @ personality
-	.string "MANTINE$", 11
+	.string "Mantine$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3565,7 +3565,7 @@ gUnknown_84800EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000000D @ personality
-	.string "MAGIKARP$", 11
+	.string "Magikarp$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3577,7 +3577,7 @@ gUnknown_84800EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000000F @ personality
-	.string "MANTINE$", 11
+	.string "Mantine$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3589,7 +3589,7 @@ gUnknown_84800EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000003 @ personality
-	.string "GYARADOS$", 11
+	.string "Gyarados$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3601,7 +3601,7 @@ gUnknown_84800EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000094 @ personality
-	.string "MAGIKARP$", 11
+	.string "Magikarp$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3613,7 +3613,7 @@ gUnknown_84800EC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000080 @ personality
-	.string "GYARADOS$", 11
+	.string "Gyarados$", 11
 	.byte 255 @ friendship
 
 	.byte 0x1d, 0x52, 0x01
@@ -3621,7 +3621,7 @@ gUnknown_84800EC::
 	.align 2
 gUnknown_84804CC::
 	.byte 0x18, 0x08, 0x02, 0x0d
-	.string "BRENNAN$", 11
+	.string "Brennan$", 11
 	.byte FACILITY_CLASS_SAILOR_2, 0x01
 	.align 1
 	.2byte EC_WORD_TAKE, EC_WORD_THINGS, EC_WORD_EASY, EC_WORD_ELLIPSIS, EC_WORD_THAT_S, EC_WORD_IMPORTANT
@@ -3638,7 +3638,7 @@ gUnknown_84804CC::
 	trainerid 15, 0 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x0000000F @ personality
-	.string "LAPRAS$", 11
+	.string "Lapras$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3650,7 +3650,7 @@ gUnknown_84804CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000008C @ personality
-	.string "KINGDRA$", 11
+	.string "Kingdra$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3662,7 +3662,7 @@ gUnknown_84804CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000004E @ personality
-	.string "MACHAMP$", 11
+	.string "Machamp$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3674,7 +3674,7 @@ gUnknown_84804CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000005 @ personality
-	.string "CHANSEY$", 11
+	.string "Chansey$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3686,7 +3686,7 @@ gUnknown_84804CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000003 @ personality
-	.string "TAUROS$", 11
+	.string "Tauros$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3698,10 +3698,10 @@ gUnknown_84804CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000021 @ personality
-	.string "SNORLAX$", 11
+	.string "Snorlax$", 11
 	.byte 255 @ friendship
 
-	.string "KADEN$", 11
+	.string "Kaden$", 11
 	.byte FACILITY_CLASS_FISHERMAN_2, 0x01
 	.align 1
 	.2byte EC_WORD_MY, EC_WORD_FISHING, EC_WORD_FASHION, EC_WORD_APPEAL, EC_WORD_IS, EC_WORD_FANTASTIC
@@ -3718,7 +3718,7 @@ gUnknown_84804CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000000 @ personality
-	.string "CHINCHOU$", 11
+	.string "Chinchou$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3730,7 +3730,7 @@ gUnknown_84804CC::
 	trainerid 0, 0 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000000 @ personality
-	.string "DRATINI$", 11
+	.string "Dratini$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3742,7 +3742,7 @@ gUnknown_84804CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000096 @ personality
-	.string "SLOWPOKE$", 11
+	.string "Slowpoke$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3754,7 +3754,7 @@ gUnknown_84804CC::
 	trainerid 23, 0 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000017 @ personality
-	.string "MAGIKARP$", 11
+	.string "Magikarp$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3766,7 +3766,7 @@ gUnknown_84804CC::
 	trainerid 23, 0 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000017 @ personality
-	.string "SEAKING$", 11
+	.string "Seaking$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3778,10 +3778,10 @@ gUnknown_84804CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000096 @ personality
-	.string "TENTACRUEL$", 11
+	.string "Tentacruel$", 11
 	.byte 255 @ friendship
 
-	.string "EMANUEL$", 11
+	.string "Emanuel$", 11
 	.byte FACILITY_CLASS_GENTLEMAN_2, 0x01
 	.align 1
 	.2byte EC_WORD_HMM, EC_WORD_QUES, EC_WORD_ARE, EC_WORD_YOU, EC_WORD_SKILLED, EC_WORD_QUES
@@ -3798,7 +3798,7 @@ gUnknown_84804CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000014 @ personality
-	.string "VAPOREON$", 11
+	.string "Vaporeon$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3810,7 +3810,7 @@ gUnknown_84804CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000000F @ personality
-	.string "ESPEON$", 11
+	.string "Espeon$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3822,7 +3822,7 @@ gUnknown_84804CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000005 @ personality
-	.string "BLISSEY$", 11
+	.string "Blissey$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3834,7 +3834,7 @@ gUnknown_84804CC::
 	trainerid 20, 0 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000014 @ personality
-	.string "STARMIE$", 11
+	.string "Starmie$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3846,7 +3846,7 @@ gUnknown_84804CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000000D @ personality
-	.string "PERSIAN$", 11
+	.string "Persian$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3858,7 +3858,7 @@ gUnknown_84804CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000000 @ personality
-	.string "AZUMARILL$", 11
+	.string "Azumarill$", 11
 	.byte 255 @ friendship
 
 	.byte 0x4b, 0x55, 0x01
@@ -3866,7 +3866,7 @@ gUnknown_84804CC::
 	.align 2
 gUnknown_84808AC::
 	.byte 0x19, 0x08, 0x00, 0x0c
-	.string "JARRETT$", 11
+	.string "Jarrett$", 11
 	.byte FACILITY_CLASS_JUGGLER, 0x02
 	.align 1
 	.2byte EC_WORD_LET_S, EC_WORD_HAVE, EC_WORD_AN, EC_MOVE2(EXPLOSION), EC_WORD_PARTY, EC_WORD_EXCL
@@ -3883,7 +3883,7 @@ gUnknown_84808AC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x0000000D @ personality
-	.string "ELECTRODE$", 11
+	.string "Electrode$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3895,7 +3895,7 @@ gUnknown_84808AC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x0000000D @ personality
-	.string "VOLTORB$", 11
+	.string "Voltorb$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3907,7 +3907,7 @@ gUnknown_84808AC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000007 @ personality
-	.string "WEEZING$", 11
+	.string "Weezing$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3919,7 +3919,7 @@ gUnknown_84808AC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000007F @ personality
-	.string "GOLEM$", 11
+	.string "Golem$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3931,7 +3931,7 @@ gUnknown_84808AC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000007 @ personality
-	.string "EXEGGCUTE$", 11
+	.string "Exeggcute$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3943,7 +3943,7 @@ gUnknown_84808AC::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000084 @ personality
-	.string "FORRETRESS$", 11
+	.string "Forretress$", 11
 	.byte 255 @ friendship
 
 	dummy_tower_team
@@ -3953,7 +3953,7 @@ gUnknown_84808AC::
 	.align 2
 gUnknown_8480C8C::
 	.byte 0x1a, 0x08, 0x00, 0x0d
-	.string "OWEN$", 11
+	.string "Owen$", 11
 	.byte FACILITY_CLASS_SUPER_NERD, 0x02
 	.align 1
 	.2byte EC_WORD_HERE_IT_IS, EC_MOVE2(THUNDER_WAVE), EC_WORD_DON_T, EC_MOVE2(WRAP), EC_WORD_ME, EC_WORD_EXCL
@@ -3970,7 +3970,7 @@ gUnknown_8480C8C::
 	trainerid 10, 0 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x0000000A @ personality
-	.string "MAGNETON$", 11
+	.string "Magneton$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3982,7 +3982,7 @@ gUnknown_8480C8C::
 	trainerid 15, 0 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000000F @ personality
-	.string "PIKACHU$", 11
+	.string "Pikachu$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -3994,7 +3994,7 @@ gUnknown_8480C8C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000037 @ personality
-	.string "JOLTEON$", 11
+	.string "Jolteon$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4006,7 +4006,7 @@ gUnknown_8480C8C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000005 @ personality
-	.string "BLISSEY$", 11
+	.string "Blissey$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4018,7 +4018,7 @@ gUnknown_8480C8C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000005 @ personality
-	.string "PORYGON2$", 11
+	.string "Porygon2$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4030,7 +4030,7 @@ gUnknown_8480C8C::
 	trainerid 5, 0 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000005 @ personality
-	.string "PORYGON$", 11
+	.string "Porygon$", 11
 	.byte 255 @ friendship
 
 	dummy_tower_team
@@ -4040,7 +4040,7 @@ gUnknown_8480C8C::
 	.align 2
 gUnknown_848106C::
 	.byte 0x1b, 0x08, 0x00, 0x01
-	.string "LORENZO$", 11
+	.string "Lorenzo$", 11
 	.byte FACILITY_CLASS_PSYCHIC_3, 0x01
 	.align 1
 	.2byte EC_WORD_THIS, EC_WORD_POWER, EC_WORD_IS, EC_WORD_NOW, EC_WORD_COMPLETE, EC_WORD_EXCL
@@ -4057,7 +4057,7 @@ gUnknown_848106C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000007 @ personality
-	.string "MR. MIME$", 11
+	.string "Mr. Mime$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4069,7 +4069,7 @@ gUnknown_848106C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x0000008C @ personality
-	.string "HYPNO$", 11
+	.string "Hypno$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4081,7 +4081,7 @@ gUnknown_848106C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x0000000F @ personality
-	.string "ALAKAZAM$", 11
+	.string "Alakazam$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4093,7 +4093,7 @@ gUnknown_848106C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000088 @ personality
-	.string "GENGAR$", 11
+	.string "Gengar$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4105,7 +4105,7 @@ gUnknown_848106C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 1 @ IVs, ability
 	.4byte 0x00000003 @ personality
-	.string "GIRAFARIG$", 11
+	.string "Girafarig$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4117,7 +4117,7 @@ gUnknown_848106C::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x0000000A @ personality
-	.string "STARMIE$", 11
+	.string "Starmie$", 11
 	.byte 255 @ friendship
 
 	dummy_tower_team
@@ -4127,7 +4127,7 @@ gUnknown_848106C::
 	.align 2
 gUnknown_848144C::
 	.byte 0x1c, 0x08, 0x01, 0x0b
-	.string "NIA & CARL$", 11
+	.string "Nia & Carl$", 11
 	.byte FACILITY_CLASS_COOL_COUPLE, 0x04
 	.align 1
 	.2byte EC_WORD_HERE_GOES, EC_WORD_MY, EC_WORD_DIGITAL, EC_WORD_ROMANTIC, EC_WORD_HERO, EC_WORD_STRATEGY
@@ -4144,7 +4144,7 @@ gUnknown_848144C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 1 @ IVs, ability
 	.4byte 0x00000007 @ personality
-	.string "MUK$", 11
+	.string "Muk$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4156,7 +4156,7 @@ gUnknown_848144C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000015 @ personality
-	.string "GENGAR$", 11
+	.string "Gengar$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4168,7 +4168,7 @@ gUnknown_848144C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x0000000A @ personality
-	.string "ALAKAZAM$", 11
+	.string "Alakazam$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4180,7 +4180,7 @@ gUnknown_848144C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000005 @ personality
-	.string "JOLTEON$", 11
+	.string "Jolteon$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4192,7 +4192,7 @@ gUnknown_848144C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000014 @ personality
-	.string "ELECTRODE$", 11
+	.string "Electrode$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4204,10 +4204,10 @@ gUnknown_848144C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000002 @ personality
-	.string "RAICHU$", 11
+	.string "Raichu$", 11
 	.byte 255 @ friendship
 
-	.string "NIA & CARL$", 11
+	.string "Nia & Carl$", 11
 	.byte FACILITY_CLASS_COOL_COUPLE, 0x04
 	.align 1
 	.2byte EC_WORD_MASTER, EC_WORD_COMPLETE, EC_WORD_FASHION, EC_WORD_SYSTEM, EC_WORD_START, EC_WORD_EXCL
@@ -4224,7 +4224,7 @@ gUnknown_848144C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000003 @ personality
-	.string "KANGASKHAN$", 11
+	.string "Kangaskhan$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4236,7 +4236,7 @@ gUnknown_848144C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000003 @ personality
-	.string "TAUROS$", 11
+	.string "Tauros$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4248,7 +4248,7 @@ gUnknown_848144C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000003 @ personality
-	.string "MILTANK$", 11
+	.string "Miltank$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4260,7 +4260,7 @@ gUnknown_848144C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 1 @ IVs, ability
 	.4byte 0x00000080 @ personality
-	.string "RHYDON$", 11
+	.string "Rhydon$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4272,7 +4272,7 @@ gUnknown_848144C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 0 @ IVs, ability
 	.4byte 0x00000091 @ personality
-	.string "DRAGONITE$", 11
+	.string "Dragonite$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4284,7 +4284,7 @@ gUnknown_848144C::
 	trainerid 0, 4096 @ OT ID
 	ivs 31, 31, 31, 31, 31, 31, 1 @ IVs, ability
 	.4byte 0x00000091 @ personality
-	.string "LAPRAS$", 11
+	.string "Lapras$", 11
 	.byte 255 @ friendship
 
 	dummy_tower_team
@@ -4293,7 +4293,7 @@ gUnknown_848144C::
 	.align 2
 gUnknown_848182C::
 	.byte 0x1d, 0x08, 0x01, 0x03
-	.string "AXE & REN$", 11
+	.string "Axe & Ren$", 11
 	.byte FACILITY_CLASS_SIS_AND_BRO_2, 0x02
 	.align 1
 	.2byte EC_WORD_IT_S, EC_WORD_GOING, EC_WORD_TO, EC_WORD_GET, EC_WORD_AWFULLY, EC_WORD_COLD
@@ -4310,7 +4310,7 @@ gUnknown_848182C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000A @ personality
-	.string "LANTURN$", 11
+	.string "Lanturn$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4322,7 +4322,7 @@ gUnknown_848182C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000014 @ personality
-	.string "MANTINE$", 11
+	.string "Mantine$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4334,7 +4334,7 @@ gUnknown_848182C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000011 @ personality
-	.string "DEWGONG$", 11
+	.string "Dewgong$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4346,7 +4346,7 @@ gUnknown_848182C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000011 @ personality
-	.string "CLOYSTER$", 11
+	.string "Cloyster$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4358,7 +4358,7 @@ gUnknown_848182C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000A @ personality
-	.string "TENTACRUEL$", 11
+	.string "Tentacruel$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4370,10 +4370,10 @@ gUnknown_848182C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000003 @ personality
-	.string "GYARADOS$", 11
+	.string "Gyarados$", 11
 	.byte 255 @ friendship
 
-	.string "AXE & REN$", 11
+	.string "Axe & Ren$", 11
 	.byte FACILITY_CLASS_SIS_AND_BRO_2, 0x02
 	.align 1
 	.2byte EC_WORD_OUR, EC_WORD_SWIFT_SWIM, EC_WORD_LEFT, EC_WORD_ME, EC_WORD_FEELING, EC_WORD_COLD
@@ -4390,7 +4390,7 @@ gUnknown_848182C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000040 @ personality
-	.string "ELECTABUZZ$", 11
+	.string "Electabuzz$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4402,7 +4402,7 @@ gUnknown_848182C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x0000000A @ personality
-	.string "MAGNETON$", 11
+	.string "Magneton$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4414,7 +4414,7 @@ gUnknown_848182C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000011 @ personality
-	.string "PORYGON$", 11
+	.string "Porygon$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4426,7 +4426,7 @@ gUnknown_848182C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000A @ personality
-	.string "DRAGONAIR$", 11
+	.string "Dragonair$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4438,7 +4438,7 @@ gUnknown_848182C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000B @ personality
-	.string "PERSIAN$", 11
+	.string "Persian$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4450,7 +4450,7 @@ gUnknown_848182C::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x00000005 @ personality
-	.string "STARMIE$", 11
+	.string "Starmie$", 11
 	.byte 255 @ friendship
 
 	dummy_tower_team
@@ -4459,7 +4459,7 @@ gUnknown_848182C::
 	.align 2
 gUnknown_8481C0C::
 	.byte 0x1e, 0x08, 0x01, 0x05
-	.string "KATI & GEB$", 11
+	.string "Kati & Geb$", 11
 	.byte FACILITY_CLASS_YOUNG_COUPLE_2, 0x02
 	.align 1
 	.2byte EC_WORD_WELCOME, EC_WORD_TO, EC_WORD_OUR, EC_WORD_LOVEY_DOVEY, EC_MOVE2(THUNDER_WAVE), EC_MOVE(SANDSTORM)
@@ -4476,7 +4476,7 @@ gUnknown_8481C0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000084 @ personality
-	.string "FLAAFFY$", 11
+	.string "Flaaffy$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4488,7 +4488,7 @@ gUnknown_8481C0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000093 @ personality
-	.string "QUAGSIRE$", 11
+	.string "Quagsire$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4500,7 +4500,7 @@ gUnknown_8481C0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x0000008A @ personality
-	.string "PIKACHU$", 11
+	.string "Pikachu$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4512,7 +4512,7 @@ gUnknown_8481C0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000046 @ personality
-	.string "ELECTABUZZ$", 11
+	.string "Electabuzz$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4524,7 +4524,7 @@ gUnknown_8481C0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x0000002D @ personality
-	.string "TOGETIC$", 11
+	.string "Togetic$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4536,10 +4536,10 @@ gUnknown_8481C0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000080 @ personality
-	.string "GOLDUCK$", 11
+	.string "Golduck$", 11
 	.byte 255 @ friendship
 
-	.string "KATI & GEB$", 11
+	.string "Kati & Geb$", 11
 	.byte FACILITY_CLASS_YOUNG_COUPLE_2, 0x02
 	.align 1
 	.2byte EC_WORD_I_AM, EC_WORD_PLUS, EC_WORD_YOU_RE, EC_WORD_MINUS, EC_WORD_LOVEY_DOVEY, EC_WORD_MAGNET_PULL
@@ -4556,7 +4556,7 @@ gUnknown_8481C0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000003 @ personality
-	.string "PICHU$", 11
+	.string "Pichu$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4568,7 +4568,7 @@ gUnknown_8481C0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000002 @ personality
-	.string "ELEKID$", 11
+	.string "Elekid$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4580,7 +4580,7 @@ gUnknown_8481C0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x0000000F @ personality
-	.string "TOGEPI$", 11
+	.string "Togepi$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4592,7 +4592,7 @@ gUnknown_8481C0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000016 @ personality
-	.string "PSYDUCK$", 11
+	.string "Psyduck$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4604,7 +4604,7 @@ gUnknown_8481C0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 0 @ IVs, ability
 	.4byte 0x00000007 @ personality
-	.string "MAREEP$", 11
+	.string "Mareep$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4616,7 +4616,7 @@ gUnknown_8481C0C::
 	trainerid 0, 4096 @ OT ID
 	ivs 10, 10, 10, 10, 10, 10, 1 @ IVs, ability
 	.4byte 0x00000007 @ personality
-	.string "WOOPER$", 11
+	.string "Wooper$", 11
 	.byte 255 @ friendship
 
 	dummy_tower_team
@@ -4625,7 +4625,7 @@ gUnknown_8481C0C::
 	.align 2
 gUnknown_8481FEC::
 	.byte 0x1f, 0x08, 0x02, 0x07
-	.string "BEN$", 11
+	.string "Ben$", 11
 	.byte FACILITY_CLASS_ROCKER, 0x01
 	.align 1
 	.2byte EC_WORD_LALALA, EC_WORD_LET_S, EC_MOVE(SING), EC_WORD_ABOUT, EC_WORD_ELECTRIC, EC_WORD_POWER
@@ -4642,7 +4642,7 @@ gUnknown_8481FEC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x00000014 @ personality
-	.string "ELECTRODE$", 11
+	.string "Electrode$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4654,7 +4654,7 @@ gUnknown_8481FEC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000F @ personality
-	.string "ELECTABUZZ$", 11
+	.string "Electabuzz$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4666,7 +4666,7 @@ gUnknown_8481FEC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000008E @ personality
-	.string "LANTURN$", 11
+	.string "Lanturn$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4678,7 +4678,7 @@ gUnknown_8481FEC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x00000014 @ personality
-	.string "MAGNETON$", 11
+	.string "Magneton$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4690,7 +4690,7 @@ gUnknown_8481FEC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000008A @ personality
-	.string "RAICHU$", 11
+	.string "Raichu$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4702,10 +4702,10 @@ gUnknown_8481FEC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000007 @ personality
-	.string "AMPHAROS$", 11
+	.string "Ampharos$", 11
 	.byte 255 @ friendship
 
-	.string "CAMDEN$", 11
+	.string "Camden$", 11
 	.byte FACILITY_CLASS_ENGINEER, 0x01
 	.align 1
 	.2byte EC_WORD_LALALA, EC_WORD_LET_S, EC_MOVE(SING), EC_WORD_ABOUT, EC_WORD_ELECTRIC, EC_WORD_POWER
@@ -4722,7 +4722,7 @@ gUnknown_8481FEC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000002 @ personality
-	.string "GRANBULL$", 11
+	.string "Granbull$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4734,7 +4734,7 @@ gUnknown_8481FEC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000080 @ personality
-	.string "PERSIAN$", 11
+	.string "Persian$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4746,7 +4746,7 @@ gUnknown_8481FEC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000002 @ personality
-	.string "LICKITUNG$", 11
+	.string "Lickitung$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4758,7 +4758,7 @@ gUnknown_8481FEC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x00000094 @ personality
-	.string "RATICATE$", 11
+	.string "Raticate$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4770,7 +4770,7 @@ gUnknown_8481FEC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000002 @ personality
-	.string "PRIMEAPE$", 11
+	.string "Primeape$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4782,10 +4782,10 @@ gUnknown_8481FEC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000011 @ personality
-	.string "KANGASKHAN$", 11
+	.string "Kangaskhan$", 11
 	.byte 255 @ friendship
 
-	.string "ZACKERY$", 11
+	.string "Zackery$", 11
 	.byte FACILITY_CLASS_SCIENTIST, 0x01
 	.align 1
 	.2byte EC_WORD_LALALA, EC_WORD_LET_S, EC_MOVE(SING), EC_WORD_ABOUT, EC_WORD_ELECTRIC, EC_WORD_POWER
@@ -4802,7 +4802,7 @@ gUnknown_8481FEC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000002 @ personality
-	.string "WEEZING$", 11
+	.string "Weezing$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4814,7 +4814,7 @@ gUnknown_8481FEC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 1 @ IVs, ability
 	.4byte 0x00000084 @ personality
-	.string "MUK$", 11
+	.string "Muk$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4826,7 +4826,7 @@ gUnknown_8481FEC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000A @ personality
-	.string "GENGAR$", 11
+	.string "Gengar$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4838,7 +4838,7 @@ gUnknown_8481FEC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x0000000A @ personality
-	.string "MISDREAVUS$", 11
+	.string "Misdreavus$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4850,7 +4850,7 @@ gUnknown_8481FEC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000087 @ personality
-	.string "CROBAT$", 11
+	.string "Crobat$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4862,7 +4862,7 @@ gUnknown_8481FEC::
 	trainerid 0, 4096 @ OT ID
 	ivs 20, 20, 20, 20, 20, 20, 0 @ IVs, ability
 	.4byte 0x00000091 @ personality
-	.string "HAUNTER$", 11
+	.string "Haunter$", 11
 	.byte 255 @ friendship
 
 	.byte 0x49, 0x4f, 0x01
@@ -4870,7 +4870,7 @@ gUnknown_8481FEC::
 	.align 2
 gUnknown_84823CC::
 	.byte 0x20, 0x08, 0x02, 0x0e
-	.string "MAURA$", 11
+	.string "Maura$", 11
 	.byte FACILITY_CLASS_BEAUTY_2, 0x02
 	.align 1
 	.2byte EC_WORD_I_AM, EC_WORD_THE, EC_WORD_GROUP, EC_WORD_LEADER, EC_WORD_EXCL, 0xFFFF
@@ -4887,7 +4887,7 @@ gUnknown_84823CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000005 @ personality
-	.string "PICHU$", 11
+	.string "Pichu$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4899,7 +4899,7 @@ gUnknown_84823CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000007 @ personality
-	.string "MAREEP$", 11
+	.string "Mareep$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4911,7 +4911,7 @@ gUnknown_84823CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000007 @ personality
-	.string "IGGLYBUFF$", 11
+	.string "Igglybuff$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4923,7 +4923,7 @@ gUnknown_84823CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000016 @ personality
-	.string "CLEFFA$", 11
+	.string "Cleffa$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4935,7 +4935,7 @@ gUnknown_84823CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000016 @ personality
-	.string "NIDORAN♀$", 11
+	.string "Nidoran♀$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4947,10 +4947,10 @@ gUnknown_84823CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000007 @ personality
-	.string "NIDORAN♂$", 11
+	.string "Nidoran♂$", 11
 	.byte 255 @ friendship
 
-	.string "MIKAELA$", 11
+	.string "Mikaela$", 11
 	.byte FACILITY_CLASS_LASS_2, 0x01
 	.align 1
 	.2byte EC_WORD_I_AM, EC_WORD_REALLY, EC_WORD_THE, EC_WORD_NO_1, EC_WORD_TRAINER, EC_WORD_HERE
@@ -4967,7 +4967,7 @@ gUnknown_84823CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000007 @ personality
-	.string "NIDORINO$", 11
+	.string "Nidorino$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4979,7 +4979,7 @@ gUnknown_84823CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000016 @ personality
-	.string "NIDORINA$", 11
+	.string "Nidorina$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -4991,7 +4991,7 @@ gUnknown_84823CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000011 @ personality
-	.string "PIKACHU$", 11
+	.string "Pikachu$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -5003,7 +5003,7 @@ gUnknown_84823CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000007 @ personality
-	.string "FLAAFFY$", 11
+	.string "Flaaffy$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -5015,7 +5015,7 @@ gUnknown_84823CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000016 @ personality
-	.string "JIGGLYPUFF$", 11
+	.string "Jigglypuff$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -5027,10 +5027,10 @@ gUnknown_84823CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000007 @ personality
-	.string "CLEFAIRY$", 11
+	.string "Clefairy$", 11
 	.byte 255 @ friendship
 
-	.string "FLINT$", 11
+	.string "Flint$", 11
 	.byte FACILITY_CLASS_ENGINEER, 0x04
 	.align 1
 	.2byte EC_WORD_I_AM, EC_WORD_THE, EC_MOVE2(MILK_DRINK), EC_WORD_WORLD, EC_WORD_LEADER, EC_WORD_EXCL
@@ -5047,7 +5047,7 @@ gUnknown_84823CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x000000CF @ personality
-	.string "WIGGLYTUFF$", 11
+	.string "Wigglytuff$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -5059,7 +5059,7 @@ gUnknown_84823CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x000000CF @ personality
-	.string "CLEFABLE$", 11
+	.string "Clefable$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -5071,7 +5071,7 @@ gUnknown_84823CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000007 @ personality
-	.string "NIDOQUEEN$", 11
+	.string "Nidoqueen$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -5083,7 +5083,7 @@ gUnknown_84823CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000002 @ personality
-	.string "NIDOKING$", 11
+	.string "Nidoking$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -5095,7 +5095,7 @@ gUnknown_84823CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000080 @ personality
-	.string "RAICHU$", 11
+	.string "Raichu$", 11
 	.byte 255 @ friendship
 
 	.align 2
@@ -5107,7 +5107,7 @@ gUnknown_84823CC::
 	trainerid 0, 4096 @ OT ID
 	ivs 15, 15, 15, 15, 15, 15, 0 @ IVs, ability
 	.4byte 0x00000080 @ personality
-	.string "AMPHAROS$", 11
+	.string "Ampharos$", 11
 	.byte 255 @ friendship
 
 	.byte 0x80, 0x6b, 0x01

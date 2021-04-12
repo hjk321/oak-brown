@@ -501,7 +501,7 @@ bool32 sub_814A408(void)
     return TRUE;
 }
 
-static const u8 sPluralTxt[] = _("IES");
+static const u8 sPluralTxt[] = _("ies");
 
 void sub_814A468(u16 itemId, u16 quantity)
 {
