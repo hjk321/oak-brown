@@ -1750,7 +1750,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
 
         for (i = 0; i < monsCount; i++)
         {
-            const struct TrainerMon *partyData = gTrainers[trainerNum].party.TrainerMon;
+            const struct TrainerMon *partyData = gTrainers[trainerNum].party;
             u8 fixedIV;
 
             SeedRng(partyRng[i]);
@@ -3884,6 +3884,7 @@ static void RunTurnActionsFunctions(void)
 
 static void HandleEndTurn_BattleWon(void)
 {
+    FlagSet(FLAG_SYS_WON_LAST_TRAINER_BATTLE);
     gCurrentActionFuncId = 0;
     if (gBattleTypeFlags & BATTLE_TYPE_LINK)
     {
@@ -3927,6 +3928,7 @@ static void HandleEndTurn_BattleWon(void)
 
 static void HandleEndTurn_BattleLost(void)
 {
+    FlagClear(FLAG_SYS_WON_LAST_TRAINER_BATTLE);
     gCurrentActionFuncId = 0;
     if (gBattleTypeFlags & BATTLE_TYPE_LINK)
     {

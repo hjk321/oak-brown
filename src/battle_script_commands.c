@@ -5159,7 +5159,7 @@ static void atk5D_getmoneyreward(void)
     u32 moneyReward;
     u8 lastMonLevel = 0;
 
-    const struct TrainerMon *party = gTrainers[gTrainerBattleOpponent_A].party.TrainerMon;
+    const struct TrainerMon *party = gTrainers[gTrainerBattleOpponent_A].party;
 
     if (gBattleOutcome == B_OUTCOME_WON)
     {

@@ -86,11 +86,6 @@ struct TrainerMon
     u8 friendship;
 };
 
-union TrainerMonPtr
-{
-    const struct TrainerMon *TrainerMon;
-};
-
 struct Trainer
 {
     /*0x00*/ u8 partyFlags;
@@ -102,7 +97,7 @@ struct Trainer
     /*0x18*/ bool8 doubleBattle;
     /*0x1C*/ u32 aiFlags;
     /*0x20*/ u8 partySize;
-    /*0x24*/ const union TrainerMonPtr party;
+    /*0x??*/ const struct TrainerMon *party;
     /*0x??*/ u16 rngSeed;
 };
 

@@ -60,7 +60,7 @@ script GravelTown_TimsLab_BookshelfTriggers {
         applymovement(PLAYER_ID, Movement_WalkUp)
         waitmovement(PLAYER_ID)
         release
-    } elif (var(VAR_MAP_SCENE_GRAVELTOWN) == 1) {
+    } elif (var(VAR_MAP_SCENE_GRAVELTOWN) == 1) { // Rival Battle
         lock
         setvar(VAR_MAP_SCENE_GRAVELTOWN, 2)
         playbgm(MUS_RIVAL_EXIT, 0)
@@ -96,10 +96,51 @@ script GravelTown_TimsLab_BookshelfTriggers {
         }
         waitmovement(MURA_ID)
         applymovement(TIM_ID, Movement_FaceDown)
+        applymovement(PLAYER_ID, Movement_FaceUp)
         textcolor(0)
         msgbox(format("Mura: Wait, {PLAYER}!\pLet's check out our Pokémon!"))
+        closemessage
+        switch(var(VAR_STARTER_MON)) {
+            case STARTER_BULBASAUR:
+                trainerbattle_earlyrival(TRAINER_MURA_CHARMANDER_1, RIVAL_BATTLE_HEAL_AFTER, GravelTown_TimsLab_MuraNeedToTrain, GravelTown_TimsLab_MuraYeahAmIGreat)
+            case STARTER_SQUIRTLE:
+                trainerbattle_earlyrival(TRAINER_MURA_BULBASAUR_1, RIVAL_BATTLE_HEAL_AFTER, GravelTown_TimsLab_MuraNeedToTrain, GravelTown_TimsLab_MuraYeahAmIGreat)
+            case STARTER_CHARMANDER:
+                trainerbattle_earlyrival(TRAINER_MURA_SQUIRTLE_1, RIVAL_BATTLE_HEAL_AFTER, GravelTown_TimsLab_MuraNeedToTrain, GravelTown_TimsLab_MuraYeahAmIGreat)
+        }
+        if (flag(FLAG_SYS_WON_LAST_TRAINER_BATTLE)) {
+            setflag(FLAG_BEAT_MURA_STARTER)
+        }
+        textcolor(0)
+        msgbox(format("Mura: … … … Okay!\p"
+            "I now understand the difficulty of training.\p"
+            "{PLAYER}, we will meet again!"))
+        closemessage
+        playbgm(MUS_RIVAL_EXIT, 0)
+        if (var(VAR_TEMP_9) == 5) {
+            applymovement(MURA_ID, Movement_MuraExitRight)
+            applymovement(PLAYER_ID, Movement_PlayerLookMuraExitRight)
+        } else {
+            applymovement(MURA_ID, Movement_MuraExitLeft)
+            applymovement(PLAYER_ID, Movement_PlayerLookMuraExitLeft)
+        }
+        waitmovement(MURA_ID)
+        removeobject(MURA_ID)
+        delay(48)
+        fadedefaultbgm
+        delay(16)
+        playse(SE_EXIT)
+        waitse
         release
     }
+}
+
+text GravelTown_TimsLab_MuraYeahAmIGreat {
+    format("Mura: Yeah, am I great, or what?")
+}
+
+text GravelTown_TimsLab_MuraNeedToTrain {
+    format("Mura: Darn! I need to train this Pokémon!")
 }
 
 script GravelTown_TimsLab_Mura {
@@ -132,6 +173,14 @@ script GravelTown_TimsLab_Tim {
         msgbox(format(
             "Tim: I remember when I was in your shoes, all those years ago…\p"
             "Of course, things were a little different back then."))
+    } elif (!flag(FLAG_SYS_POKEDEX_GET)) {
+        // TODO: Tim's pizza check
+        msgbox(format("Tim: {PLAYER}!\p"
+            "A whole world of excitement awaits you…\p"
+            "But remember that your Pokémon will be equal partners in your journey!\p"
+            "Always make sure that what you want is also what they want.\p"
+            "Pay attention to their needs and develop a friendship with them.\p"
+            "I expect you to take good care of your Pokémon!"))
     }
     release
 }
@@ -197,6 +246,7 @@ script GravelTown_TimsLab_GetStarter {
         release
         end
     }
+    msgbox("Tim: Good choice!")
     textcolor(2)
     setflag(FLAG_SYS_POKEMON_GET)
     clearflag(FLAG_PROLOGUE)
@@ -269,27 +319,25 @@ script GravelTown_TimsLab_RivalPicksStarter {
 }
 
 movement Movement_TimWalkFromEntrance {
-    walk_up * 11
+    walk_up * 10
     face_down
 }
 
 movement Movement_PlayerWalkFromEntrance {
-    walk_up * 10
+    walk_up * 9
 }
 
 movement Movement_MuraWalkToBulbasaur {
-    walk_down
     walk_right * 5
     walk_up
 }
 
 movement Movement_MuraWalkToCharmander {
     walk_right * 3
-    face_up
+    walk_up
 }
 
 movement Movement_MuraWalkToSquirtle {
-    walk_down
     walk_right * 4
     walk_up
 }
@@ -317,4 +365,28 @@ movement Movement_MuraWalk4 {
 movement Movement_MuraWalk5 {
     walk_left * 5
     walk_down * 2
+}
+
+movement Movement_MuraExitLeft {
+    walk_left
+    walk_down * 7
+}
+
+movement Movement_PlayerLookMuraExitLeft {
+    delay_16 * 2
+    face_left
+    delay_16
+    face_down
+}
+
+movement Movement_MuraExitRight {
+    walk_right
+    walk_down * 7
+}
+
+movement Movement_PlayerLookMuraExitRight {
+    delay_16 * 2
+    face_right
+    delay_16
+    face_down
 }

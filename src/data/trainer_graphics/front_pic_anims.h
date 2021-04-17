@@ -1,3 +1,8 @@
+static const union AnimCmd *const sAnims_DummyFrontPic[] =
+{
+    sAnim_GeneralFrame0,
+};
+
 static const union AnimCmd *const sAnims_8238E8C[] =
 {
     sAnim_GeneralFrame0,
@@ -888,4 +893,5 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     sAnims_82390D0,
     sAnims_82390D4,
     sAnims_82390D8,
+    sAnims_DummyFrontPic, // Mura_1
 };

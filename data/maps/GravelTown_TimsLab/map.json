@@ -19,7 +19,7 @@
       "graphics_id": "OBJ_EVENT_GFX_MURA",
       "in_connection": false,
       "x": 5,
-      "y": 5,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -27,7 +27,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "GravelTown_TimsLab_Mura",
-      "flag": "0"
+      "flag": "FLAG_SYS_POKEMON_GET"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TIM",

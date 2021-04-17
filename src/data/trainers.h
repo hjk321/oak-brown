@@ -11,4 +11,31 @@ const struct Trainer gTrainers[] = {
         .partySize = 0,
         .party = NULL
     },
+    [TRAINER_MURA_BULBASAUR_1] = {
+        .trainerClass = CLASS_PKMN_TRAINER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_MURA_1,
+        .trainerName = _("Mura"),
+        .partySize = 1,
+        .party = sTrainerMons_MuraBulbasaur1,
+        .rngSeed = RNG_SEED_MURA,
+    },
+    [TRAINER_MURA_CHARMANDER_1] = {
+        .trainerClass = CLASS_PKMN_TRAINER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_MURA_1,
+        .trainerName = _("Mura"),
+        .partySize = 1,
+        .party = sTrainerMons_MuraCharmander1,
+        .rngSeed = RNG_SEED_MURA,
+    },
+    [TRAINER_MURA_SQUIRTLE_1] = {
+        .trainerClass = CLASS_PKMN_TRAINER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_MURA_1,
+        .trainerName = _("Mura"),
+        .partySize = 1,
+        .party = sTrainerMons_MuraSquirtle1,
+        .rngSeed = RNG_SEED_MURA,
+    },
 };

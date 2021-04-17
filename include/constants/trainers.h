@@ -166,6 +166,7 @@
 #define TRAINER_PIC_RUIN_MANIAC           145
 #define TRAINER_PIC_LADY                  146
 #define TRAINER_PIC_PAINTER               147
+#define TRAINER_PIC_MURA_1                148
 
 // Leftover from R/S
 #define TRAINER_SECRET_BASE                 1024
