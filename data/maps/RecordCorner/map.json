@@ -1,7 +1,7 @@
 {
-  "id": "MAP_RECORD_CENTER",
-  "name": "RecordCenter",
-  "layout": "LAYOUT_RECORD_CENTER",
+  "id": "MAP_RECORD_CORNER",
+  "name": "RecordCorner",
+  "layout": "LAYOUT_RECORD_CORNER",
   "music": "MUS_POKE_CENTER",
   "region_map_section": "MAPSEC_SPECIAL_AREA",
   "requires_flash": false,
