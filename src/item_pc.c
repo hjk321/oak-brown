@@ -113,21 +113,21 @@ static void Task_QuestMenuCancel(u8 taskId);
 static const u8 sText_Quests[] = _(" Quests");
 static const u8 sText_QuestMenu_Details[] = _("Details");
 static const u8 sText_Cancel[] = _("Cancel");
-static const u8 sText_QuestMenu_Unk[] = _("{COLOR GREEN}{SHADOW RED}?????????");    // Gray
-static const u8 sText_QuestMenu_Active[] = _("{COLOR LIGHT_GRAY}{SHADOW BLACK}Active"); // Blue
-static const u8 sText_QuestMenu_Objectives[] = _("{COLOR LIGHT_GRAY}{SHADOW BLACK}{STR_VAR_1}/{STR_VAR_2}"); // Blue
-static const u8 sText_QuestMenu_TurnIn[] = _("{COLOR BLUE}Turn In"); // Red
-static const u8 sText_QuestMenu_Complete[] = _("{COLOR CYAN}Done"); // Green
+static const u8 sText_QuestMenu_Unk[] = _("{COLOR LIGHT_GRAY}{SHADOW DARK_GRAY}?????????");
+static const u8 sText_QuestMenu_Active[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Active");
+static const u8 sText_QuestMenu_Objectives[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}{STR_VAR_1}/{STR_VAR_2}");
+static const u8 sText_QuestMenu_TurnIn[] = _("{COLOR RED}Turn In");
+static const u8 sText_QuestMenu_Complete[] = _("{COLOR GREEN}Done");
 static const u8 sText_QuestMenu_Exit[] = _("Exit the quest menu.");
 static const u8 sText_QuestMenu_SelectedQuest[] = _("Do what with\nthis quest?");
 static const u8 sText_QuestMenu_DisplayDetails[] = _("Contact: {STR_VAR_1}\nLocation: {STR_VAR_2}");
-static const u8 sText_QuestMenu_Difficulty[] = _("{COLOR GREEN}{SHADOW RED}Difficulty: {STR_VAR_1}{COLOR DARK_GREY}{SHADOW RED}\n");
-static const u8 sText_QuestMenu_DifficultyEasy[] = _("{COLOR MAGENTA}{SHADOW CYAN}Easy"); // Green
-static const u8 sText_QuestMenu_DifficultyNormal[] = _("{COLOR SILVER}{SHADOW LIGHT_BLUE}Normal"); // Blue
-static const u8 sText_QuestMenu_DifficultyChallenging[] = _("{COLOR YELLOW}Challenging"); // Orange
-static const u8 sText_QuestMenu_DifficultyHard[] = _("{COLOR BLUE}Hard"); // Red
-static const u8 sText_QuestMenu_DifficultyExtreme[] = _("{COLOR LIGHT_GRAY}{SHADOW SKY_BLUE}Master"); // Purple
-static const u8 sText_QuestMenu_DifficultySpecial[] = _("{COLOR BLACK}Special"); // Ice Blue
+static const u8 sText_QuestMenu_Difficulty[] = _("{COLOR LIGHT_GRAY}{SHADOW DARK_GRAY}Difficulty: {STR_VAR_1}{COLOR WHITE}{SHADOW DARK_GRAY}\n");
+static const u8 sText_QuestMenu_DifficultyEasy[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Easy");
+static const u8 sText_QuestMenu_DifficultyNormal[] = _("{COLOR DYNAMIC_COLOR2}{SHADOW DYNAMIC_COLOR5}Normal"); // Blue
+static const u8 sText_QuestMenu_DifficultyChallenging[] = _("{COLOR LIGHT_RED}Challenging"); // Orange
+static const u8 sText_QuestMenu_DifficultyHard[] = _("{COLOR RED}Hard");
+static const u8 sText_QuestMenu_DifficultyExtreme[] = _("{COLOR BLUE}{SHADOW DYNAMIC_COLOR4}Master"); // Purple
+static const u8 sText_QuestMenu_DifficultySpecial[] = _("{COLOR LIGHT_BLUE}Special"); // Ice Blue
 
 //menu actions
 // Selected an incomplete quest
