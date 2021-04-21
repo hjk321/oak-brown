@@ -80,3 +80,5 @@
 	.include "librfu_rfu.o"
 	.align 4
 	.include "librfu_sio32id.o"
+	.align 2
+	.include "rtc.o"

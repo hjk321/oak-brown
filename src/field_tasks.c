@@ -11,6 +11,8 @@
 #include "quest_log.h"
 #include "script.h"
 #include "task.h"
+#include "main.h"
+#include "clock.h"
 #include "constants/field_tasks.h"
 #include "constants/metatile_labels.h"
 #include "constants/songs.h"
@@ -53,6 +55,27 @@ static void Task_RunPerStepCallback(u8 taskId)
     sPerStepCallbacks[idx](taskId);
 }
 
+#define tState data[0]
+static void RunTimeBasedEvents(s16 *data)
+{
+    switch (tState)
+    {
+        case 0:
+            if (*gMain.vblankCounter1 & 0x1000)
+            {
+                DoTimeBasedEvents();
+                tState++;
+            }
+            break;
+        case 1:
+            if (!(*gMain.vblankCounter1 & 0x1000))
+            {
+                tState--;
+            }
+            break;
+    }
+}
+
 static void Task_RunTimeBasedEvents(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
@@ -61,6 +84,7 @@ static void Task_RunTimeBasedEvents(u8 taskId)
     {
         if (!QL_IS_PLAYBACK_STATE)
         {
+            RunTimeBasedEvents(data);
             UpdateAmbientCry(&data[1], &data[2]);
         }
     }

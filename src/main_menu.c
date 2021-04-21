@@ -17,6 +17,7 @@
 #include "pokedex.h"
 #include "text_window.h"
 #include "text_window_graphics.h"
+#include "rtc.h"
 #include "constants/songs.h"
 
 enum MainMenuType
@@ -56,6 +57,7 @@ static void Task_HandleMenuInput(u8 taskId);
 static void Task_ExecuteMainMenuSelection(u8 taskId);
 static void Task_MysteryGiftError(u8 taskId);
 static void Task_ReturnToTileScreen(u8 taskId);
+static void Task_MainMenuCheckRtc(u8 taskId);
 static void MoveWindowByMenuTypeAndCursorPos(u8 menuType, u8 cursorPos);
 static bool8 HandleMenuInput(u8 taskId);
 static void PrintMessageOnWindow4(const u8 *str);
@@ -275,6 +277,32 @@ static void Task_SetWin0BldRegsAndCheckSaveFile(u8 taskId)
             gTasks[taskId].tMenuType = MAIN_MENU_NEWGAME;
             PrintSaveErrorStatus(taskId, gText_1MSubCircuitBoardNotInstalled);
             break;
+        }
+    }
+}
+
+const u8 gBatteryDryMessage[] = _("The internal battery has run dry.\nThe game can be played.\pHowever, clock-based events will\nno longer occur.");
+void Task_MainMenuCheckRtc(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        REG_WIN0H = 0;
+        REG_WIN0V = 0;
+        REG_WININ = 0x1111;
+        REG_WINOUT = 49;
+        REG_BLDCNT = 241;
+        REG_BLDALPHA = 0;
+        REG_BLDY = 7;
+
+        if (!(RtcGetErrorStatus() & RTC_ERR_FLAG_MASK))
+        {
+            gTasks[taskId].func = Task_SetWin0BldRegsNoSaveFileCheck;
+        }
+        else
+        {
+            SetStdFrame0OnBg(0);
+            PrintSaveErrorStatus(taskId, gBatteryDryMessage);
+            gTasks[taskId].func = Task_SaveErrorStatus_RunPrinterThenWaitButton;
         }
     }
 }
