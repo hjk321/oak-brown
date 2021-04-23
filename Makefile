@@ -189,6 +189,9 @@ tidy:
 	$(RM) -r build
 	@$(MAKE) -C berry_fix tidy
 
+superclean: clean
+	$(RM) -r tools/poryscript
+
 include graphics_file_rules.mk
 include tileset_rules.mk
 include map_data_rules.mk
