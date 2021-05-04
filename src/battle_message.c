@@ -329,6 +329,12 @@ static const u8 sText_PlayerBattledToDrawVsTwo[] = _("Player battled to a draw a
 static const u8 sText_WildFled[] = _("{PLAY_SE SE_FLEE}{B_LINK_OPPONENT1_NAME} fled!");
 static const u8 sText_TwoWildFled[] = _("{PLAY_SE SE_FLEE}{B_LINK_OPPONENT1_NAME} and\n{B_LINK_OPPONENT2_NAME} fled!");
 static const u8 sText_NoRunningFromTrainers[] = _("No! There's no running\nfrom a Trainer battle!\p");
+static const u8 sText_NoRunningFromTrainers_1[] = _("There's still no running\nfrom a Trainer battle!\p");
+static const u8 sText_NoRunningFromTrainers_2[] = _("Seriously, quit trying to\nrun away from the battle!\p");
+static const u8 sText_NoRunningFromTrainers_3[] = _("There. Is. No. Running.\nFrom. A. Trainer. Battle.\p");
+static const u8 sText_NoRunningFromTrainers_4[] = _("You know what, keep trying\nto run away. Go ahead.\p");
+static const u8 sText_NoRunningFromTrainers_5[] = _("You're not going to like\nwhat happens next, though.\p");
+static const u8 sText_NoRunningFromTrainers_6[] = _("This is your last warning.\nDon't say I didn't warn you.\p");
 static const u8 sText_CantEscape[] = _("Can't escape!\p");
 static const u8 sText_EmptyString5[] = _("");   //sText_DontLeaveBirch in pokeem
 static const u8 sText_ButNothingHappened[] = _("But nothing happened!");
@@ -887,7 +893,13 @@ const u8 *const gBattleStringsTable[] = {
     [STRINGID_TRAINER1MON1COMEBACK - 12]          = sText_Trainer1RecallPkmn1,
     [STRINGID_TRAINER1WINTEXT - 12]               = sText_Trainer1WinText,
     [STRINGID_TRAINER1MON2COMEBACK - 12]          = sText_Trainer1RecallPkmn2,
-    [STRINGID_TRAINER1MON1AND2COMEBACK - 12]      = sText_Trainer1RecallBoth
+    [STRINGID_TRAINER1MON1AND2COMEBACK - 12]      = sText_Trainer1RecallBoth,
+    [STRINGID_NORUNNINGFROMTRAINERS_1 - 12]         = sText_NoRunningFromTrainers_1,
+    [STRINGID_NORUNNINGFROMTRAINERS_2 - 12]         = sText_NoRunningFromTrainers_2,
+    [STRINGID_NORUNNINGFROMTRAINERS_3 - 12]         = sText_NoRunningFromTrainers_3,
+    [STRINGID_NORUNNINGFROMTRAINERS_4 - 12]         = sText_NoRunningFromTrainers_4,
+    [STRINGID_NORUNNINGFROMTRAINERS_5 - 12]         = sText_NoRunningFromTrainers_5,
+    [STRINGID_NORUNNINGFROMTRAINERS_6 - 12]         = sText_NoRunningFromTrainers_6,
 };
 
 const u16 gMissStringIds[] = {

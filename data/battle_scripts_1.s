@@ -3029,12 +3029,44 @@ BattleScript_WildMonFled::
 	end2
 
 BattleScript_PrintCantRunFromTrainer::
-	jumpifbattletype BATTLE_TYPE_FIRST_BATTLE, BattleScript_LeftoverBirchString
+	jumpifbyte CMP_GREATER_THAN, gNumTrainerFleeAttempts, 0, BattleScript_PrintCantRunFromTrainer_1
+	setbyte gNumTrainerFleeAttempts, 1
 	printstring STRINGID_NORUNNINGFROMTRAINERS
 	end2
 
-BattleScript_LeftoverBirchString::
-	printstring STRINGID_DONTLEAVEBIRCH
+BattleScript_PrintCantRunFromTrainer_1::
+	jumpifbyte CMP_GREATER_THAN, gNumTrainerFleeAttempts, 1, BattleScript_PrintCantRunFromTrainer_2
+	setbyte gNumTrainerFleeAttempts, 2
+	printstring STRINGID_NORUNNINGFROMTRAINERS_1
+	end2
+
+BattleScript_PrintCantRunFromTrainer_2::
+	jumpifbyte CMP_GREATER_THAN, gNumTrainerFleeAttempts, 2, BattleScript_PrintCantRunFromTrainer_3
+	setbyte gNumTrainerFleeAttempts, 3
+	printstring STRINGID_NORUNNINGFROMTRAINERS_2
+	end2
+
+BattleScript_PrintCantRunFromTrainer_3::
+	jumpifbyte CMP_GREATER_THAN, gNumTrainerFleeAttempts, 3, BattleScript_PrintCantRunFromTrainer_4
+	setbyte gNumTrainerFleeAttempts, 4
+	printstring STRINGID_NORUNNINGFROMTRAINERS_3
+	end2
+
+BattleScript_PrintCantRunFromTrainer_4::
+	jumpifbyte CMP_GREATER_THAN, gNumTrainerFleeAttempts, 4, BattleScript_PrintCantRunFromTrainer_5
+	setbyte gNumTrainerFleeAttempts, 5
+	printstring STRINGID_NORUNNINGFROMTRAINERS_4
+	end2
+
+BattleScript_PrintCantRunFromTrainer_5::
+	jumpifbyte CMP_GREATER_THAN, gNumTrainerFleeAttempts, 5, BattleScript_PrintCantRunFromTrainer_6
+	setbyte gNumTrainerFleeAttempts, 6
+	printstring STRINGID_NORUNNINGFROMTRAINERS_5
+	end2
+
+BattleScript_PrintCantRunFromTrainer_6::
+	setbyte gNumTrainerFleeAttempts, 0xFF
+	printstring STRINGID_NORUNNINGFROMTRAINERS_6
 	end2
 
 BattleScript_PrintFailedToRunString::

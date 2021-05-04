@@ -189,6 +189,7 @@ EWRAM_DATA u16 gPauseCounterBattle = 0;
 EWRAM_DATA u16 gPaydayMoney = 0;
 EWRAM_DATA u16 gRandomTurnNumber = 0;
 EWRAM_DATA u8 gBattleCommunication[BATTLE_COMMUNICATION_ENTRIES_COUNT] = {0};
+EWRAM_DATA u8 gNumTrainerFleeAttempts;
 EWRAM_DATA u8 gBattleOutcome = 0;
 EWRAM_DATA struct ProtectStruct gProtectStructs[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA struct SpecialStatus gSpecialStatuses[MAX_BATTLERS_COUNT] = {0};
@@ -1115,6 +1116,7 @@ static void CB2_HandleStartBattle(void)
     u8 playerMultiplayerId;
     u8 enemyMultiplayerId;
 
+    gNumTrainerFleeAttempts = 0;
     RunTasks();
     AnimateSprites();
     BuildOamBuffer();
@@ -3138,6 +3140,7 @@ void BattleTurnPassed(void)
     gBattleScripting.atk49_state = 0;
     gBattleMoveDamage = 0;
     gMoveResultFlags = 0;
+    gNumTrainerFleeAttempts = 0;
     for (i = 0; i < 5; ++i)
         gBattleCommunication[i] = 0;
     if (gBattleOutcome != 0)
@@ -3402,6 +3405,9 @@ static void HandleTurnActionSelectionState(void)
                  && gBattleBufferB[gActiveBattler][1] == B_ACTION_RUN)
                 {
                     BattleScriptExecute(BattleScript_PrintCantRunFromTrainer);
+                    // Secret soft reset after repeated run attempts
+                    if (gNumTrainerFleeAttempts == 0xFF)
+                        DoSoftReset();
                     gBattleCommunication[gActiveBattler] = STATE_BEFORE_ACTION_CHOSEN;
                 }
                 else if (IsRunningFromBattleImpossible() != BATTLE_RUN_SUCCESS
