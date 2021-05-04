@@ -497,6 +497,7 @@ bool16 TextPrinterWaitWithDownArrow(struct TextPrinter *textPrinter)
         TextPrinterDrawDownArrow(textPrinter);
         if (JOY_NEW(A_BUTTON | B_BUTTON))
         {
+            PlaySE(SE_SELECT);
             result = TRUE;
         }
     }
@@ -514,6 +515,7 @@ bool16 TextPrinterWait(struct TextPrinter *textPrinter)
     {
         if (JOY_NEW(A_BUTTON | B_BUTTON))
         {
+            PlaySE(SE_SELECT);
             result = TRUE;
         }
     }
