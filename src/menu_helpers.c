@@ -48,12 +48,10 @@ static void Task_CallYesOrNoCallback(u8 taskId)
     switch (Menu_ProcessInputNoWrapClearOnChoose())
     {
     case 0:
-        PlaySE(SE_SELECT);
         gTasks[taskId].func = gUnknown_20399C8->yesFunc;
         break;
     case 1:
     case MENU_B_PRESSED:
-        PlaySE(SE_SELECT);
         gTasks[taskId].func = gUnknown_20399C8->noFunc;
         break;
     }

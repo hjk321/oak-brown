@@ -4,6 +4,7 @@
 #include "quest_log.h"
 #include "script.h"
 #include "text_window.h"
+#include "constants/songs.h"
 
 static EWRAM_DATA u8 sMessageBoxType = 0;
 

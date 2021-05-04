@@ -807,7 +807,6 @@ static void Task_MultichoiceMenu_HandleInput(u8 taskId)
             case -1:
                 if (data[4])
                     return;
-                PlaySE(SE_SELECT);
                 gSpecialVar_Result = SCR_MENU_CANCEL;
                 break;
             default:
@@ -877,7 +876,6 @@ static void Task_YesNoMenu_HandleInput(u8 taskId)
             return;
         case -1:
         case 1:
-            PlaySE(SE_SELECT);
             gSpecialVar_Result = FALSE;
             break;
         case 0:
@@ -927,7 +925,6 @@ static void Hask_MultichoiceGridMenu_HandleInput(u8 taskId)
     case -1:
         if (data[4])
             return;
-        PlaySE(SE_SELECT);
         gSpecialVar_Result = SCR_MENU_CANCEL;
         break;
     default:

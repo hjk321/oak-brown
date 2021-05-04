@@ -38,6 +38,7 @@
 #include "clock.h"
 #include "rtc.h"
 #include "constants/event_objects.h"
+#include "constants/songs.h"
 
 extern u16 (*const gSpecials[])(void);
 extern u16 (*const gSpecialsEnd[])(void);
@@ -1268,6 +1269,9 @@ bool8 ScrCmd_message(struct ScriptContext * ctx)
 {
     const u8 *msg = (const u8 *)ScriptReadWord(ctx);
 
+    if (IsFanfareTaskInactive())
+        PlaySE(SE_SELECT);
+
     if (msg == NULL)
         msg = (const u8 *)ctx->data[0];
     ShowFieldMessage(msg);
@@ -1295,6 +1299,9 @@ bool8 ScrCmd_messageautoscroll(struct ScriptContext * ctx)
 {
     const u8 *msg = (const u8 *)ScriptReadWord(ctx);
 
+    if (IsFanfareTaskInactive())
+        PlaySE(SE_SELECT);
+    
     if (msg == NULL)
         msg = (const u8 *)ctx->data[0];
     ShowFieldAutoScrollMessage(msg);
@@ -1353,17 +1360,8 @@ static bool8 WaitForAorBPress(void)
 
 static bool8 ScriptContext_NextCommandEndsScript(struct ScriptContext * ctx)
 {
-    const u8 * script = ctx->scriptPtr;
-    u8 nextCmd = *script;
-    if (nextCmd == 3) // return
-    {
-        script = ctx->stack[ctx->stackDepth - 1];
-        nextCmd = *script;
-    }
-    if (nextCmd < 0x6B || nextCmd > 0x6C) // releaseall or release
-        return FALSE;
-    else
-        return TRUE;
+    // Always prevent walkaway
+    return FALSE;
 }
 
 static u8 ScriptContext_GetQuestLogInput(struct ScriptContext * ctx)

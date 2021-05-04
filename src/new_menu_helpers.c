@@ -8,6 +8,7 @@
 #include "field_specials.h"
 #include "text_window.h"
 #include "script.h"
+#include "event_data.h"
 
 #define DLG_WINDOW_PALETTE_NUM 15
 #define DLG_WINDOW_BASE_TILE_NUM 0x200
@@ -667,9 +668,14 @@ u8 GetTextSpeedSetting(void)
 
 u8 CreateStartMenuWindow(u8 height)
 {
+    struct WindowTemplate template;
+
     if (sStartMenuWindowId == 0xFF)
     {
-        struct WindowTemplate template = SetWindowTemplateFields(0, 0x16, 1, 7, height * 2 - 1, DLG_WINDOW_PALETTE_NUM, 0x13D);
+        if (FlagGet(FLAG_SYS_POKEDEX_GET))
+            template = SetWindowTemplateFields(0, 0x16, 1, 7, height * 2 - 1, DLG_WINDOW_PALETTE_NUM, 0x13D);
+        else
+            template = SetWindowTemplateFields(0, 0x16, 1, 7, height * 2, DLG_WINDOW_PALETTE_NUM, 0x13D);
         sStartMenuWindowId = AddWindow(&template);
         PutWindowTilemap(sStartMenuWindowId);
     }

@@ -454,53 +454,7 @@ void TextPrinterInitDownArrowCounters(struct TextPrinter *textPrinter)
 
 void TextPrinterDrawDownArrow(struct TextPrinter *textPrinter)
 {
-    struct TextPrinterSubStruct *subStruct = &textPrinter->subUnion.sub;
-    const u8 *arrowTiles;
-
-    if (gTextFlags.autoScroll == 0)
-    {
-        if (subStruct->downArrowDelay != 0)
-        {
-            subStruct->downArrowDelay = ((*(u32*)&textPrinter->subUnion.sub) << 19 >> 27) - 1;    // convoluted way of getting field_1, necessary to match
-        }
-        else
-        {
-            FillWindowPixelRect(
-                textPrinter->printerTemplate.windowId,
-                textPrinter->printerTemplate.bgColor << 4 | textPrinter->printerTemplate.bgColor,
-                textPrinter->printerTemplate.currentX,
-                textPrinter->printerTemplate.currentY,
-                10,
-                12);
-
-            switch (gTextFlags.useAlternateDownArrow)
-            {
-                case 0:
-                default:
-                    arrowTiles = sDownArrowTiles;
-                    break;
-                case 1:
-                    arrowTiles = sDarkDownArrowTiles;
-                    break;
-            }
-
-            BlitBitmapRectToWindow(
-                textPrinter->printerTemplate.windowId,
-                arrowTiles,
-                sDownArrowYCoords[subStruct->downArrowYPosIdx],
-                0,
-                0x80,
-                0x10,
-                textPrinter->printerTemplate.currentX,
-                textPrinter->printerTemplate.currentY,
-                10,
-                12);
-            CopyWindowToVram(textPrinter->printerTemplate.windowId, 0x2);
-
-            subStruct->downArrowDelay = 0x8;
-            subStruct->downArrowYPosIdx = (*(u32*)subStruct << 17 >> 30) + 1;
-        }
-    }
+    // Don't render down arrow
 }
 
 void TextPrinterClearDownArrow(struct TextPrinter *textPrinter)
@@ -544,7 +498,6 @@ bool16 TextPrinterWaitWithDownArrow(struct TextPrinter *textPrinter)
         if (JOY_NEW(A_BUTTON | B_BUTTON))
         {
             result = TRUE;
-            PlaySE(SE_SELECT);
         }
     }
     return result;
@@ -562,7 +515,6 @@ bool16 TextPrinterWait(struct TextPrinter *textPrinter)
         if (JOY_NEW(A_BUTTON | B_BUTTON))
         {
             result = TRUE;
-            PlaySE(SE_SELECT);
         }
     }
     return result;

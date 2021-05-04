@@ -1396,6 +1396,11 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
 {
     struct FieldInput fieldInput;
 
+    // Play select sound on textbox advancement.
+    // Hacky, but works.
+    if (ScriptContext2_IsEnabled() && !IsFieldMessageBoxHidden() && (JOY_NEW(B_BUTTON) || JOY_NEW(A_BUTTON)))
+        PlaySE(SE_SELECT);
+
     sub_8112B3C();
     UpdatePlayerAvatarTransitionState();
     FieldClearPlayerInput(&fieldInput);

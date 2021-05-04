@@ -87,7 +87,7 @@ void FieldClearPlayerInput(struct FieldInput *input)
     input->pressedRButton = FALSE;
     input->input_field_1_0 = FALSE;
     input->input_field_1_1 = FALSE;
-    input->input_field_1_2 = FALSE;
+    input->triggeredDebugMenu = FALSE;
     input->input_field_1_3 = FALSE;
     input->dpadDirection = 0;
 }
@@ -159,7 +159,7 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
     if ((heldKeys & B_BUTTON) && input->pressedStartButton)
     {
         mgba_printf(MGBA_LOG_INFO, "Opening debug menu.");
-        input->input_field_1_2 = TRUE;
+        input->triggeredDebugMenu = TRUE;
         input->pressedStartButton = FALSE;
     }
 #endif
@@ -306,7 +306,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     }
     
 #if DEBUG
-    if (input->input_field_1_2)
+    if (input->triggeredDebugMenu)
     {
         PlaySE(SE_WIN_OPEN);
         Debug_ShowMainMenu();
@@ -392,11 +392,6 @@ static bool8 TryStartInteractionScript(struct MapPosition *position, u16 metatil
     const u8 *script = GetInteractionScript(position, metatileBehavior, direction);
     if (script == NULL)
         return FALSE;
-
-    // Don't play interaction sound for certain scripts.
-    if (script != PalletTown_PlayersHouse_2F_EventScript_PC
-        && script != EventScript_PC)
-        PlaySE(SE_SELECT);
 
     ScriptContext1_SetupScript(script);
     return TRUE;

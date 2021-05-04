@@ -1418,12 +1418,10 @@ static void Task_ListMenuHandleInput(u8 taskId)
         break;
     case -2:
         gSpecialVar_Result = 0x7F;
-        PlaySE(SE_SELECT);
         Task_DestroyListMenu(taskId);
         break;
     default:
         gSpecialVar_Result = input;
-        PlaySE(SE_SELECT);
         if (task->data[6] == 0 || input == task->data[1] - 1)
         {
             Task_DestroyListMenu(taskId);

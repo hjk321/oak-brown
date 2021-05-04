@@ -343,8 +343,6 @@ s8 Menu_ProcessInput(void)
 {
     if (JOY_NEW(A_BUTTON))
     {
-        if (!sMenu.APressMuted)
-            PlaySE(SE_SELECT);
         return sMenu.cursorPos;
     }
     if (JOY_NEW(B_BUTTON))
@@ -372,8 +370,6 @@ s8 Menu_ProcessInputNoWrapAround(void)
 
     if (JOY_NEW(A_BUTTON))
     {
-        if (!sMenu.APressMuted)
-            PlaySE(SE_SELECT);
         return sMenu.cursorPos;
     }
     if (JOY_NEW(B_BUTTON))
@@ -399,8 +395,6 @@ s8 Menu_ProcessInput_other(void)
 {
     if (JOY_NEW(A_BUTTON))
     {
-        if (!sMenu.APressMuted)
-            PlaySE(SE_SELECT);
         return sMenu.cursorPos;
     }
     if (JOY_NEW(B_BUTTON))
@@ -428,8 +422,6 @@ s8 Menu_ProcessInputNoWrapAround_other(void)
 
     if (JOY_NEW(A_BUTTON))
     {
-        if (!sMenu.APressMuted)
-            PlaySE(SE_SELECT);
         return sMenu.cursorPos;
     }
     if (JOY_NEW(B_BUTTON))
@@ -750,7 +742,6 @@ s8 Menu_ProcessInputGridLayout(void)
 
     if (JOY_NEW(A_BUTTON))
     {
-        PlaySE(SE_SELECT);
         return sMenu.cursorPos;
     }
     else if (JOY_NEW(B_BUTTON))
