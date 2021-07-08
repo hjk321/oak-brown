@@ -20,9 +20,9 @@ script SeashoreCity_YoungBoy {
             msgbox("Well, why not?")
         }
     } elif (!flag(FLAG_BADGE01_GET)) {
-        message(format("Hey, you got a Pokémon, didn't you?\pWhich one did you pick?"))
+        msgbox(format("Hey, you got a Pokémon, didn't you?\pWhich one did you pick?"))
     } else {
-        message(format("Hey, {PLAYER}!\pHow's the trainer life treating you?"))
+        msgbox(format("Hey, {PLAYER}!\pHow's the trainer life treating you?"))
     }
     release
 }
@@ -30,7 +30,15 @@ script SeashoreCity_YoungBoy {
 script SeashoreCity_Lass {
     lock
     faceplayer
-    msgbox("Are those new shoes?\pTry running with them by holding {B_BUTTON}!")
+    if (!flag(FLAG_BADGE01_GET)) {
+        msgbox("Are those new shoes?\pTry running with them by holding {B_BUTTON}!")
+    } elif (!flag(FLAG_GOT_BICYCLE)) {
+        msgbox(format("Even though you have a Bicycle, you're still wearing those running shoes, huh?"))
+    } elif (!flag(FLAG_BADGE08_GET)) {
+        msgbox(format("You've travelled the entire region by now…\pAnd you're still wearing those old running shoes!"))
+    } else {
+        msgbox(format("Those running shoes look dirty and worn out!\pDo you travel a lot on foot?"))
+    }
     release
 }
 

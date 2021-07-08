@@ -76,6 +76,34 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SeashoreCity_OldMan",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "in_connection": false,
+      "x": 38,
+      "y": 18,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SeashoreCity_Item_RareCandy",
+      "flag": "FLAG_HIDE_SEASHORE_RARE_CANDY"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "in_connection": false,
+      "x": 50,
+      "y": 52,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SeashoreCity_Item_DireHit",
+      "flag": "FLAG_HIDE_SEASHORE_DIRE_HIT"
     }
   ],
   "warp_events": [
@@ -98,16 +126,6 @@
 
   ],
   "bg_events": [
-    {
-      "type": "hidden_item",
-      "x": 38,
-      "y": 18,
-      "elevation": 3,
-      "item": "ITEM_RARE_CANDY",
-      "flag": "FLAG_HIDE_ROUTE2_ETHER",
-      "quantity": 1,
-      "underfoot": false
-    },
     {
       "type": "sign",
       "x": 30,

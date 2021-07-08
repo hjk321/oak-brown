@@ -2253,8 +2253,6 @@ static bool8 HasGottenAtLeastOneHM(void)
         return TRUE;
     if (FlagGet(FLAG_GOT_HM06) == TRUE)
         return TRUE;
-    if (FlagGet(FLAG_HIDE_FOUR_ISLAND_ICEFALL_CAVE_1F_HM07) == TRUE)
-        return TRUE;
     return FALSE;
 }
 
