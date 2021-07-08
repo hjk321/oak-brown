@@ -10,13 +10,19 @@ script SeashoreCity_OldMan {
 script SeashoreCity_YoungBoy {
     lock
     faceplayer
-    message(format("Hey! Are you going to become a\nPokémon trainer, {PLAYER}?"))
-    waitmessage
-    yesnobox(2, 2)
-    if (var(VAR_RESULT)) {
-        msgbox(format("Cool! I'm going to be one soon as\nwell!\pIt's very hard, but rewarding!"))
+    if (!flag(FLAG_SYS_POKEMON_GET)) {
+        message(format("Hey! Are you going to become a\nPokémon trainer, {PLAYER}?"))
+        waitmessage
+        yesnobox(2, 2)
+        if (var(VAR_RESULT)) {
+            msgbox(format("Cool! I'm going to be one soon as\nwell!\pIt's very hard, but rewarding!"))
+        } else {
+            msgbox("Well, why not?")
+        }
+    } elif (!flag(FLAG_BADGE01_GET)) {
+        message(format("Hey, you got a Pokémon, didn't you?\pWhich one did you pick?"))
     } else {
-        msgbox("Well, why not?")
+        message(format("Hey, {PLAYER}!\pHow's the trainer life treating you?"))
     }
     release
 }

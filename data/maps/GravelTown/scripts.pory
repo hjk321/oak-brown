@@ -1,1 +1,7 @@
-mapscripts GravelTown_MapScripts {}
+mapscripts GravelTown_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        if(flag(FLAG_SYS_POKEMON_GET)) {
+            clearflag(FLAG_PROLOGUE)
+        }
+    }
+}
