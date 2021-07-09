@@ -1,4 +1,1 @@
-raw `
-SaffronCity_Connection_MapScripts:: @ 8167483
-	.byte 0
-`
+mapscripts SaffronCity_Connection_MapScripts {}

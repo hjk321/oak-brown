@@ -1,4 +1,1 @@
-raw `
-NavelRock_SummitPath_5F_MapScripts:: @ 81651F5
-	.byte 0
-`
+mapscripts NavelRock_SummitPath_5F_MapScripts {}

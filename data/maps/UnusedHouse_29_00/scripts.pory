@@ -1,4 +1,1 @@
-raw `
-UnusedHouse_29_00_MapScripts:: @ 8170522
-	.byte 0
-`
+mapscripts UnusedHouse_29_00_MapScripts {}

@@ -1,14 +1,1 @@
-raw `
-CeladonCity_Condominiums_Roof_Text_IKnowEverything:: @ 81964C4
-    .string "I Know Everything!$"
-
-`
-
-raw `
-CeladonCity_Condominiums_Roof_MapScripts:: @ 816C459
-	.byte 0
-
-CeladonCity_Condominiums_Roof_EventScript_Sign:: @ 816C45A
-	msgbox CeladonCity_Condominiums_Roof_Text_IKnowEverything, MSGBOX_SIGN
-	end
-`
+mapscripts CeladonCity_Condominiums_Roof_MapScripts {}

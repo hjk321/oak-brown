@@ -1,17 +1,1 @@
-raw `
-DiglettsCave_NorthEntrance_RockTunnelPitchBlack:: @ 817462C
-    .string "I went inside Rock Tunnel, but it's\n"
-    .string "pitch-black and scary in there.\p"
-    .string "If I could get a Pokémon to use\n"
-    .string "Flash and light it up…$"
-
-`
-
-raw `
-DiglettsCave_NorthEntrance_MapScripts:: @ 8160EE7
-	.byte 0
-
-DiglettsCave_NorthEntrance_EventScript_Hiker:: @ 8160EE8
-	msgbox DiglettsCave_NorthEntrance_RockTunnelPitchBlack, MSGBOX_NPC
-	end
-`
+mapscripts DiglettsCave_NorthEntrance_MapScripts {}

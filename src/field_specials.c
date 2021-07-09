@@ -2236,22 +2236,16 @@ bool8 CapeBrinkGetMoveToTeachLeadPokemon(void)
     {
         StringCopy(gStringVar2, gMoveNames[MOVE_FRENZY_PLANT]);
         gSpecialVar_0x8005 = MOVETUTOR_FRENZY_PLANT;
-        if (FlagGet(FLAG_TUTOR_FRENZY_PLANT) == TRUE)
-            return FALSE;
     }
     else if (tutorMonId == 1)
     {
         StringCopy(gStringVar2, gMoveNames[MOVE_BLAST_BURN]);
         gSpecialVar_0x8005 = MOVETUTOR_BLAST_BURN;
-        if (FlagGet(FLAG_TUTOR_BLAST_BURN) == TRUE)
-            return FALSE;
     }
     else
     {
         StringCopy(gStringVar2, gMoveNames[MOVE_HYDRO_CANNON]);
         gSpecialVar_0x8005 = MOVETUTOR_HYDRO_CANNON;
-        if (FlagGet(FLAG_TUTOR_HYDRO_CANNON) == TRUE)
-            return FALSE;
     }
     if (GetMonData(&gPlayerParty[leadMonSlot], MON_DATA_MOVE1) != MOVE_NONE)
         numMovesKnown++;
@@ -2268,37 +2262,12 @@ bool8 CapeBrinkGetMoveToTeachLeadPokemon(void)
 bool8 HasLearnedAllMovesFromCapeBrinkTutor(void)
 {
     // 8005 is set by CapeBrinkGetMoveToTeachLeadPokemon
-    u8 r4 = 0;
-    if (gSpecialVar_0x8005 == MOVETUTOR_FRENZY_PLANT)
-        FlagSet(FLAG_TUTOR_FRENZY_PLANT);
-    else if (gSpecialVar_0x8005 == MOVETUTOR_BLAST_BURN)
-        FlagSet(FLAG_TUTOR_BLAST_BURN);
-    else
-        FlagSet(FLAG_TUTOR_HYDRO_CANNON);
-    if (FlagGet(FLAG_TUTOR_FRENZY_PLANT) == TRUE)
-        r4++;
-    if (FlagGet(FLAG_TUTOR_BLAST_BURN) == TRUE)
-        r4++;
-    if (FlagGet(FLAG_TUTOR_HYDRO_CANNON) == TRUE)
-        r4++;
-    if (r4 == 3)
-        return TRUE;
-    else
-        return FALSE;
+    return FALSE;
 }
 
 bool8 CutMoveRuinValleyCheck(void)
 {
-    if (FlagGet(FLAG_USED_CUT_ON_RUIN_VALLEY_BRAILLE) != TRUE
-     && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SIX_ISLAND_RUIN_VALLEY)
-     && gSaveBlock1Ptr->location.mapNum == MAP_NUM(SIX_ISLAND_RUIN_VALLEY)
-     && gSaveBlock1Ptr->pos.x == 24
-     && gSaveBlock1Ptr->pos.y == 25
-     && GetPlayerFacingDirection() == DIR_NORTH
-    )
-        return TRUE;
-    else
-        return FALSE;
+    return FALSE;
 }
 
 void CutMoveOpenDottedHoleDoor(void)
@@ -2306,7 +2275,6 @@ void CutMoveOpenDottedHoleDoor(void)
     MapGridSetMetatileIdAt(31, 31, METATILE_SeviiIslands67_DottedHoleDoor_Open);
     DrawWholeMapView();
     PlaySE(SE_BANG);
-    FlagSet(FLAG_USED_CUT_ON_RUIN_VALLEY_BRAILLE);
     ScriptContext2_Disable();
 }
 
@@ -2505,25 +2473,6 @@ bool8 PlayerPartyContainsSpeciesWithPlayerID(void)
  */
 void UpdateLoreleiDollCollection(void)
 {
-    u32 numHofClears = GetGameStat(GAME_STAT_ENTERED_HOF);
-    if (numHofClears >= 25)
-    {
-        FlagClear(FLAG_HIDE_LORELEI_HOUSE_MEOWTH_DOLL);
-        if (numHofClears >= 50)
-            FlagClear(FLAG_HIDE_LORELEI_HOUSE_CHANSEY_DOLL);
-        if (numHofClears >= 75)
-            FlagClear(FLAG_HIDE_LORELEIS_HOUSE_NIDORAN_F_DOLL);
-        if (numHofClears >= 100)
-            FlagClear(FLAG_HIDE_LORELEI_HOUSE_JIGGLYPUFF_DOLL);
-        if (numHofClears >= 125)
-            FlagClear(FLAG_HIDE_LORELEIS_HOUSE_NIDORAN_M_DOLL);
-        if (numHofClears >= 150)
-            FlagClear(FLAG_HIDE_LORELEIS_HOUSE_FEAROW_DOLL);
-        if (numHofClears >= 175)
-            FlagClear(FLAG_HIDE_LORELEIS_HOUSE_PIDGEOT_DOLL);
-        if (numHofClears >= 200)
-            FlagClear(FLAG_HIDE_LORELEIS_HOUSE_LAPRAS_DOLL);
-    }
 }
 
 void LoopWingFlapSound(void)

@@ -719,55 +719,6 @@ Text_MoveCanOnlyBeLearnedOnce:: @ 81A644F
 	.string "once. Is that okay?$"
 
 EventScript_ResetAllMapFlags:: @ 81A6481
-	setflag FLAG_HIDE_OAK_IN_HIS_LAB
-	setflag FLAG_HIDE_OAK_IN_PALLET_TOWN
-	setflag FLAG_HIDE_BILL_HUMAN_SEA_COTTAGE
-	setflag FLAG_HIDE_PEWTER_CITY_RUNNING_SHOES_GUY
-	setflag FLAG_HIDE_POKEHOUSE_FUJI
-	setflag FLAG_HIDE_LIFT_KEY
-	setflag FLAG_HIDE_SILPH_SCOPE
-	setflag FLAG_HIDE_CERULEAN_RIVAL
-	setflag FLAG_HIDE_SS_ANNE_RIVAL
-	setflag FLAG_HIDE_VERMILION_CITY_OAKS_AIDE
-	setflag FLAG_HIDE_SAFFRON_CIVILIANS
-	setflag FLAG_HIDE_ROUTE_22_RIVAL
-	setflag FLAG_HIDE_OAK_IN_CHAMP_ROOM
-	setflag FLAG_HIDE_CREDITS_RIVAL
-	setflag FLAG_HIDE_CREDITS_OAK
-	setflag FLAG_HIDE_CINNABAR_BILL
-	setflag FLAG_HIDE_CINNABAR_SEAGALLOP
-	setflag FLAG_HIDE_CINNABAR_POKECENTER_BILL
-	setflag FLAG_HIDE_LORELEI_IN_HER_HOUSE
-	setflag FLAG_HIDE_SAFFRON_FAN_CLUB_BLACKBELT
-	setflag FLAG_HIDE_SAFFRON_FAN_CLUB_ROCKER
-	setflag FLAG_HIDE_SAFFRON_FAN_CLUB_WOMAN
-	setflag FLAG_HIDE_SAFFRON_FAN_CLUB_BEAUTY
-	setflag FLAG_HIDE_TWO_ISLAND_GAME_CORNER_LOSTELLE
-	setflag FLAG_HIDE_TWO_ISLAND_GAME_CORNER_BIKER
-	setflag FLAG_HIDE_TWO_ISLAND_WOMAN
-	setflag FLAG_HIDE_TWO_ISLAND_BEAUTY
-	setflag FLAG_HIDE_TWO_ISLAND_SUPER_NERD
-	setflag FLAG_HIDE_LOSTELLE_IN_HER_HOME
-	setflag FLAG_HIDE_THREE_ISLAND_LONE_BIKER
-	setflag FLAG_HIDE_FOUR_ISLAND_RIVAL
-	setflag FLAG_HIDE_DOTTED_HOLE_SCIENTIST
-	setflag FLAG_HIDE_RESORT_GORGEOUS_SELPHY
-	setflag FLAG_HIDE_RESORT_GORGEOUS_INSIDE_SELPHY
-	setflag FLAG_HIDE_SELPHYS_BUTLER
-	setflag FLAG_HIDE_DEOXYS
-	setflag FLAG_HIDE_LORELEI_HOUSE_MEOWTH_DOLL
-	setflag FLAG_HIDE_LORELEI_HOUSE_CHANSEY_DOLL
-	setflag FLAG_HIDE_LORELEIS_HOUSE_NIDORAN_F_DOLL
-	setflag FLAG_HIDE_LORELEI_HOUSE_JIGGLYPUFF_DOLL
-	setflag FLAG_HIDE_LORELEIS_HOUSE_NIDORAN_M_DOLL
-	setflag FLAG_HIDE_LORELEIS_HOUSE_FEAROW_DOLL
-	setflag FLAG_HIDE_LORELEIS_HOUSE_PIDGEOT_DOLL
-	setflag FLAG_HIDE_LORELEIS_HOUSE_LAPRAS_DOLL
-	setflag FLAG_HIDE_POSTGAME_GOSSIPERS
-	setflag FLAG_HIDE_FAME_CHECKER_ERIKA_JOURNALS
-	setflag FLAG_HIDE_FAME_CHECKER_KOGA_JOURNAL
-	setflag FLAG_HIDE_FAME_CHECKER_LT_SURGE_JOURNAL
-	setflag FLAG_HIDE_SAFFRON_CITY_POKECENTER_SABRINA_JOURNALS
 	setvar VAR_MASSAGE_COOLDOWN_STEP_COUNTER, 500
 	end
 
@@ -941,33 +892,18 @@ EventScript_VsSeekerChargingDone:: @ 81A8CED
 	end
 
 Common_EventScript_UnionRoomAttendant:: @ 81A8CF6
-	call CableClub_EventScript_UnionRoomAttendant
 	end
 
 Common_EventScript_WirelessClubAttendant:: @ 81A8CFC
-	call CableClub_EventScript_WirelessClubAttendant
 	end
 
 Common_EventScript_DirectCornerAttendant:: @ 81A8D02
-	call CableClub_EventScript_DirectCornerAttendant
 	end
 
 VermilionCity_PokemonCenter_1F_EventScript_VSSeekerWoman:: @ 81A8D08
-	lock
-	faceplayer
-	goto_if_set FLAG_GOT_VS_SEEKER, VermilionCity_PokemonCenter_1F_EventScript_ExplainVSSeeker
-	msgbox VermilionCity_PokemonCenter_1F_Text_UrgeToBattleSomeoneAgain
-	setflag FLAG_GOT_VS_SEEKER
-	giveitem ITEM_VS_SEEKER
-	compare VAR_RESULT, FALSE
-	goto_if_eq EventScript_BagIsFull
-	msgbox VermilionCity_PokemonCenter_1F_Text_UseDeviceForRematches
-	release
 	end
 
 VermilionCity_PokemonCenter_1F_EventScript_ExplainVSSeeker:: @ 81A8D3F
-	msgbox VermilionCity_PokemonCenter_1F_Text_ExplainVSSeeker
-	release
 	end
 
 	.include "data/scripts/itemfinder.inc"

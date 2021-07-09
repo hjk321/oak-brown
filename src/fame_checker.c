@@ -858,7 +858,7 @@ static void FC_DestroyWindow(u8 windowId)
 
 static u8 AdjustGiovanniIndexIfBeatenInGym(u8 a0)
 {
-    if (HasTrainerBeenFought(TRAINER_LEADER_GIOVANNI) == TRUE)
+    if (TRUE)
     {
         if (a0 == 9)
             return FAMECHECKER_GIOVANNI;

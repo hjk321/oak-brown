@@ -7,11 +7,9 @@ CableClub_EventScript_HideOrShowMysteryGiftMan:: @ 81BB1BA
 	specialvar VAR_RESULT, ValidateReceivedWonderCard
 	compare VAR_RESULT, FALSE
 	goto_if_eq EventScript_HideMysteryGiftMan
-	clearflag FLAG_HIDE_MG_DELIVERYMEN
 	return
 
 EventScript_HideMysteryGiftMan:: @ 81BB1CE
-	setflag FLAG_HIDE_MG_DELIVERYMEN
 	return
 
 CableClub_EventScript_MysteryGiftMan:: @ 81BB1D2
@@ -903,7 +901,6 @@ CableClub_EventScript_DirectCornerAttendant:: @ 81BBB9C
 	end
 
 CableClub_EventScript_DirectCornerSelectService:: @ 81BBBE7
-	goto_if_unset FLAG_GOT_POWDER_JAR, CableClub_EventScript_DirectCornerNoBerry
 	multichoice 0, 0, MULTICHOICE_TRADE_COLOSSEUM_CRUSH, FALSE
 	switch VAR_RESULT
 	case 0, CableClub_EventScript_WirelessTrade

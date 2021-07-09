@@ -1,15 +1,1 @@
-raw `
-Route7_Text_UndergroundPathSign:: @ 8184097
-    .string "Underground Path\n"
-    .string "Celadon City - Lavender Town$"
-
-`
-
-raw `
-Route7_MapScripts:: @ 8167FBB
-	.byte 0
-
-Route7_EventScript_UndergroundPathSign:: @ 8167FBC
-	msgbox Route7_Text_UndergroundPathSign, MSGBOX_SIGN
-	end
-`
+mapscripts Route7_MapScripts {}

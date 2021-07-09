@@ -1,4 +1,1 @@
-raw `
-NavelRock_BasePath_B11F_MapScripts:: @ 8165200
-	.byte 0
-`
+mapscripts NavelRock_BasePath_B11F_MapScripts {}

@@ -1,4 +1,1 @@
-raw `
-UnknownMap_18_01_MapScripts:: @ 816FA8C
-	.byte 0
-`
+mapscripts UnknownMap_18_01_MapScripts {}

@@ -1,4 +1,1 @@
-raw `
-SeafoamIslands_B2F_MapScripts:: @ 8162F4E
-	.byte 0
-`
+mapscripts SeafoamIslands_B2F_MapScripts {}

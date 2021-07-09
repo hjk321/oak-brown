@@ -2047,7 +2047,7 @@ static bool8 IsHelpSystemSubmenuEnabled(u8 id)
         case HELP_WANT_TO_END_SAFARI:
             return TRUE;
         case HELP_CANT_FIND_PERSON_I_WANT:
-            return FlagGet(FLAG_VISITED_OAKS_LAB);
+            return FALSE;
         case HELP_SOMEONE_BLOCKING_MY_WAY:
         case HELP_WHAT_ARE_MY_ADVENTURE_BASICS:
         case HELP_HOW_DO_I_PREPARE_FOR_BATTLE:
@@ -2055,12 +2055,12 @@ static bool8 IsHelpSystemSubmenuEnabled(u8 id)
         case HELP_RAN_OUT_OF_POTIONS:
         case HELP_WHATS_POKEMON_CENTER:
         case HELP_WHATS_POKEMON_MART:
-            return FlagGet(FLAG_WORLD_MAP_VIRIDIAN_CITY);
+            return FALSE;
         case HELP_I_CANT_GO_ON:
-            return FlagGet(FLAG_WORLD_MAP_VERMILION_CITY);
+            return FALSE;
         case HELP_HOW_ARE_ROADS_FORESTS_DIFFERENT:
         case HELP_WHATS_A_TRAINER:
-            return FlagGet(FLAG_WORLD_MAP_VIRIDIAN_FOREST);
+            return FALSE;
         case HELP_WHAT_HAPPENED_TO_ITEM_I_GOT:
         case HELP_WHEN_CAN_I_USE_ITEM:
         case HELP_HOW_DO_I_PROGRESS:
@@ -2087,7 +2087,7 @@ static bool8 IsHelpSystemSubmenuEnabled(u8 id)
         case HELP_WHAT_DOES_HIDDEN_MOVE_DO:
             return HasGottenAtLeastOneHM();
         case HELP_WHAT_IS_THAT_PERSON_LIKE:
-            return FlagGet(FLAG_GOT_FAME_CHECKER);
+            return FALSE;
         case HELP_WHAT_IS_A_GYM:
             return FlagGet(FLAG_WORLD_MAP_PEWTER_CITY);
         }
@@ -2241,18 +2241,6 @@ static bool8 IsHelpSystemSubmenuEnabled(u8 id)
 
 static bool8 HasGottenAtLeastOneHM(void)
 {
-    if (FlagGet(FLAG_GOT_HM01) == TRUE)
-        return TRUE;
-    if (FlagGet(FLAG_GOT_HM02) == TRUE)
-        return TRUE;
-    if (FlagGet(FLAG_GOT_HM03) == TRUE)
-        return TRUE;
-    if (FlagGet(FLAG_GOT_HM04) == TRUE)
-        return TRUE;
-    if (FlagGet(FLAG_GOT_HM05) == TRUE)
-        return TRUE;
-    if (FlagGet(FLAG_GOT_HM06) == TRUE)
-        return TRUE;
     return FALSE;
 }
 

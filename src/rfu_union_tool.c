@@ -138,17 +138,15 @@ static bool32 IsUnionRoomPlayerFacingTileAt(u32 group, u32 member, s32 x, s32 y)
 
 static bool32 IsUnionRoomPlayerHidden(u32 player_idx)
 {
-    return FlagGet(FLAG_HIDE_UNION_ROOM_PLAYER_1 + player_idx);
+    return FALSE;
 }
 
 static void HideUnionRoomPlayer(u32 player_idx)
 {
-    FlagSet(FLAG_HIDE_UNION_ROOM_PLAYER_1 + player_idx);
 }
 
 static void ShowUnionRoomPlayer(u32 player_idx)
 {
-    FlagClear(FLAG_HIDE_UNION_ROOM_PLAYER_1 + player_idx);
 }
 
 static void SetUnionRoomPlayerGfx(u32 playerIdx, u32 gfxId)

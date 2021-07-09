@@ -25,7 +25,6 @@ EventScript_AfterWhiteOutHealMsg:: @ 81A8DCF
 EventScript_AfterWhiteOutMomHeal:: @ 81A8DD8
 	lockall
 	textcolor 1
-	applymovement LOCALID_MOM, Movement_WalkInPlaceFastestDown
 	waitmovement 0
 	msgbox Text_HadQuiteAnExperienceTakeRest
 	call EventScript_OutOfCenterPartyHeal

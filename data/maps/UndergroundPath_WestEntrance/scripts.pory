@@ -1,15 +1,1 @@
-raw `
-UndergroundPath_WestEntrance_Text_SleepyMonNearCeladon:: @ 817459B
-    .string "I heard a sleepy Pokémon appeared\n"
-    .string "out near Celadon City, too.$"
-
-`
-
-raw `
-UndergroundPath_WestEntrance_MapScripts:: @ 8160EC9
-	.byte 0
-
-UndergroundPath_WestEntrance_EventScript_BaldingMan:: @ 8160ECA
-	msgbox UndergroundPath_WestEntrance_Text_SleepyMonNearCeladon, MSGBOX_NPC
-	end
-`
+mapscripts UndergroundPath_WestEntrance_MapScripts {}

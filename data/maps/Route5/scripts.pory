@@ -1,15 +1,1 @@
-raw `
-Route5_Text_UndergroundPathSign:: @ 8183DD4
-    .string "Underground Path\n"
-    .string "Cerulean City - Vermilion City$"
-
-`
-
-raw `
-Route5_MapScripts:: @ 8167FA7
-	.byte 0
-
-Route5_EventScript_UndergroundPathSign:: @ 8167FA8
-	msgbox Route5_Text_UndergroundPathSign, MSGBOX_SIGN
-	end
-`
+mapscripts Route5_MapScripts {}

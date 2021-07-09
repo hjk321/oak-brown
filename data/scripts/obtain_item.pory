@@ -214,7 +214,6 @@ EventScript_NoRoomForHiddenItem::
 	end
 
 EventScript_TryPickUpHiddenCoins::
-	goto_if_unset FLAG_GOT_COIN_CASE, EventScript_NoCaseForHiddenCoins
 	checkcoins VAR_RESULT
 	specialvar VAR_RESULT, CheckAddCoins
 	compare VAR_RESULT, FALSE

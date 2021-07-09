@@ -1,16 +1,1 @@
-raw `
-Route15_WestEntrance_1F_Text_OaksAideCameByHere:: @ 819F560
-    .string "Are you the kid who's working on\n"
-    .string "a Pokédex?\p"
-    .string "Prof. Oak's Aide came by here.$"
-
-`
-
-raw `
-Route15_WestEntrance_1F_MapScripts:: @ 8170088
-	.byte 0
-
-Route15_WestEntrance_1F_EventScript_Guard:: @ 8170089
-	msgbox Route15_WestEntrance_1F_Text_OaksAideCameByHere, MSGBOX_NPC
-	end
-`
+mapscripts Route15_WestEntrance_1F_MapScripts {}

@@ -1,4 +1,1 @@
-raw `
-TradeCenter_MapScripts:: @ 8160479
-	.byte 0
-`
+mapscripts TradeCenter_MapScripts {}

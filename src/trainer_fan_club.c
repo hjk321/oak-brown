@@ -68,17 +68,6 @@ void Script_UpdateTrainerFanClubGameClear(void)
 
 static void UpdateTrainerFanClubGameClear(struct TrainerFanClub *fanClub)
 {
-    if (!fanClub->gotInitialFans)
-    {
-        SetPlayerGotFirstFans(fanClub);
-        SetInitialFansOfPlayer(fanClub);
-        VarSet(VAR_FANCLUB_LOSE_FAN_TIMER, gSaveBlock2Ptr->playTimeHours);
-        FlagClear(FLAG_HIDE_SAFFRON_FAN_CLUB_BLACKBELT);
-        FlagClear(FLAG_HIDE_SAFFRON_FAN_CLUB_ROCKER);
-        FlagClear(FLAG_HIDE_SAFFRON_FAN_CLUB_WOMAN);
-        FlagClear(FLAG_HIDE_SAFFRON_FAN_CLUB_BEAUTY);
-        VarSet(VAR_MAP_SCENE_SAFFRON_CITY_POKEMON_TRAINER_FAN_CLUB, 1);
-    }
 }
 
 ALIGNED(4) const u8 sCounterIncrements[] = {2, 1, 2, 1};

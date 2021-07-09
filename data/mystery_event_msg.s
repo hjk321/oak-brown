@@ -216,8 +216,6 @@ MysteryEventScript_AuroraTicket:: @ 84894B9
 	setvaddress MysteryEventScript_AuroraTicket
 	lock
 	faceplayer
-	vgoto_if_set FLAG_GOT_AURORA_TICKET, AuroraTicket_Obtained
-	vgoto_if_set FLAG_FOUGHT_DEOXYS, AuroraTicket_Obtained
 	checkitem ITEM_AURORA_TICKET, 1
 	compare VAR_RESULT, TRUE
 	vgoto_if_eq AuroraTicket_Obtained
@@ -229,7 +227,6 @@ MysteryEventScript_AuroraTicket:: @ 84894B9
 	vgoto_if_eq AuroraTicket_NoBagSpace
 	giveitem ITEM_AURORA_TICKET
 	setflag FLAG_ENABLE_SHIP_BIRTH_ISLAND
-	setflag FLAG_GOT_AURORA_TICKET
 	vmessage sText_AuroraTicket2
 	waitmessage
 	waitbuttonpress
@@ -276,9 +273,6 @@ MysteryEventScript_MysticTicket:: @ 8489689
 	setvaddress MysteryEventScript_MysticTicket
 	lock
 	faceplayer
-	vgoto_if_set FLAG_GOT_MYSTIC_TICKET, MysticTicket_Obtained
-	vgoto_if_set FLAG_FOUGHT_LUGIA, MysticTicket_Obtained
-	vgoto_if_set FLAG_FOUGHT_HO_OH, MysticTicket_Obtained
 	checkitem ITEM_MYSTIC_TICKET, 1
 	compare VAR_RESULT, TRUE
 	vgoto_if_eq MysticTicket_Obtained
@@ -290,7 +284,6 @@ MysteryEventScript_MysticTicket:: @ 8489689
 	vgoto_if_eq MysticTicket_NoBagSpace
 	giveitem ITEM_MYSTIC_TICKET
 	setflag FLAG_ENABLE_SHIP_NAVEL_ROCK
-	setflag FLAG_GOT_MYSTIC_TICKET
 	vmessage sText_MysticTicket1
 	waitmessage
 	waitbuttonpress

@@ -1,15 +1,1 @@
-raw `
-Route12_NorthEntrance_1F_Text_LookoutSpotUpstairs:: @ 819EDA7
-    .string "There's a lookout spot upstairs.\n"
-    .string "The view is magnificent.$"
-
-`
-
-raw `
-Route12_NorthEntrance_1F_MapScripts:: @ 816FE6D
-	.byte 0
-
-Route12_NorthEntrance_1F_EventScript_Guard:: @ 816FE6E
-	msgbox Route12_NorthEntrance_1F_Text_LookoutSpotUpstairs, MSGBOX_NPC
-	end
-`
+mapscripts Route12_NorthEntrance_1F_MapScripts {}

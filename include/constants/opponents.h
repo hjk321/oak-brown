@@ -3,8 +3,6 @@
 
 #define RNG_SEED_MURA                               127
 
-#include "constants/opponents_old.h"
-
 #define TRAINER_NONE                                0
 #define TRAINER_MURA_BULBASAUR_1                    1
 #define TRAINER_MURA_CHARMANDER_1                   2

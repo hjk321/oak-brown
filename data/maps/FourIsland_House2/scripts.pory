@@ -1,4 +1,1 @@
-raw `
-FourIsland_House2_MapScripts:: @ 8171CAC
-	.byte 0
-`
+mapscripts FourIsland_House2_MapScripts {}

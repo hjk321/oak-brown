@@ -1,4 +1,1 @@
-raw `
-BattleColosseum_2P_MapScripts:: @ 8160478
-	.byte 0
-`
+mapscripts BattleColosseum_2P_MapScripts {}

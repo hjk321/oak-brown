@@ -1,4 +1,1 @@
-raw `
-FiveIsland_LostCave_Room12_MapScripts:: @ 8164CCC
-	.byte 0
-`
+mapscripts FiveIsland_LostCave_Room12_MapScripts {}
