@@ -1,1 +1,18 @@
 mapscripts GravelTown_House_MapScripts {}
+
+script GravelTown_House_Girl {
+    lock
+    faceplayer
+    msgbox(format("I'm studying for my Pokémon test.\p"
+        "Did you know that new types of Pokémon have been discovered?\p"
+        "Wood, Gas, Wind, and Sound are a few of them.\p"
+        "But you're a big kid! You know about all this already, right?"))
+    release
+}
+
+script GravelTown_House_Pikachu {
+    lock
+    faceplayer
+    msgbox(format("Pika… Pikachu!"))
+    release
+}
