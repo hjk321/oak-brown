@@ -132,6 +132,7 @@ script GravelTown_TimsLab_BookshelfTriggers {
         delay(16)
         playse(SE_EXIT)
         waitse
+        setrespawn(SPAWN_SEASHORE_CITY)
         release
     }
 }

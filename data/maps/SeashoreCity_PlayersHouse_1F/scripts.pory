@@ -15,6 +15,7 @@ script SeashoreCity_PlayersHouse_1F_Mom {
         msgbox(format("Mom: {PLAYER}, you look tired!\nYou should take a quick rest."))
         closemessage
         call(EventScript_OutOfCenterPartyHeal)
+        setrespawn(SPAWN_SEASHORE_CITY)
         msgbox(format("Mom: Oh, good! You and your Pokémon are looking great!\pTake care, now!"))
     }
     release

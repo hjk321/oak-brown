@@ -12,6 +12,7 @@
 #include "event_object_movement.h"
 #include "field_fadetransition.h"
 #include "event_scripts.h"
+#include "constants/heal_locations.h"
 
 static const u16 sFlashLevelPixelRadii[] = {
     0x00c8, 0x0048, 0x0038, 0x0028, 0x0018
@@ -397,7 +398,7 @@ static void Task_RushInjuredPokemonToCenter(u8 taskId)
         FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
         PutWindowTilemap(windowId);
         CopyWindowToVram(windowId, COPYWIN_BOTH);
-        loc = GetHealLocation(1);
+        loc = GetHealLocation(SPAWN_SEASHORE_CITY);
         if (gSaveBlock1Ptr->lastHealLocation.mapGroup == loc->group
          && gSaveBlock1Ptr->lastHealLocation.mapNum == loc->map
          && gSaveBlock1Ptr->lastHealLocation.warpId == -1
