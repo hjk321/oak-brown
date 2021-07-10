@@ -41,4 +41,12 @@ const struct Trainer gTrainers[] = {
         .party = sTrainerMons_MuraSquirtle1,
         .rngSeed = RNG_SEED_MURA,
     },
+    [TRAINER_YOUNGSTER_HAYDEN] = {
+        .trainerClass = CLASS_YOUNGSTER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_YOUNGSTER,
+        .trainerName = _("Hayden"),
+        .partySize = 2,
+        .party = sTrainerMons_YoungsterHayden,
+    },
 };

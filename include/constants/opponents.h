@@ -7,6 +7,7 @@
 #define TRAINER_MURA_BULBASAUR_1                    1
 #define TRAINER_MURA_CHARMANDER_1                   2
 #define TRAINER_MURA_SQUIRTLE_1                     3
+#define TRAINER_YOUNGSTER_HAYDEN                    4
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is 
 //       only space for 25 additional trainers before trainer flag space overflows.

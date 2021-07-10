@@ -48,7 +48,7 @@
 #define FLAG_HIDE_BULBASAUR_BALL                           0x028
 #define FLAG_HIDE_SQUIRTLE_BALL                            0x029
 #define FLAG_HIDE_CHARMANDER_BALL                          0x02A
-#define FLAG_HIDE_0x02B                                    0x02B
+#define FLAG_HIDE_MURA_ROUTE53                             0x02B
 #define FLAG_HIDE_0x02C                                    0x02C
 #define FLAG_HIDE_0x02D                                    0x02D
 #define FLAG_HIDE_0x02E                                    0x02E

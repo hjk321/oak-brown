@@ -1,4 +1,12 @@
-mapscripts Route53_MapScripts {}
+mapscripts Route53_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        if (flag(FLAG_PROLOGUE) || flag(FLAG_SYS_POKEDEX_GET)) {
+            setflag(FLAG_HIDE_MURA_ROUTE53)
+        } else {
+            clearflag(FLAG_HIDE_MURA_ROUTE53)
+        }
+    }
+}
 
 script Route53_Hiker {
     lock
@@ -7,7 +15,7 @@ script Route53_Hiker {
     release
 }
 
-script Route53_Youngster {
+script Route53_Hayden_Prologue {
     lock
     faceplayer
     msgbox(format("You're going to Gravel Town to get your first Pokémon?\pCool! When you get one, then we can battle!"))
@@ -34,7 +42,7 @@ script Route53_Clerk {
             call(EventScript_RestorePrevTextColor)
             msgbox(format("Don't hesitate to head to a Pokémart for all of your training needs!"))
         } else {
-            msgbox(format("…Whoops! You don't have any room in your bag!\pCome back later!"))
+            msgbox(format("… Whoops! You don't have any room in your bag!\pCome back later!"))
         }
     }
     release
@@ -43,6 +51,36 @@ script Route53_Clerk {
 script Route53_Sign {
     lock
     msgbox("Route 53\nGravel Town - Seashore City")
+    release
+}
+
+script Route53_Hayden {
+    trainerbattle_single(TRAINER_YOUNGSTER_HAYDEN, 
+        "We're both trainers now!\nYou know what that means!\pAre you ready for this?", 
+        "Oh no!\nYou were ready for that!")
+    msgbox(format("The tall grass here is blocked by trees.\pThat means it's hard for me to train my Pokémon."), MSGBOX_AUTOCLOSE)
+}
+
+script Route53_Mura {
+    lock
+    faceplayer
+    switch(var(VAR_STARTER_MON)) {
+        case STARTER_BULBASAUR:
+            getspeciesname(0, SPECIES_CHARMANDER)
+        case STARTER_SQUIRTLE:
+            getspeciesname(0, SPECIES_BULBASAUR)
+        case STARTER_CHARMANDER:
+            getspeciesname(0, SPECIES_SQUIRTLE)
+    }
+    msgbox(format("Mura: Lame, lame, lame!\pAll the wild Pokémon are on the other side of these trees!\p"
+        "How am I supposed to get stronger if I can't train?"))
+    if (flag(FLAG_BEAT_MURA_STARTER)) {
+        msgbox(format("… … … Don't give me that look, {PLAYER}!\p"
+            "Next time we fight, my {STR_VAR_1} will mop the floor with you!"))
+    } else {
+        msgbox(format("Heh heh. Guess you're out of luck, {PLAYER}.\p"
+            "Because if neither of us can get stronger…\p… That means {STR_VAR_1} wins forever!"))
+    }
     release
 }
 

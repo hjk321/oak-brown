@@ -30,3 +30,17 @@ static const struct TrainerMon sTrainerMons_MuraSquirtle1[] = {
         .ball = ITEM_POKE_BALL,
     },
 };
+
+static const struct TrainerMon sTrainerMons_YoungsterHayden[] = {
+    {
+        .lvl = 4,
+        .species = SPECIES_SENTRET,
+        .ball = ITEM_POKE_BALL,
+        .gender = NPCMON_MALE,
+    },
+    {
+        .lvl = 5,
+        .species = SPECIES_RATTATA,
+        .ball = ITEM_POKE_BALL,
+    },
+};
