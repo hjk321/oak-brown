@@ -167,6 +167,25 @@
 #define TRAINER_PIC_LADY                  146
 #define TRAINER_PIC_PAINTER               147
 #define TRAINER_PIC_MURA_1                148
+#define TRAINER_PIC_YOUNGSTER_2           149
+#define TRAINER_PIC_BUG_CATCHER_2         150
+#define TRAINER_PIC_RANCHER               151
+#define TRAINER_PIC_ACE_TRAINER_M         152
+#define TRAINER_PIC_ACE_TRAINER_F         153
+#define TRAINER_PIC_ROCKET_GRUNT_M_2      154
+#define TRAINER_PIC_ROCKET_GRUNT_F_2      155
+#define TRAINER_PIC_LASS_2                156
+#define TRAINER_PIC_FIRE_BREATHER         157
+#define TRAINER_PIC_SCIENTIST_2           158
+#define TRAINER_PIC_COWGIRL               159
+#define TRAINER_PIC_SWIMMER_F_2           160
+#define TRAINER_PIC_COLLECTOR_2           161
+#define TRAINER_PIC_GENTLEMAN_2           162
+#define TRAINER_PIC_CAMPER_2              163
+#define TRAINER_PIC_PICNICKER_2           164
+#define TRAINER_PIC_GUITARIST_2           165
+#define TRAINER_PIC_FISHERMAN_2           166
+#define TRAINER_PIC_WORKER                167
 
 // Leftover from R/S
 #define TRAINER_SECRET_BASE                 1024
