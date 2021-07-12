@@ -465,9 +465,7 @@ void PlayCryInternal(u16 species, s8 pan, s8 volume, u8 priority, u8 mode)
     SetPokemonCryPriority(priority);
 
     // This is a fancy way to get a cry of a pokemon.
-    // It creates 4 sets of 128 mini cry tables.
-    // If you wish to expand pokemon, you need to
-    // append new cases to the switch.
+    // It creates 6 sets of 128 mini cry tables.
     species = SpeciesToCryId(species);
     index = species & 0x7F;
     table = species / 128;
@@ -489,6 +487,14 @@ void PlayCryInternal(u16 species, s8 pan, s8 volume, u8 priority, u8 mode)
     case 3:
         gMPlay_PokemonCry = SetPokemonCryTone(
           v0 ? &gCryTable2[(128 * 3) + index] : &gCryTable[(128 * 3) + index]);
+        break;
+    case 4:
+        gMPlay_PokemonCry = SetPokemonCryTone(
+          v0 ? &gCryTable2[(128 * 4) + index] : &gCryTable[(128 * 4) + index]);
+        break;
+    case 5:
+        gMPlay_PokemonCry = SetPokemonCryTone(
+          v0 ? &gCryTable2[(128 * 5) + index] : &gCryTable[(128 * 5) + index]);
         break;
     }
 }
