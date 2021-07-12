@@ -2,7 +2,7 @@
   "id": "MAP_GRAVEL_TOWN_HOUSE",
   "name": "GravelTown_House",
   "layout": "LAYOUT_GRAVEL_TOWN_HOUSE",
-  "music": "MUS_PEWTER",
+  "music": "MUS_GRAVEL",
   "region_map_section": "MAPSEC_VIRIDIAN_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

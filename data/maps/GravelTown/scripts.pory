@@ -37,7 +37,9 @@ script GravelTown_PuddleBoy {
 script GravelTown_StoreClerk {
     lock
     faceplayer
-    msgbox(format("I own the Pokémart here.\nI hope you'll stop by sometime."))
+    msgbox(format("I own the Pokémart here.\nI hope you'll stop by sometime.\p"
+        "My coworker is also handing out free samples on Route 53 right now.\p"
+        "I had to hire a new employee in the meantime. Please be patient with him."))
     release
 }
 

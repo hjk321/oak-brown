@@ -25,7 +25,7 @@ Text_HadQuiteAnExperienceTakeRest:: @ 81A5FDF
 Text_MomExplainHPGetPotions:: @ 81A6046
 	.string "Mom: Oh, good! You and your\n"
 	.string "Pokémon are looking great.\p"
-	.string "Make me proud, honey!\p"
+	.string "Make me proud, honey!\n"
 	.string "Take care!$"
 
 Text_WhitedOutLostMoney:: @ 81A6197
