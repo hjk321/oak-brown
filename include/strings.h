@@ -888,6 +888,7 @@ extern const u8 gEasyChatGroupName_Move2[];
 extern const u8 gEasyChatGroupName_TrendySaying[];
 extern const u8 gEasyChatGroupName_Pokemon2[];
 extern const u8 gText_ThreeQuestionMarks[];
+extern const u8 gText_DexQuestionMarks[];
 
 // hall_of_fame
 extern const u8 gText_LeagueChamp[];

@@ -527,7 +527,7 @@ static const struct WindowTemplate sUnknown_84521CC = {
 const struct WindowTemplate gUnknown_84521D4 = {
     .bg = 1,
     .tilemapLeft = 21,
-    .tilemapTop = 1,
+    .tilemapTop = 3,
     .width = 8,
     .height = 8,
     .paletteNum = 9,
@@ -547,9 +547,9 @@ const struct WindowTemplate gUnknown_84521DC = {
 const struct WindowTemplate gUnknown_84521E4 = {
     .bg = 1,
     .tilemapLeft = 0,
-    .tilemapTop = 9,
+    .tilemapTop = 11,
     .width = 30,
-    .height = 9,
+    .height = 7,
     .paletteNum = 0,
     .baseBlock = 0x0250
 };
@@ -2822,14 +2822,14 @@ void sub_8105CB0(u8 a0, u16 species, u8 x, u8 y)
     {
         if (desc == -1)
         {
-            printerTemplate.currentChar = gText_ThreeQuestionMarks;
+            printerTemplate.currentChar = gText_DexQuestionMarks;
         } else {
             printerTemplate.currentChar = gTimNotes[species][desc].text;
         }
         printerTemplate.windowId = a0;
         printerTemplate.fontId = 2;
         printerTemplate.letterSpacing = 1;
-        printerTemplate.lineSpacing = 0;
+        printerTemplate.lineSpacing = -4;
         printerTemplate.unk = 0;
         printerTemplate.fgColor = 1;
         printerTemplate.bgColor = 0;
@@ -2914,7 +2914,7 @@ u8 sub_8105E1C(bool8 a0)
     PutWindowTilemap(gUnknown_203ACF0->field_4A[1]);
     CopyWindowToVram(gUnknown_203ACF0->field_4A[1], 2);
     FillWindowPixelBuffer(gUnknown_203ACF0->field_4A[2], 0);
-    sub_8105CB0(gUnknown_203ACF0->field_4A[2], gUnknown_203ACF0->field_5A, 0, 0);
+    sub_8105CB0(gUnknown_203ACF0->field_4A[2], gUnknown_203ACF0->field_5A, 0, 1);
     PutWindowTilemap(gUnknown_203ACF0->field_4A[2]);
     CopyWindowToVram(gUnknown_203ACF0->field_4A[2], 2);
     FillWindowPixelBuffer(1, 255);

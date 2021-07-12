@@ -1202,6 +1202,7 @@ const u8 gEasyChatGroupName_Move2[] = _("Move 2");
 const u8 gEasyChatGroupName_TrendySaying[] = _("Trendy Saying");
 const u8 gEasyChatGroupName_Pokemon2[] = _("Pokémon2");
 const u8 gText_ThreeQuestionMarks[] = _("???");
+const u8 gText_DexQuestionMarks[] = _("\n\n???");
 const u8 gText_UnusedEmpty[] = _("");
 const u8 gText_UnusedLv[] = _("Lv");
 const u8 gText_UnusedDashes[] = _("---");
