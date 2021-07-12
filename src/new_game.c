@@ -140,7 +140,6 @@ void NewGameInitData(void)
     ClearRoamerData();
     gSaveBlock2Ptr->registeredItem = 0;
     ClearBag();
-    NewGameInitPCItems();
     ClearEnigmaBerries();
     InitEasyChatPhrases();
     ResetTrainerFanClub();
@@ -148,6 +147,7 @@ void NewGameInitData(void)
     ResetMiniGamesResults();
     InitMEventData();
     SetAllRenewableItemFlags();
+    NewGameInitPCItems();
     WarpToPlayersRoom();
     ScriptContext2_RunNewScript(EventScript_ResetAllMapFlags);
     StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
