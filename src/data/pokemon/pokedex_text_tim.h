@@ -1,3 +1,107 @@
+//
+
+//
+
+// SPOILERS AHEAD!
+
+// This has all the Pokédex text for Tim. You should probably turn back.
+
+// Seriously, it's a lot more fun to discover these in-game.
+
+// I wrote all of these custom texts so that you would be rewarded for actually filling your dex.
+
+// How many other hacks do you think bothered? What better opportunity will
+
+// you get to have a good reason to actually catch em all?
+
+//
+
+//
+
+//
+
+// Look, if not saying it's a bad thing you want to read all the dex entries at once.
+
+// I'm just saying that once you do, that's it. You're not gonna want to catch anything in the game.
+
+// I guess in the end it's up to you.
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+// Welp, I tried.
+
+// Have fun.
+
+//
+
 const u8 gTimNotesDummy[] = _(
     "I don't know anything about this Pokémon.");
 
@@ -119,15 +223,26 @@ const u8 gTimNotesBeedrill[] = _(
 );
 
 const u8 gTimNotesPidgey[] = _(
-    ""
+    "Pidgey are a common choice among aspiring\n"
+    "bird keepers. It is easy to catch, docile\n"
+    "enough for the inexperienced to handle,\n"
+    "and eventually evolves into Pidgeot,\n"
+    "which is a practical choice of bird."
 );
 
 const u8 gTimNotesPidgeotto[] = _(
-
+    "Pidgeotto has excellent vision and can\n"
+    "see prey from high in the sky. They can\n"
+    "generally fend for themselves if allowed,\n"
+    "but won't refuse food from its trainer.\n"
 );
 
 const u8 gTimNotesPidgeot[] = _(
-
+    "Its red and yellow plumage is what makes\n"
+    "it a respectable Pokémon in bird keeping\n"
+    "circles, along with its relatively strong\n"
+    "wings that allow it to fly and hunt prey\n"
+    "at supersonic speed."
 );
 
 const u8 gTimNotesRattata[] = _(

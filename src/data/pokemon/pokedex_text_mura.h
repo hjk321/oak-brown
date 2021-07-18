@@ -1,8 +1,131 @@
+//
+
+//
+
+// SPOILERS AHEAD!
+
+// This has all the Pokédex text for Mura, which is post-game content. You should probably turn back.
+
+// Seriously, it's a lot more fun to discover these in-game.
+
+// I wrote all of these custom texts so that you would be rewarded for actually filling your dex.
+
+// How many other hacks do you think bothered? What better opportunity will
+
+// you get to have a good reason to actually catch em all?
+
+//
+
+//
+
+//
+
+// Look, if not saying it's a bad thing you want to read all the dex entries at once.
+
+// I'm just saying that once you do, that's it. You're not gonna want to catch anything in the game.
+
+// I guess in the end it's up to you.
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
+
+// Welp, I tried.
+
+// Have fun.
+
+//
+
 const u8 gMuraNotesDummy[] = _(
     "Your guess is as good as mine.");
 
 const u8 gMuraNotesBulbasaur[] = _(
-    ""
+    "I remember when you chose Bulbasaur that\n"
+    "day. I mean, that's your mistake, but at\n"
+    "least it let me pick Charmander, like I\n"
+    "wanted all along. It tries so hard to\n"
+    "impress me. … Thanks."
+);
+
+const u8 gMuraNotesBulbasaur_ChoseCharmander[] = _(
+    "You know, what ever happened to that\n"
+    "Bulbasaur in Tim's lab? I can't help but\n"
+    "wonder sometimes… Did someone else start\n"
+    "their journey that day?"
+);
+
+const u8 gMuraNotesBulbasaur_ChoseSquirtle[] = _(
+    "You know, I remember really wanting a\n"
+    "Charmander, but picking Bulbasaur was the\n"
+    "best choice I've made. He's a lot bigger\n"
+    "now, and a little sleepy, but I can't\n"
+    "imagine having a Charizard anymore."
 );
 
 const u8 gMuraNotesIvysaur[] = _(
@@ -14,7 +137,24 @@ const u8 gMuraNotesVenusaur[] = _(
 );
 
 const u8 gMuraNotesCharmander[] = _(
-    ""
+    "Hm. I had really wanted Charmander when\n"
+    "we both began our journeys. But you got\n"
+    "it instead. Maybe that's why I ended up\n"
+    "losing the championship to you. Oh well.\n"
+    "There's no use dwelling on the past."
+);
+
+const u8 gMuraNotesCharmander_ChoseSquirtle[] = _(
+    "You know, what ever happened to that\n"
+    "Charmander in Tim's lab? I can't help but\n"
+    "wonder sometimes… Did someone else start\n"
+    "their journey that day?"
+);
+
+const u8 gMuraNotesCharmander_ChoseBulbasaur[] = _(
+    "Hm, you managed to catch a Charmander as\n"
+    "well? Heh. Glad you came to your senses\n"
+    "about the best starter."
 );
 
 const u8 gMuraNotesCharmeleon[] = _(
@@ -26,7 +166,26 @@ const u8 gMuraNotesCharizard[] = _(
 );
 
 const u8 gMuraNotesSquirtle[] = _(
-    ""
+    "Squirtle is kinda lame, to be honest. I\n"
+    "mean, its evolutions are pretty cool, but\n"
+    "come on, you had a choice between a fire\n"
+    "dragon and a dinosaur, and you chose a\n"
+    "turtle?"
+);
+
+const u8 gMuraNotesSquirtle_ChoseBulbasaur[] = _(
+    "You know, what ever happened to that\n"
+    "Squirtle in Tim's lab? I can't help but\n"
+    "wonder sometimes… Did someone else start\n"
+    "their journey that day?"
+);
+
+const u8 gMuraNotesSquirtle_ChoseCharmander[] = _(
+    "My Squirtle was kind of a wimp, to be\n"
+    "honest. I dunno, I almost feel bad for it\n"
+    "with all the fighting my team does. It's\n"
+    "gotten more courageous, as it evolved."
+    "I'm glad. It's grown a lot, just like us…"
 );
 
 const u8 gMuraNotesWartortle[] = _(

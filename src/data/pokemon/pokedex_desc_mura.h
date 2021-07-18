@@ -1,13 +1,13 @@
 const struct PokedexDesc gMuraNotes[NATIONAL_DEX_COUNT + 1][DEX_DESC_PER_MON] =
 {
     [NATIONAL_DEX_NONE] = {{0, gMuraNotesDummy}},
-    [NATIONAL_DEX_BULBASAUR] = {{0, gMuraNotesBulbasaur}},
+    [NATIONAL_DEX_BULBASAUR] = {{FLAG_CHOSE_CHARMANDER, gMuraNotesBulbasaur_ChoseCharmander}, {FLAG_CHOSE_SQUIRTLE, gMuraNotesBulbasaur_ChoseSquirtle}, {0, gMuraNotesBulbasaur}},
     [NATIONAL_DEX_IVYSAUR] = {{0, gMuraNotesIvysaur}},
     [NATIONAL_DEX_VENUSAUR] = {{0, gMuraNotesVenusaur}},
-    [NATIONAL_DEX_CHARMANDER] = {{0, gMuraNotesCharmander}},
+    [NATIONAL_DEX_CHARMANDER] = {{FLAG_CHOSE_SQUIRTLE, gMuraNotesCharmander_ChoseSquirtle}, {FLAG_CHOSE_BULBASAUR, gMuraNotesCharmander_ChoseBulbasaur}, {0, gMuraNotesCharmander}},
     [NATIONAL_DEX_CHARMELEON] = {{0, gMuraNotesCharmeleon}},
     [NATIONAL_DEX_CHARIZARD] = {{0, gMuraNotesCharizard}},
-    [NATIONAL_DEX_SQUIRTLE] = {{0, gMuraNotesSquirtle}},
+    [NATIONAL_DEX_SQUIRTLE] = {{FLAG_CHOSE_BULBASAUR, gMuraNotesSquirtle_ChoseBulbasaur}, {FLAG_CHOSE_CHARMANDER, gMuraNotesSquirtle_ChoseCharmander}, {0, gMuraNotesSquirtle}},
     [NATIONAL_DEX_WARTORTLE] = {{0, gMuraNotesWartortle}},
     [NATIONAL_DEX_BLASTOISE] = {{0, gMuraNotesBlastoise}},
     [NATIONAL_DEX_CATERPIE] = {{0, gMuraNotesCaterpie}},
