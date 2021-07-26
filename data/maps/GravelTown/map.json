@@ -155,6 +155,20 @@
       "elevation": 0,
       "dest_map": "MAP_GRAVEL_TOWN_HOUSE",
       "dest_warp_id": 0
+    },
+    {
+      "x": 41,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_MERSON_CAVE_2F",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 46,
+      "y": 4,
+      "elevation": 4,
+      "dest_map": "MAP_MERSON_CAVE_1F",
+      "dest_warp_id": 4
     }
   ],
   "coord_events": [

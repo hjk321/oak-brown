@@ -458,6 +458,7 @@
 #define MAP_MERSON_CAVE_1BF                (10 | (7 << 8))
 #define MAP_MERSON_CAVE_2BF                (11 | (7 << 8))
 #define MAP_MERSON_CAVE_OUTDOOR            (12 | (7 << 8))
+#define MAP_MERSON_CAVE_2F                 (13 | (7 << 8))
 
 #define MAP_GROUPS_COUNT 8
 

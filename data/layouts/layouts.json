@@ -4536,6 +4536,18 @@
       "secondary_tileset": "gTileset_Dummy1",
       "border_filepath": "data/layouts/MersonCave_Outdoor/border.bin",
       "blockdata_filepath": "data/layouts/MersonCave_Outdoor/map.bin"
+    },
+    {
+      "id": "LAYOUT_MERSON_CAVE_2F",
+      "name": "MersonCave_2F_Layout",
+      "width": 16,
+      "height": 15,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/MersonCave_2F/border.bin",
+      "blockdata_filepath": "data/layouts/MersonCave_2F/map.bin"
     }
   ]
 }

@@ -1031,3 +1031,5 @@ Text_TestMsg:: @ 81ACD45
 	.include "data/maps/MersonCave_2BF/scripts.inc"
 
 	.include "data/maps/MersonCave_Outdoor/scripts.inc"
+
+	.include "data/maps/MersonCave_2F/scripts.inc"

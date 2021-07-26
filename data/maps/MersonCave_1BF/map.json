@@ -18,7 +18,34 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 43,
+      "y": 28,
+      "elevation": 0,
+      "dest_map": "MAP_MERSON_CAVE_1F",
+      "dest_warp_id": 1
+    },
+    {
+      "x": 32,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_MERSON_CAVE_2BF",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 13,
+      "y": 34,
+      "elevation": 0,
+      "dest_map": "MAP_MERSON_CAVE_1F",
+      "dest_warp_id": 2
+    },
+    {
+      "x": 43,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_MERSON_CAVE_1F",
+      "dest_warp_id": 3
+    }
   ],
   "coord_events": [
 

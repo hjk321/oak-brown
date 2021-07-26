@@ -1,16 +1,16 @@
 {
-  "id": "MAP_MERSON_CAVE_OUTDOOR",
-  "name": "MersonCave_Outdoor",
-  "layout": "LAYOUT_MERSON_CAVE_OUTDOOR",
-  "music": "MUS_BERRY_PICK",
+  "id": "MAP_MERSON_CAVE_2F",
+  "name": "MersonCave_2F",
+  "layout": "LAYOUT_MERSON_CAVE_2F",
+  "music": "MUS_MT_MOON",
   "region_map_section": "MAPSEC_MT_MOON",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_ROUTE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
   "allow_cycling": false,
-  "allow_escaping": false,
+  "allow_escaping": true,
   "allow_running": false,
-  "show_map_name": false,
+  "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
@@ -19,17 +19,17 @@
   ],
   "warp_events": [
     {
-      "x": 9,
-      "y": 5,
+      "x": 8,
+      "y": 3,
       "elevation": 0,
-      "dest_map": "MAP_MERSON_CAVE_2F",
-      "dest_warp_id": 1
+      "dest_map": "MAP_GRAVEL_TOWN",
+      "dest_warp_id": 3
     },
     {
-      "x": 16,
-      "y": 6,
+      "x": 9,
+      "y": 10,
       "elevation": 0,
-      "dest_map": "MAP_MERSON_CAVE_1F",
+      "dest_map": "MAP_MERSON_CAVE_OUTDOOR",
       "dest_warp_id": 0
     }
   ],
