@@ -19,8 +19,6 @@
 #include "fieldmap.h"
 #include "fldeff.h"
 #include "graphics.h"
-#include "help_message.h"
-#include "help_system.h"
 #include "item.h"
 #include "item_menu.h"
 #include "item_use.h"
@@ -565,7 +563,6 @@ static bool8 ShowPartyMenu(void)
         ++gMain.state;
         break;
     case 19:
-        SetHelpContext(HELPCONTEXT_PARTY_MENU);
         ++gMain.state;
         break;
     case 20:
@@ -2660,7 +2657,6 @@ static void sub_8122138(u8 action)
     {
         if (ptr->windowId[2] == 0xFF)
             ptr->windowId[2] = AddWindow(&gUnknown_845A178);
-        sub_8112F18(ptr->windowId[2]);
         attr = GetFontAttribute(2, FONTATTR_LETTER_SPACING);
         AddTextPrinterParameterized4(ptr->windowId[2], 2, 3, 6, attr, 0, sFontColorTable[5], 0, sHMDescriptionTable[action - MENU_FIELD_MOVES]);
         PutWindowTilemap(ptr->windowId[2]);

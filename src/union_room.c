@@ -3265,7 +3265,6 @@ static void Task_RunUnionRoom(u8 taskId)
                     break;
                 }
             }
-            DestroyHelpMessageWindow_();
         }
         break;
     case 53:
@@ -3342,7 +3341,6 @@ static void Task_RunUnionRoom(u8 taskId)
             case -2:
             case 8:
                 HandleCancelTrade(TRUE);
-                DestroyHelpMessageWindow_();
                 data->state = 4;
                 break;
             default:

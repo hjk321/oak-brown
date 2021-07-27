@@ -880,7 +880,7 @@ const u8 gText_BattleStyleSet[] = _("Set");
 const u8 gText_SoundMono[] = _("Mono");
 const u8 gText_SoundStereo[] = _("Stereo");
 const u8 gTextJP_Type[] = _("タイプ");
-const u8 gText_ButtonTypeHelp[] = _("Help");
+const u8 gText_ButtonTypeNone[] = _("None");
 const u8 gText_ButtonTypeLEqualsA[] = _("L=A");
 const u8 gText_ButtonTypeLR[] = _("LR");
 const u8 gText_FrameType[] = _("Type");

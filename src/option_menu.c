@@ -5,7 +5,6 @@
 #include "menu.h"
 #include "task.h"
 #include "overworld.h"
-#include "help_system.h"
 #include "text_window.h"
 #include "strings.h"
 #include "field_fadetransition.h"
@@ -171,7 +170,7 @@ static const u8 *const sSoundOptions[] =
 
 static const u8 *const sButtonTypeOptions[] =
 {
-    gText_ButtonTypeHelp,
+    gText_ButtonTypeNone,
 	gText_ButtonTypeLR,
 	gText_ButtonTypeLEqualsA
 };
@@ -218,7 +217,6 @@ void CB2_OptionsMenuFromStartMenu(void)
         if (sOptionMenuPtr->option[i] > (sOptionMenuItemCounts[i]) - 1)
             sOptionMenuPtr->option[i] = 0;
     }
-    SetHelpContext(HELPCONTEXT_OPTIONS);
     SetMainCallback2(CB2_OptionMenu);
 }
 

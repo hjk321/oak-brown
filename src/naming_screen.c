@@ -9,7 +9,6 @@
 #include "field_player_avatar.h"
 #include "field_specials.h"
 #include "graphics.h"
-#include "help_system.h"
 #include "menu.h"
 #include "overworld.h"
 #include "naming_screen.h"
@@ -20,7 +19,6 @@
 #include "task.h"
 #include "text_window.h"
 #include "trig.h"
-#include "constants/help_system.h"
 #include "constants/songs.h"
 #include "constants/event_objects.h"
 
@@ -518,8 +516,6 @@ static void sub_809DD60(void)
 {
     CreateTask(sub_809DD88, 2);
     SetMainCallback2(sub_809FB70);
-    BackupHelpContext();
-    SetHelpContext(HELPCONTEXT_NAMING_SCREEN);
 }
 
 static void sub_809DD88(u8 taskId)
@@ -678,7 +674,6 @@ static bool8 MainState_WaitFadeOutAndExit(void)
         DestroyTask(FindTaskIdByFunc(sub_809DD88));
         FreeAllWindowBuffers();
         FREE_AND_SET_NULL(sNamingScreenData);
-        RestoreHelpContext();
     }
     return FALSE;
 }

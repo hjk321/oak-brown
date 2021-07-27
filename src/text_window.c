@@ -10,7 +10,6 @@ void sub_814FFC4(u8 windowId, u8 frameType, u16 destOffset, u8 palIdx);
 
 void sub_814FD04(u8 bgId, u16 destOffset, u8 palIdx)
 {
-    LoadBgTiles(bgId, gUnknown_84566A8, 0x280, destOffset);
     LoadPalette(stdpal_get(2), palIdx, 32);
 }
 
@@ -50,7 +49,6 @@ void LoadUserWindowBorderGfx(u8 windowId, u16 destOffset, u8 palIdx)
 
 void sub_814FE6C(u8 windowId, u16 destOffset, u8 palIdx)
 {
-    LoadBgTiles(GetWindowAttribute(windowId, WINDOW_BG), gUnknown_84566A8, 0x280, destOffset);
     LoadPalette(stdpal_get(2), palIdx, 32);
 }
 
