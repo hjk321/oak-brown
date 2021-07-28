@@ -1331,7 +1331,7 @@ static void sub_810345C(void)
 
 static u16 sub_8103518(u8 a0)
 {
-    s32 max_n = IsNationalPokedexEnabled() ? NATIONAL_DEX_COUNT : KANTO_DEX_COUNT;
+    s32 max_n = NATIONAL_DEX_COUNT;
     u16 ndex_num;
     u16 ret = NATIONAL_DEX_NONE;
     s32 i;
@@ -1360,7 +1360,7 @@ static u16 sub_8103518(u8 a0)
         }
         break;
     case 1:
-        for (i = 0; i < SPECIES_CHIMECHO; i++)
+        for (i = 0; i < NUM_SPECIES - 1; i++)
         {
             ndex_num = gPokedexOrder_Alphabetical[i];
             if (ndex_num <= max_n)
