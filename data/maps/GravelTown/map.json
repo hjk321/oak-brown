@@ -2,7 +2,7 @@
   "id": "MAP_GRAVEL_TOWN",
   "name": "GravelTown",
   "layout": "LAYOUT_GRAVEL_TOWN",
-  "music": "MUS_GRAVEL",
+  "music": "MUS_PALLET",
   "region_map_section": "MAPSEC_VIRIDIAN_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

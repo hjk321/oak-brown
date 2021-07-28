@@ -346,7 +346,6 @@ gSongTable:: @ 84A32CC
 	song mus_trainer_tower, 0, 0
 	song mus_slow_pallet, 0, 0
 	song mus_teachy_tv_menu, 0, 0
-	song mus_gravel, 0, 0
 
 dummy_song_header: @ 84A3DA4
 	.byte 0, 0, 0, 0
