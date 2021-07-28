@@ -6302,8 +6302,9 @@ void *OakSpeechNidoranFGetBuffer(u8 bufferId)
 
 bool8 BoxMonMatchesUid(struct BoxPokemon *boxMon, struct MonUid *uid)
 {
-    return GetBoxMonData(boxMon, MON_DATA_SPECIES, NULL) == uid->species && 
-        GetBoxMonData(boxMon, MON_DATA_PERSONALITY, NULL) == uid->personality;
+    return GetBoxMonData(boxMon, MON_DATA_PERSONALITY, NULL) == uid->personality && 
+        GetBoxMonData(boxMon, MON_DATA_HP_IV, NULL) == uid->hpIV &&
+        GetBoxMonData(boxMon, MON_DATA_ATK_IV, NULL) == uid->attackIV;
 }
 
 bool8 MonMatchesUid(struct Pokemon *mon, struct MonUid *uid)
@@ -6313,8 +6314,9 @@ bool8 MonMatchesUid(struct Pokemon *mon, struct MonUid *uid)
 
 void CreateBoxMonUid(struct BoxPokemon *src, struct MonUid *dest)
 {
-    dest->species = GetBoxMonData(src, MON_DATA_SPECIES, NULL);
     dest->personality = GetBoxMonData(src, MON_DATA_PERSONALITY, NULL);
+    dest->hpIV = GetBoxMonData(src, MON_DATA_HP_IV, NULL);
+    dest->attackIV = GetBoxMonData(src, MON_DATA_ATK_IV, NULL);
 }
 
 void CreateMonUid(struct Pokemon *src, struct MonUid *dest)

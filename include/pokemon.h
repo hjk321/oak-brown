@@ -89,8 +89,9 @@ struct Pokemon
 
 struct MonUid
 {
-    u16 species;
     u32 personality;
+    u16 hpIV;
+    u16 attackIV;
 };
 
 struct PokemonStorage
