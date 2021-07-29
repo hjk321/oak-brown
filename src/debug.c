@@ -34,9 +34,8 @@ static void DebugTask_HandleMainMenuInput(u8);
 
 static void DebugAction_LivingDex(u8);
 static void DebugAction_PruneParty(u8);
-static void DebugAction_WarpToPallet(u8);
+static void DebugAction_WarpToGravel(u8);
 static void DebugAction_CompletePokedex(u8);
-static void DebugAction_UnlockAllMenus(u8);
 static void DebugAction_UnlockAllQuests(u8);
 static void DebugAction_AccessPC(u8);
 
@@ -44,9 +43,8 @@ enum {
     DEBUG_MENU_ITEM_CANCEL,
     DEBUG_MENU_ITEM_LIVINGDEX,
     DEBUG_MENU_ITEM_PRUNEPARTY,
-    DEBUG_MENU_ITEM_WARPTOPALLET,
+    DEBUG_MENU_ITEM_WARPTOGRAVEL,
     DEBUG_MENU_ITEM_COMPLETEPOKEDEX,
-    DEBUG_MENU_ITEM_UNLOCKALLMENUS,
     DEBUG_MENU_ITEM_UNLOCKALLQUESTS,
     DEBUG_MENU_ITEM_ACCESSPC,
 };
@@ -54,9 +52,8 @@ enum {
 static const u8 gDebugText_Cancel[] = _("Cancel");
 static const u8 gDebugText_LivingDex[] = _("Living Dex");
 static const u8 gDebugText_PruneParty[] = _("Prune Party");
-static const u8 gDebugText_WarpToPallet[] = _("Warp to Pallet");
+static const u8 gDebugText_WarpToGravel[] = _("Warp to Gravel");
 static const u8 gDebugText_CompletePokedex[] = _("Complete Pokédex");
-static const u8 gDebugText_UnlockAllMenus[] = _("Unlock All Menus");
 static const u8 gDebugText_UnlockAllQuests[] = _("Unlock All Quests");
 static const u8 gDebugText_AccessPC[] = _("Access PC");
 
@@ -65,9 +62,8 @@ static const struct ListMenuItem sDebugMenuItems[] =
     [DEBUG_MENU_ITEM_CANCEL] = {gDebugText_Cancel, DEBUG_MENU_ITEM_CANCEL},
     [DEBUG_MENU_ITEM_LIVINGDEX] = {gDebugText_LivingDex, DEBUG_MENU_ITEM_LIVINGDEX},
     [DEBUG_MENU_ITEM_PRUNEPARTY] = {gDebugText_PruneParty, DEBUG_MENU_ITEM_PRUNEPARTY},
-    [DEBUG_MENU_ITEM_WARPTOPALLET] = {gDebugText_WarpToPallet, DEBUG_MENU_ITEM_WARPTOPALLET},
+    [DEBUG_MENU_ITEM_WARPTOGRAVEL] = {gDebugText_WarpToGravel, DEBUG_MENU_ITEM_WARPTOGRAVEL},
     [DEBUG_MENU_ITEM_COMPLETEPOKEDEX] = {gDebugText_CompletePokedex, DEBUG_MENU_ITEM_COMPLETEPOKEDEX},
-    [DEBUG_MENU_ITEM_UNLOCKALLMENUS] = {gDebugText_UnlockAllMenus, DEBUG_MENU_ITEM_UNLOCKALLMENUS},
     [DEBUG_MENU_ITEM_UNLOCKALLQUESTS] = {gDebugText_UnlockAllQuests, DEBUG_MENU_ITEM_UNLOCKALLQUESTS},
     [DEBUG_MENU_ITEM_ACCESSPC] = {gDebugText_AccessPC, DEBUG_MENU_ITEM_ACCESSPC},
 };
@@ -77,9 +73,8 @@ static void (*const sDebugMenuActions[])(u8) =
     [DEBUG_MENU_ITEM_CANCEL] = DebugAction_Cancel,
     [DEBUG_MENU_ITEM_LIVINGDEX] = DebugAction_LivingDex,
     [DEBUG_MENU_ITEM_PRUNEPARTY] = DebugAction_PruneParty,
-    [DEBUG_MENU_ITEM_WARPTOPALLET] = DebugAction_WarpToPallet,
+    [DEBUG_MENU_ITEM_WARPTOGRAVEL] = DebugAction_WarpToGravel,
     [DEBUG_MENU_ITEM_COMPLETEPOKEDEX] = DebugAction_CompletePokedex,
-    [DEBUG_MENU_ITEM_UNLOCKALLMENUS] = DebugAction_UnlockAllMenus,
     [DEBUG_MENU_ITEM_UNLOCKALLQUESTS] = DebugAction_UnlockAllQuests,
     [DEBUG_MENU_ITEM_ACCESSPC] = DebugAction_AccessPC,
 };
@@ -183,7 +178,8 @@ static void DebugAction_LivingDex(u8 taskId)
     u8 box = 0;
     u8 pos = 0;
     
-    Debug_DestroyMainMenu(taskId);
+    FlagSet(FLAG_SYS_POKEMON_GET);
+    DebugAction_CompletePokedex(taskId);
     
     level = GetMonData(&gPlayerParty[0], MON_DATA_LEVEL, NULL);
     if (level < 1)
@@ -205,7 +201,6 @@ static void DebugAction_LivingDex(u8 taskId)
                 species = SPECIES_TREECKO;
         }
     }
-    PlaySE(SE_SAVE);
 }
 
 // Deletes party mons except the first
@@ -222,11 +217,11 @@ static void DebugAction_PruneParty(u8 taskId)
     PlaySE(SE_PC_OFF);
 }
 
-static void DebugAction_WarpToPallet(u8 taskId)
+static void DebugAction_WarpToGravel(u8 taskId)
 {
     Debug_DestroyMainMenu(taskId);
 
-    SetWarpDestination(MAP_GROUP(PALLET_TOWN), MAP_NUM(PALLET_TOWN), -1, 3, 6);
+    SetWarpDestination(MAP_GROUP(GRAVEL_TOWN), MAP_NUM(GRAVEL_TOWN), -1, 26, 14);
     DoTeleportWarp();
 }
 
@@ -235,6 +230,7 @@ static void DebugAction_CompletePokedex(u8 taskId)
     u16 i;
 
     Debug_DestroyMainMenu(taskId);
+    FlagSet(FLAG_SYS_POKEDEX_GET);
 
     for (i = 0; i < NATIONAL_DEX_COUNT + 1; i++)
     {
@@ -246,20 +242,12 @@ static void DebugAction_CompletePokedex(u8 taskId)
     PlaySE(SE_SAVE);
 }
 
-static void DebugAction_UnlockAllMenus(u8 taskId)
-{
-    Debug_DestroyMainMenu(taskId);
-
-    FlagSet(FLAG_SYS_POKEMON_GET);
-    FlagSet(FLAG_SYS_POKEDEX_GET);
-    FlagSet(FLAG_SYS_QUEST_MENU_GET);
-}
-
 static void DebugAction_UnlockAllQuests(u8 taskId)
 {
     u16 i;
 
     Debug_DestroyMainMenu(taskId);
+    FlagSet(FLAG_SYS_QUEST_MENU_GET);
 
     for (i = 0; i < SIDE_QUEST_COUNT; i++)
     {
