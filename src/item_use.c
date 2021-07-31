@@ -192,6 +192,11 @@ static void PrintNotTheTimeToUseThat(u8 taskId, bool8 inField)
     DisplayItemMessageInCurrentContext(taskId, inField, 4, gText_OakForbidsUseOfItemHere);
 }
 
+static void PrintTimPizza(u8 taskId, bool8 inField)
+{
+    DisplayItemMessageInCurrentContext(taskId, inField, 4, gText_TimPizzaUse);
+}
+
 static void Task_ItemUse_CloseMessageBoxAndReturnToField(u8 taskId)
 {
     ClearDialogWindowAndFrame(0, 1);
@@ -911,6 +916,11 @@ void FieldUseFunc_OakStopsYou(u8 taskId)
     }
     else
         PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
+}
+
+void FieldUseFunc_TimPizza(u8 taskId)
+{
+    PrintTimPizza(taskId, gTasks[taskId].data[3]);
 }
 
 void ItemUse_SetQuestLogEvent(u8 eventId, struct Pokemon * pokemon, u16 itemId, u16 param)

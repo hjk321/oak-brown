@@ -1,1 +1,78 @@
-mapscripts GravelTown_PokeMart_MapScripts {}
+const PLAYER_ID = OBJ_EVENT_ID_PLAYER
+const BIKER_CLERK_ID = 0
+
+mapscripts GravelTown_PokeMart_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_MAP_SCENE_GRAVEL_TOWN, 2: GravelTown_PokeMart_TimsPizza
+    ]
+}
+
+script GravelTown_PokeMart_BikerClerk {
+    lock
+    faceplayer
+    if (flag(FLAG_SYS_POKEDEX_GET)) {
+        msgbox(format("Dude, if you wanna buy something, you gotta talk to me from across the counter."))
+        applymovement(BIKER_CLERK_ID, Movement_FaceRight)
+        waitmovement(BIKER_CLERK_ID)
+    } else {
+        msgbox(GravelTown_PokeMart_WeDontDeliver)
+    }
+    release
+}
+
+text GravelTown_PokeMart_WeDontDeliver {
+    format("Hey, don't look at me like that!\pWe don't deliver, you know…")
+}
+
+script GravelTown_PokeMart_ClerkCounter1 {
+    // TODO Check if biker or normal clerk
+    applymovement(BIKER_CLERK_ID, Movement_FaceRight)
+    waitmovement(BIKER_CLERK_ID)
+    if (flag(FLAG_SYS_POKEDEX_GET)) {
+        // TODO Biker shop dialog
+    } else {
+        msgbox(GravelTown_PokeMart_WeDontDeliver)
+    }
+}
+
+script GravelTown_PokeMart_Pokefan {
+    lock
+    faceplayer
+    msgbox(format("This store isn't very well-stocked because Gravel Town is out of the way.\p"
+        "You can still get the basics, like potions and Pokéballs.\p"
+        "… But where am I going to find a new toy for my Glameow?"))
+    release
+}
+
+script GravelTown_PokeMart_BaldingMan {
+    lock
+    faceplayer
+    // TODO Change for normal clerks
+    msgbox(format("I'm a little concerned about that shop clerk.\pHe doesn't seem to know what he's doing."))
+    release
+}
+
+// Pick up Tim's Pizza
+script GravelTown_PokeMart_TimsPizza {
+    lockall
+    textcolor(0)
+    msgbox("Yo, dude!\nCome here for a second!")
+    closemessage
+    applymovement(PLAYER_ID, Movement_PlayerWalkToMartCounter)
+    waitmovement(PLAYER_ID)
+    msgbox(format("Are you a delivery guy or something?\pTim forgot to pick up his pizza!\nHere you go!"))
+    textcolor(3)
+    playfanfare(MUS_OBTAIN_KEY_ITEM)
+    message(format("You got Tim's pizza!\nBetter deliver it!"))
+    waitmessage
+    waitfanfare
+    additem(ITEM_TIMS_PIZZA)
+    setvar(VAR_MAP_SCENE_GRAVEL_TOWN, 3)
+    setflag(FLAG_GOT_TIMS_PIZZA)
+    releaseall
+}
+
+movement Movement_PlayerWalkToMartCounter {
+    walk_up * 5
+    walk_left
+}

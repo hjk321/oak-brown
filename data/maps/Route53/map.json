@@ -148,7 +148,7 @@
       "x": 19,
       "y": 59,
       "elevation": 0,
-      "var": "VAR_MAP_SCENE_GRAVELTOWN",
+      "var": "VAR_MAP_SCENE_GRAVEL_TOWN",
       "var_value": "0",
       "script": "Route53_MeetTim_SequenceBreak"
     },
@@ -157,7 +157,7 @@
       "x": 18,
       "y": 59,
       "elevation": 0,
-      "var": "VAR_MAP_SCENE_GRAVELTOWN",
+      "var": "VAR_MAP_SCENE_GRAVEL_TOWN",
       "var_value": "0",
       "script": "Route53_MeetTim_SequenceBreak"
     },
@@ -166,7 +166,7 @@
       "x": 21,
       "y": 59,
       "elevation": 0,
-      "var": "VAR_MAP_SCENE_GRAVELTOWN",
+      "var": "VAR_MAP_SCENE_GRAVEL_TOWN",
       "var_value": "0",
       "script": "Route53_MeetTim_Start"
     },
@@ -175,7 +175,7 @@
       "x": 22,
       "y": 59,
       "elevation": 0,
-      "var": "VAR_MAP_SCENE_GRAVELTOWN",
+      "var": "VAR_MAP_SCENE_GRAVEL_TOWN",
       "var_value": "0",
       "script": "Route53_MeetTim_Start"
     },
@@ -184,7 +184,7 @@
       "x": 23,
       "y": 59,
       "elevation": 0,
-      "var": "VAR_MAP_SCENE_GRAVELTOWN",
+      "var": "VAR_MAP_SCENE_GRAVEL_TOWN",
       "var_value": "0",
       "script": "Route53_MeetTim_Start"
     },
@@ -193,7 +193,7 @@
       "x": 24,
       "y": 59,
       "elevation": 0,
-      "var": "VAR_MAP_SCENE_GRAVELTOWN",
+      "var": "VAR_MAP_SCENE_GRAVEL_TOWN",
       "var_value": "0",
       "script": "Route53_MeetTim_Start"
     },
@@ -202,7 +202,7 @@
       "x": 25,
       "y": 59,
       "elevation": 0,
-      "var": "VAR_MAP_SCENE_GRAVELTOWN",
+      "var": "VAR_MAP_SCENE_GRAVEL_TOWN",
       "var_value": "0",
       "script": "Route53_MeetTim_Start"
     }

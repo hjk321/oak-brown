@@ -143,7 +143,7 @@
       "x": 5,
       "y": 8,
       "elevation": 0,
-      "var": "VAR_MAP_SCENE_GRAVELTOWN",
+      "var": "VAR_MAP_SCENE_GRAVEL_TOWN",
       "var_value": "1",
       "script": "GravelTown_TimsLab_BookshelfTriggers"
     },
@@ -152,7 +152,7 @@
       "x": 6,
       "y": 8,
       "elevation": 0,
-      "var": "VAR_MAP_SCENE_GRAVELTOWN",
+      "var": "VAR_MAP_SCENE_GRAVEL_TOWN",
       "var_value": "1",
       "script": "GravelTown_TimsLab_BookshelfTriggers"
     },
@@ -161,7 +161,7 @@
       "x": 7,
       "y": 8,
       "elevation": 0,
-      "var": "VAR_MAP_SCENE_GRAVELTOWN",
+      "var": "VAR_MAP_SCENE_GRAVEL_TOWN",
       "var_value": "1",
       "script": "GravelTown_TimsLab_BookshelfTriggers"
     }

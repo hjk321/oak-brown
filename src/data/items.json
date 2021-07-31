@@ -6057,6 +6057,22 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
+    },
+    {
+      "english": "Tim's Pizza",
+      "itemId": "ITEM_TIMS_PIZZA",
+      "price": 0,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "Apparently Tim ordered a pizza and\\nforgot to pick it up. Pineapple and\\nanchovies are his favorite.",
+      "importance": 1,
+      "exitsBagOnUse": 1,
+      "pocket": "POCKET_KEY_ITEMS",
+      "type": 4,
+      "fieldUseFunc": "FieldUseFunc_TimPizza",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
     }
   ]
 }

@@ -5306,6 +5306,8 @@ extern const u8 gFile_graphics_items_icons_gem_sheet[];
 extern const u8 gFile_graphics_items_icon_palettes_ruby_palette[];
 extern const u8 gFile_graphics_items_icons_gem_sheet[];
 extern const u8 gFile_graphics_items_icon_palettes_sapphire_palette[];
+extern const u8 gFile_graphics_items_icons_tims_pizza_sheet[];
+extern const u8 gFile_graphics_items_icon_palettes_tims_pizza_palette[];
 extern const u8 gFile_graphics_items_icons_return_to_field_arrow_sheet[];
 extern const u8 gFile_graphics_items_icon_palettes_return_to_field_arrow_palette[];
 

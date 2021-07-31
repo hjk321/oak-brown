@@ -9,21 +9,21 @@ const TEMPVAR_STARTERCHOICE = VAR_TEMP_1
 
 mapscripts GravelTown_TimsLab_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
-        if (var(VAR_MAP_SCENE_GRAVELTOWN) == 0) { // Setup starter scene
+        if (var(VAR_MAP_SCENE_GRAVEL_TOWN) == 0) { // Setup starter scene
             savebgm(MUS_OAK)
             setobjectxyperm(TIM_ID, 6, 14)
             setobjectmovementtype(TIM_ID, MOVEMENT_TYPE_FACE_UP)
         }
     }
     MAP_SCRIPT_ON_FRAME_TABLE [
-        VAR_MAP_SCENE_GRAVELTOWN, 0: GravelTown_TimsLab_StartChooseStarterScene
+        VAR_MAP_SCENE_GRAVEL_TOWN, 0: GravelTown_TimsLab_StartChooseStarterScene
     ]
 }
 
 script GravelTown_TimsLab_StartChooseStarterScene {
     lockall
     textcolor(0)
-    setvar(VAR_MAP_SCENE_GRAVELTOWN, 1)
+    setvar(VAR_MAP_SCENE_GRAVEL_TOWN, 1)
     applymovement(TIM_ID, Movement_TimWalkFromEntrance)
     applymovement(PLAYER_ID, Movement_PlayerWalkFromEntrance)
     delay(32)
@@ -60,9 +60,9 @@ script GravelTown_TimsLab_BookshelfTriggers {
         applymovement(PLAYER_ID, Movement_WalkUp)
         waitmovement(PLAYER_ID)
         release
-    } elif (var(VAR_MAP_SCENE_GRAVELTOWN) == 1) { // Rival Battle
+    } elif (var(VAR_MAP_SCENE_GRAVEL_TOWN) == 1) { // Rival Battle
         lock
-        setvar(VAR_MAP_SCENE_GRAVELTOWN, 2)
+        setvar(VAR_MAP_SCENE_GRAVEL_TOWN, 2)
         playbgm(MUS_RIVAL_EXIT, 0)
         getplayerxy(VAR_TEMP_9, VAR_TEMP_8)
         switch(var(VAR_STARTER_MON)) {
@@ -171,7 +171,7 @@ script GravelTown_TimsLab_Tim {
     faceplayer
     if (!flag(FLAG_SYS_POKEMON_GET)) {
         msgbox(format("Tim: Now then, {PLAYER}.\nWhich Pokémon will you choose?"))
-    } elif (var(VAR_MAP_SCENE_GRAVELTOWN) == 1) {
+    } elif (var(VAR_MAP_SCENE_GRAVEL_TOWN) == 1) {
         msgbox(format(
             "Tim: I remember when I was in your shoes, all those years ago…\p"
             "Of course, things were a little different back then."))
