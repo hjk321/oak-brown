@@ -158,7 +158,6 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
 #if DEBUG
     if ((heldKeys & B_BUTTON) && input->pressedStartButton)
     {
-        mgba_printf(MGBA_LOG_INFO, "Opening debug menu.");
         input->triggeredDebugMenu = TRUE;
         input->pressedStartButton = FALSE;
     }
