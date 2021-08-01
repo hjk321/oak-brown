@@ -1,5 +1,5 @@
 gOtherText_NewName:: @ 81C574F
-    .string "New Name$"
+    .string "NEW NAME$"
 
 gNameChoice_Green:: @ 81C5758
     .string "Green$"
@@ -203,7 +203,7 @@ gNewGameAdventureIntro3::
 
 gOakText_WelcomeToTheWorld:: @ 81C5C78
     .string "H-hello?!\nYou must be new here.\p"
-    .string "Welcome to this land, called Rijon!\p"
+    .string "Welcome to the land of Rijon!\p"
     .string "My name is Timothy, but you can call\nme Tim.\p"
     .string "I am the island's Pokémon Tutor.\p$"
 
@@ -211,21 +211,22 @@ gOakText_WorldInhabited1:: @ 81C5D06
     .string "$"
 
 gOakText_WorldInhabited2:: @ 81C5D12
-    .string "This is a Pokémon. There are a lot of\nthese in the Rijon area.\p$"
+    .string "This is a Pokémon.\pThere are a lot of these in\nthe Rijon area and around the world.\p$"
 
 gOakText_PetsBattlingStudy:: @ 81C5D4B
     .string "I've done a fair extent of research\non these…\p"
-    .string "and it seems that they have special\ncapabilities for fighting, as well as\l"
-    .string "being tame household pets.\p$"
+    .string "… And it is clear that they have\nspecial and mysterious capabilities.\p"
+    .string "Oftentimes, they are kept as tame\nhousehold pets or used for battles.\p"
+    .string "You can also find them in the\nworkplace, or naturally in the wild.\p$"
 
 gOakText_TellMeALittleAboutYourself:: @ 81C5DBD
-    .string "Oh, um, I suppose I'm getting a \nlittle ahead of myself.\p$"
+    .string "I suppose I'm getting a\nlittle ahead of myself.\pLet's learn a little more about you.\p$"
 
 gOakText_AskPlayerName:: @ 81C5DEA
     .string "What's your name, young man?$"
 
 gOakText_FinalizePlayerName:: @ 81C5E13
-    .string "Oh, {PLAYER}, right?$"
+    .string "Oh, {PLAYER}, was it?$"
 
 gOakText_IntroduceRival:: @ 81C5E2E
     .string "This is my grandson.\pHe's been your rival since you both\n"
@@ -242,8 +243,8 @@ gOakText_RememberRivalName:: @ 81C5EC5
     .string "His name is {RIVAL}!\p$"
 
 gOakText_LegendAboutToUnfold:: @ 81C5EF4
-    .string "{PLAYER}!\nNow that you have met some people…\p"
-    .string "…all you need now is to journey the\ntown.\p"
-    .string "I think your mother has settled in\nand finished unpacking.\p"
-    .string "Your adventure starts here, so come\nsee me sometime tomorrow, after you\lawake.\p"
+    .string "{PLAYER}!\p"
+    .string "Your path is set out before you!\pYour journey will bring you to\nnew places and people.\p"
+    .string "Learn and experience new things!\nThat is the only way a kid can grow.\p"
+    .string "I'll be expecting you at my lab\ntomorrow morning.\p"
     .string "See you later!$"

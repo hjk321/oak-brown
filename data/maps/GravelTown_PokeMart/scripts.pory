@@ -69,6 +69,9 @@ script GravelTown_PokeMart_TimsPizza {
     additem(ITEM_TIMS_PIZZA)
     setvar(VAR_MAP_SCENE_GRAVEL_TOWN, 3)
     setflag(FLAG_GOT_TIMS_PIZZA)
+    setflag(FLAG_HIDE_BULBASAUR_BALL)
+    setflag(FLAG_HIDE_CHARMANDER_BALL)
+    setflag(FLAG_HIDE_SQUIRTLE_BALL)
     releaseall
 }
 

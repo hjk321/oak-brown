@@ -13,6 +13,7 @@ script GravelTown_House_Girl {
 script GravelTown_House_Pikachu {
     lock
     faceplayer
+    playmoncry(SPECIES_PIKACHU, 0)
     msgbox(format("Pika… Pikachu!"))
     release
 }

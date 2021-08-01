@@ -39,13 +39,20 @@ script GravelTown_TimsLab_StartChooseStarterScene {
     msgbox(format(
         "Tim: Mura, be patient. This is a momentous occasion, after all!\p"
         "Now then, are you both ready for your first Pokémon?\p"
-        "I have three newly-hatched Pokémon here.\p"
-        "My grandfather wanted me to carry on the tradition of being a master trainer.\p"
-        "I'm passing his legacy to you two!\p"
-        "Mura: Yeah, yeah. Get on with it!\p"
-        "Tim: … … …\p{PLAYER}, go ahead and take a Pokémon."))
+        "I have three newly-hatched Pokémon here, courtesy of Professor Oak's lab.\p"
+        "Like you two, these creatures are young and full of potential.\p"
+        "I hope you will grow and experience the world together, you and your Pokémon, through thick and thin.\p"
+        "My grandfather wanted me to carry on the tradition of being a master trainer…\p"
+        "But my life took a different turn.\nI'm passing his legacy to you two!"))
     applymovement(MURA_ID, Movement_FaceRight)
-    msgbox(format("Mura: Hey, how come he gets to pick first?"))
+    msgbox(format("Mura: Man, {PLAYER}, is this guy a snoozefest or what?"))
+    applymovement(MURA_ID, Movement_FaceUp)
+    msgbox(format("Come on, old man! Let's get this moving!\p"
+        "I've waited too long for this day to listen to you ramble!"
+        "Tim: … … … … …\p"
+        "Very well. {PLAYER}, go ahead and choose your Pokémon."))
+    applymovement(MURA_ID, Movement_FaceRight)
+    msgbox(format("Mura: Hey, what's the big idea?\nHow come he gets to pick first?"))
     releaseall
     setobjectmovementtype(MURA_ID, MOVEMENT_TYPE_LOOK_AROUND)
 }
@@ -402,17 +409,20 @@ script GravelTown_TimsLab_Scientist {
     msgbox(format("Tim may not be much of a Professor compared to Oak or Elm…\p"
         "However, his work on the care and wellness of Pokémon is not to be discounted!\p"
         "He's actually written several books on many kinds of Pokémon.\p"
-        "In fact, he's even been published internationally."))
+        "In fact, he's even been published internationally.\p"
+        "I really wish the scientific community would pay more attention to him…"))
     release
 }
 
 script GravelTown_TimsLab_Lady {
     lock
     faceplayer
-    msgbox(format("Tim has been helping Prof. Elm study Pokémon eggs lately.\p"
-        "I help Tim take care of the baby Pokémon that hatch from them.\p"
+    msgbox(format("We're trying to raise our own starter Pokémon for Rijon trainers, instead of getting them from Kanto.\p"
+        "Professor Elm has been helping Tim incubate Pokémon eggs lately.\p"
+        "I help Tim take care of the newborn Pokémon that hatch.\p"
         "But this building doesn't have the right equipment for incubating that many eggs…\p"
-        "Maybe if you come back later, Tim will give you one."))
+        "So for now, we're stuck getting our starters from Professor Oak.\p"
+        "Maybe if you come back later, Tim will give you an egg."))
     release
 }
 
@@ -420,13 +430,14 @@ script GravelTown_TimsLab_FatMan {
     lock
     faceplayer
     if (!flag(FLAG_GOT_TIMS_PIZZA)) {
-        msgbox(format("You just received your first Pokémon?\pCongratulations!"))
+        msgbox(format("Ah, so you were one of the lucky three to get a Pokémon from Kanto?\p"
+            "Congratulations! Oak doesn't send us very many."))
     } elif (!flag(FLAG_SYS_POKEDEX_GET)) {
         msgbox(format("Someone came in for the last Pokémon just after you left.\p"
             "I wonder who she was…?"))
     } else {
         msgbox(format("My Oddish was looking pale and limp for days.\p"
-            "But Tim showed me how to make it feel better.\p"
+            "Tim showed me how to make it feel better.\p"
             "Turns out, it just needed more sunlight and a few Oran berries."))
     }
     release

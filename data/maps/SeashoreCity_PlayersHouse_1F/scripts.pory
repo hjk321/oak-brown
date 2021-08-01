@@ -10,7 +10,7 @@ script SeashoreCity_PlayersHouse_1F_Mom {
     lock
     faceplayer
     if (!flag(FLAG_SYS_POKEMON_GET)) {
-        msgbox(format("Mom: Good luck in following in your dad's footsteps, sweetie!\pGo south and look for Timothy, the Pokémon Tutor."))
+        msgbox(format("Mom: Good morning, sweetie!\nToday's your big day!\pYou should start walking south to Gravel Town soon.\pTim will be expecting you."))
     } else {
         msgbox(format("Mom: {PLAYER}, you look tired!\nYou should take a quick rest."))
         closemessage

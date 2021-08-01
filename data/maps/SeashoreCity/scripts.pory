@@ -3,7 +3,9 @@ mapscripts SeashoreCity_MapScripts {}
 script SeashoreCity_OldMan {
     lock
     faceplayer
-    msgbox(format("You should never be afraid to follow your dreams.\pBy attempting to reach your goals, things might not work out the way you expect, of course…\p…but you may end up accomplishing something else, instead!\pYou never know where you might end\nup!"))
+    msgbox(format("You should never be afraid to follow your dreams.\p"
+    "By attempting to reach your goals, things might not work out the way you expect, of course…\p"
+    "… But you may end up accomplishing something else, instead!\pYou never know where you might end up!"))
     release
 }
 
@@ -15,12 +17,15 @@ script SeashoreCity_YoungBoy {
         waitmessage
         yesnobox(2, 2)
         if (var(VAR_RESULT)) {
-            msgbox(format("Cool! I'm going to be one soon as\nwell!\pIt's very hard, but rewarding!"))
+            msgbox(format("Cool! I'm going to be one soon as\nwell!\pIt's very hard, but rewarding!\p"
+            "Well, good luck in Gravel Town! Hope to see you again soon!"))
         } else {
-            msgbox("Well, why not?")
+            msgbox(format("Hahah!\nYou're such a jokester, {PLAYER}!\p"
+            "You've been talking about getting a Pokémon nonstop since you moved in!\p"
+            "I don't even know why I asked in the first place!"))
         }
     } elif (!flag(FLAG_BADGE01_GET)) {
-        msgbox(format("Hey, you got a Pokémon, didn't you?\pWhich one did you pick?"))
+        msgbox(format("Hey, you got a Pokémon, didn't you?\nWhich one did you pick?"))
     } else {
         msgbox(format("Hey, {PLAYER}!\pHow's the trainer life treating you?"))
     }
@@ -32,10 +37,10 @@ script SeashoreCity_Lass {
     faceplayer
     if (!flag(FLAG_BADGE01_GET)) {
         msgbox("Are those new shoes?\pTry running with them by holding {B_BUTTON}!")
-    } elif (!flag(FLAG_GOT_BICYCLE)) {
-        msgbox(format("Even though you have a Bicycle, you're still wearing those running shoes, huh?"))
-    } elif (!flag(FLAG_BADGE08_GET)) {
+    } elif (flag(FLAG_BADGE08_GET)) {
         msgbox(format("You've travelled the entire region by now…\pAnd you're still wearing those old running shoes!"))
+    } elif (flag(FLAG_GOT_BICYCLE)) {
+        msgbox(format("Even though you have a Bicycle, you're still wearing those running shoes, huh?"))
     } else {
         msgbox(format("Those running shoes look dirty and worn out!\pDo you travel a lot on foot?"))
     }

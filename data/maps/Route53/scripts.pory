@@ -61,7 +61,7 @@ script Route53_Hayden {
         "We're both trainers now!\nYou know what that means!\pAre you ready for this?", 
         "Oh no!\nYou were ready for that!")
     msgbox(format("The tall grass here is blocked by trees.\pThat means it's hard for me to train my Pokémon.\p"
-        "Maybe I should try to teach my Sentret to use HM Cut…"), MSGBOX_AUTOCLOSE)
+        "Maybe I should try to teach my Sentret to use HM01 Cut…"), MSGBOX_AUTOCLOSE)
 }
 
 script Route53_Mura {
@@ -157,7 +157,7 @@ script Route53_MeetTim_SequenceBreak {
 }
 
 script Route53_MeetTim_Main {
-    msgbox(format("I've been waiting for you to get here!\pYou need your very own Pokémon, so come with me to my lab right away!"))
+    msgbox(format("I've been waiting for you to get here!\pPlease come with me!"))
     closemessage
     setflag(FLAG_DONT_TRANSITION_MUSIC)
     switch(var(VAR_TEMP_0)) {
