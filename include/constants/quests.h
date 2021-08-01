@@ -8,6 +8,7 @@
 #define QUEST_MENU_BUFFER_QUEST_NAME    3   //buffers a quest name to gStringVar1
 #define QUEST_MENU_CHECK_UNLOCKED       4   //checks if questId has been unlocked. Returns result to gSpecialVar_Result
 #define QUEST_MENU_CHECK_COMPLETE       5   //checks if questId has been completed. Returns result to gSpecialVar_Result
+#define QUEST_MENU_BUFFER_OBJECTIVES    6   //buffers the number of complete objectives for a quest. Returns result to gSpecialVar_Result
 
 // quest number defines
 #define SIDE_QUEST_POKEDEX_MASTER       0

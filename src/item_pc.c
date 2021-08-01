@@ -1495,6 +1495,10 @@ void CopyQuestName(u8 *dst, u8 questId)
     StringCopy(dst, sSideQuests[questId].name);
 }
 
+u16 GetCompletedObjectives(u8 questId) {
+    return sSideQuests[questId].completedObjectives();
+}
+
 void CB2_QuestMenuFromStartMenu(void)
 {
     ItemPc_Init(0, CB2_ReturnToField);

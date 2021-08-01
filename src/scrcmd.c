@@ -2294,6 +2294,9 @@ bool8 ScrCmd_questmenu(struct ScriptContext *ctx)
         else
             gSpecialVar_Result = FALSE;
         break;
+    case QUEST_MENU_BUFFER_OBJECTIVES:
+        gSpecialVar_Result = GetCompletedObjectives(questId);
+        break;
     }
     
     return TRUE;

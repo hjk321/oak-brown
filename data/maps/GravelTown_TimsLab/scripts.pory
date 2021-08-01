@@ -615,7 +615,7 @@ script GravelTown_TimsLab_PokedexScene {
     setflag(TEMPFLAG_POKEDEX)
     setflag(FLAG_SYS_POKEDEX_GET)
     setflag(FLAG_SYS_QUEST_MENU_GET)
-    questmenu(QUEST_MENU_UNLOCK_QUEST, SIDE_QUEST_POKEDEX_MASTER)
+    unlockquest(SIDE_QUEST_POKEDEX_MASTER)
     releaseall
 }
 

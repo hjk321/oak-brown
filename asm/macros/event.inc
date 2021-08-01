@@ -1445,17 +1445,12 @@
 	.2byte \item
 	.2byte \quantity
 	.endm
-    
-    .macro questmenu case:req, questId:req
-    .byte 0xd5
-    .byte \case
-    .byte \questId
-    .endm
-    
-    .macro openquestmenu
-    questmenu 0 0
-    .endm
 
+	.macro questmenu case:req, questId:req
+	.byte 0xd5
+	.byte \case
+	.byte \questId
+	.endm
 
 @ Supplementary
 
@@ -1650,4 +1645,32 @@
 	braillemessage \text
 	getbraillestringwidth \text
 	call EventScript_BrailleCursorWaitButton
+	.endm
+
+	.macro openquestmenu
+	questmenu QUEST_MENU_OPEN, 0
+	.endm
+
+	.macro unlockquest questId:req
+	questmenu QUEST_MENU_UNLOCK_QUEST, \questId
+	.endm
+
+	.macro completequest questId:req
+	questmenu QUEST_MENU_COMPLETE_QUEST, \questId
+	.endm
+
+	.macro bufferquestname questId:req
+	questmenu QUEST_MENU_BUFFER_QUEST_NAME, \questId
+	.endm
+
+	.macro checkquestunlocked questId:req
+	questmenu QUEST_MENU_CHECK_UNLOCKED, \questId
+	.endm
+
+	.macro checkquestcomplete questId:req
+	questmenu QUEST_MENU_CHECK_COMPLETE, \questId
+	.endm
+
+	.macro bufferquestobjectives questId:req
+	questmenu QUEST_MENU_BUFFER_OBJECTIVES, \questId
 	.endm
