@@ -10,8 +10,8 @@
 #define QUEST_MENU_CHECK_COMPLETE       5   //checks if questId has been completed. Returns result to gSpecialVar_Result
 
 // quest number defines
-#define SIDE_QUEST_1          0
-#define SIDE_QUEST_2          1
+#define SIDE_QUEST_POKEDEX_MASTER       0
+#define SIDE_QUEST_CATCH_EM_ALL         1
 #define SIDE_QUEST_3          2
 #define SIDE_QUEST_4          3
 #define SIDE_QUEST_5          4

@@ -21,7 +21,7 @@ script GravelTown_PokeMart_BikerClerk {
 }
 
 text GravelTown_PokeMart_WeDontDeliver {
-    format("Hey, don't look at me like that!\pWe don't deliver, you know…")
+    format("Hey, don't look at me!\nWe don't deliver, you know…")
 }
 
 script GravelTown_PokeMart_ClerkCounter1 {
@@ -69,9 +69,8 @@ script GravelTown_PokeMart_TimsPizza {
     additem(ITEM_TIMS_PIZZA)
     setvar(VAR_MAP_SCENE_GRAVEL_TOWN, 3)
     setflag(FLAG_GOT_TIMS_PIZZA)
-    setflag(FLAG_HIDE_BULBASAUR_BALL)
-    setflag(FLAG_HIDE_CHARMANDER_BALL)
-    setflag(FLAG_HIDE_SQUIRTLE_BALL)
+    textcolor(0)
+    msgbox(GravelTown_PokeMart_WeDontDeliver)
     releaseall
 }
 

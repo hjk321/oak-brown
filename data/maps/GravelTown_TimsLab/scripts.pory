@@ -4,14 +4,27 @@ const PLAYER_ID = OBJ_EVENT_ID_PLAYER
 const CHARMANDER_ID = 3
 const SQUIRTLE_ID = 5
 const BULBASAUR_ID = 4
+const POKEDEX_LEFT_ID = 9
+const POKEDEX_RIGHT_ID = 10
 
 const TEMPVAR_STARTERCHOICE = VAR_TEMP_1
+const TEMPVAR_PLAYER_X = VAR_TEMP_8
+const TEMPVAR_PLAYER_Y = VAR_TEMP_9
+const TEMPFLAG_POKEDEX = FLAG_TEMP_A
 
 mapscripts GravelTown_TimsLab_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
+        setflag(TEMPFLAG_POKEDEX)
         if (var(VAR_MAP_SCENE_GRAVEL_TOWN) == 0) { // Setup starter scene
             savebgm(MUS_OAK)
             setobjectxyperm(TIM_ID, 6, 14)
+            setobjectmovementtype(TIM_ID, MOVEMENT_TYPE_FACE_UP)
+        } elif (var(VAR_MAP_SCENE_GRAVEL_TOWN) == 3) { // Setup Pokédex scene
+            clearflag(TEMPFLAG_POKEDEX)
+            setflag(FLAG_HIDE_BULBASAUR_BALL)
+            setflag(FLAG_HIDE_CHARMANDER_BALL)
+            setflag(FLAG_HIDE_SQUIRTLE_BALL)
+            setobjectxyperm(MURA_ID, 6, 10)
             setobjectmovementtype(TIM_ID, MOVEMENT_TYPE_FACE_UP)
         }
     }
@@ -39,7 +52,7 @@ script GravelTown_TimsLab_StartChooseStarterScene {
     msgbox(format(
         "Tim: Mura, be patient. This is a momentous occasion, after all!\p"
         "Now then, are you both ready for your first Pokémon?\p"
-        "I have three newly-hatched Pokémon here, courtesy of Professor Oak's lab.\p"
+        "I have three newly-hatched Pokémon here, courtesy of Professor Oak's laboratory.\p"
         "Like you two, these creatures are young and full of potential.\p"
         "I hope you will grow and experience the world together, you and your Pokémon, through thick and thin.\p"
         "My grandfather wanted me to carry on the tradition of being a master trainer…\p"
@@ -48,7 +61,7 @@ script GravelTown_TimsLab_StartChooseStarterScene {
     msgbox(format("Mura: Man, {PLAYER}, is this guy a snoozefest or what?"))
     applymovement(MURA_ID, Movement_FaceUp)
     msgbox(format("Come on, old man! Let's get this moving!\p"
-        "I've waited too long for this day to listen to you ramble!"
+        "I've waited too long for this day to listen to you ramble!\p"
         "Tim: … … … … …\p"
         "Very well. {PLAYER}, go ahead and choose your Pokémon."))
     applymovement(MURA_ID, Movement_FaceRight)
@@ -71,10 +84,10 @@ script GravelTown_TimsLab_BookshelfTriggers {
         lock
         setvar(VAR_MAP_SCENE_GRAVEL_TOWN, 2)
         playbgm(MUS_RIVAL_EXIT, 0)
-        getplayerxy(VAR_TEMP_9, VAR_TEMP_8)
+        getplayerxy(TEMPVAR_PLAYER_X, TEMPVAR_PLAYER_Y)
         switch(var(VAR_STARTER_MON)) {
             case STARTER_BULBASAUR:
-                switch(var(VAR_TEMP_9)) {
+                switch(var(TEMPVAR_PLAYER_X)) {
                     case 5:
                         applymovement(MURA_ID, Movement_MuraWalk3)
                     case 6:
@@ -83,7 +96,7 @@ script GravelTown_TimsLab_BookshelfTriggers {
                         applymovement(MURA_ID, Movement_MuraWalk1)
                 }
             case STARTER_SQUIRTLE:
-                switch(var(VAR_TEMP_9)) {
+                switch(var(TEMPVAR_PLAYER_X)) {
                     case 5:
                         applymovement(MURA_ID, Movement_MuraWalk5)
                     case 6:
@@ -92,7 +105,7 @@ script GravelTown_TimsLab_BookshelfTriggers {
                         applymovement(MURA_ID, Movement_MuraWalk3)
                 }
             case STARTER_CHARMANDER:
-                switch(var(VAR_TEMP_9)) {
+                switch(var(TEMPVAR_PLAYER_X)) {
                     case 5:
                         applymovement(MURA_ID, Movement_MuraWalk4)
                     case 6:
@@ -183,13 +196,17 @@ script GravelTown_TimsLab_Tim {
             "Tim: I remember when I was in your shoes, all those years ago…\p"
             "Of course, things were a little different back then."))
     } elif (!flag(FLAG_SYS_POKEDEX_GET)) {
-        // TODO: Tim's pizza check
+        if (flag(FLAG_GOT_TIMS_PIZZA)) {
+            goto(GravelTown_TimsLab_PokedexScene)
+        }
         msgbox(format("Tim: {PLAYER}!\p"
             "A whole world of excitement awaits you…\p"
             "But remember that your Pokémon will be equal partners in your journey!\p"
             "Always make sure that what you want is also what they want.\p"
             "Pay attention to their needs and develop a friendship with them.\p"
             "I expect you to take good care of your Pokémon!"))
+    } elif (!flag(FLAG_BADGE01_GET)) {
+        msgbox(format("Tim: Pokémon are just waiting to be caught, {PLAYER}!"))
     }
     release
 }
@@ -252,6 +269,7 @@ script GravelTown_TimsLab_PokeballBulbasaur {
 script GravelTown_TimsLab_GetStarter {
     erasemonpic
     if(!var(VAR_RESULT)) {
+        // Didn't confirm choice.
         release
         end
     }
@@ -397,6 +415,258 @@ movement Movement_PlayerLookMuraExitRight {
     face_right
     delay_16
     face_down
+}
+
+// Pokédex Scene
+
+script GravelTown_TimsLab_Pokedex {
+    msgbox("What's this thing?\nBetter ask Tim first!", MSGBOX_AUTOCLOSE)
+}
+
+script GravelTown_TimsLab_PokedexScene {
+    msgbox(format("Tim: Oh? You have something for me?"))
+    setvar(VAR_MAP_SCENE_GRAVEL_TOWN, 4)
+    removeitem(ITEM_TIMS_PIZZA, 1)
+    playfanfare(MUS_OBTAIN_KEY_ITEM)
+    textcolor(2)
+    message("Delivered Tim's pizza.")
+    waitmessage
+    waitfanfare
+    textcolor(0)
+    msgbox("Oh, right! I had ordered pizza\nearlier.\p"
+        "But that's odd… Aren't they\nsupposed to deliver it themselves?\p"
+        "Ah, no matter.\nThank you for bringing it to me.\p"
+        "Actually, now that I think about it,\nit's a good thing you came.\p"
+        "You see, part of the agreement\nwith Professor Oak was that--")
+    closemessage
+    playbgm(MUS_RIVAL_EXIT, 0)
+    addobject(MURA_ID)
+    getplayerxy(TEMPVAR_PLAYER_X, TEMPVAR_PLAYER_Y)
+    if (var(TEMPVAR_PLAYER_Y) == 4) {
+        applymovement(PLAYER_ID, Movement_PlayerGetOutOfTheWay)
+        applymovement(MURA_ID, Movement_MuraWalkForPokedexPushPlayer)
+        delay(80)
+        playse(SE_SUPER_EFFECTIVE)
+        waitmovement(MURA_ID)
+        delay(64)
+    } else {
+        applymovement(MURA_ID, Movement_MuraWalkForPokedex)
+        waitmovement(MURA_ID)
+    }
+    if (var(TEMPVAR_PLAYER_Y) == 2) {
+        msgbox(format("Mura: Hey, Tim!"))
+        closemessage
+        applymovement(TIM_ID, Movement_FaceDown)
+        applymovement(PLAYER_ID, Movement_PlayerWalkForPokedex_North)
+        waitmovement(PLAYER_ID)
+        msgbox(format("Mura: Didn't you tell me earlier you had some other thing to show us?"))
+    } else {
+        msgbox(format("Mura: Hey, Tim!\pDidn't you tell me earlier you had some kinda other thing to show us?"))
+        applymovement(TIM_ID, Movement_FaceDown)
+    }
+    msgbox(format("Tim: Ah, yes. Your timing is impeccable, Mura.\pI was just about to explain."))
+    if (var(TEMPVAR_PLAYER_Y) == 4) {
+        msgbox(format("Now, if you would please join {PLAYER}, we can begin."))
+    } else {
+        if (var(TEMPVAR_PLAYER_Y) == 2) {
+            applymovement(TIM_ID, Movement_FaceRight)
+        } else {
+            faceplayer
+        }
+        msgbox(format("{PLAYER}, if you would please join your friend, we can begin."))
+    }
+    closemessage
+    switch (var(TEMPVAR_PLAYER_X)) {
+        case 5:
+            applymovement(PLAYER_ID, Movement_PlayerWalkForPokedex_West)
+        case 6:
+            if (var(TEMPVAR_PLAYER_Y) == 2) {
+                applymovement(PLAYER_ID, Movement_PlayerWalkForPokedex_East)
+            } else {
+                applymovement(MURA_ID, Movement_WalkDown)
+                waitmovement(MURA_ID)
+            }
+        case 7:
+            applymovement(PLAYER_ID, Movement_PlayerWalkForPokedex_East)
+    }
+    waitmovement(PLAYER_ID)
+    applymovement(PLAYER_ID, Movement_FaceUp)
+    applymovement(MURA_ID, Movement_FaceUp)
+    applymovement(TIM_ID, Movement_FaceDown)
+    fadedefaultbgm
+    delay(96)
+    msgbox(format("Tim: Ahem!"))
+    closemessage
+    applymovement(TIM_ID, Movement_WalkRight)
+    waitmovement(TIM_ID)
+    applymovement(TIM_ID, Movement_FaceDown)
+    delay(16)
+    msgbox(format("As you're probably aware, starter Pokémon are in short supply here.\p"
+        "Only through generous contributions from Professors Oak and Elm are we able to give any away at all."))
+    closemessage
+    applymovement(TIM_ID, Movement_WalkLeft)
+    waitmovement(TIM_ID)
+    applymovement(TIM_ID, Movement_FaceDown)
+    delay(16)
+    msgbox(format("Your particular Pokémon came from a labratory in Pallet Town.\p"
+        "Since Professor Oak supplied these rare Pokémon for you…\p"
+        "He does have a request of you while on your journey."))
+    closemessage
+    applymovement(TIM_ID, Movement_WalkRight)
+    waitmovement(TIM_ID)
+    applymovement(TIM_ID, Movement_FaceDown)
+    delay(16)
+    msgbox(format("You see, Professor Oak is one of the world's leading authorities on Pokémon.\p"
+        "One of his greatest inventions is an electronic encyclopedia called a Pokédex.\p"
+        "It records data on every Pokémon it can find, which is a great aid to his research."))
+    closemessage
+    applymovement(TIM_ID, Movement_TimWalkToPokdex)
+    waitmovement(TIM_ID)
+    applymovement(MURA_ID, Movement_FaceRight)
+    applymovement(PLAYER_ID, Movement_FaceRight)
+    delay(16)
+    msgbox(format("These two devices you see before you are Pokédexes.\p"
+        "You are beginning to get the picture, no?\p"
+        "Mura: Get to the point, already!\p"
+        "Tim: Very well.\pTo put it simply, you will be tasked record as much data as possible using the Pokédex.\p"
+        "It's fairly easy to use. I'll leave it to you two to figure it out."))
+    closemessage
+    delay(16)
+    removeobject(POKEDEX_RIGHT_ID)
+    delay(16)
+    applymovement(TIM_ID, Movement_WalkLeft)
+    waitmovement(TIM_ID)
+    applymovement(TIM_ID, Movement_FaceDown)
+    delay(16)
+    removeobject(POKEDEX_LEFT_ID)
+    delay(16)
+    applymovement(TIM_ID, Movement_WalkLeft)
+    waitmovement(TIM_ID)
+    applymovement(TIM_ID, Movement_WalkDown)
+    waitmovement(TIM_ID)
+    applymovement(PLAYER_ID, Movement_FaceUp)
+    delay(32)
+    textcolor(2)
+    playfanfare(MUS_OBTAIN_KEY_ITEM)
+    message("{PLAYER} recieved a Pokédex!")
+    waitfanfare
+    waitmessage
+    delay(32)
+    closemessage
+    applymovement(TIM_ID, Movement_WalkLeft)
+    waitmovement(TIM_ID)
+    applymovement(TIM_ID, Movement_FaceDown)
+    applymovement(MURA_ID, Movement_FaceUp)
+    delay(32)
+    playfanfare(MUS_OBTAIN_KEY_ITEM)
+    message("Mura recieved a Pokédex!")
+    waitfanfare
+    waitmessage
+    delay(32)
+    closemessage
+    applymovement(TIM_ID, Movement_WalkUp)
+    waitmovement(TIM_ID)
+    applymovement(TIM_ID, Movement_FaceDown)
+    delay(16)
+    textcolor(0)
+    msgbox(format("Tim: That is all. Good luck!"))
+    applymovement(MURA_ID, Movement_FaceRight)
+    applymovement(PLAYER_ID, Movement_FaceLeft)
+    msgbox(format("Mura: Well, {PLAYER}, you can just leave this Pokédex business to me."))
+    if (flag(FLAG_BEAT_MURA_STARTER)) {
+        msgbox(format("You may have gotten lucky against me in battle…\p"
+            "But I'll catch as many powerful Pokémon as I can!\p"
+            "You won't stand a chance!"))
+    } else {
+        msgbox(format("I mean, I'm already running circles around you in battles.\p"
+            "I guess I'll just have to show you who's boss with this, too!"))
+    }
+    msgbox(format("Don't even bother trying to fill your Dex. I'll get it done first!"))
+    applymovement(TIM_ID, Movement_FaceDown)
+    applymovement(MURA_ID, Movement_FaceUp)
+    applymovement(PLAYER_ID, Movement_FaceUp)
+    msgbox(format("Tim: Mura, that's not the purpose of this task.\p"
+        "In fact, the Pokédex has already been completed several times before.\p"
+        "Every Pokémon is slightly different, even those of the same species.\p"
+        "The more data we get from around the globe, the better.\p"
+        "So, both of you should try your hardest to find as many as possible.\p"
+        "Mura: Whatever, old man! You can't tell me what to do!"))
+    applymovement(MURA_ID, Movement_FaceRight)
+    applymovement(PLAYER_ID, Movement_FaceLeft)
+    msgbox(format("Don't wait up, {PLAYER}!\p"
+        "I'm gonna buy tons of Pokéballs with all my cash.\p"
+        "Best of luck to ya, buddy.\n"
+        "Ciao!"))
+    closemessage
+    playbgm(MUS_RIVAL_EXIT, 0)
+    applymovement(MURA_ID, Movement_MuraExit)
+    delay(32)
+    applymovement(PLAYER_ID, Movement_FaceDown)
+    waitmovement(MURA_ID)
+    removeobject(MURA_ID)
+    delay(48)
+    fadedefaultbgm
+    delay(16)
+    playse(SE_EXIT)
+    waitse
+    delay(64)
+    msgbox("Tim: … … …\pWell, you can't fault his enthusiasm,\nat least.")
+    setobjectmovementtype(TIM_ID, MOVEMENT_TYPE_FACE_DOWN)
+    setflag(TEMPFLAG_POKEDEX)
+    setflag(FLAG_SYS_POKEDEX_GET)
+    setflag(FLAG_SYS_QUEST_MENU_GET)
+    questmenu(QUEST_MENU_UNLOCK_QUEST, SIDE_QUEST_POKEDEX_MASTER)
+    releaseall
+}
+
+movement Movement_MuraWalkForPokedex {
+    walk_up * 5
+}
+
+movement Movement_MuraWalkForPokedexPushPlayer {
+    walk_up * 6
+}
+
+movement Movement_PlayerWalkForPokedex_North {
+    walk_right
+    walk_down
+}
+
+movement Movement_PlayerWalkForPokedex_South {
+    walk_down
+    face_up
+}
+
+movement Movement_PlayerWalkForPokedex_East {
+    walk_down * 2
+    face_up
+}
+
+movement Movement_PlayerWalkForPokedex_West {
+    walk_down
+    walk_right * 2
+    walk_down
+    face_up
+}
+
+movement Movement_PlayerGetOutOfTheWay {
+    delay_16 * 5
+    face_left
+    lock_facing_direction
+    disable_jump_landing_ground_effect
+    jump_right
+    walk_down
+    enable_jump_landing_ground_effect
+    unlock_facing_direction
+}
+
+movement Movement_TimWalkToPokdex {
+    walk_right * 2
+    face_down
+}
+
+movement Movement_MuraExit {
+    walk_down * 7
 }
 
 // ----------------

@@ -58,6 +58,18 @@ Movement_FaceUp::
 	face_up
 	step_end
 
+Movement_WalkRight:: @ 81A75EF
+	walk_right
+	step_end
+
+Movement_WalkLeft::
+	walk_left
+	step_end
+
+Movement_WalkDown:: @ 81A75F1
+	walk_down
+	step_end
+
 Movement_WalkUp5:: @ 81A75F3
 	walk_up
 	walk_up

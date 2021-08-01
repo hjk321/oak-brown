@@ -1371,7 +1371,7 @@ const u8 gText_SideQuestName_28[] = _("Side Quest 28");
 const u8 gText_SideQuestName_29[] = _("Side Quest 29");
 const u8 gText_SideQuestName_30[] = _("Side Quest 30");
 //descriptions
-const u8 gText_SideQuestDesc_PokedexMaster[] = _("Tim has given you a Pokédex. Find\nand record data on every Pokémon\nto complete the Pokédex!");
+const u8 gText_SideQuestDesc_PokedexMaster[] = _("Tim has given you a Pokédex. Find\nand record data on every Pokémon!\nYou don't need to catch them yet.");
 const u8 gText_SideQuestDesc_CatchEmAll[] = _("You've seen a lot of Pokémon, but\nTim wants you to record better data\nfor the Pokédex. Catch 'em all!");
 const u8 gText_SideQuestDesc_3[] = _("Description 3");
 const u8 gText_SideQuestDesc_4[] = _("Description 4");

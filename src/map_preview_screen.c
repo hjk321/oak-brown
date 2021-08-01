@@ -453,7 +453,7 @@ u16 MapPreview_CreateMapNameWindow(u8 mapsec)
     color[2] = TEXT_COLOR_LIGHT_GRAY; 
     GetMapName(gStringVar4, mapsec, 0);
     xctr = 104 - GetStringWidth(2, gStringVar4, 0);
-    AddTextPrinterParameterized4(windowId, 2, xctr / 2, 2, 0, 0, color -1, gStringVar4);
+    AddTextPrinterParameterized4(windowId, 2, xctr / 2, 2, 0, 0, color, -1, gStringVar4);
     return windowId;
 }
 

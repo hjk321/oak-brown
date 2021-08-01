@@ -92,9 +92,9 @@ script GravelTown_Beauty {
 }
 
 script GravelTown_GravelTownSign {
-    msgbox("Gravel Town\nA peaceful mountainside community.")
+    msgbox("Gravel Town\nA peaceful mountainside community.", MSGBOX_SIGN)
 }
 
 script GravelTown_MersonCaveSign {
-    msgbox("Merson Cave")
+    msgbox("Merson Cave", MSGBOX_SIGN)
 }
