@@ -738,8 +738,7 @@ static void SpawnListMenuScrollIndicatorSprites(void)
     gSprites[sMoveRelearner->spriteIds[0]].data[0] = 2;
     gSprites[sMoveRelearner->spriteIds[0]].data[2] = -1;
 
-    // Bug: This should be using the second element of spriteIds.
-    sMoveRelearner->spriteIds[0] = CreateSprite(&sSpriteTemplate_MoveRelearnerListMenuScrollIndicators, 200, 108, 0);
+    sMoveRelearner->spriteIds[1] = CreateSprite(&sSpriteTemplate_MoveRelearnerListMenuScrollIndicators, 200, 108, 0);
     gSprites[sMoveRelearner->spriteIds[0]].data[0] = 2;
     gSprites[sMoveRelearner->spriteIds[0]].data[2] = 1;
     for (i = 0; i < 2; i++)
