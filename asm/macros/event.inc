@@ -1446,11 +1446,18 @@
 	.2byte \quantity
 	.endm
 
+	@ Base quest menu command. Use supplementary macros for ease of use
 	.macro questmenu case:req, questId:req
 	.byte 0xd5
 	.byte \case
 	.byte \questId
 	.endm
+
+	@ Checks to see if the player has a Pokemon in their party. Result returns to VAR_RESULT
+    .macro checkpartymon species:req
+    .byte 0xd6
+    .2byte \species
+    .endm
 
 @ Supplementary
 
