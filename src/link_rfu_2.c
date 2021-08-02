@@ -23,12 +23,12 @@ struct SioInfo
 static EWRAM_DATA struct InitializeParametersTag sRfuReqConfig = {};
 static EWRAM_DATA struct UnkLinkRfuStruct_02022B44 gUnknown_203AC08 = {};
 
-static u32 gf_rfu_REQ_api[RFU_API_BUFF_SIZE_RAM / 4];
+static EWRAM_DATA u32 gf_rfu_REQ_api[RFU_API_BUFF_SIZE_RAM / 4] = {};
 static u8 sResendBlock8[14];
 static u16 sResendBlock16[7];
 
 struct GFtgtGname gHostRFUtgtGnameBuffer;
-GF_RFU_MANAGER Rfu;
+EWRAM_DATA GF_RFU_MANAGER Rfu = {};
 u8 gHostRFUtgtUnameBuffer[PLAYER_NAME_LENGTH + 1];
 
 static void sub_80F8AA4(void);

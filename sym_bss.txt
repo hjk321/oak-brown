@@ -65,6 +65,8 @@
 	.align 3
 	.include "src/agb_flash.o"
 	.align 3
+	.include "src/m4a.o"
+	.align 3
 	.include "*libgcc.a:dp-bit.o"
 	.align 3
 	.include "*libgcc.a:fp-bit.o"

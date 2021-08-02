@@ -1,4 +1,3 @@
-gSoundInfo
 gPokemonCrySongs
 gPokemonCryMusicPlayers
 gMPlayJumpTable
