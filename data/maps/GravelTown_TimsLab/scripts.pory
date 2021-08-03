@@ -138,7 +138,7 @@ script GravelTown_TimsLab_BookshelfTriggers {
             "{PLAYER}, we will meet again!"))
         closemessage
         playbgm(MUS_RIVAL_EXIT, 0)
-        if (var(VAR_TEMP_9) == 5) {
+        if (var(TEMPVAR_PLAYER_X) == 5) {
             applymovement(MURA_ID, Movement_MuraExitRight)
             applymovement(PLAYER_ID, Movement_PlayerLookMuraExitRight)
         } else {
@@ -206,7 +206,7 @@ script GravelTown_TimsLab_Tim {
             "Pay attention to their needs and develop a friendship with them.\p"
             "I expect you to take good care of your Pokémon!"))
     } elif (!flag(FLAG_BADGE01_GET)) {
-        msgbox(format("Tim: Pokémon are just waiting to be caught, {PLAYER}!"))
+        msgbox(format("Tim: Pokémon are just waiting to be found, {PLAYER}!"))
     }
     release
 }
@@ -518,7 +518,7 @@ script GravelTown_TimsLab_PokedexScene {
     delay(16)
     msgbox(format("You see, Professor Oak is one of the world's leading authorities on Pokémon.\p"
         "One of his greatest inventions is an electronic encyclopedia called a Pokédex.\p"
-        "It records data on every Pokémon it can find, which is a great aid to his research."))
+        "It automatically records data on every Pokémon it can find, which is a great aid to his research."))
     closemessage
     applymovement(TIM_ID, Movement_TimWalkToPokdex)
     waitmovement(TIM_ID)
@@ -527,11 +527,15 @@ script GravelTown_TimsLab_PokedexScene {
     delay(16)
     msgbox(format("These two devices you see before you are Pokédexes.\p"
         "You are beginning to get the picture, no?\p"
-        "Mura: Get to the point, already!\p"
-        "Tim: Very well.\pTo put it simply, you will be tasked record as much data as possible using the Pokédex.\p"
-        "It's fairly easy to use. I'll leave it to you two to figure it out."))
+        "Mura: Geez, would you stop talking already? Get to the point!\p"
+        "Tim: Very well.\nTo put it simply…\p"
+        "You will be tasked to record as much data as possible using the Pokédex.\p"
+        "Please treat it with care, as it is rather expensive.\p"
+        "You can check in with me occasionally, and I'll rate your progress.\p"
+        "If you do well, Professor Oak has given me a couple of… rewards, shall we say.\p"
+        "Although catching Pokémon results in better data, just encountering them will suffice for now."))
     closemessage
-    delay(16)
+    delay(48)
     removeobject(POKEDEX_RIGHT_ID)
     delay(16)
     applymovement(TIM_ID, Movement_WalkLeft)
@@ -564,9 +568,8 @@ script GravelTown_TimsLab_PokedexScene {
     waitmessage
     delay(32)
     closemessage
-    applymovement(TIM_ID, Movement_WalkUp)
+    applymovement(TIM_ID, Movement_TimWalkBackwards)
     waitmovement(TIM_ID)
-    applymovement(TIM_ID, Movement_FaceDown)
     delay(16)
     textcolor(0)
     msgbox(format("Tim: That is all. Good luck!"))
@@ -576,7 +579,7 @@ script GravelTown_TimsLab_PokedexScene {
     if (flag(FLAG_BEAT_MURA_STARTER)) {
         msgbox(format("You may have gotten lucky against me in battle…\p"
             "But I'll catch as many powerful Pokémon as I can!\p"
-            "You won't stand a chance!"))
+            "You won't stand a chance against my team!"))
     } else {
         msgbox(format("I mean, I'm already running circles around you in battles.\p"
             "I guess I'll just have to show you who's boss with this, too!"))
@@ -594,9 +597,9 @@ script GravelTown_TimsLab_PokedexScene {
     applymovement(MURA_ID, Movement_FaceRight)
     applymovement(PLAYER_ID, Movement_FaceLeft)
     msgbox(format("Don't wait up, {PLAYER}!\p"
-        "I'm gonna buy tons of Pokéballs with all my cash.\p"
-        "Best of luck to ya, buddy.\n"
-        "Ciao!"))
+        "I'm gonna go buy tons of stuff at the Pokémart with all my cash.\p"
+        "That way, I'll always have the edge over you.\p"
+        "Best of luck to ya, buddy.\nCiao!"))
     closemessage
     playbgm(MUS_RIVAL_EXIT, 0)
     applymovement(MURA_ID, Movement_MuraExit)
@@ -667,6 +670,12 @@ movement Movement_TimWalkToPokdex {
 
 movement Movement_MuraExit {
     walk_down * 7
+}
+
+movement Movement_TimWalkBackwards {
+    lock_facing_direction
+    walk_up
+    unlock_facing_direction
 }
 
 // ----------------
