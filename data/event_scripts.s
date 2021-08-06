@@ -696,6 +696,8 @@ Text_TheDoorIsOpen:: @ 81A5CDF
 	.include "data/text/white_out.inc"
 	.include "data/text/poke_mart.inc"
 
+	.include "data/scripts/mart.inc"
+
 Text_MonFlewAway:: @ 81A63C4
 	.string "The {STR_VAR_1} flew away!$"
 

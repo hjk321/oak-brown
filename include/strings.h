@@ -107,6 +107,7 @@ extern const u8 gText_Close[];
 extern const u8 gText_TMCaseWillBePutAway[];
 extern const u8 gText_FontSize0[];
 extern const u8 gText_FontSize2[];
+extern const u8 gText_BossSaysNoSell[];
 extern const u8 gText_OhNoICantBuyThat[];
 extern const u8 gText_HowManyWouldYouLikeToSell[];
 extern const u8 gText_ICanPayThisMuch_WouldThatBeOkay[];
@@ -958,14 +959,20 @@ extern const u8 gText_ShopBuy[];
 extern const u8 gText_ShopSell[];
 extern const u8 gText_ShopQuit[];
 extern const u8 gText_CanIHelpWithAnythingElse[];
+extern const u8 gText_AnythingElseBrah[];
 extern const u8 gText_QuitShopping[];
 extern const u8 gText_PokedollarVar1[];
 extern const u8 gText_YouDontHaveMoney[];
+extern const u8 gText_DangYoureBroke[];
 extern const u8 gText_Var1CertainlyHowMany[];
+extern const u8 gText_Var1YeahAlrightHowMany[];
 extern const u8 gText_InBagVar1[];
 extern const u8 gText_Var1AndYouWantedVar2[];
+extern const u8 gText_YouWantedVar2Var1[];
 extern const u8 gText_HereYouGoThankYou[];
+extern const u8 gText_HeresYourStuff[];
 extern const u8 gText_NoMoreRoomForThis[];
+extern const u8 gText_S[];
 
 // pokedex_screen
 extern const u8 gText_PokedexTableOfContents[];

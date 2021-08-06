@@ -25,6 +25,7 @@
 #include "money.h"
 #include "quest_log.h"
 #include "script.h"
+#include "event_data.h"
 #include "constants/songs.h"
 #include "constants/items.h"
 #include "constants/game_stat.h"
@@ -291,9 +292,15 @@ static void Task_HandleShopMenuBuy(u8 taskId)
 
 static void Task_HandleShopMenuSell(u8 taskId)
 {
-    SetWordTaskArg(taskId, 0xE, (u32)CB2_GoToSellMenu);
-    FadeScreen(FADE_TO_BLACK, 0);
-    gTasks[taskId].func = Task_GoToBuyOrSellMenu;    
+    if (FlagGet(FLAG_SYS_BIKER_MART))
+    {
+        PlaySE(SE_FAILURE);
+        DisplayItemMessageOnField(taskId, GetMartUnk16_4(), gText_BossSaysNoSell, ShowShopMenuAfterExitingBuyOrSellMenu);
+    } else {
+        SetWordTaskArg(taskId, 0xE, (u32)CB2_GoToSellMenu);
+        FadeScreen(FADE_TO_BLACK, 0);
+        gTasks[taskId].func = Task_GoToBuyOrSellMenu;
+    }
 }
 
 static void CB2_GoToSellMenu(void)
@@ -337,8 +344,12 @@ static void Task_ReturnToShopMenu(u8 taskId)
 {
     if (IsWeatherNotFadingIn() != TRUE)
         return;
-    
-    DisplayItemMessageOnField(taskId, GetMartUnk16_4(), gText_CanIHelpWithAnythingElse, ShowShopMenuAfterExitingBuyOrSellMenu);
+    if (FlagGet(FLAG_SYS_BIKER_MART)) 
+    {
+        DisplayItemMessageOnField(taskId, GetMartUnk16_4(), gText_AnythingElseBrah, ShowShopMenuAfterExitingBuyOrSellMenu);
+    } else {
+        DisplayItemMessageOnField(taskId, GetMartUnk16_4(), gText_CanIHelpWithAnythingElse, ShowShopMenuAfterExitingBuyOrSellMenu);
+    }
 }
 
 static void ShowShopMenuAfterExitingBuyOrSellMenu(u8 taskId)
@@ -909,12 +920,23 @@ static void Task_BuyMenu(u8 taskId)
             gShopData.itemPrice = itemid_get_market_price(itemId);
             if (!IsEnoughMoney(&gSaveBlock1Ptr->money, gShopData.itemPrice))
             {
-                BuyMenuDisplayMessage(taskId, gText_YouDontHaveMoney, BuyMenuReturnToItemList);
+                if (FlagGet(FLAG_SYS_BIKER_MART))
+                {
+                    BuyMenuDisplayMessage(taskId, gText_DangYoureBroke, BuyMenuReturnToItemList);
+                } else {
+                    BuyMenuDisplayMessage(taskId, gText_YouDontHaveMoney, BuyMenuReturnToItemList);
+                }
             }
             else
             {
                 CopyItemName(itemId, gStringVar1);
-                BuyMenuDisplayMessage(taskId, gText_Var1CertainlyHowMany, Task_BuyHowManyDialogueInit);
+                if (FlagGet(FLAG_SYS_BIKER_MART))
+                {
+                    StringAppend(gStringVar1, gText_S); // Plural Item
+                    BuyMenuDisplayMessage(taskId, gText_Var1YeahAlrightHowMany, Task_BuyHowManyDialogueInit);
+                } else {
+                    BuyMenuDisplayMessage(taskId, gText_Var1CertainlyHowMany, Task_BuyHowManyDialogueInit);
+                }
             }
             break;
         }
@@ -970,7 +992,16 @@ static void Task_BuyHowManyDialogueHandleInput(u8 taskId)
             CopyItemName(tItemId, gStringVar1);
             ConvertIntToDecimalStringN(gStringVar2, tItemCount, STR_CONV_MODE_LEFT_ALIGN, 2);
             ConvertIntToDecimalStringN(gStringVar3, gShopData.itemPrice, STR_CONV_MODE_LEFT_ALIGN, 8);
-            BuyMenuDisplayMessage(taskId, gText_Var1AndYouWantedVar2, CreateBuyMenuConfirmPurchaseWindow);
+            if (FlagGet(FLAG_SYS_BIKER_MART)) 
+            {
+                if (tItemCount > 1) 
+                {
+                    StringAppend(gStringVar1, gText_S); // Plural Item
+                }
+                BuyMenuDisplayMessage(taskId, gText_YouWantedVar2Var1, CreateBuyMenuConfirmPurchaseWindow);
+            } else {
+                BuyMenuDisplayMessage(taskId, gText_Var1AndYouWantedVar2, CreateBuyMenuConfirmPurchaseWindow);
+            }
         }
         else if (JOY_NEW(B_BUTTON))
         {            
@@ -997,7 +1028,12 @@ static void BuyMenuTryMakePurchase(u8 taskId)
     PutWindowTilemap(4);
     if (AddBagItem(tItemId, tItemCount) == TRUE)
     {
-        BuyMenuDisplayMessage(taskId, gText_HereYouGoThankYou, BuyMenuSubtractMoney);
+        if (FlagGet(FLAG_SYS_BIKER_MART))
+        {
+            BuyMenuDisplayMessage(taskId, gText_HeresYourStuff, BuyMenuSubtractMoney);
+        } else {
+            BuyMenuDisplayMessage(taskId, gText_HereYouGoThankYou, BuyMenuSubtractMoney);
+        }
         DebugFunc_PrintPurchaseDetails(taskId);
         RecordItemPurchase(tItemId, tItemCount, 1);
     }
