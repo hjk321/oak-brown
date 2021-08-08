@@ -30,4 +30,5 @@ script SeashoreCity_MurasHouse_Sister {
 
 script SeashoreCity_MurasHouse_SpearySign {
     msgbox(format("It's some sort of adoption certificate for a Pokémon.\pName: Speary\nSpecies: Spearow\lLevel: 3\lGender: Male"), MSGBOX_SIGN)
+    closemessage
 }

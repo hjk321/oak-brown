@@ -113,6 +113,7 @@ static const u8 sText_Quests[] = _(" Quests");
 static const u8 sText_QuestMenu_Details[] = _("Details");
 static const u8 sText_Cancel[] = _("Cancel");
 static const u8 sText_QuestMenu_Unk[] = _("{COLOR LIGHT_GRAY}{SHADOW DARK_GRAY}?????????");
+static const u8 sText_QuestMenu_UnkDesc[] = _("{COLOR LIGHT_GRAY}{SHADOW DARK_GRAY}\n?????????");
 static const u8 sText_QuestMenu_Active[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}Active");
 static const u8 sText_QuestMenu_Objectives[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}{STR_VAR_1}/{STR_VAR_2}");
 static const u8 sText_QuestMenu_TurnIn[] = _("{COLOR RED}Turn In");
@@ -635,7 +636,7 @@ static void ItemPc_MoveCursorFunc(s32 itemIndex, bool8 onInit, struct ListMenu *
                 else
                 {
                     itemId = ITEM_NONE;
-                    desc = sText_QuestMenu_Unk;
+                    desc = sText_QuestMenu_UnkDesc;
                 }
                 
                 CreateItemMenuIcon(itemId, sStateDataPtr->itemMenuIconSlot);
@@ -1497,6 +1498,10 @@ void CopyQuestName(u8 *dst, u8 questId)
 
 u16 GetCompletedObjectives(u8 questId) {
     return sSideQuests[questId].completedObjectives();
+}
+
+bool8 GetCanTurnInQuest(u8 questId) {
+    return sSideQuests[questId].completedObjectives() >= sSideQuests[questId].objectives;
 }
 
 void CB2_QuestMenuFromStartMenu(void)

@@ -52,6 +52,7 @@ script Route53_Clerk {
 
 script Route53_Sign {
     msgbox("Route 53\nGravel Town - Seashore City")
+    closemessage
 }
 
 script Route53_Hayden {

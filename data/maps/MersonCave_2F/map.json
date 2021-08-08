@@ -7,10 +7,10 @@
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
-  "allow_cycling": false,
+  "allow_cycling": true,
   "allow_escaping": true,
   "allow_running": false,
-  "show_map_name": true,
+  "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
@@ -19,15 +19,15 @@
   ],
   "warp_events": [
     {
-      "x": 8,
-      "y": 3,
+      "x": 9,
+      "y": 10,
       "elevation": 0,
       "dest_map": "MAP_GRAVEL_TOWN",
       "dest_warp_id": 3
     },
     {
-      "x": 9,
-      "y": 10,
+      "x": 25,
+      "y": 4,
       "elevation": 0,
       "dest_map": "MAP_MERSON_CAVE_OUTDOOR",
       "dest_warp_id": 0

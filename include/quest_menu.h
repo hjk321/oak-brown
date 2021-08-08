@@ -39,6 +39,7 @@ void CB2_QuestMenuFromStartMenu(void);
 void SetQuestMenuActive(void);
 void CopyQuestName(u8 *dst, u8 questId);
 u16 GetCompletedObjectives(u8 questId);
+bool8 GetCanTurnInQuest(u8 questId);
 s8 GetSetQuestFlag(u8 quest, u8 caseId);
 
 #endif // GUARD_QUESTS_H

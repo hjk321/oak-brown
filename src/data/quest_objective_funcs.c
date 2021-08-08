@@ -1,4 +1,5 @@
 #include "pokedex.h"
+#include "item.h"
 
 static const u16 Objective_Dummy(void)
 {
@@ -18,4 +19,9 @@ static const u16 Objective_PokedexMaster(void)
 static const u16 Objective_CatchEmAll(void)
 {
     return GetNationalPokedexCount(FLAG_GET_CAUGHT);
+}
+
+static const u16 Objective_BernardsGlasses(void)
+{
+    return CheckBagHasItem(ITEM_BERNARDS_GLASSES, 1);
 }

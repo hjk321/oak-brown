@@ -543,6 +543,7 @@ static const void *const sItemIconGfxPtrs[][2] = {
     {gFile_graphics_items_icons_gem_sheet, gFile_graphics_items_icon_palettes_ruby_palette},
     {gFile_graphics_items_icons_gem_sheet, gFile_graphics_items_icon_palettes_sapphire_palette},
     {gFile_graphics_items_icons_tims_pizza_sheet, gFile_graphics_items_icon_palettes_tims_pizza_palette},
+    {gFile_graphics_items_icons_black_glasses_sheet, gFile_graphics_items_icon_palettes_black_type_enhancing_item_palette},
     {gFile_graphics_items_icons_return_to_field_arrow_sheet, gFile_graphics_items_icon_palettes_return_to_field_arrow_palette}
 };
 

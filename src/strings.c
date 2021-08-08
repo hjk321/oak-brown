@@ -1349,7 +1349,7 @@ const u8 gUnknown_841EE2B[] = _("Del. All{CLEAR_TO 0x57}Cancel{CLEAR_TO 0xA4}OK"
 //names
 const u8 gText_SideQuestName_PokedexMaster[] = _("Pokédex Master");
 const u8 gText_SideQuestName_CatchEmAll[] = _("Catch 'em All!");
-const u8 gText_SideQuestName_3[] = _("Side Quest 3");
+const u8 gText_SideQuestName_BernardsGlasses[] = _("Bernard's Glasses");
 const u8 gText_SideQuestName_4[] = _("Side Quest 4");
 const u8 gText_SideQuestName_5[] = _("Side Quest 5");
 const u8 gText_SideQuestName_6[] = _("Side Quest 6");
@@ -1380,7 +1380,7 @@ const u8 gText_SideQuestName_30[] = _("Side Quest 30");
 //descriptions
 const u8 gText_SideQuestDesc_PokedexMaster[] = _("Tim has given you a Pokédex. Find\nand record data on every Pokémon!\nYou don't need to catch them yet.");
 const u8 gText_SideQuestDesc_CatchEmAll[] = _("You've seen a lot of Pokémon, but\nTim wants you to record better data\nfor the Pokédex. Catch 'em all!");
-const u8 gText_SideQuestDesc_3[] = _("Description 3");
+const u8 gText_SideQuestDesc_BernardsGlasses[] = _("Bernard seems to have lost his\nglasses somewhere in Merson Cave.\nWould you mind looking for them?");
 const u8 gText_SideQuestDesc_4[] = _("Description 4");
 const u8 gText_SideQuestDesc_5[] = _("Description 5");
 const u8 gText_SideQuestDesc_6[] = _("Description 6");
@@ -1410,7 +1410,7 @@ const u8 gText_SideQuestDesc_29[] = _("Description 29");
 const u8 gText_SideQuestDesc_30[] = _("Description 30");
 //point of contact
 const u8 gText_SideQuestPOC_Tim[] = _("Tim");
-const u8 gText_SideQuestPOC_3[] = _("Poc 3");
+const u8 gText_SideQuestPOC_Bernard[] = _("Bernard");
 const u8 gText_SideQuestPOC_4[] = _("Poc 4");
 const u8 gText_SideQuestPOC_5[] = _("Poc 5");
 const u8 gText_SideQuestPOC_6[] = _("Poc 6");
@@ -1440,7 +1440,7 @@ const u8 gText_SideQuestPOC_29[] = _("Poc 29");
 const u8 gText_SideQuestPOC_30[] = _("Poc 30");
 //map
 const u8 gText_SideQuestMap_GravelTown[] = _("Gravel Town");
-const u8 gText_SideQuestMap_3[] = _("Map 3");
+const u8 gText_SideQuestMap_MersonCave[] = _("Merson Cave");
 const u8 gText_SideQuestMap_4[] = _("Map 4");
 const u8 gText_SideQuestMap_5[] = _("Map 5");
 const u8 gText_SideQuestMap_6[] = _("Map 6");

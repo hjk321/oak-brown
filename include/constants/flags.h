@@ -351,7 +351,7 @@
 // Item ball hide/show
 #define FLAG_HIDE_SEASHORE_RARE_CANDY                           0x154
 #define FLAG_HIDE_SEASHORE_DIRE_HIT                             0x155
-#define FLAG_HIDE_0x156                                         0x156
+#define FLAG_HIDE_ROUTE53_BERNARDS_GLASSES                      0x156
 #define FLAG_HIDE_0x157                                         0x157
 #define FLAG_HIDE_0x158                                         0x158
 #define FLAG_HIDE_0x159                                         0x159

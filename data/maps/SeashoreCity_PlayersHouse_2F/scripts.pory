@@ -27,4 +27,5 @@ script SeashoreCity_PlayersHouse_2F_PC {
 
 script SeashoreCity_PlayersHouse_2F_NES {
     msgbox(format("{PLAYER} is playing the Snes!\n...Okay!\lIt's time to go!"))
+    closemessage
 }

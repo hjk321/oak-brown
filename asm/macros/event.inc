@@ -1686,3 +1686,7 @@
 	.macro bufferquestobjectives questId:req
 	questmenu QUEST_MENU_BUFFER_OBJECTIVES, \questId
 	.endm
+
+	.macro checkquestturnin questId:req
+	questmenu QUEST_MENU_CHECK_TURN_IN, \questId
+	.endm

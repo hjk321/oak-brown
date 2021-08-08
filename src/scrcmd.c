@@ -2297,6 +2297,8 @@ bool8 ScrCmd_questmenu(struct ScriptContext *ctx)
     case QUEST_MENU_BUFFER_OBJECTIVES:
         gSpecialVar_Result = GetCompletedObjectives(questId);
         break;
+    case QUEST_MENU_CHECK_TURN_IN:
+        gSpecialVar_Result = GetSetQuestFlag(questId, FLAG_GET_UNLOCKED) && GetCanTurnInQuest(questId);
     }
     
     return TRUE;

@@ -48,7 +48,6 @@ script SeashoreCity_Lass {
 }
 
 script SeashoreCity_Sign {
-    lock
     msgbox(format("Seashore City\pWhere waves of new journeys begin their long travels."))
-    release
+    closemessage
 }

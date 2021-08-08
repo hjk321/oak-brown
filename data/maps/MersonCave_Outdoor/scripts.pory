@@ -1,1 +1,82 @@
 mapscripts MersonCave_Outdoor_MapScripts {}
+
+script MersonCave_Outdoor_Sign {
+    msgbox("Merson Cave Summit", MSGBOX_SIGN)
+}
+
+script MersonCave_Outdoor_Bernard {
+    locktarget
+    faceplayer
+    checkquestcomplete(SIDE_QUEST_BERNARDS_GLASSES)
+    if (var(VAR_RESULT)) {
+        msgbox(format("Thanks again for finding my glasses.\p"
+            "I'd go home, except I've actually taken a liking to this spot."))
+        release
+        end
+    }
+    checkquestturnin(SIDE_QUEST_BERNARDS_GLASSES)
+    if (var(VAR_RESULT)) {
+        msgbox(format("… Oh?\pYou've found my glasses!\nI would have been in big trouble without them!"))
+        goto(MersonCave_Outdoor_BernardReward)
+    }
+    checkquestunlocked(SIDE_QUEST_BERNARDS_GLASSES)
+    if (var(VAR_RESULT)) {
+        msgbox(format("Have you found my glasses yet?\nOh…\pWell, please do! I can't see a thing without them!"))
+        release
+        end
+    }
+    // Hasn't received quest yet
+    msgbox(format("You there! Could you please help me with something?\p"
+        "I've hiked all the way up here, which is tiring for someone my age.\p"
+        "But, I've managed to lose my glasses somewhere in the cave.\p"
+        "If I try to go home without them, I'll be blinder than a Zubat!"))
+    unlockquest(SIDE_QUEST_BERNARDS_GLASSES)
+    checkquestturnin(SIDE_QUEST_BERNARDS_GLASSES)
+    if (var(VAR_RESULT)) {
+        msgbox(format("Hm? You already found my glasses?\nHow resourceful of you!\p"))
+        goto(MersonCave_Outdoor_BernardReward)
+    }
+    msgbox(format("Would you be willing to keep an eye out? Thanks!"))
+    release
+}
+
+script MersonCave_Outdoor_BernardReward {
+    completequest(SIDE_QUEST_BERNARDS_GLASSES)
+    msgbox(format("You deserve a little something for your troubles.\p"
+        "Hm, I don't have much, but how about this?"))
+    textcolor(2)
+    getitemname(1, ITEM_POTION)
+    playfanfare(MUS_OBTAIN_ITEM)
+    message(format("{PLAYER} recieved two Rare Candies!"))
+    waitmessage
+    waitfanfare
+    additem(ITEM_RARE_CANDY, 2)
+    textcolor(0)
+    msgbox("You youngsters like candy, right?")
+    release
+    end
+}
+
+script MersonCave_Outdoor_Hiker {
+    locktarget
+    faceplayer
+    msgbox(format("A lot of people hike from Merson City, but this is as far as most go.\p"
+        "Hardly anyone ever heads on to Gravel Town."))
+    release
+}
+
+script MersonCave_Outdoor_Collector {
+    locktarget
+    faceplayer
+    msgbox(format("Merson Cave has a lot of confusing twists and turns.\p"
+        "If I were you, I'd bring along an escape rope, just to be safe."))
+    release
+}
+
+script MersonCave_Outdoor_Picnicker {
+    locktarget
+    faceplayer
+    msgbox(format("I'm taking a rest here before I hike back to Merson City.\p"
+        "This is a nice spot. Now, if only I had brought a picnic basket…"))
+    release
+}

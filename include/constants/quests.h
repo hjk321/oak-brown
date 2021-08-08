@@ -9,11 +9,12 @@
 #define QUEST_MENU_CHECK_UNLOCKED       4   //checks if questId has been unlocked. Returns result to gSpecialVar_Result
 #define QUEST_MENU_CHECK_COMPLETE       5   //checks if questId has been completed. Returns result to gSpecialVar_Result
 #define QUEST_MENU_BUFFER_OBJECTIVES    6   //buffers the number of complete objectives for a quest. Returns result to gSpecialVar_Result
+#define QUEST_MENU_CHECK_TURN_IN        7   //checks if questId can be turned in. Returns result to gSpecialVar_Result
 
 // quest number defines
 #define SIDE_QUEST_POKEDEX_MASTER       0
 #define SIDE_QUEST_CATCH_EM_ALL         1
-#define SIDE_QUEST_3          2
+#define SIDE_QUEST_BERNARDS_GLASSES     2
 #define SIDE_QUEST_4          3
 #define SIDE_QUEST_5          4
 #define SIDE_QUEST_6          5

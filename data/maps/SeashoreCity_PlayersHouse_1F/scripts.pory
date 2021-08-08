@@ -2,6 +2,7 @@ mapscripts SeashoreCity_PlayersHouse_1F_MapScripts {}
 
 script SeashoreCity_PlayersHouse_1F_TV {
     msgbox("There's a movie playing on TV. Four\nboys are walking on railroad tracks.\p…I'd better go, too.")
+    closemessage
 }
 
 script SeashoreCity_PlayersHouse_1F_Mom {
