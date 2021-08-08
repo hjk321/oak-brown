@@ -9,14 +9,14 @@ mapscripts Route53_MapScripts {
 }
 
 script Route53_Hiker {
-    lock
+    locktarget
     faceplayer
     msgbox(format("This road is pretty straight-forward.\pIt's impossible to get lost on this road!\p… Wait, where am I, again?"))
     release
 }
 
 script Route53_Hayden_Prologue {
-    lock
+    locktarget
     faceplayer
     msgbox(format("I caught my first Pokémon a few weeks ago. How about you?\p"
         "… Oh? You're going to Gravel Town to get your first Pokémon now?\p"
@@ -25,7 +25,7 @@ script Route53_Hayden_Prologue {
 }
 
 script Route53_Clerk {
-    lock
+    locktarget
     faceplayer
     if (flag(FLAG_GOT_POTION_ON_ROUTE_53)) {
         msgbox(format("Sorry, I'm all out of free samples!\pIf you need potions, get some at any Pokémart!"))
@@ -51,9 +51,7 @@ script Route53_Clerk {
 }
 
 script Route53_Sign {
-    lock
     msgbox("Route 53\nGravel Town - Seashore City")
-    release
 }
 
 script Route53_Hayden {
@@ -65,7 +63,7 @@ script Route53_Hayden {
 }
 
 script Route53_Mura {
-    lock
+    locktarget
     faceplayer
     switch(var(VAR_STARTER_MON)) {
         case STARTER_BULBASAUR:

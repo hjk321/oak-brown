@@ -1459,6 +1459,11 @@
     .2byte \species
     .endm
 
+	@ Ceases movement for the event obj. the Player is currently interacting with and that one alone.
+	.macro locktarget
+	.byte 0xd7
+	.endm
+
 @ Supplementary
 
 	.macro goto_if_unset flag:req, dest:req

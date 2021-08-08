@@ -167,12 +167,12 @@ text GravelTown_TimsLab_MuraNeedToTrain {
 
 script GravelTown_TimsLab_Mura {
     if (!flag(FLAG_SYS_POKEMON_GET)) {
-        lock
+        locktarget
         faceplayer
         msgbox(format("Mura: Hurry up!\nI want my turn!"))
         release
     } else {
-        lock
+        locktarget
         faceplayer
         switch(var(VAR_STARTER_MON)) {
             case STARTER_BULBASAUR:
@@ -187,7 +187,7 @@ script GravelTown_TimsLab_Mura {
 }
 
 script GravelTown_TimsLab_Tim {
-    lock
+    locktarget
     faceplayer
     if (!flag(FLAG_SYS_POKEMON_GET)) {
         msgbox(format("Tim: Now then, {PLAYER}.\nWhich Pokémon will you choose?"))
@@ -683,7 +683,7 @@ movement Movement_TimWalkBackwards {
 // ----------------
 
 script GravelTown_TimsLab_Scientist {
-    lock
+    locktarget
     faceplayer
     msgbox(format("Tim may not be much of a Professor compared to Oak or Elm…\p"
         "However, his work on the care and wellness of Pokémon is not to be discounted!\p"
@@ -694,7 +694,7 @@ script GravelTown_TimsLab_Scientist {
 }
 
 script GravelTown_TimsLab_Lady {
-    lock
+    locktarget
     faceplayer
     msgbox(format("We're trying to raise our own starter Pokémon for Rijon trainers, instead of getting them from Kanto.\p"
         "Professor Elm has been helping Tim incubate Pokémon eggs lately.\p"
@@ -706,7 +706,7 @@ script GravelTown_TimsLab_Lady {
 }
 
 script GravelTown_TimsLab_FatMan {
-    lock
+    locktarget
     faceplayer
     if (!flag(FLAG_GOT_TIMS_PIZZA)) {
         msgbox(format("Ah, so you were one of the lucky three to get a Pokémon from Kanto?\p"

@@ -71,6 +71,18 @@ bool8 NativeScript_WaitPlayerAndTargetNPCStopMoving(void)
     }
 }
 
+void ScriptFreezeTargetObjectEvent(void)
+{
+    u8 taskId;
+
+    taskId = CreateTask(Task_WaitPlayerAndTargetNPCStopMoving, 80);
+    if (!gObjectEvents[gSelectedObjectEvent].singleMovementActive)
+    {
+        FreezeObjectEvent(&gObjectEvents[gSelectedObjectEvent]);
+        gTasks[taskId].data[1] = TRUE;
+    }
+}
+
 void LockSelectedObjectEvent(void)
 {
     u8 taskId;

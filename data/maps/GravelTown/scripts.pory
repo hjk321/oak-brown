@@ -12,7 +12,7 @@ mapscripts GravelTown_MapScripts {
 }
 
 script GravelTown_BaldingMan {
-    lock
+    locktarget
     faceplayer
     msgbox(format("The fresh air here is nice and clear.\p"
         "Gravel Town may be small, but it's home. Nothing beats it!"))
@@ -20,7 +20,7 @@ script GravelTown_BaldingMan {
 }
 
 script GravelTown_Worker {
-    lock
+    locktarget
     faceplayer
     msgbox(format("I'm in charge of all of the repairs and yardwork for the town.\p"
         "There's not a lot of people here, so it's actually fairly easy work."))
@@ -28,14 +28,14 @@ script GravelTown_Worker {
 }
 
 script GravelTown_PuddleBoy {
-    lock
+    locktarget
     faceplayer
     msgbox(format("Splish! Splash! Splish!\pI like looking at my reflection in the puddles."))
     release
 }
 
 script GravelTown_StoreClerk {
-    lock
+    locktarget
     faceplayer
     msgbox(format("I own the Pokémart here.\nI hope you'll stop by sometime.\p"
         "My coworker is also handing out free samples on Route 53 right now.\p"
@@ -44,7 +44,7 @@ script GravelTown_StoreClerk {
 }
 
 script GravelTown_GbaKid {
-    lock
+    locktarget
     faceplayer
     msgbox(format("Go away! I'm trying to beat this rom hack!"))
     applymovement(GBAKID_ID, Movement_FaceDown)
@@ -53,7 +53,7 @@ script GravelTown_GbaKid {
 }
 
 script GravelTown_BlackBelt {
-    lock
+    locktarget
     faceplayer
     msgbox(format("I train myself by punching and kicking the rocks every day.\p"
         "Someday I hope to be able to smash them like a Pokémon can.\p"
@@ -64,7 +64,7 @@ script GravelTown_BlackBelt {
 }
 
 script GravelTown_Lass {
-    lock
+    locktarget
     message(format("Mhm. And then she said to him…"))
     waitmessage
     delay(64)
@@ -78,7 +78,7 @@ script GravelTown_Lass {
 }
 
 script GravelTown_Beauty {
-    lock
+    locktarget
     message(format("No way! She really said that? I can't believe she…"))
     waitmessage
     delay(64)

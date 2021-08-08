@@ -11,7 +11,7 @@ mapscripts GravelTown_PokeMart_MapScripts {
 }
 
 script GravelTown_PokeMart_BikerClerk {
-    lock
+    locktarget
     faceplayer
     if (flag(FLAG_SYS_POKEDEX_GET)) {
         getplayerxy(TEMPVAR_PLAYER_X, TEMPVAR_PLAYER_Y)
@@ -42,7 +42,7 @@ text GravelTown_PokeMart_WeDontDeliver {
 }
 
 script GravelTown_PokeMart_Pokefan {
-    lock
+    locktarget
     faceplayer
     msgbox(format("This store isn't very well-stocked because Gravel Town is out of the way.\p"
         "You can still get the basics, like potions and Pokéballs.\p"
@@ -51,7 +51,7 @@ script GravelTown_PokeMart_Pokefan {
 }
 
 script GravelTown_PokeMart_BaldingMan {
-    lock
+    locktarget
     faceplayer
     // TODO Change for normal clerks
     msgbox(format("I'm a little concerned about that shop clerk.\pHe doesn't seem to know what he's doing."))
@@ -60,7 +60,7 @@ script GravelTown_PokeMart_BaldingMan {
 
 // Pick up Tim's Pizza
 script GravelTown_PokeMart_TimsPizza {
-    lockall
+    lock
     textcolor(0)
     msgbox("Yo, dude!\nCome here for a second!")
     closemessage
@@ -77,7 +77,7 @@ script GravelTown_PokeMart_TimsPizza {
     setflag(FLAG_GOT_TIMS_PIZZA)
     textcolor(0)
     msgbox(GravelTown_PokeMart_WeDontDeliver)
-    releaseall
+    release
 }
 
 movement Movement_PlayerWalkToMartCounter {

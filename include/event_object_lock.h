@@ -12,5 +12,6 @@ bool8 sub_8098734(void);
 void ClearPlayerHeldMovementAndUnfreezeObjectEvents(void);
 bool8 walkrun_is_standing_still(void);
 void UnionRoom_UnlockPlayerAndChatPartner(void);
+void ScriptFreezeTargetObjectEvent(void);
 
 #endif // GUARD_EVENT_OBJECT_LOCK_H

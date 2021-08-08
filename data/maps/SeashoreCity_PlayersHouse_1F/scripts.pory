@@ -1,13 +1,11 @@
 mapscripts SeashoreCity_PlayersHouse_1F_MapScripts {}
 
 script SeashoreCity_PlayersHouse_1F_TV {
-    lock
     msgbox("There's a movie playing on TV. Four\nboys are walking on railroad tracks.\p…I'd better go, too.")
-    release
 }
 
 script SeashoreCity_PlayersHouse_1F_Mom {
-    lock
+    locktarget
     faceplayer
     if (!flag(FLAG_SYS_POKEMON_GET)) {
         msgbox(format("Mom: Good morning, sweetie!\nToday's your big day!\pYou should start walking south to Gravel Town soon.\pTim will be expecting you."))
