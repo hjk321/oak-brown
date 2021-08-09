@@ -31,13 +31,14 @@
 #define REG_DEBUG_STRING (char*) 0x4FFF600
 
 void mgba_printf(int level, const char* ptr, ...) {
+	va_list args;
+
 #if !DEBUG
 	// Return for performance reasons.
 	// printf shouldn't have been called in the
 	// first place, but this is a failsafe.
 	return;
 #endif
-	va_list args;
 	level &= 0x7;
 	va_start(args, ptr);
 	vsnprintf(REG_DEBUG_STRING, 0x100, ptr, args);
