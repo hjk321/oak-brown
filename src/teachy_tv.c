@@ -1220,7 +1220,7 @@ static void TeachyTvLoadBg3Map(u16 *buffer)
     void * tilesetsBuffer;
     void * palIndicesBuffer;
     u16 numMapTilesRows = 0;
-    const struct MapLayout *layout = &Route1_Layout;
+    const struct MapLayout *layout = &Debug_Placeholder_Layout;
     u16 * blockIndicesBuffer = AllocZeroed(0x800);
     tilesetsBuffer = AllocZeroed(0x8000);
     palIndicesBuffer = Alloc(16);

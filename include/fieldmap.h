@@ -13,7 +13,7 @@
 #define VIRTUAL_MAP_SIZE (MAX_MAP_DATA_SIZE)
 
 extern struct BackupMapLayout VMap;
-extern const struct MapLayout Route1_Layout;
+extern const struct MapLayout Debug_Placeholder_Layout;
 
 u32 MapGridGetMetatileIdAt(s32, s32);
 u32 MapGridGetMetatileBehaviorAt(s16, s16);

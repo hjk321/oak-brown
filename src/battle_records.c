@@ -442,7 +442,7 @@ static void UpdateBattleOutcomeOnTrainerCards(s32 battlerId)
 
 void TryRecordLinkBattleOutcome(s32 battlerId)
 {
-    if (gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(UNION_ROOM) || gSaveBlock1Ptr->location.mapNum != MAP_NUM(UNION_ROOM))
+    if (gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(DEBUG_PLACEHOLDER) || gSaveBlock1Ptr->location.mapNum != MAP_NUM(DEBUG_PLACEHOLDER))
     {
         UpdateBattleOutcomeOnTrainerCards(battlerId);
         AddOpponentLinkBattleRecord(&gSaveBlock2Ptr->linkBattleRecords, gTrainerCards[battlerId].rse.playerName, gTrainerCards[battlerId].rse.trainerId, gBattleOutcome, gLinkPlayers[battlerId].language);

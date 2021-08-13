@@ -1939,7 +1939,7 @@ static void Task_StartActivity(u8 taskId)
         HealPlayerParty();
         SavePlayerParty();
         LoadPlayerBag();
-        SetCableClubStateAndWarpToNewMap(MAP_GROUP(BATTLE_COLOSSEUM_2P), MAP_NUM(BATTLE_COLOSSEUM_2P), 6, 8, USING_SINGLE_BATTLE);
+        SetCableClubStateAndWarpToNewMap(MAP_GROUP(DEBUG_PLACEHOLDER), MAP_NUM(DEBUG_PLACEHOLDER), 6, 8, USING_SINGLE_BATTLE);
         SetMainCallback2(CB2_TransitionToCableClub);
         break;
     case ACTIVITY_DBLBATTLE:
@@ -1948,7 +1948,7 @@ static void Task_StartActivity(u8 taskId)
         SavePlayerParty();
         LoadPlayerBag();
         CreateTrainerCardInBuffer(gBlockSendBuffer, TRUE);
-        SetCableClubStateAndWarpToNewMap(MAP_GROUP(BATTLE_COLOSSEUM_2P), MAP_NUM(BATTLE_COLOSSEUM_2P), 6, 8, USING_DOUBLE_BATTLE);
+        SetCableClubStateAndWarpToNewMap(MAP_GROUP(DEBUG_PLACEHOLDER), MAP_NUM(DEBUG_PLACEHOLDER), 6, 8, USING_DOUBLE_BATTLE);
         SetMainCallback2(CB2_TransitionToCableClub);
         break;
     case ACTIVITY_MLTBATTLE:
@@ -1957,13 +1957,13 @@ static void Task_StartActivity(u8 taskId)
         SavePlayerParty();
         LoadPlayerBag();
         CreateTrainerCardInBuffer(gBlockSendBuffer, TRUE);
-        SetCableClubStateAndWarpToNewMap(MAP_GROUP(BATTLE_COLOSSEUM_4P), MAP_NUM(BATTLE_COLOSSEUM_4P), 5, 8, USING_MULTI_BATTLE);
+        SetCableClubStateAndWarpToNewMap(MAP_GROUP(DEBUG_PLACEHOLDER), MAP_NUM(DEBUG_PLACEHOLDER), 5, 8, USING_MULTI_BATTLE);
         SetMainCallback2(CB2_TransitionToCableClub);
         break;
     case ACTIVITY_TRADE:
         CreateTrainerCardInBuffer(gBlockSendBuffer, TRUE);
         CleanupOverworldWindowsAndTilemaps();
-        SetCableClubStateAndWarpToNewMap(MAP_GROUP(TRADE_CENTER), MAP_NUM(TRADE_CENTER), 5, 8, USING_TRADE_CENTER);
+        SetCableClubStateAndWarpToNewMap(MAP_GROUP(DEBUG_PLACEHOLDER), MAP_NUM(DEBUG_PLACEHOLDER), 5, 8, USING_TRADE_CENTER);
         SetMainCallback2(CB2_TransitionToCableClub);
         break;
     case ACTIVITY_TRADE | IN_UNION_ROOM:
@@ -4539,9 +4539,7 @@ static bool32 PollPartnerYesNoResponse(struct UnkStruct_URoom * uroom)
 
 bool32 InUnionRoom(void)
 {
-    return    gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(UNION_ROOM)
-           && gSaveBlock1Ptr->location.mapNum == MAP_NUM(UNION_ROOM)
-           ? TRUE : FALSE;
+    return FALSE;
 }
 
 static bool32 HasAtLeastTwoMonsOfLevel30OrLower(void)

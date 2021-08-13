@@ -598,7 +598,7 @@ void TrySetObtainedItemQuestLogEvent(u16 itemId)
      || itemId == ITEM_SAPPHIRE
     )
     {
-        if (itemId != ITEM_TOWN_MAP || (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PALLET_TOWN_GARYS_HOUSE) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(PALLET_TOWN_GARYS_HOUSE)))
+        if (itemId != ITEM_TOWN_MAP || (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(DEBUG_PLACEHOLDER) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(DEBUG_PLACEHOLDER)))
         {
             ptr = malloc(sizeof(*ptr));
             ptr->itemId = itemId;

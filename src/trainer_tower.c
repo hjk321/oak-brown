@@ -343,16 +343,7 @@ static void (*const sTrainerTowerFunctions[])(void) = {
 };
 
 // - 1 excludes Mixed challenge, which just uses one of the 3 other types
-static const u16 sFloorLayouts[MAX_TRAINER_TOWER_FLOORS][NUM_TOWER_CHALLENGE_TYPES - 1] = {
-    {LAYOUT_TRAINER_TOWER_1F, LAYOUT_TRAINER_TOWER_1F_DOUBLES, LAYOUT_TRAINER_TOWER_1F_KNOCKOUT},
-    {LAYOUT_TRAINER_TOWER_2F, LAYOUT_TRAINER_TOWER_2F_DOUBLES, LAYOUT_TRAINER_TOWER_2F_KNOCKOUT},
-    {LAYOUT_TRAINER_TOWER_3F, LAYOUT_TRAINER_TOWER_3F_DOUBLES, LAYOUT_TRAINER_TOWER_3F_KNOCKOUT},
-    {LAYOUT_TRAINER_TOWER_4F, LAYOUT_TRAINER_TOWER_4F_DOUBLES, LAYOUT_TRAINER_TOWER_4F_KNOCKOUT},
-    {LAYOUT_TRAINER_TOWER_5F, LAYOUT_TRAINER_TOWER_5F_DOUBLES, LAYOUT_TRAINER_TOWER_5F_KNOCKOUT},
-    {LAYOUT_TRAINER_TOWER_6F, LAYOUT_TRAINER_TOWER_6F_DOUBLES, LAYOUT_TRAINER_TOWER_6F_KNOCKOUT},
-    {LAYOUT_TRAINER_TOWER_7F, LAYOUT_TRAINER_TOWER_7F_DOUBLES, LAYOUT_TRAINER_TOWER_7F_KNOCKOUT},
-    {LAYOUT_TRAINER_TOWER_8F, LAYOUT_TRAINER_TOWER_8F_DOUBLES, LAYOUT_TRAINER_TOWER_8F_KNOCKOUT}
-};
+static const u16 sFloorLayouts[MAX_TRAINER_TOWER_FLOORS][NUM_TOWER_CHALLENGE_TYPES - 1] = {};
 
 static const u16 sPrizeList[] = {
     ITEM_HP_UP,
@@ -508,7 +499,7 @@ static void SetUpTrainerTowerDataStruct(void)
     const struct TrainerTowerFloor *const * r7;
 
     sTrainerTowerState = AllocZeroed(sizeof(*sTrainerTowerState));
-    sTrainerTowerState->floorIdx = gMapHeader.mapLayoutId - LAYOUT_TRAINER_TOWER_1F;
+    sTrainerTowerState->floorIdx = gMapHeader.mapLayoutId;
     if (ReadTrainerTowerAndValidate() == TRUE)
         CEReaderTool_LoadTrainerTower(&sTrainerTowerState->unk_0004);
     else
@@ -533,10 +524,10 @@ static void FreeTrainerTowerDataStruct(void)
 
 static void InitTrainerTowerFloor(void)
 {
-    if (gMapHeader.mapLayoutId - LAYOUT_TRAINER_TOWER_LOBBY > sTrainerTowerState->unk_0004.numFloors)
+    if (gMapHeader.mapLayoutId - 0 > sTrainerTowerState->unk_0004.numFloors)
     {
         gSpecialVar_Result = 3; // Skip past usable challenge types
-        SetCurrentMapLayout(LAYOUT_TRAINER_TOWER_ROOF);
+        SetCurrentMapLayout(0);
     }
     else
     {
@@ -745,8 +736,8 @@ static void TrainerTowerAddFloorCleared(void)
 static void GetFloorAlreadyCleared(void)
 {
     u16 mapLayoutId = gMapHeader.mapLayoutId;
-    if (mapLayoutId - LAYOUT_TRAINER_TOWER_1F == TRAINER_TOWER.floorsCleared 
-     && mapLayoutId - LAYOUT_TRAINER_TOWER_LOBBY <= CURR_FLOOR.floorIdx)
+    if (mapLayoutId - 0 == TRAINER_TOWER.floorsCleared 
+     && mapLayoutId - 0 <= CURR_FLOOR.floorIdx)
         gSpecialVar_Result = FALSE;
     else
         gSpecialVar_Result = TRUE;
@@ -937,7 +928,7 @@ static void TrainerTowerGetNumFloors(void)
 // If it were to return TRUE the player would be warped back to the lobby
 static void ShouldWarpToCounter(void)
 {
-    if (gMapHeader.mapLayoutId == LAYOUT_TRAINER_TOWER_LOBBY && VarGet(VAR_MAP_SCENE_TRAINER_TOWER) == 0)
+    if (gMapHeader.mapLayoutId == 0 && VarGet(VAR_MAP_SCENE_TRAINER_TOWER) == 0)
         gSpecialVar_Result = FALSE;
     else
         gSpecialVar_Result = FALSE;
