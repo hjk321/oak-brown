@@ -186,10 +186,10 @@
       "name": "Debug_Placeholder_Layout",
       "width": 20,
       "height": 20,
-      "border_width": 2,
+      "border_width": 3,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_PalletTown",
+      "secondary_tileset": "gTileset_VermilionCity",
       "border_filepath": "data/layouts/Debug_Placeholder/border.bin",
       "blockdata_filepath": "data/layouts/Debug_Placeholder/map.bin"
     }
