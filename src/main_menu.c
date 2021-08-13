@@ -18,6 +18,7 @@
 #include "text_window.h"
 #include "text_window_graphics.h"
 #include "constants/songs.h"
+#include "wallclock.h"
 
 enum MainMenuType
 {
@@ -526,7 +527,7 @@ static void Task_ExecuteMainMenuSelection(u8 taskId)
             gUnknown_2031DE0 = 0;
             FreeAllWindowBuffers();
             DestroyTask(taskId);
-            StartNewGameScene();
+            CB2_StartWallClock();
             break;
         case MAIN_MENU_CONTINUE:
             gPlttBufferUnfaded[0] = RGB_BLACK;

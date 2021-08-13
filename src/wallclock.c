@@ -8,6 +8,7 @@
 #include "graphics.h"
 #include "main.h"
 #include "menu.h"
+#include "oak_speech.h"
 #include "palette.h"
 #include "rtc.h"
 #include "scanline_effect.h"
@@ -49,6 +50,7 @@ static void SpriteCB_AMIndicator(struct Sprite *sprite);
 #define tMoveDir         data[4]
 #define tPeriod          data[5]
 #define tMoveSpeed       data[6]
+#define tDelay           data[7]
 
 #define GFXTAG_WALL_CLOCK_HAND   0x1000
 #define PALTAG_WALL_CLOCK_MALE   0x1000
@@ -797,6 +799,7 @@ static void Task_SetClock_WaitFadeIn(u8 taskId)
     if (!gPaletteFade.active)
     {
         gTasks[taskId].func = Task_SetClock_HandleInput;
+        PlayBGM(MUS_NEW_GAME_INTRO);
     }
 }
 
@@ -873,6 +876,8 @@ static void Task_SetClock_Confirmed(u8 taskId)
 {
     RtcInitLocalTimeOffset(gTasks[taskId].tHours, gTasks[taskId].tMinutes);
     BeginNormalPaletteFade(0xFFFFFFFF, 0, 0, 16, RGB_BLACK);
+    PlayBGM(MUS_NEW_GAME_EXIT);
+    gTasks[taskId].tDelay = 0;
     gTasks[taskId].func = Task_SetClock_Exit;
 }
 
@@ -880,8 +885,12 @@ static void Task_SetClock_Exit(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
-        FreeAllWindowBuffers();
-        SetMainCallback2(gMain.savedCallback);
+        if (gTasks[taskId].tDelay >= 100) {
+            FreeAllWindowBuffers();
+            DestroyTask(taskId);
+            StartNewGameScene();
+        }
+        gTasks[taskId].tDelay++;
     }
 }
 
