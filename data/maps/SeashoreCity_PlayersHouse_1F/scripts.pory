@@ -1,7 +1,9 @@
 mapscripts SeashoreCity_PlayersHouse_1F_MapScripts {}
 
 script SeashoreCity_PlayersHouse_1F_TV {
-    msgbox("There's a movie playing on TV. Four\nboys are walking on railroad tracks.\p…I'd better go, too.")
+    msgbox(format("There's a movie on TV called Naljo's Guardians.\p"
+        "It appears to be based off of local mythology.\p"
+        "… … … Better get going!"))
     closemessage
 }
 
