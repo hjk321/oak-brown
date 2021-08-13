@@ -308,10 +308,8 @@ SECTIONS {
         src/minigame_countdown.o(.text);
         src/berry_fix_program.o(.text);
         src/mgba.o(.text);
-        src/printf.o(.text);
+		    src/printf.o(.text);
         src/debug.o(.text);
-        src/rtc.o(.text);
-        src/clock.o(.text);
     } =0
 
     script_data :
@@ -341,7 +339,6 @@ SECTIONS {
         src/librfu_rfu.o(.text);
         src/librfu_sio32id.o(.text);
         src/isagbprn.o(.text);
-        src/siirtc.o(.text);
         src/libagbsyscall.o(.text);
         *libgcc.a:_call_via_rX.o(.text);
         *libgcc.a:_divdi3.o(.text);
@@ -610,8 +607,6 @@ SECTIONS {
         src/berry_fix_program.o(.rodata);
         src/keyboard_text.o(.rodata);
         data/data_8479668.o(.rodata);
-        src/rtc.o(.rodata);
-
         /* These should not be moved to C files */
         src/mystery_event_msg.o(.rodata);
         data/mystery_event_msg.o(.rodata);
@@ -984,7 +979,6 @@ SECTIONS {
         src/agb_flash_le.o(.rodata);
         src/librfu_rfu.o(.rodata);
         src/librfu_sio32id.o(.rodata);
-        src/siirtc.o(.rodata);
         src/isagbprn.o(.rodata);
         *libgcc.a:_divdi3.o(.rodata);
         *libgcc.a:_udivdi3.o(.rodata);

@@ -15,10 +15,6 @@
 	.align 2
 	.include "src/multiboot.o"
 	.align 2
-	.include "src/rtc.o"
-	.align 2
-	.include "src/siirtc.o"
-	.align 2
 	.include "src/daycare.o"
 	.align 2
 	.include "src/trade.o"
