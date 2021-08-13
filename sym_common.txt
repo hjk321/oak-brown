@@ -1,6 +1,8 @@
 	.align 2
 	.include "main.o"
 	.align 2
+	.include "rtc.o"
+	.align 2
 	.include "bg.o"
 	.align 2
 	.include "text_printer.o"

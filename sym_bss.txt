@@ -63,6 +63,12 @@
 	.align 3
 	.include "src/m4a.o"
 	.align 3
+	.include "src/siirtc.o"
+	.align 3
+	.include "src/rtc.o"
+	.align 3
+	.include "src/reset_rtc_screen.o"
+	.align 3
 	.include "*libgcc.a:dp-bit.o"
 	.align 3
 	.include "*libgcc.a:fp-bit.o"
