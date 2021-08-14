@@ -1,5 +1,6 @@
 #include "global.h"
 #include "gflib.h"
+#include "day_night.h"
 #include "event_data.h"
 #include "event_object_movement.h"
 #include "field_camera.h"
@@ -2131,14 +2132,14 @@ static u8 sub_805F510(const struct SpritePalette *spritePalette)
     {
         return 0xFF;
     }
-    return LoadSpritePalette(spritePalette);
+    return LoadSpritePaletteDayNight(spritePalette);
 }
 
 void PatchObjectPalette(u16 paletteTag, u8 paletteSlot)
 {
     u8 paletteIndex = FindObjectEventPaletteIndexByTag(paletteTag);
 
-    LoadPalette(sObjectEventSpritePalettes[paletteIndex].data, 16 * paletteSlot + 0x100, 0x20);
+    LoadPaletteDayNight(sObjectEventSpritePalettes[paletteIndex].data, 16 * paletteSlot + 0x100, 0x20);
     ApplyGlobalFieldPaletteTint(paletteSlot);
 }
 

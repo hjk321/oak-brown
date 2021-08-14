@@ -6,6 +6,7 @@
 #include "rtc.h"
 #include "text.h"
 #include "data.h"
+#include "day_night.h"
 #include "battle.h"
 #include "battle_anim.h"
 #include "item.h"
@@ -36,6 +37,7 @@
 #include "constants/facility_trainer_classes.h"
 #include "constants/hold_effects.h"
 #include "constants/battle_move_effects.h"
+#include "constants/day_night.h"
 
 // Extracts the upper 16 bits of a 32-bit number
 #define HIHALF(n) (((n) & 0xFFFF0000) >> 16)
@@ -4971,15 +4973,14 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
                 if (friendship >= 220)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
-            // FR/LG removed the time of day evolutions due to having no RTC.
             case EVO_FRIENDSHIP_DAY:
                 RtcCalcLocalTime();
-                if (gLocalTime.hours >= 12 && gLocalTime.hours < 24 && friendship >= 220)
+                if (GetCurrentTimeOfDay() != TIME_NIGHT && friendship >= 220)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_FRIENDSHIP_NIGHT:
                 RtcCalcLocalTime();
-                if (gLocalTime.hours >= 0 && gLocalTime.hours < 12 && friendship >= 220)
+                if (GetCurrentTimeOfDay() != TIME_NIGHT && friendship >= 220)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_LEVEL:

@@ -53,6 +53,8 @@
 	.align 2
 	.include "src/start_menu.o"
 	.align 2
+	.include "src/day_night.o"
+	.align 2
 	.include "src/tileset_anims.o"
 	.align 2
 	.include "src/palette.o"

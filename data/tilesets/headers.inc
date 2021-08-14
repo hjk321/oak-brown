@@ -9,6 +9,8 @@ gTileset_General::
 	.4byte gMetatiles_General
 	.4byte InitTilesetAnim_General
 	.4byte gMetatileAttributes_General
+	@ .4byte gTilesetPalOverrides_General
+	.4byte NULL
 
 	.align 2
 gTileset_PalletTown::
@@ -20,6 +22,7 @@ gTileset_PalletTown::
 	.4byte gMetatiles_PalletTown
 	.4byte 0x0
 	.4byte gMetatileAttributes_PalletTown
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_ViridianCity::
@@ -31,6 +34,7 @@ gTileset_ViridianCity::
 	.4byte gMetatiles_ViridianCity
 	.4byte 0x0
 	.4byte gMetatileAttributes_ViridianCity
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_PewterCity::
@@ -42,6 +46,7 @@ gTileset_PewterCity::
 	.4byte gMetatiles_PewterCity
 	.4byte 0x0
 	.4byte gMetatileAttributes_PewterCity
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_CeruleanCity::
@@ -53,6 +58,7 @@ gTileset_CeruleanCity::
 	.4byte gMetatiles_CeruleanCity
 	.4byte 0x0
 	.4byte gMetatileAttributes_CeruleanCity
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_LavenderTown::
@@ -64,6 +70,7 @@ gTileset_LavenderTown::
 	.4byte gMetatiles_LavenderTown
 	.4byte 0x0
 	.4byte gMetatileAttributes_LavenderTown
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_VermilionCity::
@@ -75,6 +82,7 @@ gTileset_VermilionCity::
 	.4byte gMetatiles_VermilionCity
 	.4byte 0x0
 	.4byte gMetatileAttributes_VermilionCity
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_CeladonCity::
@@ -86,6 +94,7 @@ gTileset_CeladonCity::
 	.4byte gMetatiles_CeladonCity
 	.4byte InitTilesetAnim_CeladonCity
 	.4byte gMetatileAttributes_CeladonCity
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_FuchsiaCity::
@@ -97,6 +106,7 @@ gTileset_FuchsiaCity::
 	.4byte gMetatiles_FuchsiaCity
 	.4byte 0x0
 	.4byte gMetatileAttributes_FuchsiaCity
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_CinnabarIsland::
@@ -108,6 +118,7 @@ gTileset_CinnabarIsland::
 	.4byte gMetatiles_CinnabarIsland
 	.4byte 0x0
 	.4byte gMetatileAttributes_CinnabarIsland
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_IndigoPlateau::
@@ -119,6 +130,7 @@ gTileset_IndigoPlateau::
 	.4byte gMetatiles_IndigoPlateau
 	.4byte 0x0
 	.4byte gMetatileAttributes_IndigoPlateau
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_SaffronCity::
@@ -130,6 +142,7 @@ gTileset_SaffronCity::
 	.4byte gMetatiles_SaffronCity
 	.4byte 0x0
 	.4byte gMetatileAttributes_SaffronCity
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_Building::
@@ -141,6 +154,7 @@ gTileset_Building::
 	.4byte gMetatiles_Building
 	.4byte 0x0
 	.4byte gMetatileAttributes_Building
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_Mart::
@@ -152,6 +166,7 @@ gTileset_Mart::
 	.4byte gMetatiles_Mart
 	.4byte 0x0
 	.4byte gMetatileAttributes_Mart
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_PokemonCenter::
@@ -163,6 +178,7 @@ gTileset_PokemonCenter::
 	.4byte gMetatiles_PokemonCenter
 	.4byte 0x0
 	.4byte gMetatileAttributes_PokemonCenter
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_Cave::
@@ -174,6 +190,7 @@ gTileset_Cave::
 	.4byte gMetatiles_Cave
 	.4byte 0x0
 	.4byte gMetatileAttributes_Cave
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_Dummy1::
@@ -185,6 +202,7 @@ gTileset_Dummy1::
 	.4byte gMetatiles_Dummy1
 	.4byte 0x0
 	.4byte gMetatileAttributes_Dummy1
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_Museum::
@@ -196,6 +214,7 @@ gTileset_Museum::
 	.4byte gMetatiles_Museum
 	.4byte 0x0
 	.4byte gMetatileAttributes_Museum
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_CableClub::
@@ -207,6 +226,7 @@ gTileset_CableClub::
 	.4byte gMetatiles_CableClub
 	.4byte 0x0
 	.4byte gMetatileAttributes_CableClub
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_BikeShop::
@@ -218,6 +238,7 @@ gTileset_BikeShop::
 	.4byte gMetatiles_BikeShop
 	.4byte 0x0
 	.4byte gMetatileAttributes_BikeShop
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_GenericBuilding1::
@@ -229,6 +250,7 @@ gTileset_GenericBuilding1::
 	.4byte gMetatiles_GenericBuilding1
 	.4byte 0x0
 	.4byte gMetatileAttributes_GenericBuilding1
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_Lab::
@@ -240,6 +262,7 @@ gTileset_Lab::
 	.4byte gMetatiles_Lab
 	.4byte 0x0
 	.4byte gMetatileAttributes_Lab
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_FuchsiaGym::
@@ -251,6 +274,7 @@ gTileset_FuchsiaGym::
 	.4byte gMetatiles_FuchsiaGym
 	.4byte 0x0
 	.4byte gMetatileAttributes_FuchsiaGym
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_ViridianGym::
@@ -262,6 +286,7 @@ gTileset_ViridianGym::
 	.4byte gMetatiles_ViridianGym
 	.4byte 0x0
 	.4byte gMetatileAttributes_ViridianGym
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_HoennBuilding::
@@ -273,6 +298,7 @@ gTileset_HoennBuilding::
 	.4byte gMetatiles_HoennBuilding
 	.4byte 0x0
 	.4byte gMetatileAttributes_HoennBuilding
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_GameCorner::
@@ -284,6 +310,7 @@ gTileset_GameCorner::
 	.4byte gMetatiles_GameCorner
 	.4byte 0x0
 	.4byte gMetatileAttributes_GameCorner
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_PewterGym::
@@ -295,6 +322,7 @@ gTileset_PewterGym::
 	.4byte gMetatiles_PewterGym
 	.4byte 0x0
 	.4byte gMetatileAttributes_PewterGym
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_CeruleanGym::
@@ -306,6 +334,7 @@ gTileset_CeruleanGym::
 	.4byte gMetatiles_CeruleanGym
 	.4byte 0x0
 	.4byte gMetatileAttributes_CeruleanGym
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_VermilionGym::
@@ -317,6 +346,7 @@ gTileset_VermilionGym::
 	.4byte gMetatiles_VermilionGym
 	.4byte InitTilesetAnim_VermilionGym
 	.4byte gMetatileAttributes_VermilionGym
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_CeladonGym::
@@ -328,6 +358,7 @@ gTileset_CeladonGym::
 	.4byte gMetatiles_CeladonGym
 	.4byte InitTilesetAnim_CeladonGym
 	.4byte gMetatileAttributes_CeladonGym
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_SaffronGym::
@@ -339,6 +370,7 @@ gTileset_SaffronGym::
 	.4byte gMetatiles_SaffronGym
 	.4byte 0x0
 	.4byte gMetatileAttributes_SaffronGym
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_CinnabarGym::
@@ -350,6 +382,7 @@ gTileset_CinnabarGym::
 	.4byte gMetatiles_CinnabarGym
 	.4byte 0x0
 	.4byte gMetatileAttributes_CinnabarGym
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_SSAnne::
@@ -361,6 +394,7 @@ gTileset_SSAnne::
 	.4byte gMetatiles_SSAnne
 	.4byte 0x0
 	.4byte gMetatileAttributes_SSAnne
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_Dummy2::
@@ -372,6 +406,7 @@ gTileset_Dummy2::
 	.4byte gMetatiles_Dummy2
 	.4byte 0x0
 	.4byte gMetatileAttributes_Dummy2
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_ViridianForest::
@@ -383,6 +418,7 @@ gTileset_ViridianForest::
 	.4byte gMetatiles_ViridianForest
 	.4byte 0x0
 	.4byte gMetatileAttributes_ViridianForest
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_UnusedGatehouse1::
@@ -394,6 +430,7 @@ gTileset_UnusedGatehouse1::
 	.4byte gMetatiles_UnusedGatehouse1
 	.4byte 0x0
 	.4byte gMetatileAttributes_UnusedGatehouse1
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_RockTunnel::
@@ -405,6 +442,7 @@ gTileset_RockTunnel::
 	.4byte gMetatiles_RockTunnel
 	.4byte 0x0
 	.4byte gMetatileAttributes_RockTunnel
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_DiglettsCave::
@@ -416,6 +454,7 @@ gTileset_DiglettsCave::
 	.4byte gMetatiles_DiglettsCave
 	.4byte 0x0
 	.4byte gMetatileAttributes_DiglettsCave
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_SeafoamIslands::
@@ -427,6 +466,7 @@ gTileset_SeafoamIslands::
 	.4byte gMetatiles_SeafoamIslands
 	.4byte 0x0
 	.4byte gMetatileAttributes_SeafoamIslands
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_UnusedGatehouse2::
@@ -438,6 +478,7 @@ gTileset_UnusedGatehouse2::
 	.4byte gMetatiles_UnusedGatehouse2
 	.4byte 0x0
 	.4byte gMetatileAttributes_UnusedGatehouse2
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_CeruleanCave::
@@ -449,6 +490,7 @@ gTileset_CeruleanCave::
 	.4byte gMetatiles_CeruleanCave
 	.4byte 0x0
 	.4byte gMetatileAttributes_CeruleanCave
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_DepartmentStore::
@@ -460,6 +502,7 @@ gTileset_DepartmentStore::
 	.4byte gMetatiles_DepartmentStore
 	.4byte 0x0
 	.4byte gMetatileAttributes_DepartmentStore
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_GenericBuilding2::
@@ -471,6 +514,7 @@ gTileset_GenericBuilding2::
 	.4byte gMetatiles_GenericBuilding2
 	.4byte 0x0
 	.4byte gMetatileAttributes_GenericBuilding2
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_PowerPlant::
@@ -482,6 +526,7 @@ gTileset_PowerPlant::
 	.4byte gMetatiles_PowerPlant
 	.4byte 0x0
 	.4byte gMetatileAttributes_PowerPlant
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_SeaCottage::
@@ -493,6 +538,7 @@ gTileset_SeaCottage::
 	.4byte gMetatiles_SeaCottage
 	.4byte 0x0
 	.4byte gMetatileAttributes_SeaCottage
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_SilphCo::
@@ -504,6 +550,7 @@ gTileset_SilphCo::
 	.4byte gMetatiles_SilphCo
 	.4byte InitTilesetAnim_SilphCo
 	.4byte gMetatileAttributes_SilphCo
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_UndergroundPath::
@@ -515,6 +562,7 @@ gTileset_UndergroundPath::
 	.4byte gMetatiles_UndergroundPath
 	.4byte 0x0
 	.4byte gMetatileAttributes_UndergroundPath
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_PokemonTower::
@@ -526,6 +574,7 @@ gTileset_PokemonTower::
 	.4byte gMetatiles_PokemonTower
 	.4byte 0x0
 	.4byte gMetatileAttributes_PokemonTower
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_SafariZoneBuilding::
@@ -537,6 +586,7 @@ gTileset_SafariZoneBuilding::
 	.4byte gMetatiles_SafariZoneBuilding
 	.4byte 0x0
 	.4byte gMetatileAttributes_SafariZoneBuilding
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_PokemonMansion::
@@ -548,6 +598,7 @@ gTileset_PokemonMansion::
 	.4byte gMetatiles_PokemonMansion
 	.4byte 0x0
 	.4byte gMetatileAttributes_PokemonMansion
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_RestaurantHotel::
@@ -559,6 +610,7 @@ gTileset_RestaurantHotel::
 	.4byte gMetatiles_RestaurantHotel
 	.4byte 0x0
 	.4byte gMetatileAttributes_RestaurantHotel
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_School::
@@ -570,6 +622,7 @@ gTileset_School::
 	.4byte gMetatiles_School
 	.4byte 0x0
 	.4byte gMetatileAttributes_School
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_FanClubDaycare::
@@ -581,6 +634,7 @@ gTileset_FanClubDaycare::
 	.4byte gMetatiles_FanClubDaycare
 	.4byte 0x0
 	.4byte gMetatileAttributes_FanClubDaycare
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_Condominiums::
@@ -592,6 +646,7 @@ gTileset_Condominiums::
 	.4byte gMetatiles_Condominiums
 	.4byte 0x0
 	.4byte gMetatileAttributes_Condominiums
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_BurgledHouse::
@@ -603,6 +658,7 @@ gTileset_BurgledHouse::
 	.4byte gMetatiles_BurgledHouse
 	.4byte 0x0
 	.4byte gMetatileAttributes_BurgledHouse
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_Dummy3::
@@ -614,6 +670,7 @@ gTileset_Dummy3::
 	.4byte gMetatiles_Dummy3
 	.4byte 0x0
 	.4byte gMetatileAttributes_Dummy3
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_Dummy4::
@@ -625,6 +682,7 @@ gTileset_Dummy4::
 	.4byte gMetatiles_Dummy4
 	.4byte 0x0
 	.4byte gMetatileAttributes_Dummy4
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_MtEmber::
@@ -636,6 +694,7 @@ gTileset_MtEmber::
 	.4byte gMetatiles_MtEmber
 	.4byte InitTilesetAnim_MtEmber
 	.4byte gMetatileAttributes_MtEmber
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_BerryForest::
@@ -647,6 +706,7 @@ gTileset_BerryForest::
 	.4byte gMetatiles_BerryForest
 	.4byte 0x0
 	.4byte gMetatileAttributes_BerryForest
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_NavelRock::
@@ -658,6 +718,7 @@ gTileset_NavelRock::
 	.4byte gMetatiles_NavelRock
 	.4byte 0x0
 	.4byte gMetatileAttributes_NavelRock
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_TanobyRuins::
@@ -669,6 +730,7 @@ gTileset_TanobyRuins::
 	.4byte gMetatiles_TanobyRuins
 	.4byte 0x0
 	.4byte gMetatileAttributes_TanobyRuins
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_SeviiIslands123::
@@ -680,6 +742,7 @@ gTileset_SeviiIslands123::
 	.4byte gMetatiles_SeviiIslands123
 	.4byte 0x0
 	.4byte gMetatileAttributes_SeviiIslands123
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_SeviiIslands45::
@@ -691,6 +754,7 @@ gTileset_SeviiIslands45::
 	.4byte gMetatiles_SeviiIslands45
 	.4byte 0x0
 	.4byte gMetatileAttributes_SeviiIslands45
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_SeviiIslands67::
@@ -702,6 +766,7 @@ gTileset_SeviiIslands67::
 	.4byte gMetatiles_SeviiIslands67
 	.4byte 0x0
 	.4byte gMetatileAttributes_SeviiIslands67
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_TrainerTower::
@@ -713,6 +778,7 @@ gTileset_TrainerTower::
 	.4byte gMetatiles_TrainerTower
 	.4byte 0x0
 	.4byte gMetatileAttributes_TrainerTower
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_IslandHarbor::
@@ -724,6 +790,7 @@ gTileset_IslandHarbor::
 	.4byte gMetatiles_IslandHarbor
 	.4byte 0x0
 	.4byte gMetatileAttributes_IslandHarbor
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_PokemonLeague::
@@ -735,6 +802,7 @@ gTileset_PokemonLeague::
 	.4byte gMetatiles_PokemonLeague
 	.4byte 0x0
 	.4byte gMetatileAttributes_PokemonLeague
+	.4byte NULL @ palette overrides
 
 	.align 2
 gTileset_HallOfFame::
@@ -746,4 +814,4 @@ gTileset_HallOfFame::
 	.4byte gMetatiles_HallOfFame
 	.4byte 0x0
 	.4byte gMetatileAttributes_HallOfFame
-
+	.4byte NULL @ palette overrides

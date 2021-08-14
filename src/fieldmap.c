@@ -1,5 +1,6 @@
 #include "global.h"
 #include "gflib.h"
+#include "day_night.h"
 #include "overworld.h"
 #include "script.h"
 #include "new_menu_helpers.h"
@@ -941,17 +942,20 @@ static void apply_map_tileset_palette(struct Tileset const *tileset, u16 destOff
     {
         if (tileset->isSecondary == FALSE)
         {
+            gPaletteOverrides[0] = tileset->paletteOverrides;
             LoadPalette(&black, destOffset, 2);
-            LoadPalette(((u16*)tileset->palettes) + 1, destOffset + 1, size - 2);
+            LoadPaletteDayNight(((u16*)tileset->palettes) + 1, destOffset + 1, size - 2);
             Fieldmap_ApplyGlobalTintToPaletteEntries(destOffset + 1, (size - 2) >> 1);
         }
         else if (tileset->isSecondary == TRUE)
         {
-            LoadPalette(((u16*)tileset->palettes) + (NUM_PALS_IN_PRIMARY * 16), destOffset, size);
+            gPaletteOverrides[1] = tileset->paletteOverrides;
+            LoadPaletteDayNight(((u16*)tileset->palettes) + (NUM_PALS_IN_PRIMARY * 16), destOffset, size);
             Fieldmap_ApplyGlobalTintToPaletteEntries(destOffset, size >> 1);
         }
         else
         {
+            gPaletteOverrides[2] = tileset->paletteOverrides;
             LoadCompressedPalette((u32*)tileset->palettes, destOffset, size);
             Fieldmap_ApplyGlobalTintToPaletteEntries(destOffset, size >> 1);
         }

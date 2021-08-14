@@ -300,7 +300,7 @@
 	.byte 0x2d
 	.endm
 
-	@ Resets the values of variables VAR_0x8000, VAR_0x8001, and VAR_0x8002.
+	@ Hours to 0x8000, Minutes to 0x8001, Seconds to 0x8002, and Time of Day to 0x8003.
 	.macro gettime
 	.byte 0x2e
 	.endm

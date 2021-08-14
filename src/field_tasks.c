@@ -2,6 +2,7 @@
 #include "gflib.h"
 #include "bike.h"
 #include "clock.h"
+#include "day_night.h"
 #include "event_data.h"
 #include "field_camera.h"
 #include "field_effect_helpers.h"
@@ -55,6 +56,7 @@ static void Task_RunPerStepCallback(u8 taskId)
 }
 
 #define tState           data[0]
+#define tForceTimeUpdate data[3]
 
 static void RunTimeBasedEvents(s16 *data)
 {
@@ -80,6 +82,8 @@ static void Task_RunTimeBasedEvents(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
 
+    ProcessImmediateTimeEvents();
+
     if (!ScriptContext2_IsEnabled())
     {
         if (!QL_IS_PLAYBACK_STATE)
@@ -88,9 +92,24 @@ static void Task_RunTimeBasedEvents(u8 taskId)
             UpdateAmbientCry(&data[1], &data[2]);
         }
     }
+
+    if (tForceTimeUpdate)
+    {
+        tForceTimeUpdate = 0;
+        DoTimeBasedEvents();
+    }
+}
+
+void ForceTimeBasedEvents(void)
+{
+    u8 taskId = FindTaskIdByFunc(Task_RunTimeBasedEvents);
+
+    if (taskId != 0xFF)
+        gTasks[taskId].tForceTimeUpdate = 1;
 }
 
 #undef tState
+#undef tForceTimeUpdate
 
 void SetUpFieldTasks(void)
 {

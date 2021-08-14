@@ -4,10 +4,12 @@
 #include "event_data.h"
 #include "fieldmap.h"
 #include "roamer.h"
+#include "rtc.h"
 #include "field_player_avatar.h"
 #include "battle_setup.h"
 #include "overworld.h"
 #include "metatile_behavior.h"
+#include "day_night.h"
 #include "event_scripts.h"
 #include "script.h"
 #include "link.h"
@@ -247,8 +249,13 @@ enum
 
 static bool8 TryGenerateWildMon(const struct WildPokemonInfo * info, u8 area, u8 flags)
 {
+    u8 timeOfDay;
     u8 slot = 0;
     u8 level;
+
+    RtcCalcLocalTime();
+    timeOfDay = GetCurrentTimeOfDay();
+
     switch (area)
     {
     case WILD_AREA_LAND:
@@ -261,21 +268,28 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo * info, u8 area, u8
         slot = ChooseWildMonIndex_WaterRock();
         break;
     }
-    level = ChooseWildMonLevel(&info->wildPokemon[slot]);
+    level = ChooseWildMonLevel(&info->wildPokemon[timeOfDay][slot]);
     if (flags == WILD_CHECK_REPEL && !IsWildLevelAllowedByRepel(level))
     {
         return FALSE;
     }
-    GenerateWildMon(info->wildPokemon[slot].species, level, slot);
+    GenerateWildMon(info->wildPokemon[timeOfDay][slot].species, level, slot);
     return TRUE;
 }
 
-static u16 GenerateFishingEncounter(const struct WildPokemonInfo * info, u8 rod)
+static u16 GenerateFishingEncounter(const struct WildPokemonInfo * wildMonInfo, u8 rod)
 {
-    u8 slot = ChooseWildMonIndex_Fishing(rod);
-    u8 level = ChooseWildMonLevel(&info->wildPokemon[slot]);
-    GenerateWildMon(info->wildPokemon[slot].species, level, slot);
-    return info->wildPokemon[slot].species;
+    u8 timeOfDay;
+    u8 wildMonIndex;
+    u8 level;
+
+    RtcCalcLocalTime();
+    timeOfDay = GetCurrentTimeOfDay();
+
+    wildMonIndex = ChooseWildMonIndex_Fishing(rod);
+    level = ChooseWildMonLevel(&wildMonInfo->wildPokemon[timeOfDay][wildMonIndex]);
+    GenerateWildMon(wildMonInfo->wildPokemon[timeOfDay][wildMonIndex].species, level, wildMonIndex);
+    return wildMonInfo->wildPokemon[timeOfDay][wildMonIndex].species;
 }
 
 static bool8 DoWildEncounterRateDiceRoll(u16 a0)
@@ -505,8 +519,14 @@ void FishingWildEncounter(u8 rod)
 u16 GetLocalWildMon(bool8 *isWaterMon)
 {
     u16 headerId;
+    u8 timeOfDay;
+    u16 species;
+
     const struct WildPokemonInfo * landMonsInfo;
     const struct WildPokemonInfo * waterMonsInfo;
+
+    RtcCalcLocalTime();
+    timeOfDay = GetCurrentTimeOfDay();
 
     *isWaterMon = FALSE;
     headerId = GetCurrentMapWildMonHeaderId();
@@ -519,35 +539,39 @@ u16 GetLocalWildMon(bool8 *isWaterMon)
         return SPECIES_NONE;
         // Land Pokemon
     else if (landMonsInfo != NULL && waterMonsInfo == NULL)
-        return landMonsInfo->wildPokemon[ChooseWildMonIndex_Land()].species;
+        return landMonsInfo->wildPokemon[timeOfDay][ChooseWildMonIndex_Land()].species;
         // Water Pokemon
     else if (landMonsInfo == NULL && waterMonsInfo != NULL)
     {
         *isWaterMon = TRUE;
-        return waterMonsInfo->wildPokemon[ChooseWildMonIndex_WaterRock()].species;
+        return waterMonsInfo->wildPokemon[timeOfDay][ChooseWildMonIndex_WaterRock()].species;
     }
     // Either land or water Pokemon
     if ((Random() % 100) < 80)
     {
-        return landMonsInfo->wildPokemon[ChooseWildMonIndex_Land()].species;
+        return landMonsInfo->wildPokemon[timeOfDay][ChooseWildMonIndex_Land()].species;
     }
     else
     {
         *isWaterMon = TRUE;
-        return waterMonsInfo->wildPokemon[ChooseWildMonIndex_WaterRock()].species;
+        return waterMonsInfo->wildPokemon[timeOfDay][ChooseWildMonIndex_WaterRock()].species;
     }
 }
 
 u16 GetLocalWaterMon(void)
 {
     u16 headerId = GetCurrentMapWildMonHeaderId();
+    u8 timeOfDay;
+
+    RtcCalcLocalTime();
+    timeOfDay = GetCurrentTimeOfDay();
 
     if (headerId != 0xFFFF)
     {
         const struct WildPokemonInfo * waterMonsInfo = gWildMonHeaders[headerId].waterMonsInfo;
 
         if (waterMonsInfo)
-            return waterMonsInfo->wildPokemon[ChooseWildMonIndex_WaterRock()].species;
+            return waterMonsInfo->wildPokemon[timeOfDay][ChooseWildMonIndex_WaterRock()].species;
     }
     return SPECIES_NONE;
 }

@@ -4,6 +4,7 @@
 #include "cable_club.h"
 #include "clock.h"
 #include "credits.h"
+#include "day_night.h"
 #include "event_data.h"
 #include "event_object_movement.h"
 #include "event_scripts.h"
@@ -129,7 +130,6 @@ static u8 GetAdjustedInitialDirection(struct InitialPlayerAvatarState *playerStr
 static u16 GetCenterScreenMetatileBehavior(void);
 static void SetDefaultFlashLevel(void);
 static void Overworld_TryMapConnectionMusicTransition(void);
-static void ChooseAmbientCrySpecies(void);
 
 static void CB2_Overworld(void);
 static void CB2_LoadMap2(void);
@@ -1186,7 +1186,7 @@ void UpdateAmbientCry(s16 *state, u16 *delayCounter)
     }
 }
 
-static void ChooseAmbientCrySpecies(void)
+void ChooseAmbientCrySpecies(void)
 {
     sAmbientCrySpecies = GetLocalWildMon(&sIsAmbientCryWaterMon);
 }
@@ -1747,6 +1747,7 @@ static void VBlankCB_Field(void)
     FieldUpdateBgTilemapScroll();
     TransferPlttBuffer();
     TransferTilesetAnimsBuffer();
+    CheckClockForImmediateTimeEvents();
 }
 
 static void InitCurrentFlashLevelScanlineEffect(void)

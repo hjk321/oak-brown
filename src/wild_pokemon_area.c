@@ -1,4 +1,5 @@
 #include "global.h"
+#include "day_night.h"
 #include "field_specials.h"
 #include "event_data.h"
 #include "wild_encounter.h"
@@ -6,6 +7,7 @@
 #include "overworld.h"
 #include "pokedex_area_markers.h"
 #include "constants/region_map_sections.h"
+#include "constants/day_night.h"
 
 struct SeviiDexArea
 {
@@ -274,12 +276,16 @@ static bool32 PokemonInAnyEncounterTableInMap(const struct WildPokemonHeader * d
 static bool32 PokemonInEncounterTable(const struct WildPokemonInfo * info, s32 species, s32 count)
 {
     s32 i;
+    int timeOfDay;
     if (info != NULL)
     {
-        for (i = 0; i < count; i++)
+        for (timeOfDay = 0; timeOfDay < TIMES_OF_DAY_COUNT; timeOfDay++)
         {
-            if (info->wildPokemon[i].species == species)
-                return TRUE;
+            for (i = 0; i < count; i++)
+            {
+                if (info->wildPokemon[timeOfDay][i].species == species)
+                    return TRUE;
+            }
         }
     }
     return FALSE;

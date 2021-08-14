@@ -168,6 +168,7 @@ void SetContinueGameWarpToDynamicWarp(int);
 
 void SetContinueGameWarpToHealLocation(u8 loc);
 
+void ChooseAmbientCrySpecies(void);
 void UpdateAmbientCry(s16 *state, u16 *delayCounter);
 void SetWarpDestinationToHealLocation(u8 a0);
 bool32 Overworld_SendKeysToLinkIsRunning(void);

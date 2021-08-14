@@ -74,7 +74,7 @@ gFieldEffectScriptPointers:: @ 81D96AC
 	.4byte gFldEffScript_Unk45
 
 gFldEffScript_ExclamationMarkIcon:: @ 81D97C4
-	callnative FldEff_ExclamationMarkIcon1
+	field_eff_loadfadedpalnotint_callnative 0x1100, FldEff_ExclamationMarkIcon1
 	end 
 
 gFldEffScript_UseCutOnGrass:: @ 81D97CA
@@ -204,7 +204,7 @@ gFldEffScript_FlyIn:: @ 81D98BE
 	end 
 
 gFldEffScript_QuestionMarkIcon:: @ 81D98C4
-	callnative FldEff_QuestionMarkIcon
+	field_eff_loadfadedpalnotint_callnative 0x1100, FldEff_QuestionMarkIcon
 	end 
 
 gFldEffScript_FeetInFlowingWater:: @ 81D98CA
@@ -252,7 +252,7 @@ gFldEffScript_UseDive:: @ 81D991A
 	end 
 
 gFldEffScript_Pokeball:: @ 81D9920
-	loadpal sSpritePalette_SlidingPokeball
+	field_eff_loadpalnotint sSpritePalette_SlidingPokeball
 	callnative FldEff_Pokeball
 	end 
 

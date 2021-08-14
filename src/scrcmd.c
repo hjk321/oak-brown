@@ -2,6 +2,7 @@
 #include "gflib.h"
 #include "clock.h"
 #include "rtc.h"
+#include "day_night.h"
 #include "script.h"
 #include "mystery_event_script.h"
 #include "event_data.h"
@@ -682,6 +683,7 @@ bool8 ScrCmd_gettime(struct ScriptContext * ctx)
     gSpecialVar_0x8000 = gLocalTime.hours;
     gSpecialVar_0x8001 = gLocalTime.minutes;
     gSpecialVar_0x8002 = gLocalTime.seconds;
+    gSpecialVar_0x8003 = GetCurrentTimeOfDay();
     return FALSE;
 }
 

@@ -178,6 +178,9 @@ u8 CreateWarpArrowSprite(void)
 
 void SetSpriteInvisible(u8 spriteId)
 {
+    u8 paletteNum = gSprites[spriteId].oam.paletteNum;
+    gSprites[spriteId].oam.paletteNum = 0;
+    FieldEffectFreePaletteIfUnused(paletteNum);
     gSprites[spriteId].invisible = TRUE;
 }
 
