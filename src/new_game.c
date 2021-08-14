@@ -32,6 +32,7 @@
 #include "event_scripts.h"
 #include "save.h"
 #include "rtc.h"
+#include "clock.h"
 
 // this file's functions
 static void ResetMiniGamesResults(void);
@@ -157,6 +158,7 @@ void NewGameInitData(void)
     ResetTrainerTowerResults();
     FlagSet(FLAG_SYS_B_DASH);
     FlagSet(FLAG_PROLOGUE);
+    InitTimeBasedEvents();
 }
 
 static void ResetMiniGamesResults(void)

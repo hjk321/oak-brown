@@ -876,7 +876,7 @@
 #define FLAG_0x359               0x359
 #define FLAG_0x35A               0x35A
 #define FLAG_0x35B               0x35B
-#define FLAG_SET_WALL_CLOCK      0x35C
+#define FLAG_0x35C               0x35C
 #define FLAG_0x35D               0x35D
 #define FLAG_0x35E               0x35E
 #define FLAG_0x35F               0x35F

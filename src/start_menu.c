@@ -34,6 +34,7 @@
 #include "save_menu_util.h"
 #include "constants/songs.h"
 #include "constants/field_weather.h"
+#include "rtc.h"
 #include "quest_menu.h"
 
 enum StartMenuOption
@@ -384,6 +385,10 @@ void Task_StartMenuHandleInput(u8 taskId)
 
 void ShowStartMenu(void)
 {
+#if DEBUG
+    RtcCalcLocalTime();
+    mgba_printf(MGBA_LOG_INFO, "The current time is %01d:%01d:%01d", gLocalTime.hours, gLocalTime.minutes, gLocalTime.seconds);
+#endif
     if (!IsUpdateLinkStateCBActive())
     {
         FreezeObjectEvents();
