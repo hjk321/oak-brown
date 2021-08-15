@@ -7,6 +7,7 @@
 
 // not real times of day but useful for specifying override times
 #define HOUR_EVENING 18
+#define HOUR_SUNRISE 6
 #define HOUR_MIDNIGHT_0 0
 #define HOUR_MIDNIGHT_24 24
 

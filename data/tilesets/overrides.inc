@@ -2,13 +2,13 @@
 gTilesetPalOverrides_General::
 	.byte 2
 	.byte HOUR_NIGHT
-	.byte HOUR_MORNING
+	.byte HOUR_SUNRISE
 	.byte 0
 	.4byte gTilesetPalOverride_General02
 
 	.byte 7
 	.byte HOUR_NIGHT
-	.byte HOUR_MORNING
+	.byte HOUR_SUNRISE
 	.byte 0
 	.4byte gTilesetPalOverride_General07
 
@@ -22,19 +22,19 @@ gTilesetPalOverrides_General::
 gTilesetPalOverrides_PalletTown::
 	.byte 8
 	.byte HOUR_NIGHT
-	.byte HOUR_MORNING
+	.byte HOUR_SUNRISE
 	.byte 0
 	.4byte gTilesetPalOverride_PalletTown08
 
 	.byte 9
 	.byte HOUR_NIGHT
-	.byte HOUR_MORNING
+	.byte HOUR_SUNRISE
 	.byte 0
 	.4byte gTilesetPalOverride_PalletTown09
 
 	.byte 10
 	.byte HOUR_NIGHT
-	.byte HOUR_MORNING
+	.byte HOUR_SUNRISE
 	.byte 0
 	.4byte gTilesetPalOverride_PalletTown10
 
