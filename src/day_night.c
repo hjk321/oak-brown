@@ -10,10 +10,12 @@
 #include "constants/day_night.h"
 #include "constants/region_map_sections.h"
 #include "constants/rgb.h"
+#include "constants/map_types.h"
 
 #define TINT_MORNING Q_8_8(0.7), Q_8_8(0.7), Q_8_8(0.9)
 #define TINT_DAY Q_8_8(1.0), Q_8_8(1.0), Q_8_8(1.0)
 #define TINT_NIGHT Q_8_8(0.4), Q_8_8(0.4), Q_8_8(0.92)
+#define TINT_UNDERGROUND Q_8_8(0.4), Q_8_8(0.4), Q_8_8(0.6)
 
 EWRAM_DATA u16 gPlttBufferPreDN[PLTT_BUFFER_SIZE] = {0};
 EWRAM_DATA struct PaletteOverride *gPaletteOverrides[4] = {NULL};
@@ -186,6 +188,10 @@ static void TintPaletteForDayNight(u16 offset, u16 size)
         }
 
         TintPalette_CustomToneWithCopy(gPlttBufferPreDN + offset, gPlttBufferUnfaded + offset, size / 2, sDNSystemControl.currRGBTint[0], sDNSystemControl.currRGBTint[1], sDNSystemControl.currRGBTint[2], FALSE);
+    }
+    else if (gMapHeader.mapType == MAP_TYPE_UNDERGROUND)
+    {
+        TintPalette_CustomToneWithCopy(gPlttBufferPreDN + offset, gPlttBufferUnfaded + offset, size / 2, TINT_UNDERGROUND, FALSE);
     }
     else
     {
