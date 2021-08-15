@@ -1471,9 +1471,21 @@ gTilesetPalettes_HallOfFame:: @ 829F4C8
 	.incbin "data/tilesets/secondary/hall_of_fame/palettes/15.gbapal"
 
 	.align 2
-gTilesetPalOverride_General01::
-	.incbin "data/tilesets/primary/general/palettes/01_over.gbapal"
+gTilesetPalOverride_General02::
+	.incbin "data/tilesets/primary/general/palettes/02_over.gbapal"
 
 	.align 2
-gTilesetPalOverride_General05::
-	.incbin "data/tilesets/primary/general/palettes/05_over.gbapal"
+gTilesetPalOverride_General07::
+	.incbin "data/tilesets/primary/general/palettes/07_over.gbapal"
+
+	.align 2
+gTilesetPalOverride_PalletTown08::
+	.incbin "data/tilesets/secondary/pallet_town/palettes/08_over.gbapal"
+
+	.align 2
+gTilesetPalOverride_PalletTown09::
+	.incbin "data/tilesets/secondary/pallet_town/palettes/09_over.gbapal"
+
+	.align 2
+gTilesetPalOverride_PalletTown10::
+	.incbin "data/tilesets/secondary/pallet_town/palettes/10_over.gbapal"

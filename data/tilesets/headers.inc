@@ -9,8 +9,7 @@ gTileset_General::
 	.4byte gMetatiles_General
 	.4byte InitTilesetAnim_General
 	.4byte gMetatileAttributes_General
-	@ .4byte gTilesetPalOverrides_General
-	.4byte NULL
+	.4byte gTilesetPalOverrides_General
 
 	.align 2
 gTileset_PalletTown::
@@ -22,7 +21,7 @@ gTileset_PalletTown::
 	.4byte gMetatiles_PalletTown
 	.4byte 0x0
 	.4byte gMetatileAttributes_PalletTown
-	.4byte NULL @ palette overrides
+	.4byte gTilesetPalOverrides_PalletTown
 
 	.align 2
 gTileset_ViridianCity::
