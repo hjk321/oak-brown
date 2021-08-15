@@ -4968,4 +4968,18 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
         .physicality = MOVE_PHYSICALITY_SPECIAL,
     },
+	
+	[MOVE_ENERGY_BALL] =
+    {
+        .power = 80,
+        .effect = EFFECT_SPECIAL_DEFENSE_DOWN_HIT,
+        .type = TYPE_GRASS,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED/* | FLAG_BALLISTIC*/ /* | FLAG_SHEER_FORCE_BOOST*/,
+        .physicality = MOVE_PHYSICALITY_SPECIAL,
+    },
 };

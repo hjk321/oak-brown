@@ -1060,3 +1060,6 @@ gMoveDescription_DoomDesire:: @ 848865A
 gMoveDescription_PsychoBoost:: @ 84886A1
 	.string "An intense attack\nthat also sharply\nreduces the user's\nSp. Atk stat.$"
 
+gMoveDescription_EnergyBall::
+    .string "Draws power from\nnature to attack.\nMay lower Sp. Def.$"
+
