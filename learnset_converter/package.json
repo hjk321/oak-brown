@@ -12,6 +12,7 @@
     "@pkmn/data": "^0.4.14",
     "deepmerge": "^4.2.2",
     "graceful-fs": "^4.2.8",
+    "pokeapi-js-wrapper": "^1.2.0",
     "pokedex-promise-v2": "^3.3.2"
   }
 }
