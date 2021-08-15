@@ -19,6 +19,20 @@ gTilesetPalOverrides_General::
 	.4byte NULL
 
 	.align 2
+gTilesetPalOverrides_Building::
+	.byte 6
+	.byte HOUR_NIGHT
+	.byte HOUR_SUNRISE
+	.byte 0
+	.4byte gTilesetPalOverride_Building06
+
+	.byte 0xFF
+	.byte 0
+	.byte 0
+	.byte 0
+	.4byte NULL
+
+	.align 2
 gTilesetPalOverrides_PalletTown::
 	.byte 8
 	.byte HOUR_NIGHT

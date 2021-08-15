@@ -153,7 +153,7 @@ gTileset_Building::
 	.4byte gMetatiles_Building
 	.4byte 0x0
 	.4byte gMetatileAttributes_Building
-	.4byte NULL @ palette overrides
+	.4byte gTilesetPalOverrides_Building
 
 	.align 2
 gTileset_Mart::

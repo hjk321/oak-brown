@@ -1479,6 +1479,10 @@ gTilesetPalOverride_General07::
 	.incbin "data/tilesets/primary/general/palettes/07_over.gbapal"
 
 	.align 2
+gTilesetPalOverride_Building06::
+	.incbin "data/tilesets/primary/building/palettes/06_over.gbapal"
+
+	.align 2
 gTilesetPalOverride_PalletTown08::
 	.incbin "data/tilesets/secondary/pallet_town/palettes/08_over.gbapal"
 
