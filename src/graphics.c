@@ -1424,3 +1424,6 @@ const u16 gUnknown_8EAFEA0[] = INCBIN_U16("graphics/berry_crush/berry_crush.gbap
 const u16 gUnknown_8EAFF60[] = INCBIN_U16("graphics/unknown/unknown_EAFF60.gbapal");
 const u32 gUnknown_8EAFFC0[] = INCBIN_U32("graphics/berry_crush/berry_crush.4bpp.lz");
 const u32 gUnknown_8EB0ADC[] = INCBIN_U32("graphics/berry_crush/data_EB0ADC.bin.lz");
+
+const u32 gBattleAnimSpriteGfx_EnergyBall[] = INCBIN_U32("graphics/battle_anims/sprites/energy_ball.4bpp.lz");
+const u32 gBattleAnimSpritePal_EnergyBall[] = INCBIN_U32("graphics/battle_anims/sprites/energy_ball.gbapal.lz");

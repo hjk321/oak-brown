@@ -1478,3 +1478,14 @@ static void sub_80B71B0(struct Sprite *sprite)
         sprite->callback = DestroySpriteAndMatrix;
     }
 }
+
+const struct SpriteTemplate gEnergyBallSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ENERGY_BALL,
+    .paletteTag = ANIM_TAG_ENERGY_BALL,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_ShadowBall,
+    .callback = AnimShadowBall,
+};
