@@ -1,9 +1,4 @@
 {
-  "times": [
-    "MORNING",
-    "DAY",
-    "NIGHT"
-  ],
   "wild_encounter_groups": [
     {
       "label": "gWildMonHeaders",
