@@ -57,3 +57,22 @@ gTilesetPalOverrides_PalletTown::
 	.byte 0
 	.byte 0
 	.4byte NULL
+
+gTilesetPalOverrides_Cave::
+	.byte 10
+	.byte HOUR_SUNRISE
+	.byte HOUR_NIGHT
+	.byte 0
+	.4byte gTilesetPalOverride_Cave10_Day
+
+	.byte 10
+	.byte HOUR_NIGHT
+	.byte HOUR_SUNRISE
+	.byte 0
+	.4byte gTilesetPalOverride_Cave10_Night
+
+	.byte 0xFF
+	.byte 0
+	.byte 0
+	.byte 0
+	.4byte NULL

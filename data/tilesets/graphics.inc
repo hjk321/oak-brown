@@ -1493,3 +1493,11 @@ gTilesetPalOverride_PalletTown09::
 	.align 2
 gTilesetPalOverride_PalletTown10::
 	.incbin "data/tilesets/secondary/pallet_town/palettes/10_over.gbapal"
+
+	.align 2
+gTilesetPalOverride_Cave10_Day::
+	.incbin "data/tilesets/secondary/cave/palettes/10_over_day.gbapal"
+
+	.align 2
+gTilesetPalOverride_Cave10_Night::
+	.incbin "data/tilesets/secondary/cave/palettes/10_over_night.gbapal"

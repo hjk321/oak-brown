@@ -189,7 +189,7 @@ gTileset_Cave::
 	.4byte gMetatiles_Cave
 	.4byte 0x0
 	.4byte gMetatileAttributes_Cave
-	.4byte NULL @ palette overrides
+	.4byte gTilesetPalOverrides_Cave
 
 	.align 2
 gTileset_Dummy1::
