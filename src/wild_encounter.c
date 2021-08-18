@@ -29,7 +29,6 @@ struct WildEncounterData
 static EWRAM_DATA struct WildEncounterData sWildEncounterData = {};
 static EWRAM_DATA bool8 sWildEncountersDisabled = FALSE;
 
-static bool8 UnlockedTanobyOrAreNotInTanoby(void);
 static u32 GenerateUnownPersonalityByLetter(u8 letter);
 static bool8 IsWildLevelAllowedByRepel(u8 level);
 static void ApplyFluteEncounterRateMod(u32 *rate);
@@ -188,18 +187,11 @@ static u16 GetCurrentMapWildMonHeaderId(void)
         if (gWildMonHeaders[i].mapGroup == gSaveBlock1Ptr->location.mapGroup &&
             gWildMonHeaders[i].mapNum == gSaveBlock1Ptr->location.mapNum)
         {
-            if (!UnlockedTanobyOrAreNotInTanoby())
-                break;
             return i;
         }
     }
 
     return -1;
-}
-
-static bool8 UnlockedTanobyOrAreNotInTanoby(void)
-{
-    return FALSE;
 }
 
 static void GenerateWildMon(u16 species, u8 level, u8 slot)
