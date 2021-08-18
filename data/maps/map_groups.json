@@ -1,31 +1,31 @@
 {
   "layouts_table_label": "gMapLayouts",
   "group_order": [
-    "gMapGroup0",
-    "gMapGroup1",
-    "gMapGroup2",
-    "gMapGroup3",
-    "gMapGroup4"
+    "gMapGroup_Debug",
+    "gMapGroup_Towns",
+    "gMapGroup_Routes",
+    "gMapGroup_Dungeons",
+    "gMapGroup_Indoor"
   ],
-  "gMapGroup0": [
+  "gMapGroup_Debug": [
     "Debug_Placeholder",
     "Debug_WarpZone"
   ],
-  "gMapGroup1": [
+  "gMapGroup_Towns": [
     "SeashoreCity",
     "GravelTown"
   ],
-  "gMapGroup2": [
+  "gMapGroup_Routes": [
     "Route53"
   ],
-  "gMapGroup3": [
+  "gMapGroup_Dungeons": [
     "MersonCave_1F",
     "MersonCave_1BF",
     "MersonCave_2BF",
     "MersonCave_Outdoor",
     "MersonCave_2F"
   ],
-  "gMapGroup4": [
+  "gMapGroup_Indoor": [
     "SeashoreCity_PlayersHouse_2F",
     "SeashoreCity_PlayersHouse_1F",
     "SeashoreCity_MurasHouse",
