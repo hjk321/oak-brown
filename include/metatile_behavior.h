@@ -23,6 +23,7 @@ bool8 MetatileBehavior_IsDirectionalDownRightStairWarp(u8 metatileBehavior);
 bool8 MetatileBehavior_IsDirectionalDownLeftStairWarp(u8 metatileBehavior);
 bool8 MetatileBehavior_IsDirectionalStairWarp(u8 metatileBehavior);
 bool8 MetatileBehavior_IsLadder(u8 metatileBehavior);
+bool8 MetatileBehavior_IsFlippedLadder(u8 metatileBehavior);
 bool8 MetatileBehavior_IsNonAnimDoor(u8 metatileBehavior);
 bool8 MetatileBehavior_IsDeepSouthWarp(u8 metatileBehavior);
 bool8 MetatileBehavior_IsSurfable(u8 metatileBehavior);

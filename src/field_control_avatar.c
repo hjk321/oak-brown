@@ -915,6 +915,8 @@ static bool8 IsWarpMetatileBehavior(u16 metatileBehavior)
         return TRUE;
     if (MetatileBehavior_IsLadder(metatileBehavior) == TRUE)
         return TRUE;
+    if (MetatileBehavior_IsFlippedLadder(metatileBehavior) == TRUE)
+        return TRUE;
     if (MetatileBehavior_IsEscalator(metatileBehavior) == TRUE)
         return TRUE;
     if (MetatileBehavior_IsNonAnimDoor(metatileBehavior) == TRUE)

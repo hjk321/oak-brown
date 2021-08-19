@@ -191,6 +191,14 @@ bool8 MetatileBehavior_IsLadder(u8 metatileBehavior)
         return FALSE;
 }
 
+bool8 MetatileBehavior_IsFlippedLadder(u8 metatileBehavior)
+{
+    if(metatileBehavior == MB_LADDER_FLIPPED)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 bool8 MetatileBehavior_IsNonAnimDoor(u8 metatileBehavior)
 {
     if(metatileBehavior == MB_CAVE_DOOR)

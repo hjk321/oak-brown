@@ -928,6 +928,8 @@ static u8 GetAdjustedInitialDirection(struct InitialPlayerAvatarState *playerStr
         return playerStruct->direction;
     else if (MetatileBehavior_IsLadder(metatileBehavior) == TRUE)
         return playerStruct->direction;
+    else if (MetatileBehavior_IsFlippedLadder(metatileBehavior) == TRUE)
+        return GetOppositeDirection(playerStruct->direction);
     else if (playerStruct->unk2)
         return playerStruct->direction;
     else
