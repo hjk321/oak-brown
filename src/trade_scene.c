@@ -1040,6 +1040,8 @@ static void ReceivedMonSetPokedexFlags(u8 partyIdx)
         species = SpeciesToNationalPokedexNum(species);
         GetSetPokedexFlag(species, FLAG_SET_SEEN);
         HandleSetPokedexFlag(species, FLAG_SET_CAUGHT, personality);
+        if (IsMonShiny(mon))
+            GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_SET_SHINY);
     }
 }
 

@@ -1661,6 +1661,8 @@ static void AddHatchedMonToParty(u8 id)
     pokeNum = SpeciesToNationalPokedexNum(pokeNum);
     GetSetPokedexFlag(pokeNum, FLAG_SET_SEEN);
     GetSetPokedexFlag(pokeNum, FLAG_SET_CAUGHT);
+    if (IsMonShiny(mon))
+        GetSetPokedexFlag(SpeciesToNationalPokedexNum(pokeNum), FLAG_SET_SHINY);
 
     DayCare_GetMonNickname(mon, gStringVar1);
 

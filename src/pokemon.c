@@ -72,7 +72,6 @@ EWRAM_DATA struct SpriteTemplate gMultiuseSpriteTemplate = {0};
 static EWRAM_DATA struct OakSpeechNidoranFStruct *sOakSpeechNidoranResources = NULL;
 
 static u16 GetDeoxysStat(struct Pokemon *mon, s32 statId);
-static bool8 IsShinyOtIdPersonality(u32 otId, u32 personality);
 static u16 ModifyStatByNature(u8 nature, u16 n, u8 statIndex);
 static u8 GetNatureFromPersonality(u32 personality);
 static bool8 PartyMonHasStatus(struct Pokemon *mon, u32 unused, u32 healMask, u8 battleId);
@@ -2124,6 +2123,23 @@ void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level,
     }
 
     CreateMon(mon, species, level, fixedIV, 1, personality, otIdType, 0);
+}
+
+u32 GenerateDexMonPersonality(u16 species, bool8 shiny)
+{
+    u32 personality;
+    u16 actualLetter;
+
+    do
+    {
+        personality = Random32();
+        actualLetter = ((((personality & 0x3000000) >> 18) | ((personality & 0x30000) >> 12) | ((personality & 0x300) >> 6) | (personality & 0x3)) % 28);
+    }
+    while ((gBaseStats[species].genderRatio < MON_FEMALE && GetGenderFromSpeciesAndPersonality(species, personality) != MON_MALE)
+        || (species == SPECIES_UNOWN && actualLetter != 0) // Letter A
+        || IsShinyOtIdPersonality(8, personality) != shiny);
+
+    return personality;
 }
 
 // Used to create the Old Man's Weedle?
@@ -5982,7 +5998,7 @@ bool8 IsMonShiny(struct Pokemon *mon)
     return IsShinyOtIdPersonality(otId, personality);
 }
 
-static bool8 IsShinyOtIdPersonality(u32 otId, u32 personality)
+bool8 IsShinyOtIdPersonality(u32 otId, u32 personality)
 {
     bool8 retVal = FALSE;
     u32 shinyValue = HIHALF(otId) ^ LOHALF(otId) ^ HIHALF(personality) ^ LOHALF(personality);
@@ -6163,10 +6179,6 @@ void HandleSetPokedexFlag(u16 nationalNum, u8 caseId, u32 personality)
     if (!GetSetPokedexFlag(nationalNum, getFlagCaseId))
     {
         GetSetPokedexFlag(nationalNum, caseId);
-        if (NationalPokedexNumToSpecies(nationalNum) == SPECIES_UNOWN)
-            gSaveBlock2Ptr->pokedex.unownPersonality = personality;
-        if (NationalPokedexNumToSpecies(nationalNum) == SPECIES_SPINDA)
-            gSaveBlock2Ptr->pokedex.spindaPersonality = personality;
     }
 }
 

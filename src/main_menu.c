@@ -855,8 +855,8 @@ static void CheckSaveblockStructSizes(void)
     mgba_printf(MGBA_LOG_INFO, "PokemonStorage size (max 44924):");
     mgba_printf(MGBA_LOG_INFO, "%10d", sizeof(struct PokemonStorage));
     
-    if (sizeof(struct SaveBlock2) > 3968 || sizeof(struct SaveBlock1) > 11904
-        || sizeof(struct BoxPokemon) > 64 || sizeof(struct PokemonStorage) > 43648)
+    if (sizeof(struct SaveBlock2) > 4048 || sizeof(struct SaveBlock1) > 12252
+        || sizeof(struct BoxPokemon) > 64 || sizeof(struct PokemonStorage) > 44924)
     mgba_printf(MGBA_LOG_FATAL, "One or more save structs are too big.");
 #endif
 }

@@ -237,8 +237,6 @@ static void DebugAction_CompletePokedex(u8 taskId)
         GetSetPokedexFlag(i, FLAG_SET_SEEN);
         GetSetPokedexFlag(i, FLAG_SET_CAUGHT);
     }
-    gSaveBlock2Ptr->pokedex.unownPersonality = 0xDEADBEEF;
-    gSaveBlock2Ptr->pokedex.spindaPersonality = 0xDEADBEEF;
     PlaySE(SE_SAVE);
 }
 

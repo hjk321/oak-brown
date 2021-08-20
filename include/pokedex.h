@@ -16,7 +16,9 @@ enum
     FLAG_GET_SEEN,
     FLAG_GET_CAUGHT,
     FLAG_SET_SEEN,
-    FLAG_SET_CAUGHT
+    FLAG_SET_CAUGHT,
+    FLAG_GET_SHINY,
+    FLAG_SET_SHINY
 };
 
 #define DEX_DESC_PER_MON 3
@@ -38,7 +40,6 @@ struct PokedexEntry
     u16 trainerOffset;
 };
 
-void ResetPokedex(void);
 void CopyMonCategoryText(u16 species, u8 *dst);
 u16 GetPokedexHeightWeight(u16 dexNum, u8 data);
 u16 GetNationalPokedexCount(u8);

@@ -74,7 +74,7 @@ static u8 ListMenuAddCursorObject(struct ListMenu *list, u32 cursorKind);
 
 const struct MoveMenuInfoIcon gMoveMenuInfoIcons[] =
 {
-    { 12, 12, 0x00 },       // Unused
+    { 12, 12, 0x00 },       // Dex Caught Pokéball
     { 32, 12, 0x20 },       // Normal icon
     { 32, 12, 0x64 },       // Fight icon
     { 32, 12, 0x60 },       // Flying icon
@@ -104,6 +104,7 @@ const struct MoveMenuInfoIcon gMoveMenuInfoIcons[] =
     { 40, 12, 0xC8 },       // -Accuracy- icon
     { 40, 12, 0xE0 },       // -PP- icon
     { 40, 12, 0xE8 },       // -Effect- icon
+    { 12, 12, 0x02 },       // Dex Shiny Pokéball
 };
 
 static void ListMenuDummyTask(u8 taskId)

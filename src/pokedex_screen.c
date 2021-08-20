@@ -176,7 +176,8 @@ const u16 gUnknown_8443580[] = INCBIN_U16("graphics/pokedex/unk_8443580.gbapal")
 const u16 gUnknown_84435A0[] = INCBIN_U16("graphics/pokedex/unk_84435A0.gbapal");
 const u16 gUnknown_84435C0[] = INCBIN_U16("graphics/pokedex/unk_84435C0.gbapal");
 const u16 gUnknown_84435E0[] = INCBIN_U16("graphics/pokedex/unk_84435E0.gbapal");
-const u8 gUnknown_8443600[] = INCBIN_U8("graphics/pokedex/unk_8443600.4bpp");
+const u8 gDexScreen_CaughtIcon[] = INCBIN_U8("graphics/pokedex/caught_ball.4bpp");
+const u8 gDexScreen_ShinyIcon[] = INCBIN_U8("graphics/pokedex/shiny_ball.4bpp");
 const u32 gUnknown_8443620[] = INCBIN_U32("graphics/pokedex/unk_8443620.bin.lz");
 const u32 gUnknown_8443910[] = INCBIN_U32("graphics/pokedex/unk_8443910.bin.lz");
 const u32 gUnknown_8443988[] = INCBIN_U32("graphics/pokedex/unk_8443988.bin.lz");
@@ -1516,7 +1517,10 @@ static void sub_8103A40(u8 windowId, s32 itemId, u8 y)
     sub_8104A34(gUnknown_203ACF0->field_40, 0, species, 12, y);
     if (caught)
     {
-        BlitMoveInfoIcon(gUnknown_203ACF0->field_40, 0, 0x28, y);
+        if (sub_8104AB0(species, FLAG_GET_SHINY, TRUE))
+            BlitMoveInfoIcon(gUnknown_203ACF0->field_40, 30, 0x28, y);
+        else
+            BlitMoveInfoIcon(gUnknown_203ACF0->field_40, 0, 0x28, y);
         type1 = gBaseStats[species].type1;
         BlitMoveInfoIcon(gUnknown_203ACF0->field_40, type1 + 1, 0x78, y);
         if (type1 != gBaseStats[species].type2)
@@ -2155,15 +2159,7 @@ static void sub_810491C(u8 windowId, u8 fontId, u16 num, u8 x, u8 y, u8 colorIdx
 
 u32 sub_81049CC(int species)
 {
-    switch (species)
-    {
-    case SPECIES_SPINDA:
-        return gSaveBlock2Ptr->pokedex.spindaPersonality;
-    case SPECIES_UNOWN:
-        return gSaveBlock2Ptr->pokedex.unownPersonality;
-    default:
-        return 0;
-    }
+    return GenerateDexMonPersonality(species, sub_8104AB0(species, FLAG_GET_SHINY, TRUE));
 }
 
 void sub_81049FC(u8 windowId, u16 species, u16 paletteOffset)
@@ -2215,6 +2211,19 @@ s8 sub_8104AB0(u16 nationalDexNo, u8 caseId, bool8 indexIsSpecies)
         break;
     case FLAG_SET_CAUGHT:
         gSaveBlock2Ptr->pokedex.owned[index] |= mask;
+        break;
+    case FLAG_GET_SHINY:
+        if (gSaveBlock2Ptr->pokedex.shiny[index] & mask)
+        {
+            if ((gSaveBlock2Ptr->pokedex.owned[index] & mask) == 
+                (gSaveBlock2Ptr->pokedex.seen[index] & mask) &&
+                (gSaveBlock2Ptr->pokedex.shiny[index] & mask) == 
+                (gSaveBlock2Ptr->pokedex.owned[index] & mask))
+                retVal = 1;
+        }
+        break;
+    case FLAG_SET_SHINY:
+        gSaveBlock2Ptr->pokedex.shiny[index] |= mask;
         break;
     }
     return retVal;
@@ -2285,7 +2294,12 @@ bool8 sub_8104C64(u16 a0, u8 a1, u8 a2)
             sub_8104A34(gUnknown_203ACF0->field_24[a1], 0, a0, 12, 0);
             sub_81047C8(gUnknown_203ACF0->field_24[a1], 2, gSpeciesNames[a0], 2, 13, 0);
             if (sub_8104AB0(a0, FLAG_GET_CAUGHT, TRUE))
-                BlitBitmapRectToWindow(gUnknown_203ACF0->field_24[a1], gUnknown_8443600, 0, 0, 8, 8, 2, 3, 8, 8);
+            {
+                if (sub_8104AB0(a0, FLAG_GET_SHINY, TRUE))
+                    BlitBitmapRectToWindow(gUnknown_203ACF0->field_24[a1], gDexScreen_ShinyIcon, 0, 0, 8, 8, 2, 3, 8, 8);
+                else
+                    BlitBitmapRectToWindow(gUnknown_203ACF0->field_24[a1], gDexScreen_CaughtIcon, 0, 0, 8, 8, 2, 3, 8, 8);
+            }
             PutWindowTilemap(gUnknown_203ACF0->field_24[a1]);
             CopyWindowToVram(gUnknown_203ACF0->field_24[a1], COPYWIN_GFX);
         }

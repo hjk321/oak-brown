@@ -314,6 +314,7 @@ void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFix
 void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId);
 void CreateMonWithNature(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 nature);
 void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 gender, u8 nature, u8 unownLetter, u8 otIdType);
+u32 GenerateDexMonPersonality(u16 species, bool8 shiny);
 void CreateMaleMon(struct Pokemon *mon, u16 species, u8 level);
 void CreateMonWithIVsPersonality(struct Pokemon *mon, u16 species, u8 level, u32 ivs, u32 personality);
 void CreateMonWithEVSpread(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 evSpread);
@@ -437,5 +438,6 @@ bool8 BoxMonMatchesUid(struct BoxPokemon *boxMon, struct MonUid *uid);
 bool8 MonMatchesUid(struct Pokemon *mon, struct MonUid *uid);
 void CreateBoxMonUid(struct BoxPokemon *src, struct MonUid *dest);
 void CreateMonUid(struct Pokemon *src, struct MonUid *dest);
+bool8 IsShinyOtIdPersonality(u32 otId, u32 personality);
 
 #endif // GUARD_POKEMON_H

@@ -9117,6 +9117,10 @@ static void atkF1_trysetcaughtmondexflags(void)
 {
     u16 species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL);
     u32 personality = GetMonData(&gEnemyParty[0], MON_DATA_PERSONALITY, NULL);
+    u32 otId = GetMonData(&gEnemyParty[0], MON_DATA_OT_ID, NULL);
+
+    if (IsShinyOtIdPersonality(otId, personality))
+        GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_SET_SHINY);
 
     if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_CAUGHT))
     {
