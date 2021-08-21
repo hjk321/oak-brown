@@ -770,7 +770,6 @@ struct SaveBlock2
     u32 gameStats[NUM_GAME_STATS];
     struct DayCare daycare;
     struct DaycareMon route5DayCareMon;
-    struct MailStruct mail[MAIL_COUNT];
     u16 easyChatProfile[6];
     u16 easyChatBattleStart[6];
     u16 easyChatBattleWon[6];
@@ -822,6 +821,7 @@ struct SaveBlock1
     u8 rivalName[PLAYER_NAME_LENGTH + 1];
     struct FameCheckerSaveData fameChecker[NUM_FAMECHECKER_PERSONS];
     u8 registeredTexts[UNION_ROOM_KB_ROW_COUNT][21];
+    struct MailStruct mail[MAIL_COUNT];
     u8 giftRibbons[11];
     struct ExternalEventData externalEventData;
     struct ExternalEventFlags externalEventFlags;

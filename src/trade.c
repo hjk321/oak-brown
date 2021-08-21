@@ -1398,7 +1398,7 @@ static bool8 shedinja_maker_maybe(void)
         }
         break;
     case 13:
-        Trade_Memcpy(gBlockSendBuffer, gSaveBlock2Ptr->mail, PARTY_SIZE * sizeof(struct MailStruct) + 4); // why the extra 4 bytes?
+        Trade_Memcpy(gBlockSendBuffer, gSaveBlock1Ptr->mail, PARTY_SIZE * sizeof(struct MailStruct) + 4); // why the extra 4 bytes?
         sTradeMenuResourcesPtr->state++;
         break;
     case 15:

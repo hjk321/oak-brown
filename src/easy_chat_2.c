@@ -274,7 +274,7 @@ void ShowEasyChatScreen(void)
         words = GetMEventProfileECWordsMaybe();
         break;
     case EASY_CHAT_TYPE_MAIL:
-        words = gSaveBlock2Ptr->mail[gSpecialVar_0x8005].words;
+        words = gSaveBlock1Ptr->mail[gSpecialVar_0x8005].words;
         break;
     default:
         return;

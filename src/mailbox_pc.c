@@ -84,7 +84,7 @@ static void ItemPrintFunc(u8 windowId, s32 itemId, u8 y)
     u8 strbuf[30];
     if (itemId != -2)
     {
-        StringCopy(strbuf, gSaveBlock2Ptr->mail[itemId + PARTY_SIZE].playerName);
+        StringCopy(strbuf, gSaveBlock1Ptr->mail[itemId + PARTY_SIZE].playerName);
         if (StringLength(strbuf) <= 5)
             ConvertInternationalString(strbuf, LANGUAGE_JAPANESE);
         AddTextPrinterParameterized4(windowId, 2, 8, y, 0, 0, sTextColor, -1, strbuf);

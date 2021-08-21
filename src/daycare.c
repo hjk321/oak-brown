@@ -431,7 +431,7 @@ static void StorePokemonInDaycare(struct Pokemon *mon, struct DaycareMon *daycar
 //        daycareMon->mail.gameLanguage = LANGUAGE_ENGLISH;
 //        daycareMon->mail.monLanguage = GetMonData(mon, MON_DATA_LANGUAGE);
         mailId = GetMonData(mon, MON_DATA_MAIL);
-        daycareMon->mail.message = gSaveBlock2Ptr->mail[mailId];
+        daycareMon->mail.message = gSaveBlock1Ptr->mail[mailId];
         TakeMailFromMon(mon);
     }
 

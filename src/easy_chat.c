@@ -456,7 +456,7 @@ void InitEasyChatPhrases(void)
     for (i = 0; i < MAIL_COUNT; i++)
     {
         for (j = 0; j < MAIL_WORDS_COUNT; j++)
-            gSaveBlock2Ptr->mail[i].words[j] = EC_WORD_UNDEFINED;
+            gSaveBlock1Ptr->mail[i].words[j] = EC_WORD_UNDEFINED;
     }
 
     for (i = 0; i < 8; i++)

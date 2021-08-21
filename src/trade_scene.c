@@ -1066,7 +1066,7 @@ static void TradeMons(u8 playerPartyIdx, u8 partnerPartyIdx)
 
     // The mail attached to the sent Pokemon no longer exists in your file.
     if (playerMail != 0xFF)
-        ClearMailStruct(&gSaveBlock2Ptr->mail[playerMail]);
+        ClearMailStruct(&gSaveBlock1Ptr->mail[playerMail]);
 
     // This is where the actual trade happens!!
     sTradeData->mon = *playerMon;

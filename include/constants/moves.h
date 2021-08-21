@@ -1,7 +1,7 @@
 #ifndef GUARD_CONSTANTS_MOVES_H
 #define GUARD_CONSTANTS_MOVES_H
 
-// to do: moves gen4+
+// to do: tm moves gen4+
 #define MOVE_WORK_UP        MOVE_POUND
 #define MOVE_PSYSHOCK       MOVE_POUND
 #define MOVE_VENOSHOCK      MOVE_POUND
@@ -12,7 +12,6 @@
 #define MOVE_ROUND          MOVE_POUND
 #define MOVE_ECHOED_VOICE   MOVE_POUND
 #define MOVE_FOCUS_BLAST    MOVE_POUND
-#define MOVE_ENERGY_BALL    MOVE_POUND
 #define MOVE_SCALD          MOVE_POUND
 #define MOVE_FLAME_CHARGE   MOVE_POUND
 #define MOVE_FLING          MOVE_POUND

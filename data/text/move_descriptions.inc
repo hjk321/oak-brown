@@ -9,7 +9,6 @@ gMoveDescription_LowSweep::
 gMoveDescription_Round::
 gMoveDescription_EchoedVoice::
 gMoveDescription_FocusBlast::
-gMoveDescription_EnergyBall::
 gMoveDescription_Scald::
 gMoveDescription_Fling::
 gMoveDescription_ChargeBeam::
