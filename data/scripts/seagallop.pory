@@ -128,7 +128,7 @@ VermilionCity_EventScript_WalkUpPier:: @ 81A9108
     closemessage
     applymovement OBJ_EVENT_ID_PLAYER, VermilionCity_Movement_WalkUp
     waitmovement 0
-    releaseall
+    forcerelease
     end
 
 VermilionCity_Movement_WalkUp:: @ 81A911C

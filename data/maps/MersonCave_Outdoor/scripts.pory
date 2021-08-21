@@ -5,7 +5,7 @@ script MersonCave_Outdoor_Sign {
 }
 
 script MersonCave_Outdoor_Bernard {
-    locktarget
+    lock
     faceplayer
     checkquestcomplete(SIDE_QUEST_BERNARDS_GLASSES)
     if (var(VAR_RESULT)) {
@@ -58,7 +58,7 @@ script MersonCave_Outdoor_BernardReward {
 }
 
 script MersonCave_Outdoor_Hiker {
-    locktarget
+    lock
     faceplayer
     msgbox(format("A lot of people hike from Merson City, but this is as far as most go.\p"
         "Hardly anyone ever heads on to Gravel Town."))
@@ -66,7 +66,7 @@ script MersonCave_Outdoor_Hiker {
 }
 
 script MersonCave_Outdoor_Picnicker {
-    locktarget
+    lock
     faceplayer
     msgbox(format("I'm taking a rest here before I hike back to Merson City.\p"
         "This is a nice spot. Now, if only I had brought a picnic basket…"))
@@ -74,7 +74,7 @@ script MersonCave_Outdoor_Picnicker {
 }
 
 script MersonCave_Outdoor_Nurse {
-    locktarget
+    lock
     faceplayer
     msgbox(format("I'm a travelling nurse.\nShall I heal your Pokémon?"))
     closemessage

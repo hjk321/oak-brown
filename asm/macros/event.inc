@@ -770,17 +770,17 @@
 	.endm
 
 	@ Ceases movement for all Objects on-screen.
-	.macro lockall
+	.macro forcelock
 	.byte 0x69
 	.endm
 
 	@ If the script was called by an Object, then that Object's movement will cease.
-	.macro lock
+	.macro lockall
 	.byte 0x6a
 	.endm
 
 	@ Resumes normal movement for all Objects on-screen, and closes any standard message boxes that are still open.
-	.macro releaseall
+	.macro forcerelease
 	.byte 0x6b
 	.endm
 
@@ -1460,7 +1460,7 @@
     .endm
 
 	@ Ceases movement for the event obj. the Player is currently interacting with and that one alone.
-	.macro locktarget
+	.macro lock
 	.byte 0xd7
 	.endm
 

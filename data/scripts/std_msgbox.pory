@@ -1,6 +1,6 @@
 raw `
 Std_MsgboxNPC:: @ 81A4E3F
-	lock
+	lockall
 	faceplayer
 	message 0x0
 	waitmessage
@@ -9,11 +9,11 @@ Std_MsgboxNPC:: @ 81A4E3F
 	return
 
 Std_MsgboxSign:: @ 81A4E4A
-	lockall
+	forcelock
 	message 0x0
 	waitmessage
 	waitbuttonpress
-	releaseall
+	forcerelease
 	return
 
 Std_MsgboxDefault:: @ 81A4E54

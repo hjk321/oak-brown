@@ -1,6 +1,6 @@
 raw `
 EventScript_AfterWhiteOutHeal:: @ 81A8D97
-	lockall
+	forcelock
 	textcolor 1
 	msgbox Text_FirstShouldRestoreMonsHealth
 	call EventScript_PkmnCenterNurse_TakeAndHealPkmn
@@ -9,7 +9,7 @@ EventScript_AfterWhiteOutHeal:: @ 81A8D97
 	applymovement VAR_LAST_TALKED, Movement_Bow
 	waitmovement 0
 	fadedefaultbgm
-	releaseall
+	forcerelease
 	end
 
 EventScript_AfterWhiteOutHealMsgPreBrock:: @ 81A8DC6
@@ -21,7 +21,7 @@ EventScript_AfterWhiteOutHealMsg:: @ 81A8DCF
 	return
 
 EventScript_AfterWhiteOutMomHeal:: @ 81A8DD8
-	lockall
+	forcelock
 	textcolor 1
 	applymovement 1 Movement_FaceDown
 	waitmovement 0
@@ -29,17 +29,17 @@ EventScript_AfterWhiteOutMomHeal:: @ 81A8DD8
 	call EventScript_OutOfCenterPartyHeal
 	msgbox Text_MomExplainHPGetPotions
 	fadedefaultbgm
-	releaseall
+	forcerelease
 	end
 
 EventScript_FieldPoison:: @ 81A8DFD
-	lockall
+	forcelock
 	textcolor 3
 	special TryFieldPoisonWhiteOut
 	waitstate
 	compare VAR_RESULT, TRUE
 	goto_if_eq EventScript_FieldWhiteOut
-	releaseall
+	forcerelease
 	end
 
 EventScript_FieldWhiteOut:: @ 81A8E11

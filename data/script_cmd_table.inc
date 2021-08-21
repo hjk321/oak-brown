@@ -106,9 +106,9 @@ gScriptCmdTable:: @ 815F9B4
 	.4byte ScrCmd_waitmessage
 	.4byte ScrCmd_message
 	.4byte ScrCmd_closemessage
+	.4byte ScrCmd_forcelock
 	.4byte ScrCmd_lockall
-	.4byte ScrCmd_lock
-	.4byte ScrCmd_releaseall
+	.4byte ScrCmd_forcerelease
 	.4byte ScrCmd_release
 	.4byte ScrCmd_waitbuttonpress
 	.4byte ScrCmd_yesnobox
@@ -216,7 +216,7 @@ gScriptCmdTable:: @ 815F9B4
 	.4byte ScrCmd_bufferitemnameplural
 	.4byte ScrCmd_questmenu
 	.4byte ScrCmd_checkpartymon
-	.4byte ScrCmd_locktarget
+	.4byte ScrCmd_lock
 
 gScriptCmdTableEnd:: @ 815FD08
 	.4byte ScrCmd_nop

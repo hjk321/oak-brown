@@ -1,7 +1,7 @@
 mapscripts GravelTown_House_MapScripts {}
 
 script GravelTown_House_Girl {
-    locktarget
+    lock
     faceplayer
     msgbox(format("I'm studying for my Pokémon test.\p"
         "Did you know that new types of Pokémon have been discovered?\p"
@@ -11,7 +11,7 @@ script GravelTown_House_Girl {
 }
 
 script GravelTown_House_Pikachu {
-    locktarget
+    lock
     faceplayer
     playmoncry(SPECIES_PIKACHU, 0)
     msgbox(format("Pika… Pikachu!"))

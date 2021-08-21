@@ -1,6 +1,6 @@
 raw `
 EventScript_PkmnCenterNurse:: @ 81A65B8
-	lock
+	lockall
 	incrementgamestat GAME_STAT_USED_POKECENTER
 	message Text_TakeYourPkmnForFewSeconds
 	waitmessage

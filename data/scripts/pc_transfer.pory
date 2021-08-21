@@ -9,7 +9,7 @@ EventScript_NameReceivedBoxMon:: @ 81A8C33
 	fadescreen FADE_TO_BLACK
 	special ChangeBoxPokemonNickname
 	waitstate
-	lock
+	lockall
 	faceplayer
 	return
 

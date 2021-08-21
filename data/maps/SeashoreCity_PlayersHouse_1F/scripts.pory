@@ -8,7 +8,7 @@ script SeashoreCity_PlayersHouse_1F_TV {
 }
 
 script SeashoreCity_PlayersHouse_1F_Mom {
-    locktarget
+    lock
     faceplayer
     if (!flag(FLAG_SYS_POKEMON_GET)) {
         gettime

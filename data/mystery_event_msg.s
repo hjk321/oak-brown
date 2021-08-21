@@ -22,7 +22,7 @@ MysteryEventScript_StampCard:: @ 8488E28
 	specialvar VAR_0x8009, BattleCardAction
 	subvar VAR_0x8008, VAR_0x8009
 	getnumberstring 0, VAR_0x8008
-	lock
+	lockall
 	faceplayer
 	vmessage sText_MysteryGiftStampCard
 	waitmessage
@@ -47,7 +47,7 @@ SurfPichu_GiveIfPossible: @ 8488EC4
 	vgoto_if_eq SurfPichu_FullParty
 	setflag FLAG_MYSTERY_EVENT_DONE
 	vcall SurfPichu_GiveEgg
-	lock
+	lockall
 	faceplayer
 	vmessage sText_MysteryGiftEgg
 	waitmessage
@@ -58,7 +58,7 @@ SurfPichu_GiveIfPossible: @ 8488EC4
 	end
 
 SurfPichu_FullParty: @ 8488EEB
-	lock
+	lockall
 	faceplayer
 	vmessage sText_FullParty
 	waitmessage
@@ -120,7 +120,7 @@ MysteryEventScript_VisitingTrainer:: @ 848903A
 	special ValidateEReaderTrainer
 	compare VAR_RESULT, 0
 	vgoto_if_eq MysteryEventScript_VisitingTrainerArrived
-	lock
+	lockall
 	faceplayer
 	vmessage sText_MysteryGiftVisitingTrainer
 	waitmessage
@@ -129,7 +129,7 @@ MysteryEventScript_VisitingTrainer:: @ 848903A
 	end
 
 MysteryEventScript_VisitingTrainerArrived: @ 8489058
-	lock
+	lockall
 	faceplayer
 	vmessage sText_MysteryGiftVisitingTrainer_2
 	waitmessage
@@ -172,7 +172,7 @@ MysteryEventScript_BattleCard:: @ 84892B9
 	specialvar VAR_0x8008, BattleCardAction
 	compare VAR_0x8008, 3
 	vgoto_if_ne MysteryEventScript_BattleCardInfo
-	lock
+	lockall
 	faceplayer
 	vmessage sText_MysteryGiftBattleCountCard_2
 	waitmessage
@@ -183,7 +183,7 @@ MysteryEventScript_BattleCard:: @ 84892B9
 	end
 
 MysteryEventScript_BattleCardInfo: @ 84892F6
-	lock
+	lockall
 	faceplayer
 	vmessage sText_MysteryGiftBattleCountCard
 	waitmessage
@@ -214,7 +214,7 @@ sText_MysteryGiftBattleCountCard_2: @ 8489419
 
 MysteryEventScript_AuroraTicket:: @ 84894B9
 	setvaddress MysteryEventScript_AuroraTicket
-	lock
+	lockall
 	faceplayer
 	checkitem ITEM_AURORA_TICKET, 1
 	compare VAR_RESULT, TRUE
@@ -271,7 +271,7 @@ sText_AuroraTicketNoPlace: @ 8489615
 
 MysteryEventScript_MysticTicket:: @ 8489689
 	setvaddress MysteryEventScript_MysticTicket
-	lock
+	lockall
 	faceplayer
 	checkitem ITEM_MYSTIC_TICKET, 1
 	compare VAR_RESULT, TRUE
@@ -333,7 +333,7 @@ MysteryEventScript_AlteringCave:: @ 8489862
 	vgoto_if_ne MysteryEventScript_AlteringCave_
 	setvar VAR_ALTERING_CAVE_WILD_SET, 0
 MysteryEventScript_AlteringCave_: @ 848987C
-	lock
+	lockall
 	faceplayer
 	vmessage sText_MysteryGiftAlteringCave
 	waitmessage

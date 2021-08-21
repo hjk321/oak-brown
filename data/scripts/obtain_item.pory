@@ -114,7 +114,7 @@ EventScript_NoRoomForDecor:: @ 81A67AD
 	return
 
 Std_FindItem:: @ 81A67B3
-	lock
+	lockall
 	faceplayer
 	waitse
 	copyvar VAR_0x8004, VAR_0x8000
@@ -160,7 +160,7 @@ EventScript_NoRoomToPickUpItem:: @ 81A682D
 	return
 
 EventScript_HiddenItemScript:: @ 81A6843
-	lockall
+	forcelock
 	textcolor 3
 	waitse
 	compare VAR_0x8005, 0
@@ -189,7 +189,7 @@ EventScript_PickedUpHiddenItem::
 	waitmessage
 	msgbox Text_PutItemAway
 	special SetHiddenItemFlag
-	releaseall
+	forcerelease
 	end
 
 EventScript_FoundSingleItem::
@@ -210,7 +210,7 @@ EventScript_NoRoomForHiddenItem::
 	msgbox Text_FoundOneItem
 	msgbox Text_TooBadBagFull
 	setvar VAR_RESULT, 0
-	releaseall
+	forcerelease
 	end
 
 EventScript_TryPickUpHiddenCoins::
@@ -226,7 +226,7 @@ EventScript_TryPickUpHiddenCoins::
 	waitmessage
 	msgbox Text_PutCoinsAwayInCoinCase
 	special SetHiddenItemFlag
-	releaseall
+	forcerelease
 	end
 
 EventScript_HiddenCoinsButCaseIsFull::
@@ -235,7 +235,7 @@ EventScript_HiddenCoinsButCaseIsFull::
 	msgbox Text_FoundXCoins
 	msgbox Text_CoinCaseIsFull
 	setvar VAR_RESULT, 0
-	releaseall
+	forcerelease
 	end
 
 EventScript_NoCaseForHiddenCoins::
@@ -244,6 +244,6 @@ EventScript_NoCaseForHiddenCoins::
 	msgbox Text_FoundXCoins
 	msgbox Text_NothingToPutThemIn
 	setvar VAR_RESULT, 0
-	releaseall
+	forcerelease
 	end
 `

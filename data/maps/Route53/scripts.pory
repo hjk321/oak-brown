@@ -9,14 +9,14 @@ mapscripts Route53_MapScripts {
 }
 
 script Route53_Hiker {
-    locktarget
+    lock
     faceplayer
     msgbox(format("This road is pretty straight-forward.\pIt's impossible to get lost on this road!\p… Wait, where am I, again?"))
     release
 }
 
 script Route53_Hayden_Prologue {
-    locktarget
+    lock
     faceplayer
     msgbox(format("I caught my first Pokémon a few weeks ago. How about you?\p"
         "… Oh? You're going to Gravel Town to get your first Pokémon now?\p"
@@ -25,7 +25,7 @@ script Route53_Hayden_Prologue {
 }
 
 script Route53_Clerk {
-    locktarget
+    lock
     faceplayer
     if (flag(FLAG_GOT_POTION_ON_ROUTE_53)) {
         msgbox(format("Sorry, I'm all out of free samples!\pIf you need potions, get some at any Pokémart!"))
@@ -64,7 +64,7 @@ script Route53_Hayden {
 }
 
 script Route53_Mura {
-    locktarget
+    lock
     faceplayer
     switch(var(VAR_STARTER_MON)) {
         case STARTER_BULBASAUR:
@@ -94,7 +94,7 @@ const TIM_ID = 6
 const PLAYER_ID = OBJ_EVENT_ID_PLAYER
 
 script Route53_MeetTim_Start {
-    lockall
+    forcelock
     playbgm(MUS_OAK, 0)
 
     // Figure out which trigger we are at
@@ -132,7 +132,7 @@ script Route53_MeetTim_Start {
 }
 
 script Route53_MeetTim_SequenceBreak {
-    lockall
+    forcelock
     playbgm(MUS_OAK, 0)
     setvar(VAR_TEMP_0, 4)
     applymovement(TIM_ID, Movement_TimSequenceBreak)

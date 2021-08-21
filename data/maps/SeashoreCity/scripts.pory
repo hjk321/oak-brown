@@ -1,7 +1,7 @@
 mapscripts SeashoreCity_MapScripts {}
 
 script SeashoreCity_OldMan {
-    lock
+    lockall
     faceplayer
     msgbox(format("You should never be afraid to follow your dreams.\p"
     "By attempting to reach your goals, things might not work out the way you expect, of course…\p"
@@ -10,7 +10,7 @@ script SeashoreCity_OldMan {
 }
 
 script SeashoreCity_YoungBoy {
-    lock
+    lockall
     faceplayer
     if (!flag(FLAG_SYS_POKEMON_GET)) {
         message(format("Hey! Are you going to become a\nPokémon trainer, {PLAYER}?"))
@@ -33,7 +33,7 @@ script SeashoreCity_YoungBoy {
 }
 
 script SeashoreCity_Lass {
-    lock
+    lockall
     faceplayer
     if (!flag(FLAG_BADGE01_GET)) {
         msgbox("Are those new shoes?\pTry running with them by holding {B_BUTTON}!")

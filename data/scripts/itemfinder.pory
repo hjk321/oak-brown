@@ -1,6 +1,6 @@
 raw `
 EventScript_ItemfinderDigUpUnderfootItem:: @ 81A8D49
-	lockall
+	forcelock
 	textcolor 3
 	waitse
 	call EventScript_TryPickUpHiddenItem
@@ -17,13 +17,13 @@ EventScript_DigUpItemPutInPocket::
 	delay 60
 	msgbox Text_PutItemAway
 	special SetHiddenItemFlag
-	releaseall
+	forcerelease
 	end
 
 EventScript_DigUpItemBagIsFull::
 	msgbox Text_DugUpItemFromGround
 	msgbox Text_TooBadBagFull
 	setvar VAR_RESULT, 0
-	releaseall
+	forcerelease
 	end
 `

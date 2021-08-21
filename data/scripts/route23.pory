@@ -178,7 +178,7 @@ Route23_EventScript_MissingBoulderBadgeTrigger:: @ 81A7A50
 	applymovement OBJ_EVENT_ID_PLAYER, Route23_Movement_WalkDown
 	applymovement VAR_0x8009, Movement_WalkInPlaceFastestDown
 	waitmovement 0
-	releaseall
+	forcerelease
 	end
 
 Route23_EventScript_MissingBadgeTrigger:: @ 81A7A77
@@ -191,7 +191,7 @@ Route23_EventScript_MissingBadgeTrigger:: @ 81A7A77
 	applymovement OBJ_EVENT_ID_PLAYER, Route23_Movement_WalkDown
 	applymovement VAR_0x8009, Movement_WalkInPlaceFastestDown
 	waitmovement 0
-	releaseall
+	forcerelease
 	end
 
 Route23_EventScript_RecognizeBoulderBadgeTrigger:: @ 81A7A96
@@ -201,13 +201,13 @@ Route23_EventScript_RecognizeBoulderBadgeTrigger:: @ 81A7A96
 	waitfanfare
 	waitbuttonpress
 	copyvar VAR_MAP_SCENE_ROUTE23, VAR_TEMP_1
-	releaseall
+	forcerelease
 	end
 
 Route23_EventScript_RecognizeBadgeTrigger:: @ 81A7AA8
 	msgbox Text_OnlyPassWithBadgeOhGoAhead
 	copyvar VAR_MAP_SCENE_ROUTE23, VAR_TEMP_1
-	releaseall
+	forcerelease
 	end
 
 Route23_Movement_WalkDown:: @ 81A7AB7

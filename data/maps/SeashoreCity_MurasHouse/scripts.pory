@@ -1,7 +1,7 @@
 mapscripts SeashoreCity_MurasHouse_MapScripts {}
 
 script SeashoreCity_MurasHouse_Speary {
-    locktarget
+    lock
     faceplayer
     playmoncry(SPECIES_SPEAROW, 0)
     msgbox(format("Speary: Tetweet!"))
@@ -9,7 +9,7 @@ script SeashoreCity_MurasHouse_Speary {
 }
 
 script SeashoreCity_MurasHouse_Dad {
-    locktarget
+    lock
     faceplayer
     if (!flag(FLAG_SYS_POKEMON_GET)) {
         msgbox(format("My son, Mura is leaving today as well.\pKeep him out of trouble, would you?"))
@@ -22,7 +22,7 @@ script SeashoreCity_MurasHouse_Dad {
 }
 
 script SeashoreCity_MurasHouse_Sister {
-    locktarget
+    lock
     faceplayer
     msgbox(format("My brother is gone on a long journey!"))
     release

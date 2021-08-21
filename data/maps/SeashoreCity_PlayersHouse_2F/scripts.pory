@@ -15,14 +15,14 @@ SeashoreCity_PlayersHouse_2F_FirstWarpIn::
 `
 
 script SeashoreCity_PlayersHouse_2F_PC {
-    lockall
+    forcelock
     setvar(VAR_0x8004, 1)
     special(AnimatePcTurnOn)
     playse(SE_PC_ON)
     msgbox(Text_PlayerBootedUpPC)
     special(BedroomPC)
     waitstate
-    releaseall
+    forcerelease
 }
 
 script SeashoreCity_PlayersHouse_2F_NES {

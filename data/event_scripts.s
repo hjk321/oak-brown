@@ -328,13 +328,13 @@ EventScript_OutOfCenterPartyHeal:: @ 81A6C26
 	return
 
 EventScript_WallTownMap:: @ 81A6C32
-	lockall
+	forcelock
 	msgbox Text_ATownMap
 	goto_if_questlog EventScript_ReleaseEnd
 	fadescreen FADE_TO_BLACK
 	special ShowTownMap
 	waitstate
-	releaseall
+	forcerelease
 	end
 
 	.include "data/text/pokedex_rating.inc"
@@ -378,16 +378,16 @@ EventScript_SetResultFalse:: @ 81A77B0
 	return
 
 EventScript_SetExitingCyclingRoad:: @ 81A77B6
-	lockall
+	forcelock
 	clearflag FLAG_SYS_ON_CYCLING_ROAD
 	setvar VAR_MAP_SCENE_ROUTE16, 0
-	releaseall
+	forcerelease
 	end
 
 EventScript_SetEnteringCyclingRoad:: @ 81A77C1
-	lockall
+	forcelock
 	setvar VAR_MAP_SCENE_ROUTE16, 1
-	releaseall
+	forcerelease
 	end
 
 	.include "data/scripts/route23.inc"
@@ -411,7 +411,7 @@ EventScript_ReleaseEnd:: @ 81A7AE0
 
 @ Unused
 EventScript_DelayedLookAround:: @ 81A80FE
-	lockall
+	forcelock
 	applymovement VAR_0x8004, Movement_WalkInPlaceFastestLeft
 	waitmovement 0
 	delay 20
@@ -424,7 +424,7 @@ EventScript_DelayedLookAround:: @ 81A80FE
 	applymovement VAR_0x8004, Movement_WalkInPlaceFastestDown
 	waitmovement 0
 	delay 20
-	releaseall
+	forcerelease
 	end
 
 	.include "data/scripts/silphco_doors.inc"
@@ -439,7 +439,7 @@ EventScript_GetInGameTradeSpeciesInfo:: @ 81A8CAD
 EventScript_ChooseMonForInGameTrade:: @ 81A8CBD
 	special ChoosePartyMon
 	waitstate
-	lock
+	lockall
 	faceplayer
 	copyvar VAR_0x800A, VAR_0x8004
 	return
@@ -456,7 +456,7 @@ EventScript_DoInGameTrade:: @ 81A8CD9
 	special CreateInGameTradePokemon
 	special DoInGameTradeScene
 	waitstate
-	lock
+	lockall
 	faceplayer
 	return
 
@@ -464,7 +464,7 @@ EventScript_VsSeekerChargingDone:: @ 81A8CED
 	special VsSeekerFreezeObjectsAfterChargeComplete
 	waitstate
 	special VsSeekerResetObjectMovementAfterChargeComplete
-	releaseall
+	forcerelease
 	end
 
 Common_EventScript_UnionRoomAttendant:: @ 81A8CF6

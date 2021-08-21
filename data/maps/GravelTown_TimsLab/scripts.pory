@@ -34,7 +34,7 @@ mapscripts GravelTown_TimsLab_MapScripts {
 }
 
 script GravelTown_TimsLab_StartChooseStarterScene {
-    lockall
+    forcelock
     textcolor(0)
     setvar(VAR_MAP_SCENE_GRAVEL_TOWN, 1)
     applymovement(TIM_ID, Movement_TimWalkFromEntrance)
@@ -66,13 +66,13 @@ script GravelTown_TimsLab_StartChooseStarterScene {
         "Very well. {PLAYER}, go ahead and choose your Pokémon."))
     applymovement(MURA_ID, Movement_FaceRight)
     msgbox(format("Mura: Hey, what's the big idea?\nHow come he gets to pick first?"))
-    releaseall
+    forcerelease
     setobjectmovementtype(MURA_ID, MOVEMENT_TYPE_LOOK_AROUND)
 }
 
 script GravelTown_TimsLab_BookshelfTriggers {
     if (!flag(FLAG_SYS_POKEMON_GET)) {
-        lock
+        lockall
         applymovement(TIM_ID, Movement_FaceDown)
         textcolor(0)
         msgbox(format("Tim: H-Hey! Don't go away yet!"))
@@ -81,7 +81,7 @@ script GravelTown_TimsLab_BookshelfTriggers {
         waitmovement(PLAYER_ID)
         release
     } elif (var(VAR_MAP_SCENE_GRAVEL_TOWN) == 1) { // Rival Battle
-        lock
+        lockall
         setvar(VAR_MAP_SCENE_GRAVEL_TOWN, 2)
         playbgm(MUS_RIVAL_EXIT, 0)
         getplayerxy(TEMPVAR_PLAYER_X, TEMPVAR_PLAYER_Y)
@@ -167,12 +167,12 @@ text GravelTown_TimsLab_MuraNeedToTrain {
 
 script GravelTown_TimsLab_Mura {
     if (!flag(FLAG_SYS_POKEMON_GET)) {
-        locktarget
+        lock
         faceplayer
         msgbox(format("Mura: Hurry up!\nI want my turn!"))
         release
     } else {
-        locktarget
+        lock
         faceplayer
         switch(var(VAR_STARTER_MON)) {
             case STARTER_BULBASAUR:
@@ -187,7 +187,7 @@ script GravelTown_TimsLab_Mura {
 }
 
 script GravelTown_TimsLab_Tim {
-    locktarget
+    lock
     faceplayer
     if (!flag(FLAG_SYS_POKEMON_GET)) {
         msgbox(format("Tim: Now then, {PLAYER}.\nWhich Pokémon will you choose?"))
@@ -217,12 +217,12 @@ text Text_BelongsToTim {
 
 script GravelTown_TimsLab_PokeballCharmander {
     if (flag(FLAG_SYS_POKEMON_GET)) {
-        lock
+        lockall
         msgbox(Text_BelongsToTim)
         release
         end
     }
-    lockall
+    forcelock
     applymovement(TIM_ID, Movement_FaceRight)
     applymovement(MURA_ID, Movement_FaceRight)
     drawmonpic(SPECIES_CHARMANDER, 0, 0)
@@ -234,12 +234,12 @@ script GravelTown_TimsLab_PokeballCharmander {
 
 script GravelTown_TimsLab_PokeballSquirtle {
     if (flag(FLAG_SYS_POKEMON_GET)) {
-        lock
+        lockall
         msgbox(Text_BelongsToTim)
         release
         end
     }
-    lockall
+    forcelock
     applymovement(TIM_ID, Movement_FaceRight)
     applymovement(MURA_ID, Movement_FaceRight)
     drawmonpic(SPECIES_SQUIRTLE, 0, 0)
@@ -251,12 +251,12 @@ script GravelTown_TimsLab_PokeballSquirtle {
 
 script GravelTown_TimsLab_PokeballBulbasaur {
     if (flag(FLAG_SYS_POKEMON_GET)) {
-        lock
+        lockall
         msgbox(Text_BelongsToTim)
         release
         end
     }
-    lockall
+    forcelock
     applymovement(TIM_ID, Movement_FaceRight)
     applymovement(MURA_ID, Movement_FaceRight)
     drawmonpic(SPECIES_BULBASAUR, 0, 0)
@@ -341,7 +341,7 @@ script GravelTown_TimsLab_RivalPicksStarter {
     waitmessage
     waitfanfare
     closemessage
-    releaseall
+    forcerelease
 }
 
 movement Movement_TimWalkFromEntrance {
@@ -619,7 +619,7 @@ script GravelTown_TimsLab_PokedexScene {
     setflag(FLAG_SYS_POKEDEX_GET)
     setflag(FLAG_SYS_QUEST_MENU_GET)
     unlockquest(SIDE_QUEST_POKEDEX_MASTER)
-    releaseall
+    forcerelease
 }
 
 movement Movement_MuraWalkForPokedex {
@@ -683,7 +683,7 @@ movement Movement_TimWalkBackwards {
 // ----------------
 
 script GravelTown_TimsLab_Scientist {
-    locktarget
+    lock
     faceplayer
     msgbox(format("Tim may not be much of a Professor compared to Oak or Elm…\p"
         "However, his work on the care and wellness of Pokémon is not to be discounted!\p"
@@ -694,7 +694,7 @@ script GravelTown_TimsLab_Scientist {
 }
 
 script GravelTown_TimsLab_Lady {
-    locktarget
+    lock
     faceplayer
     msgbox(format("We're trying to raise our own starter Pokémon for Rijon trainers, instead of getting them from Kanto.\p"
         "Professor Elm has been helping Tim incubate Pokémon eggs lately.\p"
@@ -706,7 +706,7 @@ script GravelTown_TimsLab_Lady {
 }
 
 script GravelTown_TimsLab_FatMan {
-    locktarget
+    lock
     faceplayer
     if (!flag(FLAG_GOT_TIMS_PIZZA)) {
         msgbox(format("Ah, so you were one of the lucky three to get a Pokémon from Kanto?\p"

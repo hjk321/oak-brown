@@ -1195,7 +1195,7 @@ bool8 ScrCmd_turnvobject(struct ScriptContext * ctx)
     return FALSE;
 }
 
-bool8 ScrCmd_lockall(struct ScriptContext * ctx)
+bool8 ScrCmd_forcelock(struct ScriptContext * ctx)
 {
     if (IsUpdateLinkStateCBActive())
     {
@@ -1209,7 +1209,7 @@ bool8 ScrCmd_lockall(struct ScriptContext * ctx)
     }
 }
 
-bool8 ScrCmd_lock(struct ScriptContext * ctx)
+bool8 ScrCmd_lockall(struct ScriptContext * ctx)
 {
     if (IsUpdateLinkStateCBActive())
     {
@@ -1231,7 +1231,7 @@ bool8 ScrCmd_lock(struct ScriptContext * ctx)
     }
 }
 
-bool8 ScrCmd_releaseall(struct ScriptContext * ctx)
+bool8 ScrCmd_forcerelease(struct ScriptContext * ctx)
 {
     u8 playerObjectId;
 
@@ -2327,7 +2327,7 @@ bool8 ScrCmd_checkpartymon(struct ScriptContext *ctx)
     return FALSE;
 }
 
-bool8 ScrCmd_locktarget(struct ScriptContext *ctx)
+bool8 ScrCmd_lock(struct ScriptContext *ctx)
 {
     if (IsUpdateLinkStateCBActive())
     {

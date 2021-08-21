@@ -2,7 +2,7 @@ raw `
 .equ GAVE_PROFILE,  VAR_TEMP_1
 
 MysteryEventClub_EventScript_Woman:: @ 81BEE16
-	lock
+	lockall
 	faceplayer
 	compare GAVE_PROFILE, TRUE
 	goto_if_eq EventScript_AlreadyGaveProfile
@@ -103,7 +103,7 @@ EventScript_GaveSpecialProfile: @ 81BEF3F
 EventScript_GiveProfile: @ 81BEF5A
 	setvar VAR_0x8004, EASY_CHAT_TYPE_PROFILE
 	call Common_ShowEasyChatScreen
-	lock
+	lockall
 	faceplayer
 	compare VAR_0x8004, 0
 	goto_if_eq EventScript_GaveSpecialProfile

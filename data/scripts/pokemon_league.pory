@@ -23,13 +23,13 @@ PokemonLeague_EventScript_SetDoorOpen:: @ 81A7538
 	return
 
 PokemonLeague_EventScript_PreventExit:: @ 81A754B
-	lockall
+	forcelock
 	textcolor 0
 	msgbox Text_VoiceRangOutDontRunAway
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, PokemonLeague_Movement_ForcePlayerIn
 	waitmovement 0
-	releaseall
+	forcerelease
 	end
 
 PokemonLeague_EventScript_OpenDoorLance:: @ 81A7563

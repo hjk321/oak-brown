@@ -1,12 +1,12 @@
 raw `
 EventScript_NeedCardKey:: @ 81A8135
     msgbox Text_ItNeedsCardKey
-    releaseall
+    forcerelease
     end
 
 EventScript_DoorUnlocked:: @ 81A813F
     msgbox Text_TheDoorIsOpen
-    releaseall
+    forcerelease
     end
 
 EventScript_Close2FDoor1:: @ 81A8149
@@ -348,121 +348,121 @@ EventScript_Open11FDoor:: @ 81A88ED
     return
 
 SilphCo_2F_EventScript_Door1:: @ 81A891B
-    lockall
+    forcelock
     setvar VAR_TEMP_1, 1
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_2F_EventScript_Door2:: @ 81A8935
-    lockall
+    forcelock
     setvar VAR_TEMP_1, 2
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_3F_EventScript_Door1:: @ 81A894F
-    lockall
+    forcelock
     setvar VAR_TEMP_1, 3
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_3F_EventScript_Door2:: @ 81A8969
-    lockall
+    forcelock
     setvar VAR_TEMP_1, 4
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_4F_EventScript_Door1:: @ 81A8983
-    lockall
+    forcelock
     setvar VAR_TEMP_1, 5
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_4F_EventScript_Door2:: @ 81A899D
-    lockall
+    forcelock
     setvar VAR_TEMP_1, 6
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_5F_EventScript_Door1:: @ 81A89B7
-    lockall
+    forcelock
     setvar VAR_TEMP_1, 7
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_5F_EventScript_Door2:: @ 81A89D1
-    lockall
+    forcelock
     setvar VAR_TEMP_1, 8
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_5F_EventScript_Door3:: @ 81A89EB
-    lockall
+    forcelock
     setvar VAR_TEMP_1, 9
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_6F_EventScript_Door:: @ 81A8A05
-    lockall
+    forcelock
     setvar VAR_TEMP_1, 10
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_7F_EventScript_Door1:: @ 81A8A1F
-    lockall
+    forcelock
     setvar VAR_TEMP_1, 11
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_7F_EventScript_Door2:: @ 81A8A39
-    lockall
+    forcelock
     setvar VAR_TEMP_1, 12
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_7F_EventScript_Door3:: @ 81A8A53
-    lockall
+    forcelock
     setvar VAR_TEMP_1, 13
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_8F_EventScript_Door:: @ 81A8A6D
-    lockall
+    forcelock
     setvar VAR_TEMP_1, 14
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_9F_EventScript_Door1:: @ 81A8A87
-    lockall
+    forcelock
     setvar VAR_TEMP_1, 15
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_9F_EventScript_Door2:: @ 81A8AA1
-    lockall
+    forcelock
     setvar VAR_TEMP_1, 16
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_9F_EventScript_Door3:: @ 81A8ABB
-    lockall
+    forcelock
     setvar VAR_TEMP_1, 17
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_9F_EventScript_Door4:: @ 81A8AD5
-    lockall
+    forcelock
     setvar VAR_TEMP_1, 18
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_10F_EventScript_Door:: @ 81A8AEF
-    lockall
+    forcelock
     setvar VAR_TEMP_1, 19
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_11F_EventScript_Door:: @ 81A8B09
-    lockall
+    forcelock
     setvar VAR_TEMP_1, 20
     goto EventScript_TryUnlockDoor
     end
@@ -520,6 +520,6 @@ EventScript_OpenDoor:: @ 81A8B32
     special DrawWholeMapView
     waitse
     special SetHiddenItemFlag
-    releaseall
+    forcerelease
     end
 `

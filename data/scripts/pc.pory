@@ -1,7 +1,7 @@
 raw `
 EventScript_PC:: @ 81A6955
 	goto_if_questlog EventScript_ReleaseEnd
-	lockall
+	forcelock
 	goto_if_set FLAG_SYS_PC_STORAGE_DISABLED, EventScript_PCDisabled
 	setvar VAR_0x8004, 0
 	special AnimatePcTurnOn
@@ -12,12 +12,12 @@ EventScript_PC:: @ 81A6955
 
 @ For when the player first arrives on One Island
 EventScript_PCDisabled:: @ 81A698E
-	releaseall
+	forcerelease
 	end
 
 @ Boot PC from anywhere
 EventScript_PCDebug::
-	lockall
+	forcelock
 	msgbox Text_BootedUpPC
 	goto EventScript_PCMainMenu
 	end
@@ -70,7 +70,7 @@ EventScript_TurnOffPC:: @ 81A6A46
 	setvar VAR_0x8004, 0
 	playse SE_PC_OFF
 	special AnimatePcTurnOff
-	releaseall
+	forcerelease
 	end
 
 EventScript_AccessHallOfFame:: @ 81A6A56
@@ -103,6 +103,6 @@ EventScript_ShutDownPlayerPC:: @ 8168D17
 	setvar VAR_0x8004, 1
 	playse SE_PC_OFF
 	special AnimatePcTurnOff
-	releaseall
+	forcerelease
 	end
 `

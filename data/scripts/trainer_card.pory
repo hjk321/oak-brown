@@ -2,7 +2,7 @@ raw `
 .set LOCALID_STICKER_MAN, 1
 
 CeladonCity_GameCorner_EventScript_PhotoPrinter:: @ 81B2867
-	lockall
+	forcelock
 	showmoneybox 0, 0, 0
 	msgbox CeladonCity_GameCorner_Text_TryPokemonPrinter, MSGBOX_YESNO
 	compare VAR_RESULT, NO
@@ -53,22 +53,22 @@ CeladonCity_GameCorner_EventScript_PrintPhoto:: @ 81B2907
 	special UpdateTrainerCardPhotoIcons
 	msgbox CeladonCity_GameCorner_Text_PrintIsReadyCheckTrainerCard
 	hidemoneybox 0, 0
-	releaseall
+	forcerelease
 	end
 
 CeladonCity_GameCorner_EventScript_DeclinePhoto:: @ 81B2926
 	hidemoneybox 0, 0
-	releaseall
+	forcerelease
 	end
 
 CeladonCity_GameCorner_EventScript_NotEnoughMoneyForPhoto:: @ 81B292B
 	msgbox CeladonCity_GameCorner_Text_DontHaveEnoughMoney
 	hidemoneybox 0, 0
-	releaseall
+	forcerelease
 	end
 
 FourIsland_House2_EventScript_StickerMan:: @ 81B2938
-	lock
+	lockall
 	specialvar VAR_0x8008, StickerManGetBragFlags
 	end
 
