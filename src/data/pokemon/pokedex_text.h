@@ -4,7 +4,7 @@
 
 // SPOILERS AHEAD!
 
-// This has all the Pokédex text for Tim. You should probably turn back.
+// This file has all the custom Pokédex text. You should probably turn back.
 
 // Seriously, it's a lot more fun to discover these in-game.
 
@@ -13,6 +13,8 @@
 // How many other hacks do you think bothered? What better opportunity will
 
 // you get to have a good reason to actually catch em all?
+
+// Especially since I made dex completion one of the main draws of the game?
 
 //
 
@@ -23,6 +25,8 @@
 // Look, if not saying it's a bad thing you want to read all the dex entries at once.
 
 // I'm just saying that once you do, that's it. You're not gonna want to catch anything in the game.
+
+// It just won't be very fulfilling, that's all.
 
 // I guess in the end it's up to you.
 
@@ -109,7 +113,8 @@ const u8 gTimNotesBulbasaur[] = _(
     "Bulbasaur have been observed taking care\n"
     "of plants in the wild, so they make a\n"
     "good companion for gardeners and grounds\n"
-    "keepers."
+    "keepers. This species is also known to be\n"
+    "very docile and easy to raise."
 );
 
 const u8 gTimNotesIvysaur[] = _(
@@ -139,7 +144,8 @@ const u8 gTimNotesCharmeleon[] = _(
     "While technically omnivorous, it craves\n"
     "meat much more aggressively than\n"
     "Charmander, so trainers should allow it\n"
-    "to hunt smaller Pokémon while training."
+    "to hunt smaller Pokémon while training.\n"
+    "This will help hone its combat skills."
 );
 
 const u8 gTimNotesCharizard[] = _(
@@ -235,6 +241,7 @@ const u8 gTimNotesPidgeotto[] = _(
     "see prey from high in the sky. They can\n"
     "generally fend for themselves if allowed,\n"
     "but won't refuse food from its trainer.\n"
+    "It is notably loyal to its master."
 );
 
 const u8 gTimNotesPidgeot[] = _(
@@ -246,43 +253,83 @@ const u8 gTimNotesPidgeot[] = _(
 );
 
 const u8 gTimNotesRattata[] = _(
-    ""
+    "Rattata has found its niche among very\n"
+    "young children, since it is considered a\n"
+    "household pet, and therefore requires no\n"
+    "training license. Despite this, it can\n"
+    "fight very fiercely if provoked."
 );
 
 const u8 gTimNotesRaticate[] = _(
-    ""
+    "Traditionally, Raticade was considered as\n"
+    "vermin. In recent years, however, some\n"
+    "trainers have recognized its potential\n"
+    "and have begun to train it. It will eat\n"
+    "practically anything you give it."
 );
 
 const u8 gTimNotesSpearow[] = _(
-    ""
+    "The fiesty cousin of Pidgey, Spearow tend\n"
+    "to have a bad temper. They are provoked\n"
+    "easily and attack in flocks. Do not let\n"
+    "their apparent lack of flying skills fool\n"
+    "you. They are very dangerous in groups."
 );
 
 const u8 gTimNotesFearow[] = _(
-    ""
+    "When Spearow evolves, its ineptitude at\n"
+    "flight transforms into one of the most\n"
+    "impressive staminas found in any avian.\n"
+    "It can fly for so long, it will hunt prey\n"
+    "multiple times before it needs to land."
 );
 
 const u8 gTimNotesEkans[] = _(
-    ""
+    "Ekans are born only twelve inches long.\n"
+    "As they mature, not only does it grow in\n"
+    "size, but its poison becomes more potent.\n"
+    "It eats a meal, then lays in the sunlight\n"
+    "for a few days. It has a slow metabolism."
 );
 
 const u8 gTimNotesArbok[] = _(
-    ""
+    "Most consider the markings on its belly\n"
+    "to be rather frightenening. Some artists\n"
+    "use the patterns as inspriation. One\n"
+    "architect designed an entire building\n"
+    "based on the exotic colors and designs."
 );
 
 const u8 gTimNotesPikachu[] = _(
-    ""
+    "Pikachu has a massive cultural impact\n"
+    "among children and adults alike. It's the\n"
+    "mascot of a popular TV show. In reality,\n"
+    "wild Pikachu are rather distrusting of\n"
+    "humans, even for weeks after capture."
 );
 
 const u8 gTimNotesRaichu[] = _(
-    ""
+    "Raichu were a common companion of soldier\n"
+    "units during wartime. Its massive voltage\n"
+    "worked both as a direct attack against an\n"
+    "enemy, and to power military equipment in\n"
+    "the field."
 );
 
 const u8 gTimNotesSandshrew[] = _(
-    ""
+    "Sandshrew can absorb water through its\n"
+    "thick hide. This causes it to avoid rain,\n"
+    "puddles, or any body of water, as the\n"
+    "sensation is uncomfortable. Research on\n"
+    "how this trait came to be is underway."
 );
 
 const u8 gTimNotesSandslash[] = _(
-    ""
+    "Sandslash can be notoriously aloof to its\n"
+    "trainer, preferring not to participate in\n"
+    "activities with its fellow Pokémon, both\n"
+    "eating and sleeping a short distance away\n"
+    "from camp. It prefers solitary training."
 );
 
 const u8 gTimNotesNidoranF[] = _(
