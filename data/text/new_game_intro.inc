@@ -246,5 +246,5 @@ gOakText_LegendAboutToUnfold:: @ 81C5EF4
     .string "{PLAYER}!\p"
     .string "Your path is set out before you!\pYour journey will bring you to\nnew places and people.\p"
     .string "Learn and experience new things!\nThat is the only way a kid can grow.\p"
-    .string "I'll be expecting you at my lab\ntomorrow morning.\p"
-    .string "See you later!$"
+    .string "I'll be expecting you at my lab.\nI have something to show you."
+    .string "See you soon!$"

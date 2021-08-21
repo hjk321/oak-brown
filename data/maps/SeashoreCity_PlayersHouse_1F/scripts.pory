@@ -11,13 +11,20 @@ script SeashoreCity_PlayersHouse_1F_Mom {
     locktarget
     faceplayer
     if (!flag(FLAG_SYS_POKEMON_GET)) {
-        msgbox(format("Mom: Good morning, sweetie!\nToday's your big day!\pYou should start walking south to Gravel Town soon.\pTim will be expecting you."))
+        gettime
+        if (var(VAR_0x8003) == TIME_MORNING) {
+            msgbox(format("Mom: Good morning, sweetie!\nToday's your big day!"))
+        } else {
+            msgbox(format("Mom: {PLAYER}, today's your big day!\nI'm so proud of you.\p"
+                "You'll finally be able to follow in your father's footsteps."))
+        }
+        msgbox(format("You should start walking south to Gravel Town soon.\pTim will be expecting you."))
     } else {
         msgbox(format("Mom: {PLAYER}, you look tired!\nYou should take a quick rest."))
         closemessage
         call(EventScript_OutOfCenterPartyHeal)
         setrespawn(SPAWN_SEASHORE_CITY)
-        msgbox(format("Mom: Oh, good! You and your Pokémon are looking great!\pTake care, now!"))
+        msgbox(format("Mom: Oh, good! You and your Pokémon are looking great!\pKnock 'em dead, sweetie!"))
     }
     release
 }

@@ -33,7 +33,7 @@ script MersonCave_Outdoor_Bernard {
     unlockquest(SIDE_QUEST_BERNARDS_GLASSES)
     checkquestturnin(SIDE_QUEST_BERNARDS_GLASSES)
     if (var(VAR_RESULT)) {
-        msgbox(format("Hm? You already found my glasses?\nHow resourceful of you!\p"))
+        msgbox(format("Hm? You already found my glasses?\nHow resourceful of you!"))
         goto(MersonCave_Outdoor_BernardReward)
     }
     msgbox(format("Would you be willing to keep an eye out? Thanks!"))
