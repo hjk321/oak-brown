@@ -65,18 +65,20 @@ script MersonCave_Outdoor_Hiker {
     release
 }
 
-script MersonCave_Outdoor_Collector {
-    locktarget
-    faceplayer
-    msgbox(format("Merson Cave has a lot of confusing twists and turns.\p"
-        "If I were you, I'd bring along an escape rope, just to be safe."))
-    release
-}
-
 script MersonCave_Outdoor_Picnicker {
     locktarget
     faceplayer
     msgbox(format("I'm taking a rest here before I hike back to Merson City.\p"
         "This is a nice spot. Now, if only I had brought a picnic basket…"))
+    release
+}
+
+script MersonCave_Outdoor_Nurse {
+    locktarget
+    faceplayer
+    msgbox(format("I'm a travelling nurse.\nShall I heal your Pokémon?"))
+    closemessage
+    call(EventScript_OutOfCenterPartyHeal)
+    msgbox("All better!\nStay safe now!")
     release
 }

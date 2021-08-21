@@ -1,1 +1,29 @@
+const TEMPVAR_PURIFIED_ZONE = VAR_TEMP_0
+
 mapscripts MersonCave_2BF_MapScripts {}
+
+script MersonCave_2BF_PurifiedZone {
+    lockall
+	fadescreen(FADE_TO_WHITE)
+	special(HealPlayerParty)
+	fadescreen(FADE_FROM_WHITE)
+	msgbox(format("Entered purified and protected zone!\p"
+        "{PLAYER}'s Pokémon were fully healed!"))
+	setvar(TEMPVAR_PURIFIED_ZONE, 1)
+	releaseall
+	end
+}
+
+script MersonCave_2BF_ExitPurifiedZone {
+    lockall
+    setvar(TEMPVAR_PURIFIED_ZONE, 0)
+    releaseall
+}
+
+script MersonCave_2BF_Channeler {
+    locktarget
+    faceplayer
+    msgbox(format("I have cleansed and purified the sandy area.\p"
+        "Come, child, and rest your weary spirit!"))
+    release
+}

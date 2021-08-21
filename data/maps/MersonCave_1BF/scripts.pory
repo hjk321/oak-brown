@@ -1,1 +1,19 @@
 mapscripts MersonCave_1BF_MapScripts {}
+
+script MersonCave_1BF_ItemBallAntidote {
+    finditem(ITEM_ANTIDOTE)
+}
+
+script MersonCave_1BF_ItemBallGreatBall {
+    finditem(ITEM_GREAT_BALL)
+}
+
+script MersonCave_1BF_ItemBallFreshWater {
+    finditem(ITEM_FRESH_WATER)
+}
+
+script MersonCave_1BF_TrainerTips {
+    msgbox(format("Trainer Tips!\p"
+        "In indoor and underground places, the type of Pokémon you can find will vary slightly on each floor.\p"
+        "Sometimes, it's worth searching each area thoroughly. You might find a nice addition to your team!"), MSGBOX_SIGN)
+}

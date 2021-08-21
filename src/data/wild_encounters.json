@@ -80,7 +80,7 @@
           "map": "MAP_MERSON_CAVE_1F",
           "base_label": "gMersonCave_1F",
           "land_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 3,
@@ -130,7 +130,7 @@
               {
                 "min_level": 4,
                 "max_level": 6,
-                "species": "SPECIES_CUBONE"
+                "species": "SPECIES_SLOWPOKE"
               },
               {
                 "min_level": 6,
@@ -149,7 +149,7 @@
           "map": "MAP_MERSON_CAVE_1BF",
           "base_label": "gMersonCave_1BF",
           "land_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 3,

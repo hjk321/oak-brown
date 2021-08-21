@@ -1,1 +1,85 @@
 mapscripts MersonCave_1F_MapScripts {}
+
+script MersonCave_1F_ItemEscapeRope {
+    finditem(ITEM_ESCAPE_ROPE)
+}
+
+script MersonCave_1F_ItemRareCandy {
+    finditem(ITEM_RARE_CANDY)
+}
+
+script MersonCave_1F_ItemRepel {
+    finditem(ITEM_REPEL)
+}
+
+script MersonCave_1F_ItemMoonStone {
+    finditem(ITEM_MOON_STONE)
+}
+
+script MersonCave_1F_ItemPotion {
+    finditem(ITEM_POTION)
+}
+
+script MersonCave_1F_YoungsterBenny {
+    trainerbattle_single(TRAINER_YOUNGSTER_BENNY,
+        format("Hm, no dirt on your clothes? No wear on your shoes?\p"
+            "Hah! You're a brand new trainer, aren't you?\pThis will be a piece of cake!"),
+            "No! Crushed by a rookie!")
+        msgbox(format("Well, don't you worry!\p"
+            "The trainers ahead are way tougher than I am!"), MSGBOX_AUTOCLOSE)
+}
+
+script MersonCave_1F_LassAbigail {
+    trainerbattle_single(TRAINER_LASS_ABIGAIL,
+        format("Hm? A Pokémon battle?\pWell, all right, but don't get too rough!"),
+        "What did I tell you about\nplaying rough?!")
+    msgbox(format("Now look at what you've done.\nYou made my poor Pikachu cry!"), MSGBOX_AUTOCLOSE)
+}
+
+script MersonCave_1F_BugCatcherFred {
+    trainerbattle_single(TRAINER_BUG_CATCHER_FRED,
+        format("Hey, mister! Do you know the way out of this cave?"),
+        "Augh!\nAll my bugs caved in!")
+    msgbox(format("I guess I'll have to find the way out myself…"), MSGBOX_AUTOCLOSE)
+}
+
+script MersonCave_1F_SuperNerdJonathan {
+    trainerbattle_single(TRAINER_SUPER_NERD_JONATHAN,
+        format("Oh? You're approaching me?\pWell, then.\nCome as close as you need to."),
+        "Weakling! Weakling!")
+    msgbox("The more carefully you scheme, the\nmore unexpected events come along.", MSGBOX_AUTOCLOSE)
+}
+
+script MersonCave_1F_HikerBrian {
+    trainerbattle_single(TRAINER_HIKER_BRIAN,
+        format("A dark cave is the perfect place to meet new people!\pDon't you agree?\nHeheheh…"),
+        "Maybe we shouldn't have met\nat all!")
+    msgbox(format("Now, what's a kid like you doing in a cave like this?"), MSGBOX_AUTOCLOSE)
+}
+
+script MersonCave_1F_SuperNerdJarus {
+    trainerbattle_single(TRAINER_SUPER_NERD_JARUS,
+        format("According to my calculations…\pI have a 87 percent chance of winning this battle!"),
+        "Augh!\nForgot to carry the zero!")
+    msgbox(format("No, no, no!\nMy math was all wrong!"), MSGBOX_AUTOCLOSE)
+}
+
+script MersonCave_1F_TrainerTips {
+    msgbox(format("Trainer Tips!\p"
+        "Don't be afraid to catch Pokémon early in your adventure!\p"
+        "It will make battles easier, and you can replace them anytime!"), MSGBOX_SIGN)
+}
+
+script MersonCave_1F_LassNatalie {
+    trainerbattle_single(TRAINER_LASS_NATALIE,
+        format("Oh, my! I'm all alone in the dark, with a strange boy!\pWhatever will we do…?"),
+        "That's not what I\nhad in mind!")
+    msgbox(format("You just don't get it, do you?"), MSGBOX_AUTOCLOSE)
+}
+
+script MersonCave_1F_BugCatcherGeorge {
+    trainerbattle_single(TRAINER_BUG_CATCHER_GEORGE,
+        format("Hey, hey, hey!\nWanna play, play, play?"),
+        "That was fun, fun, fun!\nEven though you won, won, won!")
+    msgbox(format("I like to give hugs, hugs, hugs!\nTo my awesome bugs, bugs, bugs!"), MSGBOX_AUTOCLOSE)
+}
