@@ -21,14 +21,6 @@ enum
     FLAG_SET_SHINY
 };
 
-#define DEX_DESC_PER_MON 3
-
-struct PokedexDesc
-{
-    u16 flag;
-    const u8 *text;
-};
-
 struct PokedexEntry
 {
     u8 categoryName[14];

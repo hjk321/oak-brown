@@ -127,7 +127,6 @@ static void sub_8102F48(u8 windowId, s32 itemId, u8 y);
 static void sub_8103A40(u8 windowId, s32 itemId, u8 y);
 static void sub_8106BD8(u8 taskId);
 static void sub_8106BE8(u8 taskId);
-static s8 GetDescNum(u16 species);
 
 #include "data/pokemon_graphics/footprint_table.h"
 
@@ -192,11 +191,9 @@ const u16 gUnknown_8443D00[] = INCBIN_U16("graphics/pokedex/unk_8443D00.4bpp");
 
 static const u8 gExpandedPlaceholder_PokedexDescription[] = _("");
 
-#include "data/pokemon/pokedex_text_tim.h"
-#include "data/pokemon/pokedex_text_mura.h"
+#include "data/pokemon/pokedex_text.h"
+#include "data/pokemon/pokedex_desc.h"
 #include "data/pokemon/pokedex_entries.h"
-#include "data/pokemon/pokedex_desc_tim.h"
-#include "data/pokemon/pokedex_desc_mura.h"
 
 static const struct BgTemplate sUnknown_8451EBC[] = {
     {
@@ -2797,50 +2794,18 @@ void sub_8105A3C(u8 windowId, u16 species, u8 x, u8 y)
     sub_81047C8(windowId, 0, buffer, x, y, 0);
 }
 
-static s8 GetDescNum(u16 species)
-{
-    u8 i;
-
-    for (i = 0; i < DEX_DESC_PER_MON; i++)
-    {
-        if (gTimNotes[species][i].flag)
-        {
-            if (FlagGet(gTimNotes[species][i].flag))
-            {
-                if (gTimNotes[species][i].text)
-                    return i;
-                else
-                    return -1;
-            }
-        } else {
-            // No flag, default text.
-            if (gTimNotes[species][i].text)
-                return i;
-            return -1;
-        }
-    }
-    return -1;
-}
-
 void sub_8105CB0(u8 a0, u16 species, u8 x, u8 y)
 {
     struct TextPrinterTemplate printerTemplate;
     u16 length;
     s32 v1;
     u8 num;
-    s8 desc;
 
     species = SpeciesToNationalPokedexNum(species);
-    desc = GetDescNum(species);
 
     if (sub_8104AB0(species, 1, 0))
     {
-        if (desc == -1)
-        {
-            printerTemplate.currentChar = gText_DexQuestionMarks;
-        } else {
-            printerTemplate.currentChar = gTimNotes[species][desc].text;
-        }
+        printerTemplate.currentChar = gTimNotes[species];
         printerTemplate.windowId = a0;
         printerTemplate.fontId = 2;
         printerTemplate.letterSpacing = 1;
@@ -2850,12 +2815,7 @@ void sub_8105CB0(u8 a0, u16 species, u8 x, u8 y)
         printerTemplate.bgColor = 0;
         printerTemplate.shadowColor = 2;
 
-        if (desc == -1)
-        {
-            length = GetStringWidth(2, gText_ThreeQuestionMarks, 0);
-        } else {
-            length = GetStringWidth(2, gTimNotes[species][desc].text, 0);
-        }
+        length = GetStringWidth(2, gTimNotes[species], 0);
         v1 = x + (240 - length) / 2;
 
         if (v1 > 0)

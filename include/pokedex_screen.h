@@ -14,7 +14,7 @@
 #include "pokedex.h"
 
 extern const struct PokedexEntry gPokedexEntries[];
-extern const struct PokedexDesc gTimNotes[][DEX_DESC_PER_MON];
+extern const u8 * const gTimNotes[];
 
 void CB2_OpenPokedexFromStartMenu(void);
 s8 sub_8104AB0(u16 nationalDexNo, u8 caseId, bool8 indexIsSpecies);

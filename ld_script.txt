@@ -314,7 +314,7 @@ SECTIONS {
         src/minigame_countdown.o(.text);
         src/berry_fix_program.o(.text);
         src/mgba.o(.text);
-		    src/printf.o(.text);
+        src/printf.o(.text);
         src/debug.o(.text);
     } =0
 
