@@ -937,6 +937,7 @@ void Fieldmap_ApplyGlobalTintToPaletteSlot(u8 slot, u8 count)
 static void apply_map_tileset_palette(struct Tileset const *tileset, u16 destOffset, u16 size)
 {
     u16 black = RGB_BLACK;
+    bool8 isOutdoors = IsMapTypeOutdoors(gMapHeader.mapType);
 
     if (tileset)
     {
@@ -950,7 +951,12 @@ static void apply_map_tileset_palette(struct Tileset const *tileset, u16 destOff
         else if (tileset->isSecondary == TRUE)
         {
             gPaletteOverrides[1] = tileset->paletteOverrides;
-            LoadPaletteDayNight(((u16*)tileset->palettes) + (NUM_PALS_IN_PRIMARY * 16), destOffset, size);
+
+            if (isOutdoors)
+                LoadPaletteDayNight(((u16*)tileset->palettes) + ((NUM_PALS_IN_PRIMARY+1) * 16), destOffset, size);
+            else
+                LoadPaletteDayNight(((u16*)tileset->palettes) + (NUM_PALS_IN_PRIMARY * 16), destOffset, size);
+
             Fieldmap_ApplyGlobalTintToPaletteEntries(destOffset, size >> 1);
         }
         else
@@ -979,12 +985,20 @@ void copy_map_tileset2_to_vram_2(const struct MapLayout *mapLayout)
 
 void apply_map_tileset1_palette(const struct MapLayout *mapLayout)
 {
-    apply_map_tileset_palette(mapLayout->primaryTileset, 0, NUM_PALS_IN_PRIMARY * 16 * 2);
+    bool8 isOutdoors = IsMapTypeOutdoors(gMapHeader.mapType);
+    if (isOutdoors)
+        apply_map_tileset_palette(mapLayout->primaryTileset, 0, (NUM_PALS_IN_PRIMARY+1) * 16 * 2);
+    else
+        apply_map_tileset_palette(mapLayout->primaryTileset, 0, NUM_PALS_IN_PRIMARY * 16 * 2);
 }
 
 void apply_map_tileset2_palette(const struct MapLayout *mapLayout)
 {
-    apply_map_tileset_palette(mapLayout->secondaryTileset, NUM_PALS_IN_PRIMARY * 16, (NUM_PALS_TOTAL - NUM_PALS_IN_PRIMARY) * 16 * 2);
+    bool8 isOutdoors = IsMapTypeOutdoors(gMapHeader.mapType);
+    if (isOutdoors)
+        apply_map_tileset_palette(mapLayout->secondaryTileset, (NUM_PALS_IN_PRIMARY+1) * 16, (NUM_PALS_TOTAL - (NUM_PALS_IN_PRIMARY+1)) * 16 * 2);
+    else
+        apply_map_tileset_palette(mapLayout->secondaryTileset, NUM_PALS_IN_PRIMARY * 16, (NUM_PALS_TOTAL - NUM_PALS_IN_PRIMARY) * 16 * 2);
 }
 
 void copy_map_tileset1_tileset2_to_vram(struct MapLayout const *mapLayout)
