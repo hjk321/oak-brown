@@ -354,5 +354,6 @@ const u8 gMoveNames[][13] = {
     _("Water Pulse"),
     _("Doom Desire"),
     _("Psycho Boost"),
-    _("Energy Ball")
+    _("Energy Ball"),
+	_("Earth Power"),
 };

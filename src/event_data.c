@@ -334,3 +334,21 @@ void ResetSpecialVars(void)
     gSpecialVar_PrevTextColor = 0;
     gSpecialVar_0x8014 = 0;
 }
+
+u8 *GetFlagPointer(u16 id)
+{
+    if (id == 0)
+        return NULL;
+    else if (id < SPECIAL_FLAGS_START)
+        return &gSaveBlock1Ptr->flags[id / 8];
+    else
+        return &sSpecialFlags[(id - SPECIAL_FLAGS_START) / 8];
+}
+
+u8 FlagToggle(u16 id)
+{
+    u8 *ptr = GetFlagPointer(id);
+    if (ptr)
+        *ptr ^= 1 << (id & 7);
+    return 0;
+}

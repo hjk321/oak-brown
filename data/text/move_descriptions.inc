@@ -1106,3 +1106,5 @@ gMoveDescription_PsychoBoost:: @ 84886A1
 gMoveDescription_EnergyBall::
     .string "Draws power from\nnature to attack.\nMay lower Sp. Def.$"
 
+gMoveDescription_EarthPower::
+    .string "Makes the ground\nerupt with power.\nMay lower Sp. Def.$"

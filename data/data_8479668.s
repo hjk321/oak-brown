@@ -376,3 +376,4 @@ gMoveDescriptionPointers:: @ 84886E8
 	.4byte gMoveDescription_DoomDesire
 	.4byte gMoveDescription_PsychoBoost
 	.4byte gMoveDescription_EnergyBall
+	.4byte gMoveDescription_EarthPower

@@ -23,9 +23,14 @@
 #include "quest_menu.h"
 #include "script.h"
 #include "event_scripts.h"
+#include "string_util.h"
+#include "data/flag_strings.c"
 
 #define DEBUG_MAIN_MENU_HEIGHT 8
 #define DEBUG_MAIN_MENU_WIDTH 17
+#define DEBUG_NUMBER_DISPLAY_WIDTH 10
+#define DEBUG_NUMBER_DISPLAY_HEIGHT 4
+#define DEBUG_NUMBER_DIGITS_FLAGS 4
 
 void Debug_ShowMainMenu(void);
 static void Debug_DestroyMainMenu(u8);
@@ -38,6 +43,33 @@ static void DebugAction_WarpToGravel(u8);
 static void DebugAction_CompletePokedex(u8);
 static void DebugAction_UnlockAllQuests(u8);
 static void DebugAction_AccessPC(u8);
+static void DebugAction_Flags_Flags(u8 taskId);
+static void DebugAction_Flags_FlagsSelect(u8 taskId);
+
+static const u8 gDebugText_Flags[] = _("Flags");
+static const u8 gDebugText_Flags_Flag[] =                   _("Flag: {STR_VAR_1}   \n{STR_VAR_2}                   \n{STR_VAR_3}");
+static const u8 gDebugText_Flags_FlagHex[] =                _("{STR_VAR_1}           \n0x{STR_VAR_2}             ");
+static const u8 gDebugText_Flags_FlagSet[] =                _("TRUE");
+static const u8 gDebugText_Flags_FlagUnset[] =              _("FALSE");
+static const u8 digitInidicator_1[] =               _("{LEFT_ARROW}+1{RIGHT_ARROW}        ");
+static const u8 digitInidicator_10[] =              _("{LEFT_ARROW}+10{RIGHT_ARROW}       ");
+static const u8 digitInidicator_100[] =             _("{LEFT_ARROW}+100{RIGHT_ARROW}      ");
+static const u8 digitInidicator_1000[] =            _("{LEFT_ARROW}+1000{RIGHT_ARROW}     ");
+static const u8 digitInidicator_10000[] =           _("{LEFT_ARROW}+10000{RIGHT_ARROW}    ");
+static const u8 digitInidicator_100000[] =          _("{LEFT_ARROW}+100000{RIGHT_ARROW}   ");
+static const u8 digitInidicator_1000000[] =         _("{LEFT_ARROW}+1000000{RIGHT_ARROW}  ");
+static const u8 digitInidicator_10000000[] =        _("{LEFT_ARROW}+10000000{RIGHT_ARROW} ");
+const u8 * const gText_DigitIndicator[] =
+{
+    digitInidicator_1,
+    digitInidicator_10,
+    digitInidicator_100,
+    digitInidicator_1000,
+    digitInidicator_10000,
+    digitInidicator_100000,
+    digitInidicator_1000000,
+    digitInidicator_10000000
+};
 
 enum {
     DEBUG_MENU_ITEM_CANCEL,
@@ -47,6 +79,7 @@ enum {
     DEBUG_MENU_ITEM_COMPLETEPOKEDEX,
     DEBUG_MENU_ITEM_UNLOCKALLQUESTS,
     DEBUG_MENU_ITEM_ACCESSPC,
+	DEBUG_MENU_ITEM_FLAGS,
 };
 
 static const u8 gDebugText_Cancel[] = _("Cancel");
@@ -66,6 +99,7 @@ static const struct ListMenuItem sDebugMenuItems[] =
     [DEBUG_MENU_ITEM_COMPLETEPOKEDEX] = {gDebugText_CompletePokedex, DEBUG_MENU_ITEM_COMPLETEPOKEDEX},
     [DEBUG_MENU_ITEM_UNLOCKALLQUESTS] = {gDebugText_UnlockAllQuests, DEBUG_MENU_ITEM_UNLOCKALLQUESTS},
     [DEBUG_MENU_ITEM_ACCESSPC] = {gDebugText_AccessPC, DEBUG_MENU_ITEM_ACCESSPC},
+	[DEBUG_MENU_ITEM_FLAGS] = {gDebugText_Flags, DEBUG_MENU_ITEM_FLAGS},
 };
 
 static void (*const sDebugMenuActions[])(u8) =
@@ -77,6 +111,7 @@ static void (*const sDebugMenuActions[])(u8) =
     [DEBUG_MENU_ITEM_COMPLETEPOKEDEX] = DebugAction_CompletePokedex,
     [DEBUG_MENU_ITEM_UNLOCKALLQUESTS] = DebugAction_UnlockAllQuests,
     [DEBUG_MENU_ITEM_ACCESSPC] = DebugAction_AccessPC,
+	[DEBUG_MENU_ITEM_FLAGS] = DebugAction_Flags_Flags,
 };
 
 static const struct WindowTemplate sDebugMenuWindowTemplate =
@@ -259,6 +294,136 @@ static void DebugAction_AccessPC(u8 taskId)
 
     ScriptContext1_SetupScript(EventScript_PCDebug);
     ScriptContext2_Enable();
+}
+
+static const s32 sPowersOfTen[] =
+{
+             1,
+            10,
+           100,
+          1000,
+         10000,
+        100000,
+       1000000,
+      10000000,
+     100000000,
+    1000000000,
+};
+
+static const struct WindowTemplate sDebugNumberDisplayWindowTemplate =
+{
+    .bg = 0,
+    .tilemapLeft = 1,
+    .tilemapTop = 1,
+    .width = DEBUG_NUMBER_DISPLAY_WIDTH,
+    .height = 2 * DEBUG_NUMBER_DISPLAY_HEIGHT,
+    .paletteNum = 15,
+    .baseBlock = 1,
+};
+
+static void DebugAction_DestroyExtraWindow(u8 taskId)
+{
+    ClearStdWindowAndFrame(gTasks[taskId].data[1], TRUE);
+    RemoveWindow(gTasks[taskId].data[1]);
+
+    ClearStdWindowAndFrame(gTasks[taskId].data[2], TRUE);
+    RemoveWindow(gTasks[taskId].data[2]);
+
+    DestroyTask(taskId);
+    EnableBothScriptContexts();
+}
+
+static void DebugAction_Flags_Flags(u8 taskId)
+{
+    u8 windowId;
+
+    ClearStdWindowAndFrame(gTasks[taskId].data[1], TRUE);
+    RemoveWindow(gTasks[taskId].data[1]);
+
+    DismissMapNamePopup();
+    LoadStdWindowFrameGfx();
+    windowId = AddWindow(&sDebugNumberDisplayWindowTemplate);
+    DrawStdWindowFrame(windowId, FALSE);
+
+    CopyWindowToVram(windowId, 3);
+
+    //Display initial Flag
+    ConvertIntToDecimalStringN(gStringVar1, 0, STR_CONV_MODE_LEADING_ZEROS, DEBUG_NUMBER_DIGITS_FLAGS);
+    ConvertIntToHexStringN(gStringVar2, 0, STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringExpandPlaceholders(gStringVar1, gDebugText_Flags_FlagHex);
+    if(FlagGet(0) == TRUE)
+        StringCopyPadded(gStringVar2, gDebugText_Flags_FlagSet, CHAR_SPACE, 15);
+    else
+        StringCopyPadded(gStringVar2, gDebugText_Flags_FlagUnset, CHAR_SPACE, 15);
+    StringCopy(gStringVar3, gText_DigitIndicator[0]);
+    StringExpandPlaceholders(gStringVar4, gDebugText_Flags_Flag);
+    AddTextPrinterParameterized(windowId, 1, gStringVar4, 1, 1, 0, NULL);
+
+    gTasks[taskId].func = DebugAction_Flags_FlagsSelect;
+    gTasks[taskId].data[2] = windowId;
+    gTasks[taskId].data[3] = 0;            //Current Flag
+    gTasks[taskId].data[4] = 0;            //Digit Selected
+}
+
+static void DebugAction_Flags_FlagsSelect(u8 taskId)
+{
+    if (gMain.newKeys & A_BUTTON)
+        FlagToggle(gTasks[taskId].data[3]);
+    else if (gMain.newKeys & B_BUTTON)
+    {
+        PlaySE(SE_SELECT);
+        DebugAction_DestroyExtraWindow(taskId);
+        return;
+    }
+
+    if(gMain.newKeys & DPAD_UP)
+    {
+        PlaySE(SE_SELECT);
+        gTasks[taskId].data[3] += sPowersOfTen[gTasks[taskId].data[4]];
+        if(gTasks[taskId].data[3] >= FLAGS_COUNT){
+            gTasks[taskId].data[3] = FLAGS_COUNT - 1;
+        }
+    }
+    if(gMain.newKeys & DPAD_DOWN)
+    {
+        PlaySE(SE_SELECT);
+        gTasks[taskId].data[3] -= sPowersOfTen[gTasks[taskId].data[4]];
+        if(gTasks[taskId].data[3] < 0){
+            gTasks[taskId].data[3] = 0;
+        }
+    }
+    if(gMain.newKeys & DPAD_LEFT)
+    {
+        PlaySE(SE_SELECT);
+        gTasks[taskId].data[4] -= 1;
+        if(gTasks[taskId].data[4] < 0)
+        {
+            gTasks[taskId].data[4] = 0;
+        }
+    }
+    if(gMain.newKeys & DPAD_RIGHT)
+    {
+        PlaySE(SE_SELECT);
+        gTasks[taskId].data[4] += 1;
+        if(gTasks[taskId].data[4] > DEBUG_NUMBER_DIGITS_FLAGS-1)
+        {
+            gTasks[taskId].data[4] = DEBUG_NUMBER_DIGITS_FLAGS-1;
+        }
+    }
+
+    if (gMain.newKeys & DPAD_ANY || gMain.newKeys & A_BUTTON)
+    {
+        ConvertIntToDecimalStringN(gStringVar1, gTasks[taskId].data[3], STR_CONV_MODE_LEADING_ZEROS, DEBUG_NUMBER_DIGITS_FLAGS);
+        ConvertIntToHexStringN(gStringVar2, gTasks[taskId].data[3], STR_CONV_MODE_LEFT_ALIGN, 3);
+        StringExpandPlaceholders(gStringVar1, gDebugText_Flags_FlagHex);
+        if(FlagGet(gTasks[taskId].data[3]) == TRUE)
+            StringCopyPadded(gStringVar2, gDebugText_Flags_FlagSet, CHAR_SPACE, 15);
+        else
+            StringCopyPadded(gStringVar2, gDebugText_Flags_FlagUnset, CHAR_SPACE, 15);
+        StringCopy(gStringVar3, gText_DigitIndicator[gTasks[taskId].data[4]]);
+        StringExpandPlaceholders(gStringVar4, gDebugText_Flags_Flag);
+        AddTextPrinterParameterized(gTasks[taskId].data[2], 1, gStringVar4, 1, 1, 0, NULL);
+    }
 }
 
 #endif // DEBUG
