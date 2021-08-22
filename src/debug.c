@@ -82,6 +82,14 @@ enum {
 	DEBUG_MENU_ITEM_FLAGS,
 };
 
+static const u8 gDebugText_Cancel[] = _("Cancel");
+static const u8 gDebugText_LivingDex[] = _("Living Dex");
+static const u8 gDebugText_PruneParty[] = _("Prune Party");
+static const u8 gDebugText_WarpToGravel[] = _("Warp to Gravel");
+static const u8 gDebugText_CompletePokedex[] = _("Complete Pokédex");
+static const u8 gDebugText_UnlockAllQuests[] = _("Unlock All Quests");
+static const u8 gDebugText_AccessPC[] = _("Access PC");
+
 static const struct ListMenuItem sDebugMenuItems[] =
 {
     [DEBUG_MENU_ITEM_CANCEL] = {gDebugText_Cancel, DEBUG_MENU_ITEM_CANCEL},

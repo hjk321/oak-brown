@@ -1,15 +1,3 @@
-#ifndef GUARD_CONSTANTS_FLAG_STRINGS_H
-#define GUARD_CONSTANTS_FLAG_STRINGS_H
-
-#include "constants/flags.h"
-
-static const u8 gDebugText_Cancel[] = _("Cancel");
-static const u8 gDebugText_LivingDex[] = _("Living Dex");
-static const u8 gDebugText_PruneParty[] = _("Prune Party");
-static const u8 gDebugText_WarpToGravel[] = _("Warp to Gravel");
-static const u8 gDebugText_CompletePokedex[] = _("Complete Pokédex");
-static const u8 gDebugText_UnlockAllQuests[] = _("Unlock All Quests");
-static const u8 gDebugText_AccessPC[] = _("Access PC");
 static const u8 gDebugText_FLAG_TEMP_1[] = _("Temp-1");
 static const u8 gDebugText_FLAG_TEMP_2[] = _("Temp-2");
 static const u8 gDebugText_FLAG_TEMP_3[] = _("Temp-3");
@@ -2949,5 +2937,3 @@ static const u8 * const sDebug_FlagStrings[] =
 	[FLAG_0x8FE] = gDebugText_FLAG_0x8FE,
 	[FLAG_0x8FF] = gDebugText_FLAG_0x8FF,
 };
-
-#endif // GUARD_CONSTANTS_FLAG_STRINGS_H
