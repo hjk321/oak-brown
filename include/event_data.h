@@ -57,5 +57,6 @@ void ResetMysteryEventVars(void);
 bool32 IsNationalPokedexEnabled(void);
 void sub_806E190(void);
 void ClearTempFieldEventData(void);
+u8 FlagToggle(u16 id);
 
 #endif // GUARD_EVENT_DATA_H
