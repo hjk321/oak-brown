@@ -25,6 +25,9 @@
 #include "event_scripts.h"
 #include "string_util.h"
 #include "data/flag_strings.c"
+#include "librfu.h"
+#include "printf.h"
+#include "mgba.h"
 
 #define DEBUG_MAIN_MENU_HEIGHT 8
 #define DEBUG_MAIN_MENU_WIDTH 17
@@ -51,24 +54,16 @@ static const u8 gDebugText_Flags_Flag[] =                   _("Flag: {STR_VAR_1}
 static const u8 gDebugText_Flags_FlagHex[] =                _("{STR_VAR_1}           \n0x{STR_VAR_2}             ");
 static const u8 gDebugText_Flags_FlagSet[] =                _("TRUE");
 static const u8 gDebugText_Flags_FlagUnset[] =              _("FALSE");
-static const u8 digitInidicator_1[] =               _("{LEFT_ARROW}+1{RIGHT_ARROW}        ");
-static const u8 digitInidicator_10[] =              _("{LEFT_ARROW}+10{RIGHT_ARROW}       ");
-static const u8 digitInidicator_100[] =             _("{LEFT_ARROW}+100{RIGHT_ARROW}      ");
-static const u8 digitInidicator_1000[] =            _("{LEFT_ARROW}+1000{RIGHT_ARROW}     ");
-static const u8 digitInidicator_10000[] =           _("{LEFT_ARROW}+10000{RIGHT_ARROW}    ");
-static const u8 digitInidicator_100000[] =          _("{LEFT_ARROW}+100000{RIGHT_ARROW}   ");
-static const u8 digitInidicator_1000000[] =         _("{LEFT_ARROW}+1000000{RIGHT_ARROW}  ");
-static const u8 digitInidicator_10000000[] =        _("{LEFT_ARROW}+10000000{RIGHT_ARROW} ");
+static const u8 digitInidicator_1[] =               _("{LEFT_ARROW}+0x1{RIGHT_ARROW}        ");
+static const u8 digitInidicator_10[] =              _("{LEFT_ARROW}+0x10{RIGHT_ARROW}       ");
+static const u8 digitInidicator_100[] =             _("{LEFT_ARROW}+0x100{RIGHT_ARROW}      ");
+static const u8 digitInidicator_1000[] =            _("{LEFT_ARROW}+0x1000{RIGHT_ARROW}     ");
 const u8 * const gText_DigitIndicator[] =
 {
     digitInidicator_1,
     digitInidicator_10,
     digitInidicator_100,
     digitInidicator_1000,
-    digitInidicator_10000,
-    digitInidicator_100000,
-    digitInidicator_1000000,
-    digitInidicator_10000000
 };
 
 enum {
@@ -296,18 +291,12 @@ static void DebugAction_AccessPC(u8 taskId)
     ScriptContext2_Enable();
 }
 
-static const s32 sPowersOfTen[] =
+static const s32 sPowerOfSixteen[] =
 {
              1,
-            10,
-           100,
-          1000,
-         10000,
-        100000,
-       1000000,
-      10000000,
-     100000000,
-    1000000000,
+            0x10,
+           0x100,
+          0x1000,
 };
 
 static const struct WindowTemplate sDebugNumberDisplayWindowTemplate =
@@ -376,18 +365,18 @@ static void DebugAction_Flags_FlagsSelect(u8 taskId)
         return;
     }
 
-    if(gMain.newKeys & DPAD_UP)
+    if(gMain.newAndRepeatedKeys & DPAD_UP)
     {
         PlaySE(SE_SELECT);
-        gTasks[taskId].data[3] += sPowersOfTen[gTasks[taskId].data[4]];
+        gTasks[taskId].data[3] += sPowerOfSixteen[gTasks[taskId].data[4]];
         if(gTasks[taskId].data[3] >= FLAGS_COUNT){
             gTasks[taskId].data[3] = FLAGS_COUNT - 1;
         }
     }
-    if(gMain.newKeys & DPAD_DOWN)
+    if(gMain.newAndRepeatedKeys & DPAD_DOWN)
     {
         PlaySE(SE_SELECT);
-        gTasks[taskId].data[3] -= sPowersOfTen[gTasks[taskId].data[4]];
+        gTasks[taskId].data[3] -= sPowerOfSixteen[gTasks[taskId].data[4]];
         if(gTasks[taskId].data[3] < 0){
             gTasks[taskId].data[3] = 0;
         }
