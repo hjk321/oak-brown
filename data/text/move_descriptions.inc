@@ -1111,3 +1111,6 @@ gMoveDescription_EarthPower::
 
 gMoveDescription_BugBuzz::
     .string "A damaging sound\nwave that may\nlower Sp. Def.$"
+
+gMoveDescription_AquaTail::
+    .string "The user swings\nits tail like a\nwave to attack.$"
