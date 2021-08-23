@@ -356,4 +356,6 @@ const u8 gMoveNames[][13] = {
     _("Psycho Boost"),
     _("Energy Ball"),
 	_("Earth Power"),
+	_("Bug Buzz"),
+	_("Aqua Tail"),
 };

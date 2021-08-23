@@ -4979,7 +4979,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED/* | FLAG_BALLISTIC*/ /* | FLAG_SHEER_FORCE_BOOST*/,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED/* | FLAG_BALLISTIC*//* | FLAG_SHEER_FORCE_BOOST*/,
         .physicality = MOVE_PHYSICALITY_SPECIAL,
     },
 	
@@ -4995,5 +4995,33 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED/* | FLAG_SHEER_FORCE_BOOST*/,
         .physicality = MOVE_PHYSICALITY_SPECIAL,
+    },
+	
+	[MOVE_BUG_BUZZ] =
+    {
+        .effect = EFFECT_SPECIAL_DEFENSE_DOWN_HIT,
+        .power = 90,
+        .type = TYPE_BUG,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED/* | FLAG_SOUND*//* | FLAG_SHEER_FORCE_BOOST*/,
+        .physicality = MOVE_PHYSICALITY_SPECIAL,
+    },
+	
+	[MOVE_AQUA_TAIL] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 90,
+        .type = TYPE_WATER,
+        .accuracy = 90,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
+        .physicality = MOVE_PHYSICALITY_PHYSICAL,
     },
 };

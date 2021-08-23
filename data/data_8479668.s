@@ -377,3 +377,5 @@ gMoveDescriptionPointers:: @ 84886E8
 	.4byte gMoveDescription_PsychoBoost
 	.4byte gMoveDescription_EnergyBall
 	.4byte gMoveDescription_EarthPower
+	.4byte gMoveDescription_BugBuzz
+	.4byte gMoveDescription_AquaTail
