@@ -1108,3 +1108,6 @@ gMoveDescription_EnergyBall::
 
 gMoveDescription_EarthPower::
     .string "Makes the ground\nerupt with power.\nMay lower Sp. Def.$"
+
+gMoveDescription_BugBuzz::
+    .string "A damaging sound\nwave that may\nlower Sp. Def.$"
