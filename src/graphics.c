@@ -1238,6 +1238,7 @@ const u32 gBgTilemap_TrainerMemo_Stats[] = INCBIN_U32("graphics/interface/traine
 const u32 gBgTilemap_PokeSum_MovesListForDelete[] = INCBIN_U32("graphics/interface/trainer_memo_3.bin.lz");
 const u32 gBgTilemap_PokeSum_MoveDetailsForDelete[] = INCBIN_U32("graphics/interface/trainer_memo_4.bin.lz");
 const u32 gBgTilemap_TrainerMemo_Egg[] = INCBIN_U32("graphics/interface/trainer_memo_5.bin.lz");
+const u32 gBgTilemap_TrainerMemo_Bg[] = INCBIN_U32("graphics/interface/trainer_memo_bg.bin.lz");
 
 const u16 gUnknown_8E9BD08[] = INCBIN_U16("graphics/unknown/unknown_E9BD08.gbapal"); // might be an alternate unused palette of the link_rfu gfx below.
 
