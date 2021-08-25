@@ -1992,8 +1992,8 @@ static void CB2_SetUpPSS(void)
             PokeSum_ShowOrHideMonPicSprite(FALSE);
             PokeSum_ShowOrHideMonMarkingsSprite(FALSE);
             ShowOrHideBallIconObj(FALSE);
-            ShowOrHideHpBarObjs(FALSE);
-            ShowOrHideExpBarObjs(FALSE);
+            ShowOrHideHpBarObjs(TRUE);
+            ShowOrHideExpBarObjs(TRUE);
         }
 
         ShowOrHideStatusIcon(FALSE);
