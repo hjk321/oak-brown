@@ -1423,6 +1423,7 @@ static void Task_FlipPages_FromInfo(u8 taskId)
             CopyBgTilemapBufferToVram(0);
             CopyBgTilemapBufferToVram(2);
             CopyBgTilemapBufferToVram(1);
+            ShowBg(1);
         }
         else
             return;
@@ -1585,6 +1586,7 @@ static void PokeSum_InitBgCoordsBeforePageFlips(void)
         SetGpuReg(REG_OFFSET_BG1HOFS, 0);
         SetGpuReg(REG_OFFSET_BG2HOFS, 0);
         PokeSum_UpdateBgPriorityForPageFlip(1, 1);
+        ShowBg(1);
     }
     else
     {
@@ -1610,6 +1612,8 @@ static void PokeSum_InitBgCoordsBeforePageFlips(void)
     }
     else if (sMonSummaryScreen->curPageIndex == PSS_PAGE_MOVES)
         PokeSum_SetHpExpBarCoordsFullLeft();
+    else if (sMonSummaryScreen->curPageIndex == PSS_PAGE_INFO)
+        HideBg(1);
 
 }
 
@@ -2039,6 +2043,8 @@ static u8 PokeSum_HandleLoadBgGfx(void)
         break;
 
     case 5:
+        HideBg(1);
+        break;
     case 6:
         break;
 
