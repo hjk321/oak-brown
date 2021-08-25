@@ -104,6 +104,7 @@ static void PokeSum_CreateMonIconSprite(void);
 static void PokeSum_CreateMonPicSprite(void);
 static void Task_InputHandler_SelectOrForgetMove(u8 taskId);
 static void CB2_RunPokemonSummaryScreen(void);
+static void PokeSum_UpdateBg3Scroll(void);
 static void PrintInfoPage(void);
 static void PrintSkillsPage(void);
 static void PrintMovesPage(void);
@@ -241,6 +242,7 @@ struct PokemonSummaryScreenData
     u8 ALIGNED(4) lastPageFlipDirection; /* 0x3300 */
     u8 ALIGNED(4) unk3304; /* 0x3304 */
     u8 ALIGNED(4) bgPageBgNum;
+    s16 ALIGNED(4) bg3Offset;
 };
 
 struct Struct203B144
@@ -2997,10 +2999,20 @@ static void Task_DestroyResourcesOnExit(u8 taskId)
 
 static void CB2_RunPokemonSummaryScreen(void)
 {
+    PokeSum_UpdateBg3Scroll();
     RunTasks();
     AnimateSprites();
     BuildOamBuffer();
     UpdatePaletteFade();
+}
+
+static void PokeSum_UpdateBg3Scroll(void)
+{
+    sMonSummaryScreen->bg3Offset += 1;
+    if (sMonSummaryScreen->bg3Offset == 32)
+        sMonSummaryScreen->bg3Offset = 0;
+    SetGpuReg(REG_OFFSET_BG3HOFS, -sMonSummaryScreen->bg3Offset / 4);
+    SetGpuReg(REG_OFFSET_BG3VOFS, sMonSummaryScreen->bg3Offset / 4);
 }
 
 static void PokeSum_FlipPages_SlideHpExpBarsOut(void)
