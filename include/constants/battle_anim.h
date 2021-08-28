@@ -297,6 +297,8 @@
 #define ANIM_TAG_WHIP_HIT                   (ANIM_SPRITES_START + 287)
 #define ANIM_TAG_BLUE_RING_2                (ANIM_SPRITES_START + 288)
 #define ANIM_TAG_ENERGY_BALL                (ANIM_SPRITES_START + 289)
+#define ANIM_TAG_DRAGON_PULSE               (ANIM_SPRITES_START + 290)
+#define ANIM_TAG_DRAGON_PULSE_RING          (ANIM_SPRITES_START + 291)
 
 // battlers
 #define ANIM_ATTACKER    0

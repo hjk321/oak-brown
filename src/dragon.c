@@ -429,3 +429,14 @@ static void sub_80B7894(struct Sprite *sprite)
     if (++sprite->data[0] > sprite->data[3])
         DestroyAnimSprite(sprite);
 }
+
+const struct SpriteTemplate gDragonPulseSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DRAGON_PULSE,
+    .paletteTag = ANIM_TAG_DRAGON_PULSE,
+    .oam = &gOamData_AffineOff_ObjNormal_16x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = TranslateAnimSpriteToTargetMonLocation,
+};

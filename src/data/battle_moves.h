@@ -5024,4 +5024,18 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED,
         .physicality = MOVE_PHYSICALITY_PHYSICAL,
     },
+	
+	[MOVE_DRAGON_PULSE] =
+    {
+        .power = 90,
+        .effect = EFFECT_HIT,
+        .type = TYPE_DRAGON,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED/* | FLAG_MEGA_LAUNCHER_BOOST*/,
+        .physicality = MOVE_PHYSICALITY_SPECIAL,
+    },
 };
