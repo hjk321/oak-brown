@@ -192,6 +192,18 @@
       "secondary_tileset": "gTileset_VermilionCity",
       "border_filepath": "data/layouts/Debug_Placeholder/border.bin",
       "blockdata_filepath": "data/layouts/Debug_Placeholder/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE54",
+      "name": "Route54_Layout",
+      "width": 44,
+      "height": 46,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_ViridianCity",
+      "border_filepath": "data/layouts/Route54/border.bin",
+      "blockdata_filepath": "data/layouts/Route54/map.bin"
     }
   ]
 }

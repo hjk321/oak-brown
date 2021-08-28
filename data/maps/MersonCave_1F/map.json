@@ -233,6 +233,13 @@
       "elevation": 3,
       "dest_map": "MAP_GRAVEL_TOWN",
       "dest_warp_id": 4
+    },
+    {
+      "x": 38,
+      "y": 50,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE54",
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [

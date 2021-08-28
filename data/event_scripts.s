@@ -612,3 +612,5 @@ Text_TestMsg:: @ 81ACD45
 	.include "data/maps/Debug_WarpZone/scripts.inc"
 
 	.include "data/maps/Debug_Placeholder/scripts.inc"
+
+	.include "data/maps/Route54/scripts.inc"

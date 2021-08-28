@@ -16,7 +16,8 @@
     "GravelTown"
   ],
   "gMapGroup_Routes": [
-    "Route53"
+    "Route53",
+    "Route54"
   ],
   "gMapGroup_Dungeons": [
     "MersonCave_1F",
