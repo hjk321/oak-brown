@@ -204,6 +204,18 @@
       "secondary_tileset": "gTileset_ViridianCity",
       "border_filepath": "data/layouts/Route54/border.bin",
       "blockdata_filepath": "data/layouts/Route54/map.bin"
+    },
+    {
+      "id": "LAYOUT_MERSON_CITY",
+      "name": "MersonCity_Layout",
+      "width": 29,
+      "height": 46,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_ViridianCity",
+      "border_filepath": "data/layouts/MersonCity/border.bin",
+      "blockdata_filepath": "data/layouts/MersonCity/map.bin"
     }
   ]
 }

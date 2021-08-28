@@ -12,6 +12,7 @@
 // Map Group 1
 #define MAP_SEASHORE_CITY (0 | (1 << 8))
 #define MAP_GRAVEL_TOWN   (1 | (1 << 8))
+#define MAP_MERSON_CITY   (2 | (1 << 8))
 
 // Map Group 2
 #define MAP_ROUTE53 (0 | (2 << 8))
