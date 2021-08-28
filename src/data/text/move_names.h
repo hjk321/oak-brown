@@ -358,4 +358,5 @@ const u8 gMoveNames[][13] = {
 	_("Earth Power"),
 	_("Bug Buzz"),
 	_("Aqua Tail"),
+	_("Dragon Pulse"),
 };

@@ -33,6 +33,8 @@ static void sub_80BA3CC(void);
 static void sub_80BA320(struct Sprite *sprite);
 static void sub_80BA4D0(u8 taskId);
 static void sub_80BA7BC(struct Sprite *sprite);
+static void BlendColorCycle(u8, u8, u8);
+static void AnimTask_BlendColorCycleLoop(u8);
 
 
 static const union AnimCmd sAnim_ConfusionDuck_0[] =
@@ -577,6 +579,79 @@ static void sub_80B9F04(u8 taskId)
             if (gTasks[taskId].data[2] == 1)
                 targetBlendAmount = 0;
             sub_80B9EA8(taskId, initialBlendAmount, targetBlendAmount);
+        }
+        else
+        {
+            DestroyAnimVisualTask(taskId);
+        }
+    }
+}
+
+// Task data for AnimTask_BlendColorCycle, AnimTask_BlendColorCycleExclude, and AnimTask_BlendColorCycleByTag
+#define tPalSelector   data[0]  // AnimTask_BlendColorCycle
+#define tPalTag        data[0]  // AnimTask_BlendColorCycleByTag
+#define tDelay         data[1]
+#define tNumBlends     data[2]
+#define tInitialBlendY data[3]
+#define tTargetBlendY  data[4]
+#define tBlendColor    data[5]
+#define tRestoreBlend  data[8]
+#define tPalSelectorHi data[9]
+#define tPalSelectorLo data[10]
+
+// Blends mon/screen to designated color or back alternately tNumBlends times
+// Many uses of this task only set a tNumBlends of 2, which has the effect of blending to a color and back once
+void AnimTask_BlendColorCycle(u8 taskId)
+{
+    gTasks[taskId].tPalSelector = gBattleAnimArgs[0];
+    gTasks[taskId].tDelay = gBattleAnimArgs[1];
+    gTasks[taskId].tNumBlends = gBattleAnimArgs[2];
+    gTasks[taskId].tInitialBlendY = gBattleAnimArgs[3];
+    gTasks[taskId].tTargetBlendY = gBattleAnimArgs[4];
+    gTasks[taskId].tBlendColor = gBattleAnimArgs[5];
+    gTasks[taskId].tRestoreBlend = FALSE;
+    BlendColorCycle(taskId, 0, gTasks[taskId].tTargetBlendY);
+    gTasks[taskId].func = AnimTask_BlendColorCycleLoop;
+}
+
+static void BlendColorCycle(u8 taskId, u8 startBlendAmount, u8 targetBlendAmount)
+{
+    u32 selectedPalettes = UnpackSelectedBattleAnimPalettes(gTasks[taskId].tPalSelector);
+    BeginNormalPaletteFade(
+        selectedPalettes,
+        gTasks[taskId].tDelay,
+        startBlendAmount,
+        targetBlendAmount,
+        gTasks[taskId].tBlendColor);
+
+    gTasks[taskId].tNumBlends--;
+    gTasks[taskId].tRestoreBlend ^= 1;
+}
+
+static void AnimTask_BlendColorCycleLoop(u8 taskId)
+{
+    u8 startBlendAmount, targetBlendAmount;
+    if (!gPaletteFade.active)
+    {
+        if (gTasks[taskId].tNumBlends > 0)
+        {
+            if (!gTasks[taskId].tRestoreBlend)
+            {
+                // Blend to designated color
+                startBlendAmount = gTasks[taskId].tInitialBlendY;
+                targetBlendAmount = gTasks[taskId].tTargetBlendY;
+            }
+            else
+            {
+                // Blend back to original color
+                startBlendAmount = gTasks[taskId].tTargetBlendY;
+                targetBlendAmount = gTasks[taskId].tInitialBlendY;
+            }
+
+            if (gTasks[taskId].tNumBlends == 1)
+                targetBlendAmount = 0;
+
+            BlendColorCycle(taskId, startBlendAmount, targetBlendAmount);
         }
         else
         {

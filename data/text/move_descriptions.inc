@@ -1114,3 +1114,6 @@ gMoveDescription_BugBuzz::
 
 gMoveDescription_AquaTail::
     .string "The user swings\nits tail like a\nwave to attack.$"
+
+gMoveDescription_DragonPulse::
+    .string "Generates a shock\nwave to damage\nthe foe.$"
