@@ -54,7 +54,7 @@ const struct Trainer gTrainers[] = {
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_YOUNGSTER,
         .trainerName = _("Benny"),
-        .partySize = 3,
+        .partySize = 2,
         .party = sTrainerMons_YoungsterBenny,
     },
     [TRAINER_LASS_ABIGAIL] = {
