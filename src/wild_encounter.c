@@ -4,10 +4,12 @@
 #include "event_data.h"
 #include "fieldmap.h"
 #include "roamer.h"
+#include "rtc.h"
 #include "field_player_avatar.h"
 #include "battle_setup.h"
 #include "overworld.h"
 #include "metatile_behavior.h"
+#include "day_night.h"
 #include "event_scripts.h"
 #include "script.h"
 #include "link.h"
@@ -15,6 +17,7 @@
 #include "constants/maps.h"
 #include "constants/abilities.h"
 #include "constants/items.h"
+#include "constants/day_night.h"
 
 struct WildEncounterData
 {
@@ -177,6 +180,11 @@ static u8 ChooseWildMonLevel(const struct WildPokemon * info)
 static u16 GetCurrentMapWildMonHeaderId(void)
 {
     u16 i;
+    u8 timeOfDay;
+    u16 retval = -1;
+
+    RtcCalcLocalTime();
+    timeOfDay = GetCurrentTimeOfDay();
 
     for (i = 0; ; i++)
     {
@@ -187,11 +195,15 @@ static u16 GetCurrentMapWildMonHeaderId(void)
         if (gWildMonHeaders[i].mapGroup == gSaveBlock1Ptr->location.mapGroup &&
             gWildMonHeaders[i].mapNum == gSaveBlock1Ptr->location.mapNum)
         {
-            return i;
+            if (timeOfDay == gWildMonHeaders[i].timeOfDay)
+                return i;
+            else if (gWildMonHeaders[i].timeOfDay == TIME_DAY)
+                // If an encounter table doesn't exist for 
+                // the current time, use the default "day" one.
+                retval = i;
         }
     }
-
-    return -1;
+    return retval;
 }
 
 static void GenerateWildMon(u16 species, u8 level, u8 slot)
