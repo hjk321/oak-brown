@@ -7,41 +7,11 @@ script MersonCave_Outdoor_Sign {
 script MersonCave_Outdoor_Bernard {
     lock
     faceplayer
-    checkquestcomplete(SIDE_QUEST_BERNARDS_GLASSES)
-    if (var(VAR_RESULT)) {
-        msgbox(format("Thanks again for finding my glasses.\p"
-            "I'd go home, except I've actually taken a liking to this spot."))
-        release
-        end
-    }
-    checkquestturnin(SIDE_QUEST_BERNARDS_GLASSES)
-    if (var(VAR_RESULT)) {
-        msgbox(format("… Oh?\pYou've found my glasses!\nI would have been in big trouble without them!"))
-        goto(MersonCave_Outdoor_BernardReward)
-    }
-    checkquestunlocked(SIDE_QUEST_BERNARDS_GLASSES)
-    if (var(VAR_RESULT)) {
-        msgbox(format("Have you found my glasses yet?\nOh…\pWell, please do! I can't see a thing without them!"))
-        release
-        end
-    }
-    // Hasn't received quest yet
-    msgbox(format("You there! Could you please help me with something?\p"
-        "I've hiked all the way up here, which is tiring for someone my age.\p"
-        "But, I've managed to lose my glasses somewhere in the cave.\p"
-        "If I try to go home without them, I'll be blinder than a Zubat!"))
-    unlockquest(SIDE_QUEST_BERNARDS_GLASSES)
-    checkquestturnin(SIDE_QUEST_BERNARDS_GLASSES)
-    if (var(VAR_RESULT)) {
-        msgbox(format("Hm? You already found my glasses?\nHow resourceful of you!"))
-        goto(MersonCave_Outdoor_BernardReward)
-    }
-    msgbox(format("Would you be willing to keep an eye out? Thanks!"))
+    msgbox(format("Trudging through that cave can be quite tiring for someone my age."))
     release
 }
 
 script MersonCave_Outdoor_BernardReward {
-    completequest(SIDE_QUEST_BERNARDS_GLASSES)
     msgbox(format("You deserve a little something for your troubles.\p"
         "Hm, I don't have much, but how about this?"))
     textcolor(2)

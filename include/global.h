@@ -776,7 +776,6 @@ struct SaveBlock2
     u16 easyChatBattleLost[6];
     u8 additionalPhrases[EASY_CHAT_EXTRA_PHRASES_SIZE];
     u16 registeredItem; // registered for use with SELECT button
-    struct ItemSlot pcItems[PC_ITEMS_COUNT];
     struct ItemSlot bagPocket_Items[BAG_ITEMS_COUNT];
     struct ItemSlot bagPocket_KeyItems[BAG_KEYITEMS_COUNT];
     struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
@@ -790,10 +789,6 @@ struct SaveBlock2
 };
 
 extern struct SaveBlock2 *gSaveBlock2Ptr;
-
-// Quest Menu
-#include "constants/quests.h"
-#define SIDE_QUEST_FLAGS_COUNT     ((SIDE_QUEST_COUNT / 8) + ((SIDE_QUEST_COUNT % 8) ? 1 : 0))
 
 struct SaveBlock1
 {
@@ -827,8 +822,6 @@ struct SaveBlock1
     struct ExternalEventFlags externalEventFlags;
     u32 towerChallengeId;
     struct TrainerTower trainerTower[NUM_TOWER_CHALLENGE_TYPES];
-    u8 unlockedQuests[SIDE_QUEST_FLAGS_COUNT];
-    u8 completedQuests[SIDE_QUEST_FLAGS_COUNT];
 };
 
 struct MapPosition

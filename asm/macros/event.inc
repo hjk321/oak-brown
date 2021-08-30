@@ -1446,22 +1446,15 @@
 	.2byte \quantity
 	.endm
 
-	@ Base quest menu command. Use supplementary macros for ease of use
-	.macro questmenu case:req, questId:req
-	.byte 0xd5
-	.byte \case
-	.byte \questId
-	.endm
-
 	@ Checks to see if the player has a Pokemon in their party. Result returns to VAR_RESULT
-    .macro checkpartymon species:req
-    .byte 0xd6
-    .2byte \species
-    .endm
+	.macro checkpartymon species:req
+	.byte 0xd5
+	.2byte \species
+	.endm
 
 	@ Ceases movement for the event obj. the Player is currently interacting with and that one alone.
 	.macro lock
-	.byte 0xd7
+	.byte 0xd6
 	.endm
 
 @ Supplementary
@@ -1657,36 +1650,4 @@
 	braillemessage \text
 	getbraillestringwidth \text
 	call EventScript_BrailleCursorWaitButton
-	.endm
-
-	.macro openquestmenu
-	questmenu QUEST_MENU_OPEN, 0
-	.endm
-
-	.macro unlockquest questId:req
-	questmenu QUEST_MENU_UNLOCK_QUEST, \questId
-	.endm
-
-	.macro completequest questId:req
-	questmenu QUEST_MENU_COMPLETE_QUEST, \questId
-	.endm
-
-	.macro bufferquestname questId:req
-	questmenu QUEST_MENU_BUFFER_QUEST_NAME, \questId
-	.endm
-
-	.macro checkquestunlocked questId:req
-	questmenu QUEST_MENU_CHECK_UNLOCKED, \questId
-	.endm
-
-	.macro checkquestcomplete questId:req
-	questmenu QUEST_MENU_CHECK_COMPLETE, \questId
-	.endm
-
-	.macro bufferquestobjectives questId:req
-	questmenu QUEST_MENU_BUFFER_OBJECTIVES, \questId
-	.endm
-
-	.macro checkquestturnin questId:req
-	questmenu QUEST_MENU_CHECK_TURN_IN, \questId
 	.endm

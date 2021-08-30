@@ -19,8 +19,6 @@
 #include "pokedex.h"
 #include "constants/flags.h"
 #include "event_data.h"
-#include "constants/quests.h"
-#include "quest_menu.h"
 #include "script.h"
 #include "event_scripts.h"
 #include "string_util.h"
@@ -72,9 +70,8 @@ enum {
     DEBUG_MENU_ITEM_PRUNEPARTY,
     DEBUG_MENU_ITEM_WARPTOGRAVEL,
     DEBUG_MENU_ITEM_COMPLETEPOKEDEX,
-    DEBUG_MENU_ITEM_UNLOCKALLQUESTS,
     DEBUG_MENU_ITEM_ACCESSPC,
-	DEBUG_MENU_ITEM_FLAGS,
+    DEBUG_MENU_ITEM_FLAGS,
 };
 
 static const u8 gDebugText_Cancel[] = _("Cancel");
@@ -82,7 +79,6 @@ static const u8 gDebugText_LivingDex[] = _("Living Dex");
 static const u8 gDebugText_PruneParty[] = _("Prune Party");
 static const u8 gDebugText_WarpToGravel[] = _("Warp to Gravel");
 static const u8 gDebugText_CompletePokedex[] = _("Complete Pokédex");
-static const u8 gDebugText_UnlockAllQuests[] = _("Unlock All Quests");
 static const u8 gDebugText_AccessPC[] = _("Access PC");
 
 static const struct ListMenuItem sDebugMenuItems[] =
@@ -92,7 +88,6 @@ static const struct ListMenuItem sDebugMenuItems[] =
     [DEBUG_MENU_ITEM_PRUNEPARTY] = {gDebugText_PruneParty, DEBUG_MENU_ITEM_PRUNEPARTY},
     [DEBUG_MENU_ITEM_WARPTOGRAVEL] = {gDebugText_WarpToGravel, DEBUG_MENU_ITEM_WARPTOGRAVEL},
     [DEBUG_MENU_ITEM_COMPLETEPOKEDEX] = {gDebugText_CompletePokedex, DEBUG_MENU_ITEM_COMPLETEPOKEDEX},
-    [DEBUG_MENU_ITEM_UNLOCKALLQUESTS] = {gDebugText_UnlockAllQuests, DEBUG_MENU_ITEM_UNLOCKALLQUESTS},
     [DEBUG_MENU_ITEM_ACCESSPC] = {gDebugText_AccessPC, DEBUG_MENU_ITEM_ACCESSPC},
 	[DEBUG_MENU_ITEM_FLAGS] = {gDebugText_Flags, DEBUG_MENU_ITEM_FLAGS},
 };
@@ -104,7 +99,6 @@ static void (*const sDebugMenuActions[])(u8) =
     [DEBUG_MENU_ITEM_PRUNEPARTY] = DebugAction_PruneParty,
     [DEBUG_MENU_ITEM_WARPTOGRAVEL] = DebugAction_WarpToGravel,
     [DEBUG_MENU_ITEM_COMPLETEPOKEDEX] = DebugAction_CompletePokedex,
-    [DEBUG_MENU_ITEM_UNLOCKALLQUESTS] = DebugAction_UnlockAllQuests,
     [DEBUG_MENU_ITEM_ACCESSPC] = DebugAction_AccessPC,
 	[DEBUG_MENU_ITEM_FLAGS] = DebugAction_Flags_Flags,
 };
@@ -268,19 +262,6 @@ static void DebugAction_CompletePokedex(u8 taskId)
         GetSetPokedexFlag(i, FLAG_SET_CAUGHT);
     }
     PlaySE(SE_SAVE);
-}
-
-static void DebugAction_UnlockAllQuests(u8 taskId)
-{
-    u16 i;
-
-    Debug_DestroyMainMenu(taskId);
-    FlagSet(FLAG_SYS_QUEST_MENU_GET);
-
-    for (i = 0; i < SIDE_QUEST_COUNT; i++)
-    {
-        GetSetQuestFlag(i, FLAG_SET_UNLOCKED);
-    }
 }
 
 static void DebugAction_AccessPC(u8 taskId)

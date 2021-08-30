@@ -214,7 +214,6 @@ gScriptCmdTable:: @ 815F9B4
 	.4byte ScrCmd_setmonmetlocation
 	.4byte ScrCmd_getbraillestringwidth
 	.4byte ScrCmd_bufferitemnameplural
-	.4byte ScrCmd_questmenu
 	.4byte ScrCmd_checkpartymon
 	.4byte ScrCmd_lock
 

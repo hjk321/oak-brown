@@ -16,7 +16,6 @@
 #include "event_scripts.h"
 #include "field_fadetransition.h"
 #include "item_menu.h"
-#include "item_pc.h"
 #include "party_menu.h"
 #include "constants/items.h"
 #include "constants/songs.h"
@@ -82,7 +81,6 @@ static const u8 *const sItemStorageActionDescriptionPtrs[] = {
 };
 
 static const struct MenuAction sMenuActions_TopMenu[] = {
-    {gText_ItemStorage, Task_PlayerPcItemStorage},
     {gText_Mailbox, Task_PlayerPcMailbox},
     {gText_TurnOff, Task_PlayerPcTurnOff}
 };
@@ -106,6 +104,16 @@ static const struct MenuAction sMenuActions_MailSubmenu[] = {
     {gOtherText_MoveToBag, Task_PlayerPcMoveMailToBag},
     {gOtherText_Give2, Task_PlayerPcGiveMailToMon},
     {gOtherText_Exit, Task_PlayerPcExitMailSubmenu}
+};
+
+static const struct WindowTemplate sWindowTemplate_TopMenu_2Items = {
+    .bg = 0,
+    .tilemapLeft = 1,
+    .tilemapTop = 1,
+    .width = 13,
+    .height = 4,
+    .paletteNum = 15,
+    .baseBlock = 0x008
 };
 
 static const struct WindowTemplate sWindowTemplate_TopMenu_3Items = {
@@ -153,7 +161,7 @@ void BedroomPC(void)
 
     gPlayerPcMenuManager.notInRoom = FALSE;
     sItemOrder = gUnknown_8402200;
-    sTopMenuItemCount = 3;
+    sTopMenuItemCount = 2;
     taskId = CreateTask(TaskDummy, 0);
     DisplayItemMessageOnField(taskId, 2, gText_WhatWouldYouLikeToDo, Task_DrawPlayerPcTopMenu);
 }
@@ -164,7 +172,7 @@ void PlayerPC(void)
 
     gPlayerPcMenuManager.notInRoom = TRUE;
     sItemOrder = gUnknown_8402203;
-    sTopMenuItemCount = 3;
+    sTopMenuItemCount = 2;
     taskId = CreateTask(TaskDummy, 0);
     DisplayItemMessageOnField(taskId, 2, gText_WhatWouldYouLikeToDo, Task_DrawPlayerPcTopMenu);
 }
@@ -172,7 +180,9 @@ void PlayerPC(void)
 static void Task_DrawPlayerPcTopMenu(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
-    if (sTopMenuItemCount == 3)
+    if (sTopMenuItemCount == 2)
+        tWindowId = AddWindow(&sWindowTemplate_TopMenu_2Items);
+    else if (sTopMenuItemCount == 3)
         tWindowId = AddWindow(&sWindowTemplate_TopMenu_3Items);
     else
         tWindowId = AddWindow(&sWindowTemplate_TopMenu_4Items);
@@ -368,20 +378,10 @@ static void CB2_ReturnFromWithdrawMenu(void)
 
 static void Task_WithdrawItem_WaitFadeAndGoToItemStorage(u8 taskId)
 {
-    s16 *data = gTasks[taskId].data;
-    if (!gPaletteFade.active)
-    {
-        CleanupOverworldWindowsAndTilemaps();
-        ItemPc_Init(tItemPcParam, CB2_ReturnToField);
-        DestroyTask(taskId);
-    }
 }
 
 static void Task_WithdrawItemBeginFade(u8 taskId)
 {
-    gTasks[taskId].func = Task_WithdrawItem_WaitFadeAndGoToItemStorage;
-    ItemPc_SetInitializedFlag(FALSE);
-    FadeScreen(FADE_TO_BLACK, 0);
 }
 
 static void Task_PlayerPcCancel(u8 taskId)

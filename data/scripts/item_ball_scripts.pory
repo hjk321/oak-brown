@@ -5,7 +5,3 @@ script SeashoreCity_Item_RareCandy {
 script SeashoreCity_Item_DireHit {
     finditem(ITEM_DIRE_HIT)
 }
-
-script Route53_Item_BernardsGlasses {
-    finditem(ITEM_BERNARDS_GLASSES)
-}

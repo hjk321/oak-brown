@@ -35,7 +35,6 @@
 #include "constants/songs.h"
 #include "constants/field_weather.h"
 #include "rtc.h"
-#include "quest_menu.h"
 
 enum StartMenuOption
 {
@@ -88,7 +87,6 @@ static bool8 StartMenuOptionCallback(void);
 static bool8 StartMenuExitCallback(void);
 static bool8 StartMenuSafariZoneRetireCallback(void);
 static bool8 StartMenuLinkPlayerCallback(void);
-static bool8 StartMenuQuestsCallback(void);
 static bool8 StartCB_Save1(void);
 static bool8 StartCB_Save2(void);
 static void StartMenu_PrepareForSave(void);
@@ -124,7 +122,6 @@ static const struct MenuAction sStartMenuActionTable[] = {
     { gStartMenuText_Exit, {.u8_void = StartMenuExitCallback} },
     { gStartMenuText_Retire, {.u8_void = StartMenuSafariZoneRetireCallback} },
     { gStartMenuText_Player, {.u8_void = StartMenuLinkPlayerCallback} },
-    { gStartMenuText_Quests, {.u8_void = StartMenuQuestsCallback} }
 };
 
 static const struct WindowTemplate sSafariZoneStatsWindowTemplate = {
@@ -212,8 +209,6 @@ static void SetUpStartMenu_NormalField(void)
         AppendToStartMenuItems(STARTMENU_POKEDEX);
     if (FlagGet(FLAG_SYS_POKEMON_GET) == TRUE)
         AppendToStartMenuItems(STARTMENU_POKEMON);
-    if (FlagGet(FLAG_SYS_QUEST_MENU_GET) == TRUE)
-        AppendToStartMenuItems(STARTMENU_QUESTS);
     AppendToStartMenuItems(STARTMENU_BAG);
     AppendToStartMenuItems(STARTMENU_PLAYER);
     AppendToStartMenuItems(STARTMENU_SAVE);
@@ -543,20 +538,6 @@ static bool8 StartMenuLinkPlayerCallback(void)
         PlayRainStoppingSoundEffect();
         CleanupOverworldWindowsAndTilemaps();
         ShowTrainerCardInLink(gLocalLinkPlayerId, CB2_ReturnToFieldWithOpenMenu);
-        return TRUE;
-    }
-    return FALSE;
-}
-
-static bool8 StartMenuQuestsCallback(void)
-{
-    if (!gPaletteFade.active)
-    {
-        PlayRainStoppingSoundEffect();
-        DestroySafariZoneStatsWindow();
-        CleanupOverworldWindowsAndTilemaps();
-        SetQuestMenuActive();
-        SetMainCallback2(CB2_QuestMenuFromStartMenu);
         return TRUE;
     }
     return FALSE;
