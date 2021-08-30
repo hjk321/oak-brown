@@ -115,7 +115,7 @@
 #define TRAINER_PIC_FISHERMAN              94
 #define TRAINER_PIC_SWIMMER_M              95
 #define TRAINER_PIC_CUE_BALL               96
-#define TRAINER_PIC_GAMER                  97
+#define TRAINER_PIC_GAMBLER                97
 #define TRAINER_PIC_BEAUTY                 98
 #define TRAINER_PIC_SWIMMER_F              99
 #define TRAINER_PIC_PSYCHIC_M             100

@@ -1,1 +1,30 @@
 mapscripts Route54_MapScripts {}
+
+script Route54_SuperNerdTheo {
+    trainerbattle_single(TRAINER_SUPER_NERD_THEO,
+        format("Huh?\nWhy are you in my backyard?!"),
+        "My lawn is ruined…")
+    msgbox(format("Now that you've made your point, could you please stop trespassing?"), MSGBOX_AUTOCLOSE)
+}
+
+script Route54_GamblerJones {
+    trainerbattle_single(TRAINER_GAMBLER_JONES,
+        format("Ouch!\nA Pokémon just bit my foot!"),
+        "Losing hurts even more…!")
+    msgbox(format("Gotta catch better Pokémon!\nJust can't stop!"), MSGBOX_AUTOCLOSE)
+}
+
+script Route54_LassBecky {
+    trainerbattle_single(TRAINER_LASS_BECKY,
+        format("Are your Pokémon cuter than mine?\nLet's find out!"),
+        "Stop it! Don't be\nso mean to my PUFFIES!")
+    msgbox(format("My Pokémon are ten times cuter than yours will ever be!"), MSGBOX_AUTOCLOSE)
+}
+
+script Route54_MersonCaveSign {
+    msgbox("Merson Cave", MSGBOX_SIGN)
+}
+
+script Route54_Sign {
+    msgbox("Route 54", MSGBOX_SIGN)
+}

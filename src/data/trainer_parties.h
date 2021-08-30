@@ -154,3 +154,49 @@ static const struct TrainerMon sTrainerMons_BugCatcherGeorge[] = {
         .ball = ITEM_NET_BALL,
     },
 };
+
+static const struct TrainerMon sTrainerMons_LassBecky[] = {
+    {
+        .lvl = 6,
+        .species = SPECIES_JIGGLYPUFF,
+        .ball = ITEM_PREMIER_BALL,
+        .gender = NPCMON_MALE,
+    },
+    {
+        .lvl = 7,
+        .species = SPECIES_JIGGLYPUFF,
+        .ball = ITEM_LUXURY_BALL,
+        .gender = NPCMON_FEMALE,
+    },
+};
+
+static const struct TrainerMon sTrainerMons_GamblerJones[] = {
+    {
+        .lvl = 6,
+        .species = SPECIES_VULPIX,
+        .ball = ITEM_POKE_BALL,
+    },
+    {
+        .lvl = 6,
+        .species = SPECIES_VULPIX,
+        .ball = ITEM_POKE_BALL,
+    },
+};
+
+static const struct TrainerMon sTrainerMons_SuperNerdTheo[] = {
+    {
+        .lvl = 5,
+        .species = SPECIES_SPEAROW,
+        .ball = ITEM_POKE_BALL,
+    },
+    {
+        .lvl = 6,
+        .species = SPECIES_PARAS,
+        .ball = ITEM_POKE_BALL,
+    },
+    {
+        .lvl = 5,
+        .species = SPECIES_GEODUDE,
+        .ball = ITEM_POKE_BALL,
+    },
+};
