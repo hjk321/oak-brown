@@ -37,9 +37,12 @@ script GravelTown_PuddleBoy {
 script GravelTown_StoreClerk {
     lock
     faceplayer
-    msgbox(format("I own the Pokémart here.\nI hope you'll stop by sometime.\p"
-        "My coworker is also handing out free samples on Route 53 right now.\p"
-        "I had to hire a new employee in the meantime. Please be patient with him."))
+    msgbox(format("Well, {PLAYER}, we're going to miss you here at the Pokémart.\p"
+        "You were the best darn pizza guy we ever had!\p"
+        "But, I suppose it's only natural that you would leave eventually.\p"
+        "Everyone should pursue their dreams at one point or another.\p"
+        "Heh. We've already hired your replacement, actually.\p"
+        "He's a little…\pWell, he's certainly no {PLAYER}, that's for sure."))
     release
 }
 

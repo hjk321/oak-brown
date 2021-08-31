@@ -133,7 +133,7 @@ script Route53_MeetTim_Start {
 
 script Route53_MeetTim_SequenceBreak {
     forcelock
-    playbgm(MUS_OAK, 0)
+    playbgm(MUS_TIM, 0)
     setvar(VAR_TEMP_0, 4)
     applymovement(TIM_ID, Movement_TimSequenceBreak)
     waitmovement(TIM_ID)

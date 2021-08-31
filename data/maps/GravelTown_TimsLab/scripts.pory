@@ -433,11 +433,11 @@ script GravelTown_TimsLab_PokedexScene {
     waitmessage
     waitfanfare
     textcolor(0)
-    msgbox("Oh, right! I had ordered pizza\nearlier.\p"
-        "But that's odd… Aren't they\nsupposed to deliver it themselves?\p"
+    msgbox(format("Oh, right! I had ordered pizza\nearlier.\p"
+        "But that's odd… I thought you quit that pizza delivery job last week.\p"
         "Ah, no matter.\nThank you for bringing it to me.\p"
         "Actually, now that I think about it,\nit's a good thing you came.\p"
-        "You see, part of the agreement\nwith Professor Oak was that--")
+        "You see, part of the agreement\nwith Professor Oak was that--"))
     closemessage
     playbgm(MUS_RIVAL_EXIT, 0)
     addobject(MURA_ID)
@@ -532,7 +532,7 @@ script GravelTown_TimsLab_PokedexScene {
         "You will be tasked to record as much data as possible using the Pokédex.\p"
         "Please treat it with care, as it is rather expensive.\p"
         "You can check in with me occasionally, and I'll rate your progress.\p"
-        "If you do well, Professor Oak has given me a couple of… rewards, shall we say.\p"
+        "If you do well, Professor Oak has given me a couple of… rewards, shall we say, for all your hard work.\p"
         "Although catching Pokémon results in better data, just encountering them will suffice for now."))
     closemessage
     delay(48)
