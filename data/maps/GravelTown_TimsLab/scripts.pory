@@ -16,7 +16,7 @@ mapscripts GravelTown_TimsLab_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setflag(TEMPFLAG_POKEDEX)
         if (var(VAR_MAP_SCENE_GRAVEL_TOWN) == 0) { // Setup starter scene
-            savebgm(MUS_OAK)
+            savebgm(MUS_TIM)
             setobjectxyperm(TIM_ID, 6, 14)
             setobjectmovementtype(TIM_ID, MOVEMENT_TYPE_FACE_UP)
         } elif (var(VAR_MAP_SCENE_GRAVEL_TOWN) == 3) { // Setup Pokédex scene

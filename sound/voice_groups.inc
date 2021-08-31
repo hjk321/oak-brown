@@ -5962,7 +5962,7 @@ voicegroup159:: @ 8498E78
 	.align 2
 voicegroup160:: @ 8499478
 	voice_keysplit_all voicegroup001 @ 8499478
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0 @ 8499484
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_piano1_48, 255, 252, 0, 239 @ 848A508
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0 @ 8499490
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0 @ 849949C
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0 @ 84994A8

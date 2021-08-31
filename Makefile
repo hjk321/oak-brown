@@ -216,7 +216,7 @@ sound/direct_sound_samples/cry_%.bin: sound/direct_sound_samples/cry_%.aif ; $(A
 sound/%.bin: sound/%.aif ; $(AIF) $< $@
 data/%.inc: data/%.pory; $(SCRIPT) -i $< -o $@ -fw tools/poryscript/font_widths.json
 sound/songs/%.s: sound/songs/%.mid
-	cd $(@D) && ../../$(MID) $(<F)
+	cd $(@D) && ../../../$(MID) $(<F)
 
 ifeq ($(MODERN),0)
 $(C_BUILDDIR)/siirtc.o: CFLAGS := -mthumb-interwork

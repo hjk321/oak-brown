@@ -95,7 +95,7 @@ const PLAYER_ID = OBJ_EVENT_ID_PLAYER
 
 script Route53_MeetTim_Start {
     forcelock
-    playbgm(MUS_OAK, 0)
+    playbgm(MUS_TIM, 0)
 
     // Figure out which trigger we are at
     getplayerxy(VAR_TEMP_0, VAR_TEMP_F)
