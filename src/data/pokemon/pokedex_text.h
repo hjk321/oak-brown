@@ -333,43 +333,83 @@ const u8 gTimNotesSandslash[] = _(
 );
 
 const u8 gTimNotesNidoranF[] = _(
-    ""
+    "Male and female Nidoran display a unique\n"
+    "level of dimorphism, so much so, they are\n"
+    "considered to be separate species. Female\n"
+    "specimens are rather docile, with a small\n"
+    "build and excellent sense of smell."
 );
 
 const u8 gTimNotesNidorina[] = _(
-    ""
+    "After this Pokémon evolves from a Nidoran\n"
+    "it becomes completely sterile. Scientists\n"
+    "are unable to determine why Nidorina are\n"
+    "incapable of breeding, and how this trait\n"
+    "has persisted through natural selection."
 );
 
 const u8 gTimNotesNidoqueen[] = _(
-    ""
+    "Nidoqueen has motherly instincts rivaling\n"
+    "even Kangaskhan's. Its massive bulk and\n"
+    "powerful venom allows it to protect its\n"
+    "young from threats. It is hospitable to\n"
+    "trustworthy Pokémon who are passing by."
 );
 
 const u8 gTimNotesNidoranM[] = _(
-    ""
+    "Male and female Nidoran display a unique\n"
+    "level of dimorphism, so much so, they are\n"
+    "considered to be separate species. Male\n"
+    "specimens are rather aggressive, with a\n"
+    "muscular build and horn for attacking."
 );
 
 const u8 gTimNotesNidorino[] = _(
-    ""
+    "Nidorino use their excellent sense of\n"
+    "hearing to detect foes. It will attack\n"
+    "preemptively, pumping venom from its horn\n"
+    "to incapacitate a perceived threat.\n"
+    "Approach its territory with caution."
 );
 
 const u8 gTimNotesNidoking[] = _(
-    ""
+    "Nidoking develops a strong urge to raise\n"
+    "offspring upon evolution. If it does not\n"
+    "already have a family with a Nidorina, it\n"
+    "will seek other Pokémon species as mates.\n"
+    "A beserk Nidoking can be very dangerous."
 );
 
 const u8 gTimNotesClefairy[] = _(
-    ""
+    "Ancient folklore says that Clefairy come\n"
+    "from outer space. Interestingly enough,\n"
+    "the idea has some merit. Some scientists\n"
+    "theorize that Pokémon are extraterrestial\n"
+    "in origin but no definitive proof exists."
 );
 
 const u8 gTimNotesClefable[] = _(
-    ""
+    "Clefable show an unusual proficiency in\n"
+    "spatial recognition skills, but exhibit\n"
+    "no other signs of high intellegence.\n"
+    "Pokémon behavioralists are trying to\n"
+    "determine the cause of this."
 );
 
 const u8 gTimNotesVulpix[] = _(
-    ""
+    "Vulpix are thought to have ties to the\n"
+    "spirit world. Despite being a pure fire\n"
+    "type, it can use several ghost attacks.\n"
+    "The more affection it gets while young,\n"
+    "the deeper its shade of fur will become."
 );
 
 const u8 gTimNotesNinetales[] = _(
-    ""
+    "It appears often in beauty contests due\n"
+    "to its smooth, silk-like fur. It will\n"
+    "show disdain for any awards given to it,\n"
+    "as it sees no value in external praise.\n"
+    "It can understand human speech."
 );
 
 const u8 gTimNotesJigglypuff[] = _(
