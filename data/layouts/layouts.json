@@ -216,6 +216,18 @@
       "secondary_tileset": "gTileset_ViridianCity",
       "border_filepath": "data/layouts/MersonCity/border.bin",
       "blockdata_filepath": "data/layouts/MersonCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOUTH_RIJON_GATE",
+      "name": "SouthRijonGate_Layout",
+      "width": 40,
+      "height": 80,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_VermilionCity",
+      "border_filepath": "data/layouts/SouthRijonGate/border.bin",
+      "blockdata_filepath": "data/layouts/SouthRijonGate/map.bin"
     }
   ]
 }

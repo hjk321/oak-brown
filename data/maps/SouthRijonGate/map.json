@@ -1,12 +1,12 @@
 {
-  "id": "MAP_MERSON_CITY",
-  "name": "MersonCity",
-  "layout": "LAYOUT_MERSON_CITY",
-  "music": "MUS_LAVENDER",
-  "region_map_section": "MAPSEC_PEWTER_CITY",
+  "id": "MAP_SOUTH_RIJON_GATE",
+  "name": "SouthRijonGate",
+  "layout": "LAYOUT_SOUTH_RIJON_GATE",
+  "music": "MUS_ROUTE3",
+  "region_map_section": "MAPSEC_THREE_ISLE_PORT",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_TOWN",
+  "map_type": "MAP_TYPE_NONE",
   "allow_cycling": true,
   "allow_escaping": false,
   "allow_running": false,
@@ -15,14 +15,9 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "left",
-      "offset": 0,
-      "map": "MAP_ROUTE54"
-    },
-    {
-      "direction": "down",
-      "offset": -9,
-      "map": "MAP_SOUTH_RIJON_GATE"
+      "direction": "up",
+      "offset": 9,
+      "map": "MAP_MERSON_CITY"
     }
   ],
   "object_events": [

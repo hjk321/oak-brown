@@ -15,8 +15,9 @@
 #define MAP_MERSON_CITY   (2 | (1 << 8))
 
 // Map Group 2
-#define MAP_ROUTE53 (0 | (2 << 8))
-#define MAP_ROUTE54 (1 | (2 << 8))
+#define MAP_ROUTE53          (0 | (2 << 8))
+#define MAP_ROUTE54          (1 | (2 << 8))
+#define MAP_SOUTH_RIJON_GATE (2 | (2 << 8))
 
 // Map Group 3
 #define MAP_MERSON_CAVE_1F      (0 | (3 << 8))
