@@ -31,9 +31,12 @@
 #define MAP_SEASHORE_CITY_PLAYERS_HOUSE_1F (1 | (4 << 8))
 #define MAP_SEASHORE_CITY_MURAS_HOUSE      (2 | (4 << 8))
 #define MAP_GRAVEL_TOWN_HOUSE              (3 | (4 << 8))
-#define MAP_GRAVEL_TOWN_POKE_MART          (4 | (4 << 8))
-#define MAP_GRAVEL_TOWN_TIMS_LAB           (5 | (4 << 8))
+#define MAP_GRAVEL_TOWN_TIMS_LAB           (4 | (4 << 8))
 
-#define MAP_GROUPS_COUNT 5
+// Map Group 5
+#define MAP_GRAVEL_TOWN_POKE_MART   (0 | (5 << 8))
+#define MAP_MERSON_CITY_POKE_CENTER (1 | (5 << 8))
+
+#define MAP_GROUPS_COUNT 6
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

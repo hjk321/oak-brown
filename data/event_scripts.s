@@ -617,3 +617,6 @@ Text_TestMsg:: @ 81ACD45
 	.include "data/maps/MersonCity/scripts.inc"
 
 	.include "data/maps/SouthRijonGate/scripts.inc"
+
+	.include "data/maps/MersonCity_PokeCenter/scripts.inc"
+	.include "data/maps/MersonCity_PokeCenter/text.inc"
