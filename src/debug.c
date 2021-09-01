@@ -40,7 +40,7 @@ static void DebugTask_HandleMainMenuInput(u8);
 
 static void DebugAction_LivingDex(u8);
 static void DebugAction_PruneParty(u8);
-static void DebugAction_WarpToGravel(u8);
+static void DebugAction_WarpZone(u8);
 static void DebugAction_CompletePokedex(u8);
 static void DebugAction_UnlockAllQuests(u8);
 static void DebugAction_AccessPC(u8);
@@ -68,7 +68,7 @@ enum {
     DEBUG_MENU_ITEM_CANCEL,
     DEBUG_MENU_ITEM_LIVINGDEX,
     DEBUG_MENU_ITEM_PRUNEPARTY,
-    DEBUG_MENU_ITEM_WARPTOGRAVEL,
+    DEBUG_MENU_ITEM_WARPZONE,
     DEBUG_MENU_ITEM_COMPLETEPOKEDEX,
     DEBUG_MENU_ITEM_ACCESSPC,
     DEBUG_MENU_ITEM_FLAGS,
@@ -77,7 +77,7 @@ enum {
 static const u8 gDebugText_Cancel[] = _("Cancel");
 static const u8 gDebugText_LivingDex[] = _("Living Dex");
 static const u8 gDebugText_PruneParty[] = _("Prune Party");
-static const u8 gDebugText_WarpToGravel[] = _("Warp to Gravel");
+static const u8 gDebugText_WarpZone[] = _("Warp Zone");
 static const u8 gDebugText_CompletePokedex[] = _("Complete Pokédex");
 static const u8 gDebugText_AccessPC[] = _("Access PC");
 
@@ -86,7 +86,7 @@ static const struct ListMenuItem sDebugMenuItems[] =
     [DEBUG_MENU_ITEM_CANCEL] = {gDebugText_Cancel, DEBUG_MENU_ITEM_CANCEL},
     [DEBUG_MENU_ITEM_LIVINGDEX] = {gDebugText_LivingDex, DEBUG_MENU_ITEM_LIVINGDEX},
     [DEBUG_MENU_ITEM_PRUNEPARTY] = {gDebugText_PruneParty, DEBUG_MENU_ITEM_PRUNEPARTY},
-    [DEBUG_MENU_ITEM_WARPTOGRAVEL] = {gDebugText_WarpToGravel, DEBUG_MENU_ITEM_WARPTOGRAVEL},
+    [DEBUG_MENU_ITEM_WARPZONE] = {gDebugText_WarpZone, DEBUG_MENU_ITEM_WARPZONE},
     [DEBUG_MENU_ITEM_COMPLETEPOKEDEX] = {gDebugText_CompletePokedex, DEBUG_MENU_ITEM_COMPLETEPOKEDEX},
     [DEBUG_MENU_ITEM_ACCESSPC] = {gDebugText_AccessPC, DEBUG_MENU_ITEM_ACCESSPC},
 	[DEBUG_MENU_ITEM_FLAGS] = {gDebugText_Flags, DEBUG_MENU_ITEM_FLAGS},
@@ -97,7 +97,7 @@ static void (*const sDebugMenuActions[])(u8) =
     [DEBUG_MENU_ITEM_CANCEL] = DebugAction_Cancel,
     [DEBUG_MENU_ITEM_LIVINGDEX] = DebugAction_LivingDex,
     [DEBUG_MENU_ITEM_PRUNEPARTY] = DebugAction_PruneParty,
-    [DEBUG_MENU_ITEM_WARPTOGRAVEL] = DebugAction_WarpToGravel,
+    [DEBUG_MENU_ITEM_WARPZONE] = DebugAction_WarpZone,
     [DEBUG_MENU_ITEM_COMPLETEPOKEDEX] = DebugAction_CompletePokedex,
     [DEBUG_MENU_ITEM_ACCESSPC] = DebugAction_AccessPC,
 	[DEBUG_MENU_ITEM_FLAGS] = DebugAction_Flags_Flags,
@@ -203,7 +203,6 @@ static void DebugAction_LivingDex(u8 taskId)
     u8 pos = 0;
     
     FlagSet(FLAG_SYS_POKEMON_GET);
-    DebugAction_CompletePokedex(taskId);
     
     level = GetMonData(&gPlayerParty[0], MON_DATA_LEVEL, NULL);
     if (level < 1)
@@ -241,11 +240,11 @@ static void DebugAction_PruneParty(u8 taskId)
     PlaySE(SE_PC_OFF);
 }
 
-static void DebugAction_WarpToGravel(u8 taskId)
+static void DebugAction_WarpZone(u8 taskId)
 {
     Debug_DestroyMainMenu(taskId);
 
-    SetWarpDestination(MAP_GROUP(GRAVEL_TOWN), MAP_NUM(GRAVEL_TOWN), -1, 26, 14);
+    SetWarpDestination(MAP_GROUP(DEBUG_WARP_ZONE), MAP_NUM(DEBUG_WARP_ZONE), -1, 4, 12);
     DoTeleportWarp();
 }
 

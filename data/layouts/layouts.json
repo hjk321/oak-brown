@@ -172,12 +172,12 @@
     {
       "id": "LAYOUT_DEBUG_WARP_ZONE",
       "name": "Debug_WarpZone_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 9,
+      "height": 15,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_PalletTown",
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_TrainerTower",
       "border_filepath": "data/layouts/Debug_WarpZone/border.bin",
       "blockdata_filepath": "data/layouts/Debug_WarpZone/map.bin"
     },

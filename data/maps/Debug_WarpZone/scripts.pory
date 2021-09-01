@@ -1,1 +1,11 @@
 mapscripts Debug_WarpZone_MapScripts {}
+
+script Debug_WarpZone_Gravel {
+    warp(MAP_GRAVEL_TOWN, 0xFF, 27, 17)
+    waitstate
+}
+
+script Debug_WarpZone_Merson {
+    warp(MAP_MERSON_CITY, 0xFF, 5, 16)
+    waitstate
+}
