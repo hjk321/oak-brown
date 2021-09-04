@@ -1,19 +1,19 @@
 raw `
 @ All unused / leftover scripts from RS
 CaveOfOrigin_EventScript_Shake1:: @ 81A7493
-	forcelock
+	lockforce
 	setvar VAR_TEMP_1, 1
 	goto CaveOfOrigin_EventScript_Shake
 	end
 
 CaveOfOrigin_EventScript_Shake2:: @ 81A749F
-	forcelock
+	lockforce
 	setvar VAR_TEMP_2, 1
 	goto CaveOfOrigin_EventScript_Shake
 	end
 
 CaveOfOrigin_EventScript_Shake3:: @ 81A74AB
-	forcelock
+	lockforce
 	setvar VAR_TEMP_3, 1
 	goto CaveOfOrigin_EventScript_Shake
 	end

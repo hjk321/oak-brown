@@ -106,7 +106,7 @@ gScriptCmdTable:: @ 815F9B4
 	.4byte ScrCmd_waitmessage
 	.4byte ScrCmd_message
 	.4byte ScrCmd_closemessage
-	.4byte ScrCmd_forcelock
+	.4byte ScrCmd_lockforce
 	.4byte ScrCmd_lockall
 	.4byte ScrCmd_forcerelease
 	.4byte ScrCmd_release

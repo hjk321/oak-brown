@@ -327,7 +327,7 @@ EventScript_OutOfCenterPartyHeal:: @ 81A6C26
 	return
 
 EventScript_WallTownMap:: @ 81A6C32
-	forcelock
+	lockforce
 	msgbox Text_ATownMap
 	goto_if_questlog EventScript_ReleaseEnd
 	fadescreen FADE_TO_BLACK
@@ -377,14 +377,14 @@ EventScript_SetResultFalse:: @ 81A77B0
 	return
 
 EventScript_SetExitingCyclingRoad:: @ 81A77B6
-	forcelock
+	lockforce
 	clearflag FLAG_SYS_ON_CYCLING_ROAD
 	setvar VAR_MAP_SCENE_ROUTE16, 0
 	forcerelease
 	end
 
 EventScript_SetEnteringCyclingRoad:: @ 81A77C1
-	forcelock
+	lockforce
 	setvar VAR_MAP_SCENE_ROUTE16, 1
 	forcerelease
 	end
@@ -410,7 +410,7 @@ EventScript_ReleaseEnd:: @ 81A7AE0
 
 @ Unused
 EventScript_DelayedLookAround:: @ 81A80FE
-	forcelock
+	lockforce
 	applymovement VAR_0x8004, Movement_WalkInPlaceFastestLeft
 	waitmovement 0
 	delay 20

@@ -9,7 +9,7 @@ Std_MsgboxNPC:: @ 81A4E3F
 	return
 
 Std_MsgboxSign:: @ 81A4E4A
-	forcelock
+	lockforce
 	message 0x0
 	waitmessage
 	waitbuttonpress

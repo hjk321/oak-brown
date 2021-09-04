@@ -13,7 +13,7 @@ SafariZone_EventScript_Exit:: @ 81BFB98
 	end
 
 SafariZone_EventScript_RetirePrompt:: @ 81BFBAA
-	forcelock
+	lockforce
 	msgbox SafariZone_Text_WouldYouLikeToExit, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq SafariZone_EventScript_Retire
@@ -24,14 +24,14 @@ SafariZone_EventScript_Retire:: @ 81BFBC0
 	goto SafariZone_EventScript_Exit
 
 SafariZone_EventScript_TimesUp:: @ 81BFBC5
-	forcelock
+	lockforce
 	playse SE_DING_DONG
 	msgbox SafariZone_Text_TimesUp
 	goto SafariZone_EventScript_Exit
 	end
 
 SafariZone_EventScript_OutOfBalls:: @ 81BFBD7
-	forcelock
+	lockforce
 	playse SE_DING_DONG
 	msgbox SafariZone_Text_OutOfBalls
 	goto SafariZone_EventScript_Exit

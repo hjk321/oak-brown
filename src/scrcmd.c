@@ -1193,7 +1193,7 @@ bool8 ScrCmd_turnvobject(struct ScriptContext * ctx)
     return FALSE;
 }
 
-bool8 ScrCmd_forcelock(struct ScriptContext * ctx)
+bool8 ScrCmd_lockforce(struct ScriptContext * ctx)
 {
     if (IsUpdateLinkStateCBActive())
     {

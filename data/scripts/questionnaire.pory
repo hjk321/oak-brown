@@ -1,6 +1,6 @@
 raw `
 EventScript_Questionnaire:: @ 81A7702
-	forcelock
+	lockforce
 	textcolor 3
 	msgbox Text_FillOutQuestionnaire, MSGBOX_YESNO
 	compare VAR_RESULT, NO

@@ -1,7 +1,7 @@
 raw `
 EventScript_PC:: @ 81A6955
 	goto_if_questlog EventScript_ReleaseEnd
-	forcelock
+	lockforce
 	goto_if_set FLAG_SYS_PC_STORAGE_DISABLED, EventScript_PCDisabled
 	setvar VAR_0x8004, 0
 	special AnimatePcTurnOn
@@ -17,7 +17,7 @@ EventScript_PCDisabled:: @ 81A698E
 
 @ Boot PC from anywhere
 EventScript_PCDebug::
-	forcelock
+	lockforce
 	msgbox Text_BootedUpPC
 	goto EventScript_PCMainMenu
 	end

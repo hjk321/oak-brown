@@ -2,7 +2,7 @@ raw `
 .set LOCALID_STICKER_MAN, 1
 
 CeladonCity_GameCorner_EventScript_PhotoPrinter:: @ 81B2867
-	forcelock
+	lockforce
 	showmoneybox 0, 0, 0
 	msgbox CeladonCity_GameCorner_Text_TryPokemonPrinter, MSGBOX_YESNO
 	compare VAR_RESULT, NO

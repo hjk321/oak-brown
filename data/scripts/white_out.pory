@@ -1,6 +1,6 @@
 raw `
 EventScript_AfterWhiteOutHeal:: @ 81A8D97
-	forcelock
+	lockforce
 	textcolor 1
 	msgbox Text_FirstShouldRestoreMonsHealth
 	call EventScript_PkmnCenterNurse_TakeAndHealPkmn
@@ -23,7 +23,7 @@ EventScript_AfterWhiteOutHealMsg:: @ 81A8DCF
 	return
 
 EventScript_AfterWhiteOutMomHeal:: @ 81A8DD8
-	forcelock
+	lockforce
 	textcolor 1
 	applymovement 1 Movement_FaceDown
 	waitmovement 0
@@ -35,7 +35,7 @@ EventScript_AfterWhiteOutMomHeal:: @ 81A8DD8
 	end
 
 EventScript_FieldPoison:: @ 81A8DFD
-	forcelock
+	lockforce
 	textcolor 3
 	special TryFieldPoisonWhiteOut
 	waitstate

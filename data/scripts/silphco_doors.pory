@@ -348,121 +348,121 @@ EventScript_Open11FDoor:: @ 81A88ED
     return
 
 SilphCo_2F_EventScript_Door1:: @ 81A891B
-    forcelock
+    lockforce
     setvar VAR_TEMP_1, 1
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_2F_EventScript_Door2:: @ 81A8935
-    forcelock
+    lockforce
     setvar VAR_TEMP_1, 2
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_3F_EventScript_Door1:: @ 81A894F
-    forcelock
+    lockforce
     setvar VAR_TEMP_1, 3
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_3F_EventScript_Door2:: @ 81A8969
-    forcelock
+    lockforce
     setvar VAR_TEMP_1, 4
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_4F_EventScript_Door1:: @ 81A8983
-    forcelock
+    lockforce
     setvar VAR_TEMP_1, 5
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_4F_EventScript_Door2:: @ 81A899D
-    forcelock
+    lockforce
     setvar VAR_TEMP_1, 6
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_5F_EventScript_Door1:: @ 81A89B7
-    forcelock
+    lockforce
     setvar VAR_TEMP_1, 7
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_5F_EventScript_Door2:: @ 81A89D1
-    forcelock
+    lockforce
     setvar VAR_TEMP_1, 8
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_5F_EventScript_Door3:: @ 81A89EB
-    forcelock
+    lockforce
     setvar VAR_TEMP_1, 9
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_6F_EventScript_Door:: @ 81A8A05
-    forcelock
+    lockforce
     setvar VAR_TEMP_1, 10
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_7F_EventScript_Door1:: @ 81A8A1F
-    forcelock
+    lockforce
     setvar VAR_TEMP_1, 11
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_7F_EventScript_Door2:: @ 81A8A39
-    forcelock
+    lockforce
     setvar VAR_TEMP_1, 12
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_7F_EventScript_Door3:: @ 81A8A53
-    forcelock
+    lockforce
     setvar VAR_TEMP_1, 13
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_8F_EventScript_Door:: @ 81A8A6D
-    forcelock
+    lockforce
     setvar VAR_TEMP_1, 14
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_9F_EventScript_Door1:: @ 81A8A87
-    forcelock
+    lockforce
     setvar VAR_TEMP_1, 15
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_9F_EventScript_Door2:: @ 81A8AA1
-    forcelock
+    lockforce
     setvar VAR_TEMP_1, 16
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_9F_EventScript_Door3:: @ 81A8ABB
-    forcelock
+    lockforce
     setvar VAR_TEMP_1, 17
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_9F_EventScript_Door4:: @ 81A8AD5
-    forcelock
+    lockforce
     setvar VAR_TEMP_1, 18
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_10F_EventScript_Door:: @ 81A8AEF
-    forcelock
+    lockforce
     setvar VAR_TEMP_1, 19
     goto EventScript_TryUnlockDoor
     end
 
 SilphCo_11F_EventScript_Door:: @ 81A8B09
-    forcelock
+    lockforce
     setvar VAR_TEMP_1, 20
     goto EventScript_TryUnlockDoor
     end

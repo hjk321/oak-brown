@@ -34,7 +34,7 @@ mapscripts GravelTown_TimsLab_MapScripts {
 }
 
 script GravelTown_TimsLab_StartChooseStarterScene {
-    forcelock
+    lockforce
     textcolor(0)
     setvar(VAR_MAP_SCENE_GRAVEL_TOWN, 1)
     applymovement(TIM_ID, Movement_TimWalkFromEntrance)
@@ -222,7 +222,7 @@ script GravelTown_TimsLab_PokeballCharmander {
         release
         end
     }
-    forcelock
+    lockforce
     applymovement(TIM_ID, Movement_FaceRight)
     applymovement(MURA_ID, Movement_FaceRight)
     drawmonpic(SPECIES_CHARMANDER, 0, 0)
@@ -239,7 +239,7 @@ script GravelTown_TimsLab_PokeballSquirtle {
         release
         end
     }
-    forcelock
+    lockforce
     applymovement(TIM_ID, Movement_FaceRight)
     applymovement(MURA_ID, Movement_FaceRight)
     drawmonpic(SPECIES_SQUIRTLE, 0, 0)
@@ -256,7 +256,7 @@ script GravelTown_TimsLab_PokeballBulbasaur {
         release
         end
     }
-    forcelock
+    lockforce
     applymovement(TIM_ID, Movement_FaceRight)
     applymovement(MURA_ID, Movement_FaceRight)
     drawmonpic(SPECIES_BULBASAUR, 0, 0)

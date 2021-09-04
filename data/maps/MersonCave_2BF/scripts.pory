@@ -3,7 +3,7 @@ const TEMPVAR_PURIFIED_ZONE = VAR_TEMP_0
 mapscripts MersonCave_2BF_MapScripts {}
 
 script MersonCave_2BF_PurifiedZone {
-    forcelock
+    lockforce
 	fadescreen(FADE_TO_WHITE)
 	special(HealPlayerParty)
 	fadescreen(FADE_FROM_WHITE)
@@ -15,7 +15,7 @@ script MersonCave_2BF_PurifiedZone {
 }
 
 script MersonCave_2BF_ExitPurifiedZone {
-    forcelock
+    lockforce
     setvar(TEMPVAR_PURIFIED_ZONE, 0)
     forcerelease
 }

@@ -6,7 +6,7 @@ EventScript_UseSurf:: @ 81A6AC8
 	goto_if_eq EventScript_UseSurfEnd
 	getpartymonname 0, VAR_RESULT
 	setfieldeffectarg 0, VAR_RESULT
-	forcelock
+	lockforce
 	msgbox Text_WantToSurf, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq EventScript_UseSurfRelease
@@ -18,7 +18,7 @@ EventScript_UseSurfEnd: @ 81A6B0C
 	end
 
 EventScript_CurrentTooFast:: @ 81A6B0D
-	forcelock
+	lockforce
 	msgbox Text_CurrentTooFast
 	forcerelease
 	end

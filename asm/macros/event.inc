@@ -770,7 +770,7 @@
 	.endm
 
 	@ Ceases movement for all Objects on-screen.
-	.macro forcelock
+	.macro lockforce
 	.byte 0x69
 	.endm
 

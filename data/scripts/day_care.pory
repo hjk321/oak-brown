@@ -1,6 +1,6 @@
 raw `
 EventScript_EggHatch:: @ 81BF546
-	forcelock
+	lockforce
 	msgbox DayCare_Text_Huh
 	special EggHatch
 	waitstate

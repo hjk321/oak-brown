@@ -15,7 +15,7 @@ SeashoreCity_PlayersHouse_2F_FirstWarpIn::
 `
 
 script SeashoreCity_PlayersHouse_2F_PC {
-    forcelock
+    lockforce
     setvar(VAR_0x8004, 1)
     special(AnimatePcTurnOn)
     playse(SE_PC_ON)

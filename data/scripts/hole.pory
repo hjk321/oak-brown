@@ -10,7 +10,7 @@ EventScript_FixCrackedGround::
 	end
 
 EventScript_FallDownHole:: @ 81C1348
-	forcelock
+	lockforce
 	delay 20
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_SetInvisible
 	waitmovement 0
@@ -22,7 +22,7 @@ EventScript_FallDownHole:: @ 81C1348
 
 @ TODO: EventScript_FallDownHoleMtPyre in pokeemerald, needs generic name
 EventScript_1C1361:: @ 81C1361
-	forcelock
+	lockforce
 	delay 20
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_SetInvisible
 	waitmovement 0

@@ -160,7 +160,7 @@ EventScript_NoRoomToPickUpItem:: @ 81A682D
 	return
 
 EventScript_HiddenItemScript:: @ 81A6843
-	forcelock
+	lockforce
 	textcolor 3
 	waitse
 	compare VAR_0x8005, 0
