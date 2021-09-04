@@ -353,5 +353,18 @@
 #define MUS_SLOW_PALLET           345 // MUS_RG_SLOWMASARA
 #define MUS_TEACHY_TV_MENU        346 // MUS_RG_TVNOIZE
 #define MUS_TIM                   347
+#define MUS_LOOKER                348 // PL_SEQ_PL_HANDSOME
+#define MUS_VS_WILD_JOHTO         349 // HG_SEQ_GS_VS_NORAPOKE
+#define MUS_VS_TRAINER_JOHTO      350 // HG_SEQ_GS_VS_TRAINER
+#define MUS_UNION_CAVE            351 // HG_SEQ_GS_D_CHIKATSUURO
+#define MUS_ALPH_RUINS            352 // HG_SEQ_GS_D_UNKNOWN_ISEKI
+#define MUS_AZALEA                353 // HG_SEQ_GS_T_HIWADA
+#define MUS_ROUTE34               354 // HG_SEQ_GS_R_4_34 
+#define MUS_GOLDENROD             355 // HG_SEQ_GS_C_KOGANE
+#define MUS_ICE_PATH              356 // HG_SEQ_GS_D_KOORINONUKE
+#define MUS_EVIL                  357 // BW_SEQ_BGM_E_PLASMA 
+#define MUS_TROUBLE               358 // BW_SEQ_BGM_E_TROUBLE
+#define MUS_DUTY                  359 // BW_SEQ_BGM_N_CASTLE_BRIDGE
+#define MUS_LOSTLORN              360 // BW_SEQ_BGM_D_06
 
 #endif  // GUARD_CONSTANTS_SONGS_H

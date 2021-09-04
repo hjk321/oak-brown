@@ -347,6 +347,19 @@ gSongTable:: @ 84A32CC
 	song mus_slow_pallet, 0, 0
 	song mus_teachy_tv_menu, 0, 0
 	song mus_tim 0, 0
+	song mus_looker, 0, 0
+	song mus_vs_wild_johto, 0, 0
+	song mus_vs_trainer_johto, 0, 0
+	song mus_union_cave, 0, 0
+	song mus_alph_ruins, 0, 0
+	song mus_azalea, 0, 0
+	song mus_route34, 0, 0
+	song mus_goldenrod, 0, 0
+	song mus_ice_path, 0, 0
+	song mus_evil, 0, 0
+	song mus_trouble, 0, 0
+	song mus_duty, 0, 0
+	song mus_lostlorn, 0, 0
 
 dummy_song_header: @ 84A3DA4
 	.byte 0, 0, 0, 0

@@ -830,3 +830,42 @@ $(MID_SUBDIR)/se_dex_search.s: %.s: %.mid
 
 $(MID_SUBDIR)/mus_tim.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G160 -V075
+
+$(MID_SUBDIR)/mus_looker.s: %.s: %.mid
+	$(MID) $< $@ -E -R5 -G191 -V115
+
+$(MID_SUBDIR)/mus_vs_wild_johto.s: %.s: %.mid
+	$(MID) $< $@ -E -R5 -G229 -V110
+
+$(MID_SUBDIR)/mus_vs_trainer_johto.s: %.s: %.mid
+	$(MID) $< $@ -E -R5 -G229 -V111
+
+$(MID_SUBDIR)/mus_union_cave.s: %.s: %.mid
+	$(MID) $< $@ -E -R5 -G229 -V080
+
+$(MID_SUBDIR)/mus_alph_ruins.s: %.s: %.mid
+	$(MID) $< $@ -E -R5 -G229 -V093
+
+$(MID_SUBDIR)/mus_azalea.s: %.s: %.mid
+	$(MID) $< $@ -E -R5 -G229 -V073
+
+$(MID_SUBDIR)/mus_route34.s: %.s: %.mid
+	$(MID) $< $@ -E -R5 -G229 -V092
+
+$(MID_SUBDIR)/mus_goldenrod.s: %.s: %.mid
+	$(MID) $< $@ -E -R5 -G229 -V072
+
+$(MID_SUBDIR)/mus_ice_path.s: %.s: %.mid
+	$(MID) $< $@ -E -R5 -G229 -V072
+
+$(MID_SUBDIR)/mus_evil.s: %.s: %.mid
+	$(MID) $< $@ -E -R5 -G276 -V073
+
+$(MID_SUBDIR)/mus_trouble.s: %.s: %.mid
+	$(MID) $< $@ -E -R5 -G274 -V092
+
+$(MID_SUBDIR)/mus_duty.s: %.s: %.mid
+	$(MID) $< $@ -E -R5 -G274 -V110
+
+$(MID_SUBDIR)/mus_lostlorn.s: %.s: %.mid
+	$(MID) $< $@ -E -R5 -G277 -V062

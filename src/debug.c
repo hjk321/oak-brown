@@ -22,7 +22,6 @@
 #include "script.h"
 #include "event_scripts.h"
 #include "string_util.h"
-#include "data/flag_strings.c"
 #include "librfu.h"
 #include "printf.h"
 #include "mgba.h"
