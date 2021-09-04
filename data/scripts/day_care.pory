@@ -4,6 +4,6 @@ EventScript_EggHatch:: @ 81BF546
 	msgbox DayCare_Text_Huh
 	special EggHatch
 	waitstate
-	forcerelease
+	releaseforce
 	end
 `

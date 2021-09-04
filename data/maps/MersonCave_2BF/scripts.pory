@@ -10,14 +10,14 @@ script MersonCave_2BF_PurifiedZone {
 	msgbox(format("Entered purified and protected zone!\p"
         "{PLAYER}'s Pokémon were fully healed!"))
 	setvar(TEMPVAR_PURIFIED_ZONE, 1)
-	forcerelease
+	releaseforce
 	end
 }
 
 script MersonCave_2BF_ExitPurifiedZone {
     lockforce
     setvar(TEMPVAR_PURIFIED_ZONE, 0)
-    forcerelease
+    releaseforce
 }
 
 script MersonCave_2BF_Channeler {

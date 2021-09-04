@@ -66,7 +66,7 @@ EventScript_TryDoRematchBattle:: @ 81A4F3E
 	goto_if_questlog EventScript_EndQuestLogRematch
 	special StartRematchBattle
 	waitstate
-	forcerelease
+	releaseforce
 	end
 
 EventScript_NoRematchBattle:: @ 81A4F72
@@ -87,7 +87,7 @@ EventScript_TryDoDoubleRematchBattle:: @ 81A4F73
 	goto_if_questlog EventScript_EndQuestLogRematch
 	special StartRematchBattle
 	waitstate
-	forcerelease
+	releaseforce
 	end
 
 EventScript_NoDoubleRematchBattle:: @ 81A4FB0
@@ -101,7 +101,7 @@ EventScript_NotEnoughMonsForDoubleRematchBattle:: @ 81A4FB1
 	end
 
 EventScript_EndQuestLogRematch:: @ 81A4FB8
-	forcerelease
+	releaseforce
 	end
 
 EventScript_RevealTrainer:: @ 81A4FBA
@@ -131,7 +131,7 @@ EventScript_DoTrainerBattle:: @ 81A4FC7
 	compare VAR_RESULT, TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC
 	goto_if_eq EventScript_EndTrainerBattleContinueScript
 EventScript_EndTrainerBattle:: @ 81A5017
-	forcerelease
+	releaseforce
 	end
 
 EventScript_EndTrainerBattleContinueScript:: @ 81A5019
@@ -139,7 +139,7 @@ EventScript_EndTrainerBattleContinueScript:: @ 81A5019
 
 EventScript_EndQuestLogBattle:: @ 81A501A
 	special SetBattledTrainerFlag
-	forcerelease
+	releaseforce
 	end
 
 Std_MsgboxAutoclose:: @ 81A501F

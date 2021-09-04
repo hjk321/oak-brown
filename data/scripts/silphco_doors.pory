@@ -1,12 +1,12 @@
 raw `
 EventScript_NeedCardKey:: @ 81A8135
     msgbox Text_ItNeedsCardKey
-    forcerelease
+    releaseforce
     end
 
 EventScript_DoorUnlocked:: @ 81A813F
     msgbox Text_TheDoorIsOpen
-    forcerelease
+    releaseforce
     end
 
 EventScript_Close2FDoor1:: @ 81A8149
@@ -520,6 +520,6 @@ EventScript_OpenDoor:: @ 81A8B32
     special DrawWholeMapView
     waitse
     special SetHiddenItemFlag
-    forcerelease
+    releaseforce
     end
 `

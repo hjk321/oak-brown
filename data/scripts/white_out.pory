@@ -11,7 +11,7 @@ EventScript_AfterWhiteOutHeal:: @ 81A8D97
 	fadenewbgm MUS_NET_CENTER
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_FaceDown
 	waitmovement 0
-	forcerelease
+	releaseforce
 	end
 
 EventScript_AfterWhiteOutHealMsgPreBrock:: @ 81A8DC6
@@ -31,7 +31,7 @@ EventScript_AfterWhiteOutMomHeal:: @ 81A8DD8
 	call EventScript_OutOfCenterPartyHeal
 	msgbox Text_MomExplainHPGetPotions
 	fadedefaultbgm
-	forcerelease
+	releaseforce
 	end
 
 EventScript_FieldPoison:: @ 81A8DFD
@@ -41,7 +41,7 @@ EventScript_FieldPoison:: @ 81A8DFD
 	waitstate
 	compare VAR_RESULT, TRUE
 	goto_if_eq EventScript_FieldWhiteOut
-	forcerelease
+	releaseforce
 	end
 
 EventScript_FieldWhiteOut:: @ 81A8E11

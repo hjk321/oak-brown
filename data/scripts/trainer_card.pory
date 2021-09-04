@@ -53,18 +53,18 @@ CeladonCity_GameCorner_EventScript_PrintPhoto:: @ 81B2907
 	special UpdateTrainerCardPhotoIcons
 	msgbox CeladonCity_GameCorner_Text_PrintIsReadyCheckTrainerCard
 	hidemoneybox 0, 0
-	forcerelease
+	releaseforce
 	end
 
 CeladonCity_GameCorner_EventScript_DeclinePhoto:: @ 81B2926
 	hidemoneybox 0, 0
-	forcerelease
+	releaseforce
 	end
 
 CeladonCity_GameCorner_EventScript_NotEnoughMoneyForPhoto:: @ 81B292B
 	msgbox CeladonCity_GameCorner_Text_DontHaveEnoughMoney
 	hidemoneybox 0, 0
-	forcerelease
+	releaseforce
 	end
 
 FourIsland_House2_EventScript_StickerMan:: @ 81B2938

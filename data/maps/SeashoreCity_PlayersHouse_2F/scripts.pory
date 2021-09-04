@@ -22,7 +22,7 @@ script SeashoreCity_PlayersHouse_2F_PC {
     msgbox(Text_PlayerBootedUpPC)
     special(BedroomPC)
     waitstate
-    forcerelease
+    releaseforce
 }
 
 script SeashoreCity_PlayersHouse_2F_NES {

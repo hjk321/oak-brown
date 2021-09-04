@@ -1229,7 +1229,7 @@ bool8 ScrCmd_lockall(struct ScriptContext * ctx)
     }
 }
 
-bool8 ScrCmd_forcerelease(struct ScriptContext * ctx)
+bool8 ScrCmd_releaseforce(struct ScriptContext * ctx)
 {
     u8 playerObjectId;
 

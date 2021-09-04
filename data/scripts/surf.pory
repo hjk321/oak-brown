@@ -13,13 +13,13 @@ EventScript_UseSurf:: @ 81A6AC8
 	msgbox Text_UsedSurf
 	dofieldeffect FLDEFF_USE_SURF
 EventScript_UseSurfRelease:@ 81A6B0B
-	forcerelease
+	releaseforce
 EventScript_UseSurfEnd: @ 81A6B0C
 	end
 
 EventScript_CurrentTooFast:: @ 81A6B0D
 	lockforce
 	msgbox Text_CurrentTooFast
-	forcerelease
+	releaseforce
 	end
 `

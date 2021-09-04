@@ -66,7 +66,7 @@ script GravelTown_TimsLab_StartChooseStarterScene {
         "Very well. {PLAYER}, go ahead and choose your Pokémon."))
     applymovement(MURA_ID, Movement_FaceRight)
     msgbox(format("Mura: Hey, what's the big idea?\nHow come he gets to pick first?"))
-    forcerelease
+    releaseforce
     setobjectmovementtype(MURA_ID, MOVEMENT_TYPE_LOOK_AROUND)
 }
 
@@ -341,7 +341,7 @@ script GravelTown_TimsLab_RivalPicksStarter {
     waitmessage
     waitfanfare
     closemessage
-    forcerelease
+    releaseforce
 }
 
 movement Movement_TimWalkFromEntrance {
@@ -618,7 +618,7 @@ script GravelTown_TimsLab_PokedexScene {
     setflag(TEMPFLAG_POKEDEX)
     setflag(FLAG_SYS_POKEDEX_GET)
     setflag(FLAG_SYS_QUEST_MENU_GET)
-    forcerelease
+    releaseforce
 }
 
 movement Movement_MuraWalkForPokedex {

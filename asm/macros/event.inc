@@ -780,7 +780,7 @@
 	.endm
 
 	@ Resumes normal movement for all Objects on-screen, and closes any standard message boxes that are still open.
-	.macro forcerelease
+	.macro releaseforce
 	.byte 0x6b
 	.endm
 

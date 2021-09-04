@@ -34,17 +34,17 @@ EventScript_EnableMysteryGift:: @ 81A774D
 	signmsg
 	msgbox Text_YouCanAccessMysteryGift
 	normalmsg
-	forcerelease
+	releaseforce
 	end
 
 EventScript_DeclineQuestionnaire:: @ 81A778A
-	forcerelease
+	releaseforce
 	end
 
 EventScript_TookQuestionnaire:: @ 81A778C
 	applymovement VAR_0x8008, Movement_FaceDown
 	waitmovement 0
 	msgbox Text_QuestionnaireThankYou
-	forcerelease
+	releaseforce
 	end
 `

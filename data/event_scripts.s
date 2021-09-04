@@ -333,7 +333,7 @@ EventScript_WallTownMap:: @ 81A6C32
 	fadescreen FADE_TO_BLACK
 	special ShowTownMap
 	waitstate
-	forcerelease
+	releaseforce
 	end
 
 	.include "data/text/pokedex_rating.inc"
@@ -380,13 +380,13 @@ EventScript_SetExitingCyclingRoad:: @ 81A77B6
 	lockforce
 	clearflag FLAG_SYS_ON_CYCLING_ROAD
 	setvar VAR_MAP_SCENE_ROUTE16, 0
-	forcerelease
+	releaseforce
 	end
 
 EventScript_SetEnteringCyclingRoad:: @ 81A77C1
 	lockforce
 	setvar VAR_MAP_SCENE_ROUTE16, 1
-	forcerelease
+	releaseforce
 	end
 
 	.include "data/scripts/route23.inc"
@@ -423,7 +423,7 @@ EventScript_DelayedLookAround:: @ 81A80FE
 	applymovement VAR_0x8004, Movement_WalkInPlaceFastestDown
 	waitmovement 0
 	delay 20
-	forcerelease
+	releaseforce
 	end
 
 	.include "data/scripts/silphco_doors.inc"
@@ -463,7 +463,7 @@ EventScript_VsSeekerChargingDone:: @ 81A8CED
 	special VsSeekerFreezeObjectsAfterChargeComplete
 	waitstate
 	special VsSeekerResetObjectMovementAfterChargeComplete
-	forcerelease
+	releaseforce
 	end
 
 Common_EventScript_UnionRoomAttendant:: @ 81A8CF6

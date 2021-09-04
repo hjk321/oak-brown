@@ -189,7 +189,7 @@ EventScript_PickedUpHiddenItem::
 	waitmessage
 	msgbox Text_PutItemAway
 	special SetHiddenItemFlag
-	forcerelease
+	releaseforce
 	end
 
 EventScript_FoundSingleItem::
@@ -210,7 +210,7 @@ EventScript_NoRoomForHiddenItem::
 	msgbox Text_FoundOneItem
 	msgbox Text_TooBadBagFull
 	setvar VAR_RESULT, 0
-	forcerelease
+	releaseforce
 	end
 
 EventScript_TryPickUpHiddenCoins::
@@ -226,7 +226,7 @@ EventScript_TryPickUpHiddenCoins::
 	waitmessage
 	msgbox Text_PutCoinsAwayInCoinCase
 	special SetHiddenItemFlag
-	forcerelease
+	releaseforce
 	end
 
 EventScript_HiddenCoinsButCaseIsFull::
@@ -235,7 +235,7 @@ EventScript_HiddenCoinsButCaseIsFull::
 	msgbox Text_FoundXCoins
 	msgbox Text_CoinCaseIsFull
 	setvar VAR_RESULT, 0
-	forcerelease
+	releaseforce
 	end
 
 EventScript_NoCaseForHiddenCoins::
@@ -244,6 +244,6 @@ EventScript_NoCaseForHiddenCoins::
 	msgbox Text_FoundXCoins
 	msgbox Text_NothingToPutThemIn
 	setvar VAR_RESULT, 0
-	forcerelease
+	releaseforce
 	end
 `

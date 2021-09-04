@@ -13,7 +13,7 @@ Std_MsgboxSign:: @ 81A4E4A
 	message 0x0
 	waitmessage
 	waitbuttonpress
-	forcerelease
+	releaseforce
 	return
 
 Std_MsgboxDefault:: @ 81A4E54

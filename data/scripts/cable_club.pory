@@ -94,7 +94,7 @@ CableClub_EventScript_ExitLinkRoom:: @ 81BB2E5
 	special DrawWholeMapView
 	playse SE_CLICK
 	erasebox 0, 0, 29, 19
-	forcerelease
+	releaseforce
 	end
 
 CableClub_EventScript_ExitMinigameRoom:: @ 81BB2FD
@@ -104,7 +104,7 @@ CableClub_EventScript_ExitMinigameRoom:: @ 81BB2FD
 	special DrawWholeMapView
 	playse SE_CLICK
 	erasebox 0, 0, 29, 19
-	forcerelease
+	releaseforce
 	end
 
 CableClub_EventScript_CloseLinkAndExitLinkRoom:: @ 81BB315
@@ -129,7 +129,7 @@ CableClub_EventScript_ExitTradeCenter:: @ 81BB34F
 	special DrawWholeMapView
 	playse SE_CLICK
 	erasebox 0, 0, 29, 19
-	forcerelease
+	releaseforce
 	end
 
 CableClub_EventScript_PlayerExitTradeCenter:: @ 81BB367
@@ -153,7 +153,7 @@ CableClub_EventScript_ExitUnionRoom:: @ 81BB39C
 	special DrawWholeMapView
 	playse SE_CLICK
 	erasebox 0, 0, 29, 19
-	forcerelease
+	releaseforce
 	end
 
 CableClub_EventScript_PlayerExitUnionRoom:: @ 81BB3B4
@@ -198,7 +198,7 @@ CableClub_EventScript_Tutorial:: @ 81BB415
 	delay 30
 	msgbox CableClub_Text_ExplainWirelessClubFirstTime
 	setvar VAR_MAP_SCENE_POKEMON_CENTER_TEALA, 2
-	forcerelease
+	releaseforce
 	end
 
 Movement_PlayerApproachCounter: @ 81BB447
@@ -523,7 +523,7 @@ CableClub_EventScript_WirelessClubAdjustements:: @ 81BB877
 
 CableClub_EventScript_NotReadyYet:: @ 81BB881
 	msgbox Text_AppearsToBeUndergoingAdjustments
-	forcerelease
+	releaseforce
 	end
 
 Movement_AttendantFaceDown:: @ 81BB88B
@@ -583,7 +583,7 @@ CableClub_EventScript_ShowBattleRecords:: @ 81BB8A7
 	setvar VAR_0x8004, 0
 	special ShowBattleRecords
 	waitstate
-	forcerelease
+	releaseforce
 	end
 
 BattleColosseum_2P_EventScript_PlayerSpot0:: @ 81BB8C3
@@ -737,7 +737,7 @@ TradeCenter_ConfirmLeaveRoom:: @ 81BB9D4
 	compare VAR_RESULT, YES
 	goto_if_eq TradeCenter_TerminateLink
 	erasebox 0, 0, 29, 19
-	forcerelease
+	releaseforce
 	end
 
 TradeCenter_TerminateLink:: @ 81BB9F0
@@ -1131,12 +1131,12 @@ CableClub_EventScript_ShowWirelessCommunicationScreen:: @ 81BBFD8
 	special ShowWirelessCommunicationScreen
 	waitstate
 	msgbox CableClub_Text_ParticipantsStepUpToCounter
-	forcerelease
+	releaseforce
 	end
 
 CableClub_EventScript_AdapterNotConnected:: @ 81BC016
 	msgbox CableClub_Text_AdapterNotConnected
-	forcerelease
+	releaseforce
 	end
 
 CableClub_EventScript_OpenUnionRoomBarrier:: @ 81BC020
@@ -1338,7 +1338,7 @@ TwoIsland_JoyfulGameCorner_EventScript_ShowPokemonJumpRecords:: @ 81BC2E7
 	lockforce
 	special ShowPokemonJumpRecords
 	waitstate
-	forcerelease
+	releaseforce
 	end
 
 TwoIsland_JoyfulGameCorner_EventScript_ShowDodrioBerryPickingRecords:: @ 81BC2FC
@@ -1346,7 +1346,7 @@ TwoIsland_JoyfulGameCorner_EventScript_ShowDodrioBerryPickingRecords:: @ 81BC2FC
 	lockforce
 	special ShowDodrioBerryPickingRecords
 	waitstate
-	forcerelease
+	releaseforce
 	end
 
 CableClub_Text_WelcomeWhichCableClubService:: @ 81BC311

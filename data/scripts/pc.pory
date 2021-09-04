@@ -12,7 +12,7 @@ EventScript_PC:: @ 81A6955
 
 @ For when the player first arrives on One Island
 EventScript_PCDisabled:: @ 81A698E
-	forcerelease
+	releaseforce
 	end
 
 @ Boot PC from anywhere
@@ -70,7 +70,7 @@ EventScript_TurnOffPC:: @ 81A6A46
 	setvar VAR_0x8004, 0
 	playse SE_PC_OFF
 	special AnimatePcTurnOff
-	forcerelease
+	releaseforce
 	end
 
 EventScript_AccessHallOfFame:: @ 81A6A56
@@ -103,6 +103,6 @@ EventScript_ShutDownPlayerPC:: @ 8168D17
 	setvar VAR_0x8004, 1
 	playse SE_PC_OFF
 	special AnimatePcTurnOff
-	forcerelease
+	releaseforce
 	end
 `

@@ -30,7 +30,7 @@ EventScript_CutTreeDown:: @ 81BDF76
 	applymovement VAR_LAST_TALKED, Movement_CutTreeDown
 	waitmovement 0
 	removeobject VAR_LAST_TALKED
-	forcerelease
+	releaseforce
 	end
 
 Movement_CutTreeDown:: @ 81BDF85
@@ -39,12 +39,12 @@ Movement_CutTreeDown:: @ 81BDF85
 
 EventScript_CantCutTree:: @ 81BDF87
 	msgbox Text_TreeCanBeCutDown, MSGBOX_SIGN
-	forcerelease
+	releaseforce
 	end
 
 EventScript_DontCutTree:: @ 81BDF91
 	closemessage
-	forcerelease
+	releaseforce
 	end
 
 Text_CutTreeDown:: @ 81BDF94
@@ -94,11 +94,11 @@ EventScript_UseRockSmash:: @ 81BE06F
 	compare VAR_RESULT, FALSE
 	goto_if_eq EventScript_RockSmashNoEncounter
 	waitstate
-	forcerelease
+	releaseforce
 	end
 
 EventScript_RockSmashNoEncounter:: @ 81BE08D
-	forcerelease
+	releaseforce
 	end
 
 Movement_BreakRock:: @ 81BE08F
@@ -111,7 +111,7 @@ EventScript_CantSmashRock:: @ 81BE091
 
 EventScript_DontSmashRock:: @ 81BE09A
 	closemessage
-	forcerelease
+	releaseforce
 	end
 
 Text_UseRockSmash:: @ 81BE09D
@@ -162,7 +162,7 @@ EventScript_AlreadyUsedStrength:: @ 81BE18E
 
 EventScript_DontUseStrength:: @ 81BE197
 	closemessage
-	forcerelease
+	releaseforce
 	end
 
 Text_UseStrength:: @ 81BE19A
@@ -203,7 +203,7 @@ EventScript_CantUseWaterfall:: @ 81BE2FF
 EventScript_WaterCrashingDown:
 	msgbox Text_WallOfWaterCrashingDown
 EventScript_EndWaterfall:
-	forcerelease
+	releaseforce
 	end
 
 Text_WallOfWaterCrashingDown:: @ 81BE30A
@@ -238,7 +238,7 @@ EventScript_CantDive:: @ 81BE3C9
 EventScript_MayGoUnderwater:
 	msgbox Text_MonMayGoUnderwater
 EventScript_EndDive:
-	forcerelease
+	releaseforce
 	end
 
 EventScript_TrySurface:: @ 81BE3D4
@@ -265,7 +265,7 @@ EventScript_ObstacleCantSurface:: @ 81BE420
 	lockforce
 	msgbox Text_DiveCantBeUsedHere
 EventScript_EndSurface:
-	forcerelease
+	releaseforce
 	end
 
 Text_MonMayGoUnderwater:: @ 81BE42B

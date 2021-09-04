@@ -17,13 +17,13 @@ EventScript_DigUpItemPutInPocket::
 	delay 60
 	msgbox Text_PutItemAway
 	special SetHiddenItemFlag
-	forcerelease
+	releaseforce
 	end
 
 EventScript_DigUpItemBagIsFull::
 	msgbox Text_DugUpItemFromGround
 	msgbox Text_TooBadBagFull
 	setvar VAR_RESULT, 0
-	forcerelease
+	releaseforce
 	end
 `
