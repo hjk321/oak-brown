@@ -200,3 +200,32 @@ static const struct TrainerMon sTrainerMons_SuperNerdTheo[] = {
         .ball = ITEM_POKE_BALL,
     },
 };
+
+static const struct TrainerMon sTrainerMons_CamperMike[] = {
+    {
+        .lvl = 11,
+        .species = SPECIES_SQUIRTLE,
+        .ball = ITEM_POKE_BALL,
+    },
+    {
+        .lvl = 11,
+        .species = SPECIES_SEEL,
+        .ball = ITEM_POKE_BALL,
+    },
+};
+
+static const struct TrainerMon sTrainerMons_LeaderKarpman[] = {
+    {
+        .lvl = 10,
+        .species = SPECIES_HORSEA,
+        .ball = ITEM_DIVE_BALL,
+        .iv = 15,
+    },
+    {
+        .lvl = 12,
+        .species = SPECIES_VAPOREON,
+        .ball = ITEM_PREMIER_BALL,
+        .iv = 20,
+        .friendship = 221,
+    },
+};

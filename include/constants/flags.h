@@ -526,8 +526,8 @@
 #define FLAG_PENDING_DAYCARE_EGG 0x201
 #define FLAG_GOT_BICYCLE         0x202
 #define FLAG_GOT_VS_SEEKER       0x203
-#define FLAG_0x204               0x204
-#define FLAG_0x205               0x205
+#define FLAG_REACHED_MERSON_CITY 0x204
+#define FLAG_MET_LOOKER_BEFORE_GYM 0x205
 #define FLAG_0x206               0x206
 #define FLAG_0x207               0x207
 #define FLAG_0x208               0x208

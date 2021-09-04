@@ -142,4 +142,21 @@ const struct Trainer gTrainers[] = {
         .partySize = 3,
         .party = sTrainerMons_SuperNerdTheo,
     },
+    [TRAINER_CAMPER_MIKE] = {
+        .trainerClass = CLASS_CAMPER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_CAMPER_2,
+        .trainerName = _("Mike"),
+        .partySize = 2,
+        .party = sTrainerMons_CamperMike,
+    },
+    [TRAINER_LEADER_KARPMAN] = {
+        .trainerClass = CLASS_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_KARPMAN,
+        .trainerName = _("Karpman"),
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .partySize = 2,
+        .party = sTrainerMons_LeaderKarpman,
+    },
 };

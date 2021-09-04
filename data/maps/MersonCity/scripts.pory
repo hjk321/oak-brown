@@ -1,0 +1,107 @@
+const PLAYER_ID = OBJ_EVENT_ID_PLAYER
+const POLICEMAN_LEFT_ID = 5
+const POLICEMAN_RIGHT_ID = 6
+
+mapscripts MersonCity_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setflag(FLAG_REACHED_MERSON_CITY)
+    }
+}
+
+script MersonCity_DumbGuy {
+    lock
+    faceplayer
+    msgbox(format("Karpman owns the Merson City Gym, but he's really tough!\p"
+        "I just can't seem to beat that Vaporeon of his…\p"
+        "I mean, first I tried using my Slugma against it, but that didn't work…\p"
+        "So I went up to Merson Cave and caught a Geodude! But get this!\pThat didn't work either!\p"
+        "So I spent my savings on a rare, powerful Pokémon, a Quilava from Johto!\p"
+        "But Karpman just beat me again!\nArgh! What am I doing wrong?!"))
+    release
+}
+
+script MersonCity_BadTrainer {
+    lock
+    faceplayer
+    msgbox(format("Do you consider yourself a good trainer?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT)) {
+        msgbox(format("That's good. I'm not really a good trainer myself…"))
+    } else {
+        msgbox(format("Hm, I see. I'm a pretty bad trainer, too…"))
+    }
+    msgbox(format("So much so, actually, that they took away my Trainer Card.\p"
+        "And my Pokémon, too.\nHeh heh heh.\p"
+        "Heh heh… … …\p"
+        "sob"))
+    release
+}
+
+script MersonCity_CenterGuy {
+    lock
+    faceplayer
+    msgbox(format("This Pokémon center will heal your Pokémon, free of charge!\p"
+        "Convenient, no?\pNow, if only it was that easy to find a human doctor around here…"))
+    release
+}
+
+script MersonCity_Sign {
+    msgbox("Merson City\nThe Noble Little Town", MSGBOX_SIGN)
+}
+
+script MersonCity_SouthRijonSign {
+    msgbox("South Rijon Gate", MSGBOX_SIGN)
+}
+
+script MersonCity_GymSign {
+    msgbox("Merson City Gym\nKarpman awaits your challenge!", MSGBOX_SIGN)
+}
+
+text MersonCity_PoliceText {
+    format("Suspicious characters are about!\p"
+        "I'm very sorry, but we cannot let you pass.\p"
+        "Until we conclude our investigation, no one may leave the area!")
+}
+
+script MersonCity_Police {
+    lock
+    msgbox(MersonCity_PoliceText)
+    release
+}
+
+script MersonCity_PoliceTriggerLeft {
+    applymovement(POLICEMAN_LEFT_ID, Movement_FaceLeft)
+    textcolor(0)
+    msgbox(MersonCity_PoliceText)
+    closemessage
+    applymovement(PLAYER_ID, Movement_WalkDown)
+    applymovement(POLICEMAN_LEFT_ID, Movement_FaceDown)
+    waitmovement(PLAYER_ID)
+}
+
+script MersonCity_PoliceTriggerRight {
+    applymovement(POLICEMAN_RIGHT_ID, Movement_FaceRight)
+    textcolor(0)
+    msgbox(MersonCity_PoliceText)
+    closemessage
+    applymovement(PLAYER_ID, Movement_WalkDown)
+    applymovement(POLICEMAN_RIGHT_ID, Movement_FaceDown)
+    waitmovement(PLAYER_ID)
+}
+
+script MersonCity_Looker {
+    lock
+    faceplayer
+    if (flag(FLAG_MET_LOOKER_BEFORE_GYM)) {
+        msgbox(format("Y-You won't get any more information out of me!\p"
+            "I'll have you know, I was specially trained in the art of making small talk while undercover!\p"
+            "AHEM!\pGee Willikers, how about that weather today, huh?"))
+    } else {
+        setflag(FLAG_MET_LOOKER_BEFORE_GYM)
+        msgbox(format("Augh! My cover's been blown!\p"
+            "… … … …\p"
+            "Erm, I mean…\nGreetings, fellow traveller!\p"
+            "Yes, I am merely a tourist exploring the land of Rijon.\p"
+            "Any claims or evidence to the contrary should be disregarded!"))
+    }
+    release
+}

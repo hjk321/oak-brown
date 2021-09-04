@@ -1,0 +1,142 @@
+mapscripts MersonCity_FanClub_MapScripts {}
+
+script MersonCity_FanClub_Chairman {
+    lock
+    faceplayer
+    checkitem(ITEM_BIKE_VOUCHER, 1)
+    if (var(VAR_RESULT)) {
+        goto(MersonCity_FanClub_Chairman_EnjoyBike)
+    }
+    checkitem(ITEM_BICYCLE, 1)
+    if (var(VAR_RESULT)) {
+        goto(MersonCity_FanClub_Chairman_EnjoyBike)
+    }
+    // Give Bike Voucher
+    msgbox(format("Oh, hello! Our first visitor in quite some time!\p"
+        "I am the chairman of the Rijon Pokémon Fan Club!\p"
+        "I've collected over 100 types of rare and valuable Pokémon!\p"
+        "Tell me, would you happen to have a Pokémon with you?\p"
+        "… … … …!\nOh! You do!"))
+    getfirstpartymonname(0)
+    msgbox(format("A {STR_VAR_1}, I see!\nIt looks happy and healthy!\p"
+        "Actually, that reminds me of a story from my travels…\p"
+        "So there I was on the SS. Maria, sailing off to find new Pokémon, when a strange man approached me…\l"
+        "Then he told me… … …\lSo I decided to… … …\lAnd we ended up… … …\lThe hotel clerk said… … …\lThen I saw a wild… … …\l"
+        "Now back in those days… … …\lAnyway, the point is… … …\lShe decided not to… … …\lBut the soup was cold, so I… … …\l"
+        "A gentleman of my stature… … …\lNow, of course, the driver didn't… …\lThen, the next day at the park… … …"))
+    closemessage
+    fadescreenspeed(FADE_TO_BLACK, 64)
+    delay(64)
+    textcolor(3)
+    message("Two hours later… … …")
+    delay(128)
+    closemessage
+    textcolor(0)
+    fadescreenspeed(FADE_FROM_BLACK, 64)
+    msgbox(format("So I say to the Prime Minister, I don't know about any Obstagoon, but I sure bet his wife does!\p"
+        "Anyway, that's why I'm not allowed in the Galar Region anymore.\p"
+        "Oh, look at you, you've been listening so patiently.\p"
+        "Tell you what, as a thanks for visiting us, I want you to have this token of our appreciation!"))
+    textcolor(3)
+    additem(ITEM_BIKE_VOUCHER)
+    message(format("{PLAYER} received a Bike Voucher!"))
+    playfanfare(MUS_OBTAIN_KEY_ITEM)
+    waitmessage
+    waitfanfare
+    applymovement(VAR_LAST_TALKED, Movement_FaceDown)
+    waitmovement(0)
+    release
+}
+
+script MersonCity_FanClub_Chairman_EnjoyBike {
+    msgbox("Hello, {PLAYER}!\nEnjoying your new bike?")
+    applymovement(VAR_LAST_TALKED, Movement_FaceDown)
+    waitmovement(0)
+    release
+    end
+}
+
+script MersonCity_FanClub_PokeManiac_A {
+    lock
+    faceplayer
+    msgbox(format("It's so nice to find a club for people as crazy about Pokémon as I am!"))
+    applymovement(VAR_LAST_TALKED, Movement_FaceRight)
+    waitmovement(0)
+    release
+}
+
+script MersonCity_FanClub_PokeManiac_B {
+    lock
+    faceplayer
+    msgbox(format("Do you like my costume? I made it myself!\p"
+        "I take commissions, if you're interested…"))
+    applymovement(VAR_LAST_TALKED, Movement_FaceRight)
+    waitmovement(0)
+    release
+}
+
+script MersonCity_FanClub_Breeder {
+    lock
+    faceplayer
+    msgbox(format("Those people across the table are a little offputting.\p"
+        "They come to every meeting dressed like that…\p"
+        "But, we don't have a lot of members, so we put up with it."))
+    applymovement(VAR_LAST_TALKED, Movement_FaceLeft)
+    waitmovement(0)
+    release
+}
+
+script MersonCity_FanClub_PokeFan {
+    lock
+    faceplayer
+    msgbox(format("Our chairman likes to tell long, rambling stories about his travels.\p"
+        "He lets us look at his Pokémon collection afterwards, so it's worth it."))
+    applymovement(VAR_LAST_TALKED, Movement_FaceLeft)
+    waitmovement(0)
+    release
+}
+
+script MersonCity_FanClub_CleaningLady {
+    lock
+    faceplayer
+    msgbox(format("Hm?\nOh, no, I'm just the cleaning lady.\p"
+        "The chairman likes to keep all of his Pokémon out of Pokéballs…"))
+    msgbox("And not a single one is housebroken!\nI'm thinking of quitting.")
+    release
+}
+
+script MersonCity_FanClub_Nidoran {
+    lock
+    faceplayer
+    playmoncry(SPECIES_NIDORAN_F, 0)
+    msgbox(format("Nido?"))
+    applymovement(VAR_LAST_TALKED, Movement_FaceDown)
+    waitmovement(0)
+    release
+}
+
+script MersonCity_FanClub_Nidorino {
+    lock
+    faceplayer
+    playmoncry(SPECIES_NIDORINO, 0)
+    msgbox(format("Rin… NIDO!"))
+    applymovement(VAR_LAST_TALKED, Movement_FaceUp)
+    waitmovement(0)
+    release
+}
+
+script MersonCity_FanClub_Slowpoke {
+    lock
+    faceplayer
+    playmoncry(SPECIES_SLOWPOKE, 0)
+    msgbox(format("Slooowwww… … …"))
+    release
+}
+
+script MersonCity_FanClub_Machop {
+    lock
+    faceplayer
+    playmoncry(SPECIES_MACHOP, 0)
+    msgbox(format("Ma… Chop! Chop!"))
+    release
+}

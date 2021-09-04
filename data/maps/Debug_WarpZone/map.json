@@ -18,7 +18,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_TIM",
       "in_connection": false,
-      "x": 4,
+      "x": 1,
       "y": 9,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -30,9 +30,9 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_GYM_GUY",
+      "graphics_id": "OBJ_EVENT_GFX_KARPMAN",
       "in_connection": false,
-      "x": 7,
+      "x": 4,
       "y": 9,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",

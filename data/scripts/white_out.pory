@@ -4,11 +4,13 @@ EventScript_AfterWhiteOutHeal:: @ 81A8D97
 	textcolor 1
 	msgbox Text_FirstShouldRestoreMonsHealth
 	call EventScript_PkmnCenterNurse_TakeAndHealPkmn
-	call_if_unset FLAG_DEFEATED_BROCK, EventScript_AfterWhiteOutHealMsgPreBrock
-	call_if_set FLAG_DEFEATED_BROCK, EventScript_AfterWhiteOutHealMsg
+	call_if_unset FLAG_BADGE01_GET, EventScript_AfterWhiteOutHealMsgPreBrock
+	call_if_set FLAG_BADGE01_GET, EventScript_AfterWhiteOutHealMsg
 	applymovement VAR_LAST_TALKED, Movement_Bow
 	waitmovement 0
-	fadedefaultbgm
+	fadenewbgm MUS_NET_CENTER
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_FaceDown
+	waitmovement 0
 	forcerelease
 	end
 

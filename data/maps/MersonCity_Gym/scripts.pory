@@ -1,0 +1,96 @@
+mapscripts MersonCity_Gym_MapScripts {}
+
+script MersonCity_Gym_Guy {
+    lock
+    faceplayer
+
+    // Beaten Gym
+    if (flag(FLAG_BADGE01_GET)) {
+        msgbox(format("That battle was certainly something!\p"
+            "You'll go far, kid, I just know it!"))
+        release
+        end
+    }
+
+    msgbox(format("If you're looking for a challenge, you're in the right place!\p"
+        "Want some tips on our Gym Leader, Karpman?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT)) {
+        msgbox("All right!\nLet's get happening!")
+    } else {
+        msgbox("It's a free service!\nLet's get happening!")
+    }
+    msgbox(format("Karpman is a water type gym leader.\p"
+        "Since this is your first badge, he'll only be using two Pokémon.\p"
+        "Which is fortunate for you! Karpman is one tough trainer at full strength!\p"
+        "Anyway, your best bet is to use a Grass or Electric Pokémon.\p"
+        "You shouldn't have trouble catching one around Merson City.\p"
+        "Good luck!"))
+    release
+}
+
+script MersonCity_Gym_CamperMike {
+    trainerbattle_single(TRAINER_CAMPER_MIKE,
+        format("Stop right there! You're not worthy to face Karpman!"),
+        format("Washed up!"))
+    msgbox(format("Karpman knows all sorts of stuff about marine biology!\p"
+        "He teaches me sometimes, when he's not busy."), MSGBOX_AUTOCLOSE)
+}
+
+script MersonCity_Gym_Statue {
+    if (flag(FLAG_BADGE01_GET)) {
+        msgbox("Merson City Gym\pWinning Trainers:\nMura, {PLAYER}", MSGBOX_SIGN)
+    } else {
+        msgbox("Merson City Gym\pWinning Trainers:\nMura", MSGBOX_SIGN)
+    }
+}
+
+script MersonCity_Gym_Karpman {
+    lock
+    faceplayer
+
+    if (flag(FLAG_BADGE01_GET)) {
+        // Already Defeated
+        msgbox(format("That was an epic battle!\p"
+            "I just wish I could have fought you with my real Pokémon!\p"
+            "Hey, maybe sometime we can have a rematch, when you get stronger!\p"
+            "The next gym leader is Lily, who lives in Owsauri City.\p"
+            "Keep heading north and you'll end up there in no time!"))
+        release
+        end
+    }
+
+    msgbox(format("I'm Karpman! I train only water type Pokémon!\p"
+        "I can see the fiery determination in your eyes.\p"
+        "But fire is useless against my mighty water attacks!\p"
+        "Heh. You still won't back down, will you?\p"
+        "All right, but don't say I didn't warn you!"))
+    playbgm(MUS_ENCOUNTER_GYM_LEADER)
+    trainerbattle_single(TRAINER_LEADER_KARPMAN, "May the best trainer win!\nHere we go!",
+        "Darn it all!\nYou managed to do it somehow!", MersonCity_Gym_KarpmanPostBattle, NO_MUSIC)
+}
+
+script MersonCity_Gym_KarpmanPostBattle {
+    setflag(FLAG_BADGE01_GET)
+    setvar(VAR_MAP_SCENE_MERSON_CITY, 1)
+    msgbox(format("As proof of your victory, I present you the Marine Badge!"))
+    playfanfare(MUS_OBTAIN_BADGE)
+    textcolor(3)
+    message("{PLAYER} obtained the\nMarine Badge!")
+    waitmessage
+    waitfanfare
+    waitbuttonpress
+    textcolor(0)
+    msgbox(format("Karpman: That's an official Pokémon League Gym Badge!\p"
+        "Its bearer's Pokémon become more powerful!\p"
+        "Wait!\nTake this as well!"))
+    textcolor(3)
+    additem(ITEM_TM94_OCTAZOOKA)
+    playfanfare(MUS_OBTAIN_TMHM)
+    message("{PLAYER} obtained\nTM94 Octazooka!")
+    waitmessage
+    waitfanfare
+    waitbuttonpress
+    textcolor(0)
+    msgbox(format("Karpman: TM94 contains Octazooka!\p"
+        "It's a water move that can lower the accuracy of your foe!"), MSGBOX_AUTOCLOSE)
+}

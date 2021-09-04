@@ -1,0 +1,33 @@
+mapscripts MersonCity_House_MapScripts {}
+
+script MersonCity_House_Woman {
+    lock
+    faceplayer
+    msgbox(format("I used to volunteer at a hostel in Kanto for orphan Pokémon.\p"
+        "When I moved here, I couldn't help but bring some of the poor souls with me!"))
+    release
+}
+
+script MersonCity_House_Cubone_A {
+    lock
+    faceplayer
+    playmoncry(SPECIES_CUBONE, 0)
+    msgbox("Cuu?")
+    release
+}
+
+script MersonCity_House_Cubone_B {
+    lock
+    faceplayer
+    playmoncry(SPECIES_CUBONE, 0)
+    msgbox("Kwaa! Kwaaha!")
+    release
+}
+
+script MersonCity_House_Cubone_C {
+    lock
+    faceplayer
+    playmoncry(SPECIES_CUBONE, 0)
+    msgbox("… … … ?")
+    release
+}

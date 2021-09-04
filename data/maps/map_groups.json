@@ -6,7 +6,8 @@
     "gMapGroup_Routes",
     "gMapGroup_Dungeons",
     "gMapGroup_Indoor",
-    "gMapGroup_PokeCenterMart"
+    "gMapGroup_PokeCenterMart",
+    "gMapGroup_Gyms"
   ],
   "gMapGroup_Debug": [
     "Debug_Placeholder",
@@ -34,10 +35,16 @@
     "SeashoreCity_PlayersHouse_1F",
     "SeashoreCity_MurasHouse",
     "GravelTown_House",
-    "GravelTown_TimsLab"
+    "GravelTown_TimsLab",
+    "MersonCity_House",
+    "MersonCity_FanClub"
   ],
   "gMapGroup_PokeCenterMart": [
     "GravelTown_PokeMart",
-    "MersonCity_PokeCenter"
+    "MersonCity_PokeCenter",
+    "MersonCity_PokeMart"
+  ],
+  "gMapGroup_Gyms": [
+    "MersonCity_Gym"
   ]
 }

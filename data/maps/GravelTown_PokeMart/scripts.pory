@@ -28,7 +28,7 @@ script GravelTown_PokeMart_BikerClerk {
         message("Hey, man!\nWhatchu gonna buy?")
         waitmessage
         setflag(FLAG_SYS_BIKER_MART)
-        call(StandardPokemart)
+        call(Mart_StandardShop)
         clearflag(FLAG_SYS_BIKER_MART)
         msgbox("Aight, that's cool.\nSee ya around.")
     } else {

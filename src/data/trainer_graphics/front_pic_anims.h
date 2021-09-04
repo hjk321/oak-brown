@@ -913,4 +913,5 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     sAnims_DummyFrontPic,
     sAnims_DummyFrontPic,
     sAnims_DummyFrontPic,
+    sAnims_DummyFrontPic,
 };

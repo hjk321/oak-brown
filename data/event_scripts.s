@@ -619,4 +619,11 @@ Text_TestMsg:: @ 81ACD45
 	.include "data/maps/SouthRijonGate/scripts.inc"
 
 	.include "data/maps/MersonCity_PokeCenter/scripts.inc"
-	.include "data/maps/MersonCity_PokeCenter/text.inc"
+
+	.include "data/maps/MersonCity_PokeMart/scripts.inc"
+
+	.include "data/maps/MersonCity_House/scripts.inc"
+
+	.include "data/maps/MersonCity_FanClub/scripts.inc"
+
+	.include "data/maps/MersonCity_Gym/scripts.inc"

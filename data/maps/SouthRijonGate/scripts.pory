@@ -1,0 +1,30 @@
+mapscripts SouthRijonGate_MapScripts {}
+
+script SouthRijonGate_LeadBiker {
+    lock
+    faceplayer
+    msgbox(format("If I were you, kid, I wouldn't stick around here…"))
+    release
+}
+
+script SouthRijonGate_Biker {
+    lock
+    faceplayer
+    msgbox("Stay out of our way, punk!")
+    release
+}
+
+script SouthRijonGate_Cueball_A {
+    lock
+    faceplayer
+    msgbox("This is the South Rijon Gate.\p"
+        "But we ain't letting anyone through!\nHeheheh…")
+    release
+}
+
+script SouthRijonGate_Cueball_B {
+    lock
+    faceplayer
+    msgbox(format("… … … …\pLeave."))
+    release
+}

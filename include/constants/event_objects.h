@@ -205,8 +205,9 @@
 #define OBJ_EVENT_GFX_POKEMON_BREEDER_F 201
 #define OBJ_EVENT_GFX_SAILOR_2 202
 #define OBJ_EVENT_GFX_WOMAN_4 203
+#define OBJ_EVENT_GFX_KARPMAN 204
 
-#define NUM_OBJ_EVENT_GFX     204
+#define NUM_OBJ_EVENT_GFX     205
 
 // These are dynamic object gfx ids.
 // They correspond with the values of the VAR_OBJ_GFX_ID_X vars.

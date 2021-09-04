@@ -1,0 +1,46 @@
+mapscripts MersonCity_PokeMart_MapScripts {}
+
+script MersonCity_PokeMart_Clerk {
+    call(Mart_CheckAcrossCounter)
+    textcolor(2)
+    message(format("Welcome to the Merson City Pokémart."))
+    waitmessage
+    call(Mart_StandardShop)
+    msgbox(Mart_ThanksForShopping)
+    release
+}
+
+script MersonCity_PokeMart_SpecialClerk {
+    textcolor(2)
+    message(format("Welcome to the Merson City Pokémart's specialty counter."))
+    waitmessage
+    pokemart(MersonCityMart)
+    msgbox(Mart_ThanksForShopping)
+    release
+}
+
+mart MersonCityMart {
+    ITEM_WATER_STONE
+    ITEM_FRESH_WATER
+    ITEM_TROPIC_MAIL
+    ITEM_WAVE_MAIL
+}
+
+script MersonCity_PokeMart_FatMan {
+    lock
+    faceplayer
+    msgbox(format("Know where I can buy actual food for myself?"))
+    release
+}
+
+script MersonCity_PokeMart_AceTrainer {
+    lock
+    faceplayer
+    msgbox(format("There are two clerks in each Pokémart.\p"
+        "The red clerk sells standard goods. Potions, Pokéballs, you know.\p"
+        "What you can buy there depends on how many badges you have.\p"
+        "But the blue clerk runs the so-called specialty counter.\p"
+        "Each town's offerings will be slightly different there.\p"
+        "But, you don't need any badges to purchase those items."))
+    release
+}

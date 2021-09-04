@@ -94,7 +94,7 @@ static const u8 sTextColorTable[] =
     [OBJ_EVENT_GFX_SWIMMER_F_2_WATER / 2]       = 0x01, // OBJ_EVENT_GFX_COLLECTOR
     [OBJ_EVENT_GFX_GENTLEMAN_2 / 2]             = 0x00, // OBJ_EVENT_GFX_CAMPER_2
     [OBJ_EVENT_GFX_PICNICKER_2 / 2]             = 0x01, // OBJ_EVENT_GFX_GUITARIST
-    [OBJ_EVENT_GFX_RANGER_M / 2]                = 0x01, // OBJ_EVENT_GFX_RANGER_F
+    [OBJ_EVENT_GFX_RANGER_M / 2]                = 0x10, // OBJ_EVENT_GFX_RANGER_F
     [OBJ_EVENT_GFX_FISHER_2 / 2]                = 0x00, // OBJ_EVENT_GFX_WORKER_M_2
     [OBJ_EVENT_GFX_POKEFAN_M / 2]               = 0x00, // OBJ_EVENT_GFX_PAINTER
     [OBJ_EVENT_GFX_BIKER_DISMOUNTED / 2]        = 0x00, // OBJ_EVENT_GFX_BIRD_KEEPER
@@ -108,7 +108,8 @@ static const u8 sTextColorTable[] =
     [OBJ_EVENT_GFX_LASS_3 / 2]                  = 0x01, // OBJ_EVENT_GFX_LITTLE_BOY_2
     [OBJ_EVENT_GFX_LITTLE_GIRL_2 / 2]           = 0x01, // OBJ_EVENT_GFX_OLD_MAN_3
     [OBJ_EVENT_GFX_OLD_WOMAN_2 / 2]             = 0x11, // OBJ_EVENT_GFX_POKEMON_BREEDER_F
-    [OBJ_EVENT_GFX_SAILOR_2 / 2]                = 0x01, // OBJ_EVENT_GFX_WOMAN_4
+    [OBJ_EVENT_GFX_SAILOR_2 / 2]                = 0x10, // OBJ_EVENT_GFX_WOMAN_4
+    [OBJ_EVENT_GFX_KARPMAN / 2]                 = 0x00, // ?????
 };
 
 void DynamicPlaceholderTextUtil_Reset(void)

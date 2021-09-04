@@ -86,16 +86,16 @@
       "blockdata_filepath": "data/layouts/GravelTown_House/map.bin"
     },
     {
-      "id": "LAYOUT_GRAVEL_TOWN_POKE_MART",
-      "name": "GravelTown_PokeMart_Layout",
+      "id": "LAYOUT_POKE_MART",
+      "name": "PokeMart_Layout",
       "width": 8,
       "height": 11,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_Mart",
-      "border_filepath": "data/layouts/GravelTown_PokeMart/border.bin",
-      "blockdata_filepath": "data/layouts/GravelTown_PokeMart/map.bin"
+      "border_filepath": "data/layouts/PokeMart/border.bin",
+      "blockdata_filepath": "data/layouts/PokeMart/map.bin"
     },
     {
       "id": "LAYOUT_GRAVEL_TOWN_TIMS_LAB",
@@ -240,6 +240,42 @@
       "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/PokeCenter/border.bin",
       "blockdata_filepath": "data/layouts/PokeCenter/map.bin"
+    },
+    {
+      "id": "LAYOUT_MERSON_CITY_HOUSE",
+      "name": "MersonCity_House_Layout",
+      "width": 9,
+      "height": 8,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding2",
+      "border_filepath": "data/layouts/MersonCity_House/border.bin",
+      "blockdata_filepath": "data/layouts/MersonCity_House/map.bin"
+    },
+    {
+      "id": "LAYOUT_MERSON_CITY_FAN_CLUB",
+      "name": "MersonCity_FanClub_Layout",
+      "width": 11,
+      "height": 17,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_FanClubDaycare",
+      "border_filepath": "data/layouts/MersonCity_FanClub/border.bin",
+      "blockdata_filepath": "data/layouts/MersonCity_FanClub/map.bin"
+    },
+    {
+      "id": "LAYOUT_MERSON_CITY_GYM",
+      "name": "MersonCity_Gym_Layout",
+      "width": 9,
+      "height": 16,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_CeruleanGym",
+      "border_filepath": "data/layouts/MersonCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/MersonCity_Gym/map.bin"
     }
   ]
 }

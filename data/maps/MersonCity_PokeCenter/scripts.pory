@@ -1,0 +1,27 @@
+mapscripts MersonCity_PokeCenter_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setrespawn(SPAWN_MERSON_CITY)
+    }
+}
+
+script MersonCity_PokeCenter_Gentleman {
+    lock
+    faceplayer
+    msgbox(format("Service here is always quick and speedy!"))
+    release
+}
+
+script MersonCity_PokeCenter_Man {
+    lock
+    faceplayer
+    msgbox(format("I wonder, could running a Pokémon center potentially be profitable?"))
+    release
+}
+
+script MersonCity_PokeCenter_LittleGirl {
+    lock
+    faceplayer
+    msgbox(format("This Pokécenter isn't just a place of healing.\p"
+        "Pokémon also get a chance to relax and interact with other Pokémon!"))
+    release
+}

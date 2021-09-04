@@ -6,11 +6,11 @@ EventScript_PkmnCenterNurse:: @ 81A65B8
 	waitmessage
 	call EventScript_PkmnCenterNurse_TakeAndHealPkmn
 	special SetUsedPkmnCenterQuestLogEvent
-	goto EventScript_PkmnCenterNurse_ReturnPkmn
+	call EventScript_PkmnCenterNurse_ReturnPkmn
 	closemessage
 	release
-  applymovement OBJ_EVENT_ID_PLAYER, Movement_FaceDown
-  waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_FaceDown
+	waitmovement 0
 	end
 
 EventScript_PkmnCenterNurse_TakeAndHealPkmn:: @ 81A65CE
@@ -26,7 +26,6 @@ EventScript_PkmnCenterNurse_TakeAndHealPkmn:: @ 81A65CE
 EventScript_PkmnCenterNurse_ReturnPkmn:: @ 81A661D
 	applymovement VAR_LAST_TALKED, Movement_Bow
 	waitmovement 0
-	msgbox Text_WeHopeToSeeYouAgain
 	return
 
 EventScript_PkmnCenterNurse_PlayerWaitingInUionRoom:: @ 81A6636

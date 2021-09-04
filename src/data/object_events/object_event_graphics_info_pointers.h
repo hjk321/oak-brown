@@ -359,4 +359,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_POKEMON_BREEDER_F]        = &gObjectEventGraphicsInfo_pokemon_breeder_f,
     [OBJ_EVENT_GFX_SAILOR_2]                 = &gObjectEventGraphicsInfo_sailor_2,
     [OBJ_EVENT_GFX_WOMAN_4]                  = &gObjectEventGraphicsInfo_woman_4,
+    [OBJ_EVENT_GFX_KARPMAN]                  = &gObjectEventGraphicsInfo_Karpman,
 };
