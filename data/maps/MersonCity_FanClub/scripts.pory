@@ -33,7 +33,7 @@ script MersonCity_FanClub_Chairman {
     closemessage
     textcolor(0)
     fadescreenspeed(FADE_FROM_BLACK, 64)
-    msgbox(format("So I say to the Prime Minister, I don't know about any Obstagoon, but I sure bet his wife does!\p"
+    msgbox(format("So I say to the Prime Minister, I don't know where the Obstagoon went, but I bet his wife did!\p"
         "Anyway, that's why I'm not allowed in the Galar Region anymore.\p"
         "Oh, look at you, you've been listening so patiently.\p"
         "Tell you what, as a thanks for visiting us, I want you to have this token of our appreciation!"))

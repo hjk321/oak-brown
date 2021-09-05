@@ -1,11 +1,46 @@
 const PLAYER_ID = OBJ_EVENT_ID_PLAYER
+const CAMERA_ID = OBJ_EVENT_ID_CAMERA
+const LOOKER_ID = 2
 const POLICEMAN_LEFT_ID = 5
 const POLICEMAN_RIGHT_ID = 6
+const SCAREDWOMAN_ID = 7
+
+const TEMPFLAG_HIDE_LOOKER = FLAG_TEMP_A
+const TEMPFLAG_HIDE_DUMBGUY = FLAG_TEMP_B
+const TEMPFLAG_HIDE_BADTRAINER = FLAG_TEMP_C
+const TEMPFLAG_HIDE_CENTERGUY = FLAG_TEMP_D
+const TEMPFLAG_HIDE_SCAREDWOMAN = FLAG_TEMP_E
 
 mapscripts MersonCity_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setflag(FLAG_REACHED_MERSON_CITY)
+        if (var(VAR_MAP_SCENE_MERSON_CITY) == 0) {
+            // Before Beaten Gym
+            setflag(TEMPFLAG_HIDE_SCAREDWOMAN)
+        } elif (var(VAR_MAP_SCENE_MERSON_CITY) == 1) {
+            // Setup Hostage Sidequest
+            setflag(TEMPFLAG_HIDE_DUMBGUY)
+            setflag(TEMPFLAG_HIDE_BADTRAINER)
+            setflag(TEMPFLAG_HIDE_CENTERGUY)
+        } elif (var(VAR_MAP_SCENE_MERSON_CITY) == 2) {
+            // Sidequest In Progress
+            setflag(TEMPFLAG_HIDE_DUMBGUY)
+            setflag(TEMPFLAG_HIDE_BADTRAINER)
+            setflag(TEMPFLAG_HIDE_CENTERGUY)
+            setflag(TEMPFLAG_HIDE_SCAREDWOMAN)
+            savebgm(MUS_EVIL)
+        } elif (var(VAR_MAP_SCENE_MERSON_CITY) == 3) {
+            // Post Sidequest
+            setflag(TEMPFLAG_HIDE_LOOKER)
+            setflag(TEMPFLAG_HIDE_SCAREDWOMAN)
+        }
     }
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
+        VAR_MAP_SCENE_MERSON_CITY, 1: MersonCity_LookerFaceRight
+    ]
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_MAP_SCENE_MERSON_CITY, 1: MersonCity_MeetLooker
+    ]
 }
 
 script MersonCity_DumbGuy {
@@ -42,6 +77,16 @@ script MersonCity_CenterGuy {
     msgbox(format("This Pokémon center will heal your Pokémon, free of charge!\p"
         "Convenient, no?\pNow, if only it was that easy to find a human doctor around here…"))
     release
+}
+
+script MersonCity_Ledge {
+    playse(SE_LEDGE)
+    applymovement(PLAYER_ID, MersonCity_LedgeDown)
+    waitmovement(PLAYER_ID)
+}
+
+movement MersonCity_LedgeDown {
+    jump_2_down
 }
 
 script MersonCity_Sign {
@@ -91,6 +136,13 @@ script MersonCity_PoliceTriggerRight {
 script MersonCity_Looker {
     lock
     faceplayer
+
+    if (var(VAR_MAP_SCENE_MERSON_CITY) > 0) {
+        msgbox(format("I'll wait here for backup!\nGet going!"))
+        release
+        end
+    }
+
     if (flag(FLAG_MET_LOOKER_BEFORE_GYM)) {
         msgbox(format("Y-You won't get any more information out of me!\p"
             "I'll have you know, I was specially trained in the art of making small talk while undercover!\p"
@@ -103,5 +155,162 @@ script MersonCity_Looker {
             "Yes, I am merely a tourist exploring the land of Rijon.\p"
             "Any claims or evidence to the contrary should be disregarded!"))
     }
+    release
+}
+
+script MersonCity_LookerFaceRight {
+    turnobject(LOOKER_ID, DIR_EAST)
+}
+
+script MersonCity_MeetLooker {
+    lockforce
+    setvar(VAR_MAP_SCENE_MERSON_CITY, 2)
+    setrespawn(SPAWN_MERSON_CITY)
+    delay(8)
+    fadeoutbgm(2)
+    applymovement(PLAYER_ID, Movement_FaceRight)
+    special(SpawnCameraObject)
+    applymovement(CAMERA_ID, MersonCity_CameraRight)
+    waitmovement(0)
+    delay(32)
+    playbgm(MUS_TROUBLE)
+    textcolor(1)
+    msgbox(format("Oh, it's terrible, terrible!\p"
+        "Those thugs have taken over the entire building!\p"
+        "Please, you have to do something!"))
+    closemessage
+    applymovement(CAMERA_ID, Movement_WalkLeft)
+    waitmovement(0)
+    textcolor(0)
+    msgbox(format("Concentrate, ma'am. How many did you see? What did they look like?"))
+    closemessage
+    applymovement(CAMERA_ID, Movement_WalkRight)
+    waitmovement(0)
+    textcolor(1)
+    msgbox(format("There's four of them! Two of them are on motorcycles…\p"
+        "They're all guarding the entrance like they own the place!"))
+    closemessage
+    applymovement(CAMERA_ID, Movement_WalkLeft)
+    waitmovement(0)
+    textcolor(0)
+    msgbox(format("I see. We've had our eye on them already.\p"
+        "All right. We'll deal with the situation immediately!"))
+    closemessage
+    applymovement(CAMERA_ID, Movement_WalkRight)
+    waitmovement(0)
+    textcolor(1)
+    msgbox(format("Oh, please hurry! I don't know what they intend to do!\p"
+        "Just thinking about it makes me…!\nOh, it makes me so… … …!"))
+    closemessage
+    delay(24)
+    applymovement(SCAREDWOMAN_ID, MersonCity_ScaredWomanExit)
+    waitmovement(SCAREDWOMAN_ID)
+    removeobject(SCAREDWOMAN_ID)
+    setflag(TEMPFLAG_HIDE_SCAREDWOMAN)
+    delay(16)
+    textcolor(0)
+    applymovement(CAMERA_ID, MersonCity_CameraLeft)
+    fadeoutbgm(2)
+    special(RemoveCameraObject)
+    applymovement(LOOKER_ID, Movement_FaceLeft)
+    waitmovement(0)
+    playse(SE_PIN)
+    applymovement(LOOKER_ID, Movement_ExclamationMark)
+    waitmovement(0)
+    delay(16)
+    playbgm(MUS_LOOKER)
+    msgbox(format("You, there!\nCome here for a moment!"))
+    closemessage
+    applymovement(PLAYER_ID, MersonCity_WalkToLooker)
+    waitmovement(PLAYER_ID)
+    msgbox(format("You just came out of the Merson City Gym?\p"
+        "Ah, you must be a Pokémon Trainer! I hereby commandeer your services for the greater good!\p"
+        "… … … Oh, I don't think I've properly introduced myself!"))
+    if (flag(FLAG_MET_LOOKER_BEFORE_GYM)) {
+        msgbox(format("I am, in fact, NOT a tourist exploring the land of Rijon!\p"
+            "I am actually a special agent for the International Police!\p"
+            "My name is… Ah, no, my codename will suffice. My codename is Looker!\p"
+            "I apologize for the deception, but one can never be too careful!"))
+    } else {
+        msgbox(format("I am an undercover special agent for the International Police!\p"
+            "My name is… Ah, no, my codename will suffice. My codename is Looker!\p"
+            "I've been investigating disturbances in the area, in case something were to happen!"))
+    }
+    msgbox(format("I'm sure this must be very overwhelming to a civilian such as yourself!\p"
+        "But fate is no respecter of persons!\p"
+        "I'm afraid we'll be requiring your assistance in this emergency situation!\p"
+        "South of Merson City is the gate to South Rijon!\p"
+        "They handle administrative affairs such as Trainer Registration.\p"
+        "But it seems a group of thugs from South Rijon are holding its workers hostage!\p"
+        "Time is of the utmost importance, lest they do something even more reckless!\p"
+        "I'm sorry to put you in this situation, but there's no time to find anyone else!\p"
+        "Please, head to the South Rijon Gate and put a stop to this madness!\p"
+        "I'll be right behind you, as soon as I call for backup!"))
+    setflag(FLAG_DONT_TRANSITION_MUSIC)
+    fadenewbgm(MUS_EVIL)
+    releaseforce
+}
+
+movement MersonCity_CameraRight {
+    walk_right * 4
+    walk_down * 2
+}
+
+movement MersonCity_CameraLeft {
+    walk_up * 2
+    walk_left * 4
+}
+
+movement MersonCity_ScaredWomanExit {
+    walk_fast_right * 6
+    delay_16
+    face_up
+    delay_8
+    face_left
+    delay_16
+    face_right
+    delay_8
+    face_down
+    delay_16 * 2
+    walk_fast_down * 6
+}
+
+movement MersonCity_WalkToLooker {
+    walk_down * 2
+    walk_right * 2
+}
+
+script MersonCity_LockedTight {
+    applymovement(PLAYER_ID, Movement_FaceUp)
+    msgbox(format("The door's locked tight…"))
+    closemessage
+    applymovement(PLAYER_ID, Movement_WalkDown)
+    waitmovement(0)
+}
+
+text MersonCity_LookerWhereGoing {
+    format("Looker: W-Where are you going?!\nLives are at stake!")
+}
+
+script MersonCity_LookerStopLeaveWest {
+    lockall
+    applymovement(LOOKER_ID, Movement_FaceLeft)
+    textcolor(0)
+    msgbox(MersonCity_LookerWhereGoing, MSGBOX_NPC)
+    closemessage
+    applymovement(PLAYER_ID, Movement_WalkRight)
+    waitmovement(PLAYER_ID)
+    release
+}
+
+script MersonCity_LookerStopEnterGym {
+    lockall
+    applymovement(PLAYER_ID, Movement_FaceUp)
+    applymovement(LOOKER_ID, Movement_FaceLeft)
+    textcolor(0)
+    msgbox(MersonCity_LookerWhereGoing, MSGBOX_NPC)
+    closemessage
+    applymovement(PLAYER_ID, Movement_WalkDown)
+    waitmovement(PLAYER_ID)
     release
 }

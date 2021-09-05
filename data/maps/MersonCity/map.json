@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MersonCity_DumbGuy",
-      "flag": "0"
+      "flag": "FLAG_TEMP_B"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LOOKER",
@@ -52,7 +52,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MersonCity_Looker",
-      "flag": "0"
+      "flag": "FLAG_TEMP_A"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_2",
@@ -66,7 +66,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MersonCity_BadTrainer",
-      "flag": "0"
+      "flag": "FLAG_TEMP_C"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_RANGER_M",
@@ -80,7 +80,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MersonCity_CenterGuy",
-      "flag": "0"
+      "flag": "FLAG_TEMP_D"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
@@ -109,6 +109,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MersonCity_Police",
       "flag": "FLAG_BADGE01_GET"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
+      "in_connection": false,
+      "x": 9,
+      "y": 14,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_E"
     }
   ],
   "warp_events": [
@@ -184,6 +198,186 @@
       "var": "VAR_MAP_SCENE_MERSON_CITY",
       "var_value": "0",
       "script": "MersonCity_PoliceTriggerRight"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_MERSON_CITY",
+      "var_value": "2",
+      "script": "MersonCity_LookerStopLeaveWest"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_MERSON_CITY",
+      "var_value": "2",
+      "script": "MersonCity_LookerStopLeaveWest"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_MERSON_CITY",
+      "var_value": "2",
+      "script": "MersonCity_LookerStopLeaveWest"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_MERSON_CITY",
+      "var_value": "2",
+      "script": "MersonCity_LookerStopLeaveWest"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_MERSON_CITY",
+      "var_value": "2",
+      "script": "MersonCity_LookerStopLeaveWest"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_MERSON_CITY",
+      "var_value": "2",
+      "script": "MersonCity_LookerStopLeaveWest"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_MERSON_CITY",
+      "var_value": "2",
+      "script": "MersonCity_LookerStopLeaveWest"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_TEMP_F",
+      "var_value": "0",
+      "script": "MersonCity_Ledge"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_MERSON_CITY",
+      "var_value": "2",
+      "script": "MersonCity_LookerStopEnterGym"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 32,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_MERSON_CITY",
+      "var_value": "2",
+      "script": "MersonCity_LockedTight"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 30,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_MERSON_CITY",
+      "var_value": "2",
+      "script": "MersonCity_LockedTight"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_MERSON_CITY",
+      "var_value": "2",
+      "script": "MersonCity_LookerStopLeaveNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_MERSON_CITY",
+      "var_value": "2",
+      "script": "MersonCity_LookerStopLeaveNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_MERSON_CITY",
+      "var_value": "2",
+      "script": "MersonCity_LookerStopLeaveNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_MERSON_CITY",
+      "var_value": "2",
+      "script": "MersonCity_LookerStopLeaveNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_MERSON_CITY",
+      "var_value": "2",
+      "script": "MersonCity_LookerStopLeaveNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_MERSON_CITY",
+      "var_value": "2",
+      "script": "MersonCity_LookerStopLeaveNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_MERSON_CITY",
+      "var_value": "2",
+      "script": "MersonCity_LookerStopLeaveNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_MERSON_CITY",
+      "var_value": "2",
+      "script": "MersonCity_LookerStopLeaveNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_MERSON_CITY",
+      "var_value": "2",
+      "script": "MersonCity_LookerStopLeaveNorth"
     }
   ],
   "bg_events": [
