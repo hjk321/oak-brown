@@ -246,8 +246,9 @@ script MersonCity_MeetLooker {
         "I'm sorry to put you in this situation, but there's no time to find anyone else!\p"
         "Please, head to the South Rijon Gate and put a stop to this madness!\p"
         "I'll be right behind you, as soon as I call for backup!"))
-    setflag(FLAG_DONT_TRANSITION_MUSIC)
+    setflag(FLAG_SYS_DONT_TRANSITION_MUSIC)
     fadenewbgm(MUS_EVIL)
+    savebgm(MUS_EVIL)
     releaseforce
 }
 
@@ -299,6 +300,17 @@ script MersonCity_LookerStopLeaveWest {
     msgbox(MersonCity_LookerWhereGoing, MSGBOX_NPC)
     closemessage
     applymovement(PLAYER_ID, Movement_WalkRight)
+    waitmovement(PLAYER_ID)
+    release
+}
+
+script MersonCity_LookerStopLeaveNorth {
+    lockall
+    applymovement(LOOKER_ID, Movement_FaceRight)
+    textcolor(0)
+    msgbox(MersonCity_LookerWhereGoing, MSGBOX_NPC)
+    closemessage
+    applymovement(PLAYER_ID, Movement_WalkDown)
     waitmovement(PLAYER_ID)
     release
 }

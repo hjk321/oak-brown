@@ -158,7 +158,7 @@ script Route53_MeetTim_SequenceBreak {
 script Route53_MeetTim_Main {
     msgbox(format("I've been waiting for you to get here!\pPlease come with me!"))
     closemessage
-    setflag(FLAG_DONT_TRANSITION_MUSIC)
+    setflag(FLAG_SYS_DONT_TRANSITION_MUSIC)
     switch(var(VAR_TEMP_0)) {
         case 1:
             applymovement(TIM_ID, Movement_TimWalkToLab1)

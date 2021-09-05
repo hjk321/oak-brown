@@ -1374,7 +1374,7 @@
 #define FLAG_SYS_POKEMON_GET                                        (SYS_FLAGS + 0x28)
 #define FLAG_SYS_POKEDEX_GET                                        (SYS_FLAGS + 0x29)
 #define FLAG_SYS_QUEST_MENU_GET                                     (SYS_FLAGS + 0x2A)
-#define FLAG_0x82B                                                  (SYS_FLAGS + 0x2B)
+#define FLAG_SYS_DONT_TRANSITION_MUSIC                              (SYS_FLAGS + 0x2B)
 #define FLAG_SYS_GAME_CLEAR                                         (SYS_FLAGS + 0x2C)
 #define FLAG_SYS_SET_TRAINER_CARD_PROFILE                           (SYS_FLAGS + 0x2D)
 #define FLAG_0x82E                                                  (SYS_FLAGS + 0x2E)
@@ -1529,7 +1529,7 @@
 #define SPECIAL_FLAGS_START 0x4000
 #define SPECIAL_FLAGS_COUNT 16
 #define FLAG_DONT_SHOW_MAP_NAME_POPUP    0x4000
-#define FLAG_DONT_TRANSITION_MUSIC    0x4001
+#define FLAG_SPECIAL_FLAG_0x4001    0x4001
 #define FLAG_SPECIAL_FLAG_0x4002    0x4002
 #define FLAG_SPECIAL_FLAG_0x4003    0x4003
 #define FLAG_SPECIAL_FLAG_0x4004    0x4004

@@ -1069,7 +1069,7 @@ static void Overworld_TryMapConnectionMusicTransition(void)
         return;
     }
 
-    if (FlagGet(FLAG_DONT_TRANSITION_MUSIC) != TRUE)
+    if (FlagGet(FLAG_SYS_DONT_TRANSITION_MUSIC) != TRUE)
     {
         newMusic = GetWarpDestinationMusic();
         currentMusic = GetCurrentMapMusic();
@@ -1113,7 +1113,7 @@ static u8 GetMapMusicFadeoutSpeed(void)
 void TryFadeOutOldMapMusic(void)
 {
     u16 warpMusic = GetWarpDestinationMusic();
-    if (FlagGet(FLAG_DONT_TRANSITION_MUSIC) != TRUE && warpMusic != GetCurrentMapMusic())
+    if (FlagGet(FLAG_SYS_DONT_TRANSITION_MUSIC) != TRUE && warpMusic != GetCurrentMapMusic())
     {
         FadeOutMapMusic(GetMapMusicFadeoutSpeed());
     }

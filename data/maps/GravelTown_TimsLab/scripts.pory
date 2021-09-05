@@ -43,7 +43,7 @@ script GravelTown_TimsLab_StartChooseStarterScene {
     applymovement(MURA_ID, Movement_FaceDown)
     waitmovement(PLAYER_ID)
     applymovement(MURA_ID, Movement_FaceRight)
-    clearflag(FLAG_DONT_TRANSITION_MUSIC)
+    clearflag(FLAG_SYS_DONT_TRANSITION_MUSIC)
     fadedefaultbgm
     savebgm(MUS_OAK_LAB)
     delay(24)
