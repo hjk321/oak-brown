@@ -8,6 +8,7 @@
 // Map Group 0
 #define MAP_DEBUG_PLACEHOLDER (0 | (0 << 8))
 #define MAP_DEBUG_WARP_ZONE   (1 | (0 << 8))
+#define MAP_DEBUG_STORY_ZONE  (2 | (0 << 8))
 
 // Map Group 1
 #define MAP_SEASHORE_CITY (0 | (1 << 8))

@@ -1465,7 +1465,7 @@
 #define FLAG_OAKS_RATING_IS_VIA_PC                                  (SYS_FLAGS + 0xC4)
 #define FLAG_OAK_SAW_DEX_COMPLETION                                 (SYS_FLAGS + 0xC5)
 #define FLAG_MURAS_CHARMANDER_MALE                                  (SYS_FLAGS + 0xC6)
-#define FLAG_0x8C7                                                  (SYS_FLAGS + 0xC7)
+#define FLAG_SYS_DEBUG                                              (SYS_FLAGS + 0xC7)
 #define FLAG_0x8C8                                                  (SYS_FLAGS + 0xC8)
 #define FLAG_0x8C9                                                  (SYS_FLAGS + 0xC9)
 #define FLAG_0x8CA                                                  (SYS_FLAGS + 0xCA)

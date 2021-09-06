@@ -1687,6 +1687,9 @@ static void FieldCB_ShowMapNameOnContinue(void)
 
 void CB2_ContinueSavedGame(void)
 {
+#if DEBUG
+    FlagSet(FLAG_SYS_DEBUG);
+#endif
     FieldClearVBlankHBlankCallbacks();
     StopMapMusic();
     ResetSafariZoneFlag_();

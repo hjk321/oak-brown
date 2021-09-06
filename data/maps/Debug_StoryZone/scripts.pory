@@ -1,0 +1,71 @@
+mapscripts Debug_StoryZone_MapScripts {}
+
+script Debug_StoryZone_WarpIn {
+    if (!flag(FLAG_PROLOGUE)) {
+        msgbox(format("The Story Zone is only available during the game's prologue."), MSGBOX_NPC)
+        end
+    }
+    warp(MAP_DEBUG_STORY_ZONE, 0xFF, 4, 13)
+    waitstate
+}
+
+script Debug_StoryZone_Gravel {
+    call(Debug_StoryZone_GravelFlags)
+    givemon(SPECIES_BULBASAUR, 6, ITEM_NONE)
+    special(SetMuraCharmanderGender)
+    additem(ITEM_POTION, 3)
+    additem(ITEM_POKE_BALL, 3)
+    additem(ITEM_ESCAPE_ROPE)
+    setrespawn(SPAWN_GRAVEL_TOWN)
+    goto(Debug_WarpZone_Gravel)
+}
+
+script Debug_StoryZone_GravelFlags {
+    clearflag(FLAG_PROLOGUE)
+    setflag(FLAG_SYS_POKEMON_GET)
+    setflag(FLAG_SYS_POKEDEX_GET)
+    setflag(FLAG_CHOSE_BULBASAUR)
+    setvar(VAR_STARTER_MON, STARTER_BULBASAUR)
+    setvar(VAR_MAP_SCENE_GRAVEL_TOWN, 4)
+    setflag(FLAG_GOT_POTION_ON_ROUTE_53)
+    settrainerflag(TRAINER_YOUNGSTER_HAYDEN)
+}
+
+script Debug_StoryZone_Merson {
+    call(Debug_StoryZone_MersonFlags)
+    givemon(SPECIES_IVYSAUR, 16, ITEM_NONE)
+    special(SetMuraCharmanderGender)
+    givemon(SPECIES_VULPIX, 14, ITEM_NONE)
+    additem(ITEM_POTION, 5)
+    additem(ITEM_POKE_BALL, 5)
+    additem(ITEM_ESCAPE_ROPE)
+    additem(ITEM_MOON_STONE)
+    setrespawn(SPAWN_MERSON_CITY)
+    goto(Debug_WarpZone_Merson)
+}
+
+script Debug_StoryZone_MersonFlags {
+    call(Debug_StoryZone_GravelFlags)
+    settrainerflag(TRAINER_YOUNGSTER_BENNY)
+    settrainerflag(TRAINER_LASS_ABIGAIL)
+    settrainerflag(TRAINER_BUG_CATCHER_FRED)
+    settrainerflag(TRAINER_SUPER_NERD_JONATHAN)
+    settrainerflag(TRAINER_HIKER_BRIAN)
+    settrainerflag(TRAINER_SUPER_NERD_JARUS)
+    settrainerflag(TRAINER_LASS_NATALIE)
+    settrainerflag(TRAINER_BUG_CATCHER_GEORGE)
+    settrainerflag(TRAINER_LASS_BECKY)
+    settrainerflag(TRAINER_GAMBLER_JONES)
+    settrainerflag(TRAINER_SUPER_NERD_THEO)
+    setflag(FLAG_REACHED_MERSON_CITY)
+    setflag(FLAG_MET_LOOKER_BEFORE_GYM)
+    additem(ITEM_BIKE_VOUCHER)
+    settrainerflag(TRAINER_CAMPER_MIKE)
+    settrainerflag(TRAINER_LEADER_KARPMAN)
+    setflag(FLAG_BADGE01_GET)
+    additem(ITEM_TM94_OCTAZOOKA)
+    settrainerflag(TRAINER_CUEBALL_BRUCE)
+    settrainerflag(TRAINER_BIKER_EDWIN)
+    settrainerflag(TRAINER_BIKER_DAMON)
+    setvar(VAR_MAP_SCENE_MERSON_CITY, 3)
+}

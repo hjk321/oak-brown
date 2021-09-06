@@ -1,5 +1,11 @@
+const TEMPFLAG_HIDE_STORYZONE = FLAG_TEMP_A
 mapscripts SeashoreCity_PlayersHouse_2F_MapScripts {
     MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE: SeashoreCity_PlayersHouse_2F_OnWarp
+    MAP_SCRIPT_ON_TRANSITION {
+        if (!flag(FLAG_SYS_DEBUG)) {
+            setflag(TEMPFLAG_HIDE_STORYZONE)
+        }
+    }
 }
 
 // Face upwards

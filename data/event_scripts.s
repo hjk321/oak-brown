@@ -629,3 +629,5 @@ Text_TestMsg:: @ 81ACD45
 	.include "data/maps/MersonCity_Gym/scripts.inc"
 
 	.include "data/maps/SouthRijonGate_Indoor/scripts.inc"
+
+	.include "data/maps/Debug_StoryZone/scripts.inc"

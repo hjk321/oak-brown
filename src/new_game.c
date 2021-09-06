@@ -151,6 +151,9 @@ void NewGameInitData(void)
     InitMEventData();
     SetAllRenewableItemFlags();
     NewGameInitPCItems();
+#if DEBUG
+    FlagSet(FLAG_SYS_DEBUG);
+#endif
     WarpToPlayersRoom();
     ScriptContext2_RunNewScript(EventScript_ResetAllMapFlags);
     StringCopy(gSaveBlock1Ptr->rivalName, rivalName);

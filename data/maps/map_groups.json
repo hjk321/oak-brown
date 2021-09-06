@@ -11,7 +11,8 @@
   ],
   "gMapGroup_Debug": [
     "Debug_Placeholder",
-    "Debug_WarpZone"
+    "Debug_WarpZone",
+    "Debug_StoryZone"
   ],
   "gMapGroup_Towns": [
     "SeashoreCity",
