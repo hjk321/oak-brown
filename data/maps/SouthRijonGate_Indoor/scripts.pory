@@ -1,0 +1,258 @@
+const PLAYER_ID = OBJ_EVENT_ID_PLAYER
+const CAMERA_ID = OBJ_EVENT_ID_CAMERA
+const WORKER_A_ID = 1
+const WORKER_B_ID = 2
+const BIKER_ID = 3
+const LOOKER_ID = 4
+const POLICEMAN_A_ID = 5
+const POLICEMAN_B_ID = 6
+const POLICEMAN_C_ID = 7
+
+const TEMPFLAG_HIDE_WORKERS = FLAG_TEMP_A
+const TEMPFLAG_HIDE_BIKER = FLAG_TEMP_B
+const TEMPFLAG_HIDE_POLICE = FLAG_TEMP_C
+const TEMPFLAG_POLICE_PRAISE = FLAG_TEMP_D
+
+mapscripts SouthRijonGate_Indoor_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        if (var(VAR_MAP_SCENE_MERSON_CITY) == 2) {
+            savebgm(MUS_EVIL)
+            setflag(TEMPFLAG_HIDE_POLICE)
+            setobjectxyperm(POLICEMAN_A_ID, 6, 1)
+            setobjectxyperm(POLICEMAN_B_ID, 6, 1)
+            setobjectxyperm(POLICEMAN_C_ID, 6, 1)
+        } else {
+            setflag(TEMPFLAG_HIDE_WORKERS)
+            setflag(TEMPFLAG_HIDE_BIKER)
+        }
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_MAP_SCENE_MERSON_CITY, 2: SouthRijonGate_Indoor_ConfrontBiker
+    ]
+}
+
+script SouthRijonGate_Indoor_ConfrontBiker {
+    lockforce
+    delay(16)
+    special(SpawnCameraObject)
+    applymovement(CAMERA_ID, Movement_WalkDown)
+    waitmovement(0)
+    applymovement(CAMERA_ID, Movement_WalkDown)
+    waitmovement(0)
+    delay(32)
+    applymovement(BIKER_ID, Movement_WalkLeft)
+    waitmovement(0)
+    delay(16)
+    textcolor(0)
+    msgbox(format("Am I not being clear enough?!\p"
+        "When I tell you to print a Trainer Card, you print it!\p"
+        "No more funny business!"))
+    closemessage
+    delay(16)
+    applymovement(BIKER_ID, Movement_FaceUp)
+    waitmovement(0)
+    playse(SE_PIN)
+    applymovement(BIKER_ID, Movement_ExclamationMark)
+    waitmovement(0)
+    delay(32)
+    msgbox("What's this?!")
+    closemessage
+    applymovement(BIKER_ID, Movement_SouthRijonGate_Indoor_BikerWalkTowardPlayer)
+    delay(32)
+    applymovement(CAMERA_ID, Movement_WalkUp)
+    waitmovement(0)
+    msgbox(format("Who the heck are you?!\p"
+        "I sure hope for your sake you're not here to try to stop me!\p"
+        "I'm just here for my Trainer Card! Nobody has to get hurt!"))
+    closemessage
+    delay(16)
+    applymovement(PLAYER_ID, Movement_WalkDown)
+    waitmovement(0)
+    special(RemoveCameraObject)
+    delay(8)
+    playse(SE_PIN)
+    applymovement(BIKER_ID, Movement_ExclamationMark)
+    waitmovement(0)
+    delay(16)
+    trainerbattle_single(TRAINER_BIKER_DAMON, 
+        format("You just signed your own death warrant, kid!\p"
+            "It's time to show you why I'm the boss around here!"),
+        format("No! Impossible!\nCrushed by a sniveling little worm!"),
+        SouthRijonGate_Indoor_BeatLeadBiker, NO_MUSIC)
+}
+
+movement Movement_SouthRijonGate_Indoor_BikerWalkTowardPlayer {
+    walk_right * 2
+    face_up
+}
+
+script SouthRijonGate_Indoor_BeatLeadBiker {
+    delay(32)
+    msgbox(format("No! I refuse to go down like this!\p"
+        "I'll just have to pummel you with my own fists!"))
+    closemessage
+    delay(16)
+    fadeoutbgm(0)
+    playse(SE_EXIT)
+    addobject(LOOKER_ID)
+    delay(32)
+    playbgm(MUS_LOOKER)
+    msgbox(format("Looker: Stop right there! International Police!"))
+    closemessage
+    special(SpawnCameraObject)
+    applymovement(PLAYER_ID, SouthRijonGate_Indoor_PlayerSidestep)
+    applymovement(LOOKER_ID, SouthRijonGate_Indoor_LookerEnter)
+    delay(16)
+    addobject(POLICEMAN_A_ID)
+    applymovement(POLICEMAN_A_ID, SouthRijonGate_Indoor_PolicemanAEnter)
+    delay(16)
+    addobject(POLICEMAN_B_ID)
+    applymovement(POLICEMAN_B_ID, SouthRijonGate_Indoor_PolicemanBEnter)
+    delay(16)
+    addobject(POLICEMAN_C_ID)
+    applymovement(POLICEMAN_C_ID, Movement_WalkDown)
+    delay(48)
+    msgbox(format("Looker: You're completely surrounded, at least from this side!\p"
+        "We await your unconditional surrender!"))
+    closemessage
+    delay(16)
+    applymovement(BIKER_ID, SouthRijonGate_Indoor_BikerStepBack)
+    waitmovement(0)
+    delay(16)
+    msgbox(format("Damon: N-No! I'm busted!\p"
+        "Listen! I know things look really bad right now…\p"
+        "But I swear, I was doing it for the right reasons!"))
+    closemessage
+    delay(16)
+    applymovement(BIKER_ID, Movement_FaceRight)
+    delay(64)
+    applymovement(BIKER_ID, Movement_FaceUp)
+    delay(32)
+    msgbox(format("I've been trying to go straight. I want to become a Pokémon Trainer!\p"
+        "But, I knew I couldn't possibly afford the registration fees!\p"
+        "So, I eventually realized that the only way I could accomplish my dreams was to take matters into my own hands!"))
+    closemessage
+    delay(128)
+    fadeoutbgm(0)
+    delay(96)
+    msgbox(format("Looker: You know that registration is free, right?"))
+    closemessage
+    delay(192)
+    playbgm(MUS_LOOKER)
+    msgbox(format("Damon: IT IS?!\pWhy didn't anyone tell me that?\p"
+        "If I had known that, I wouldn't have done any of this in the first place!\p"
+        "It's funny how these misunderstandings happen, no?"))
+    closemessage
+    delay(32)
+    applymovement(BIKER_ID, Movement_WalkLeft2)
+    waitmovement(0)
+    msgbox(format("Damon: Excuse me, may I please register myself as a Pokémon Trainer?"))
+    closemessage
+    delay(96)
+    fadeoutbgm(0)
+    delay(32)
+    applymovement(BIKER_ID, SouthRijonGate_Indoor_BikerOhYeahIRememberNow)
+    waitmovement(0)
+    msgbox(format("Damon: I'm going to jail, aren't I.\p"
+        "Looker: Yes. Yes you are.\p"
+        "Take him away, boys!"))
+    closemessage
+    fadescreen(FADE_TO_BLACK)
+    playse(SE_EXIT)
+    removeobject(POLICEMAN_C_ID)
+    removeobject(BIKER_ID)
+    removeobject(WORKER_A_ID)
+    removeobject(WORKER_B_ID)
+    setobjectxy(POLICEMAN_A_ID, 6, 7)
+    turnobject(POLICEMAN_A_ID, DIR_NORTH)
+    setobjectxy(POLICEMAN_B_ID, 9, 5)
+    turnobject(POLICEMAN_B_ID, DIR_EAST)
+    setobjectxy(LOOKER_ID, 6, 4)
+    turnobject(LOOKER_ID, DIR_EAST)
+    setobjectxy(PLAYER_ID, 7, 4)
+    turnobject(PLAYER_ID, DIR_WEST)
+    special(RemoveCameraObject)
+    delay(128)
+    releaseforce
+    fadescreen(FADE_FROM_BLACK)
+    delay(32)
+    playbgm(MUS_LOOKER)
+    msgbox(format("Looker: {PLAYER}!\p"
+        "I commend your valiant efforts in this emergency!\p"
+        "Not only did you manage to defuse the situation…\p"
+        "But you also managed to defeat the suspects in Pokémon battles!\p"
+        "Without your assistance, things could have turned out quite differently.\p"
+        "I expect you will accomplish great things in the future.\p"
+        "Your government thanks you, {PLAYER}!\p"
+        "Perhaps, someday we will meet again under better circumstances.\p"
+        "But for now, I leave you! A special agent never rests!"))
+    closemessage
+    applymovement(LOOKER_ID, Movement_WalkUp3)
+    waitmovement(0)
+    removeobject(LOOKER_ID)
+    playse(SE_EXIT)
+    setvar(VAR_MAP_SCENE_MERSON_CITY, 3)
+    clearflag(FLAG_SYS_DONT_TRANSITION_MUSIC)
+    savebgm(MUS_PEWTER)
+    setflag(TEMPFLAG_POLICE_PRAISE)
+    fadedefaultbgm
+    delay(48)
+}
+
+movement SouthRijonGate_Indoor_LookerEnter {
+    walk_down
+    walk_right
+    face_down
+}
+
+movement SouthRijonGate_Indoor_PolicemanAEnter {
+    walk_down
+    walk_left * 2
+    face_down
+}
+
+movement SouthRijonGate_Indoor_PolicemanBEnter {
+    walk_down
+    walk_left
+    face_down
+}
+
+movement SouthRijonGate_Indoor_PlayerSidestep {
+    face_left
+    lock_facing_direction
+    walk_right * 2
+    unlock_facing_direction
+}
+
+movement SouthRijonGate_Indoor_BikerStepBack {
+    lock_facing_direction
+    walk_down
+    unlock_facing_direction
+}
+
+movement SouthRijonGate_Indoor_BikerOhYeahIRememberNow {
+    walk_in_place_fast_right
+    delay_16 * 3
+    walk_in_place_fast_up
+    delay_16 * 4
+}
+
+script SouthRijonGate_Indoor_PolicemanA {
+    if (flag(TEMPFLAG_POLICE_PRAISE)) {
+        msgbox(format("Well, at least it's all over now.\p"
+            "The gate to South Rijon is probably going to close down for a while."))
+    } else {
+        msgbox(format("Recent incidents has caused the South Rijon Gate to close for a while.\p"
+            "You'll have to come back later."))
+    }
+}
+
+script SouthRijonGate_Indoor_PolicemanB {
+    if (flag(TEMPFLAG_POLICE_PRAISE)) {
+        msgbox(format("You did well, son, real well.\p"
+            "You probably saved the whole operation, in fact."))
+    } else {
+        msgbox(format("There was a hostage situation here recenty.\p"
+            "That's why the border's closed for now."))
+    }
+}

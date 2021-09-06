@@ -1,7 +1,18 @@
+const CUEBALL_ID = 2
+
+const TEMPFLAG_HIDE_TRAINERS = FLAG_TEMP_A
+const TEMPFLAG_HIDE_CUEBALL = FLAG_TEMP_B
+
 mapscripts SouthRijonGate_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
-        if (var(VAR_MAP_SCENE_MERSON_CITY) == 2) {
+        if (var(VAR_MAP_SCENE_MERSON_CITY) == 0) {
+            setflag(TEMPFLAG_HIDE_TRAINERS)
+        } elif (var(VAR_MAP_SCENE_MERSON_CITY) == 2) {
             savebgm(MUS_EVIL)
+            setobjectxyperm(CUEBALL_ID, 23, 27)
+        } else {
+            setflag(TEMPFLAG_HIDE_TRAINERS)
+            setflag(TEMPFLAG_HIDE_CUEBALL)
         }
     }
 }
@@ -31,6 +42,26 @@ script SouthRijonGate_Cueball_A {
 script SouthRijonGate_Cueball_B {
     lock
     faceplayer
-    msgbox(format("… … … …\pLeave."))
+    if (var(VAR_MAP_SCENE_MERSON_CITY) == 2) {
+        msgbox(format("… … … …\pI don't have any Pokémon."))
+    } else {
+        msgbox(format("… … … …\pLeave."))
+    }
     release
+}
+
+script SouthRijonGate_CueballTrainer {
+    trainerbattle_single(TRAINER_CUEBALL_BRUCE,
+        format("Well, well, well!\pWrong place, wrong time, kid!"),
+        "Well, then…")
+    msgbox(format("This doesn't concern you, kid.\p"
+        "If you know what's good for you, you won't meddle."), MSGBOX_AUTOCLOSE)
+}
+
+script SouthRijonGate_BikerTrainer {
+    trainerbattle_single(TRAINER_BIKER_EDWIN,
+        format("You got a problem with us?\n"
+            "Take it up with my Pokémon!"),
+        "Point taken!")
+    msgbox(format("Well, if you're gonna go, then go!\pThere's not much I can do about it anymore."), MSGBOX_AUTOCLOSE)
 }

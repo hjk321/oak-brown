@@ -21,12 +21,15 @@
 #define TRAINER_SUPER_NERD_THEO                     15
 #define TRAINER_CAMPER_MIKE                         16
 #define TRAINER_LEADER_KARPMAN                      17
+#define TRAINER_CUEBALL_BRUCE                       18
+#define TRAINER_BIKER_EDWIN                         19
+#define TRAINER_BIKER_DAMON                         20
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is 
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define NUM_TRAINERS                             17
+#define NUM_TRAINERS                             20
 #define MAX_TRAINERS_COUNT                       768
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

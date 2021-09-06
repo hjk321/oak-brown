@@ -627,3 +627,5 @@ Text_TestMsg:: @ 81ACD45
 	.include "data/maps/MersonCity_FanClub/scripts.inc"
 
 	.include "data/maps/MersonCity_Gym/scripts.inc"
+
+	.include "data/maps/SouthRijonGate_Indoor/scripts.inc"

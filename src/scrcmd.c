@@ -962,10 +962,7 @@ bool8 ScrCmd_fadeoutbgm(struct ScriptContext * ctx)
 
     if (QL_IS_PLAYBACK_STATE)
         return FALSE;
-    if (speed != 0)
-        FadeOutBGMTemporarily(4 * speed);
-    else
-        FadeOutBGMTemporarily(4);
+    FadeOutBGMTemporarily(4 * speed);
     SetupNativeScript(ctx, IsBGMPausedOrStopped);
     return TRUE;
 }
@@ -976,10 +973,7 @@ bool8 ScrCmd_fadeinbgm(struct ScriptContext * ctx)
 
     if (QL_IS_PLAYBACK_STATE)
         return FALSE;
-    if (speed != 0)
-        FadeInBGM(4 * speed);
-    else
-        FadeInBGM(4);
+    FadeInBGM(4 * speed);
     return FALSE;
 }
 

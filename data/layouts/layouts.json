@@ -276,6 +276,18 @@
       "secondary_tileset": "gTileset_CeruleanGym",
       "border_filepath": "data/layouts/MersonCity_Gym/border.bin",
       "blockdata_filepath": "data/layouts/MersonCity_Gym/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOUTH_RIJON_GATE_INDOOR",
+      "name": "SouthRijonGate_Indoor_Layout",
+      "width": 13,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding2",
+      "border_filepath": "data/layouts/SouthRijonGate_Indoor/border.bin",
+      "blockdata_filepath": "data/layouts/SouthRijonGate_Indoor/map.bin"
     }
   ]
 }

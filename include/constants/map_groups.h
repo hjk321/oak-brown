@@ -34,6 +34,7 @@
 #define MAP_GRAVEL_TOWN_TIMS_LAB           (4 | (4 << 8))
 #define MAP_MERSON_CITY_HOUSE              (5 | (4 << 8))
 #define MAP_MERSON_CITY_FAN_CLUB           (6 | (4 << 8))
+#define MAP_SOUTH_RIJON_GATE_INDOOR        (7 | (4 << 8))
 
 // Map Group 5
 #define MAP_GRAVEL_TOWN_POKE_MART   (0 | (5 << 8))

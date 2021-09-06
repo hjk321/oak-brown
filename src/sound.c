@@ -285,7 +285,10 @@ void FadeInNewBGM(u16 songNum, u8 speed)
 
 void FadeOutBGMTemporarily(u8 speed)
 {
-    m4aMPlayFadeOutTemporarily(&gMPlayInfo_BGM, speed);
+    if (speed == 0)
+        m4aMPlayAllStop();
+    else
+        m4aMPlayFadeOutTemporarily(&gMPlayInfo_BGM, speed);
 }
 
 bool8 IsBGMPausedOrStopped(void)
@@ -299,7 +302,10 @@ bool8 IsBGMPausedOrStopped(void)
 
 void FadeInBGM(u8 speed)
 {
-    m4aMPlayFadeIn(&gMPlayInfo_BGM, speed);
+    if (speed == 0)
+        m4aMPlayAllContinue();
+    else
+        m4aMPlayFadeIn(&gMPlayInfo_BGM, speed);
 }
 
 void FadeOutBGM(u8 speed)

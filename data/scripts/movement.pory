@@ -66,6 +66,11 @@ Movement_WalkLeft::
 	walk_left
 	step_end
 
+Movement_WalkLeft2::
+	walk_left
+	walk_left
+	step_end
+
 Movement_WalkDown:: @ 81A75F1
 	walk_down
 	step_end
@@ -98,6 +103,12 @@ Movement_WalkUp:: @ 81A7601
 
 @ Unused
 Movement_WalkUp2:: @ 81A7603
+	walk_up
+	walk_up
+	step_end
+
+Movement_WalkUp3::
+	walk_up
 	walk_up
 	walk_up
 	step_end

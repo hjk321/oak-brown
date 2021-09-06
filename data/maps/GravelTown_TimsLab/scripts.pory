@@ -435,7 +435,7 @@ script GravelTown_TimsLab_PokedexScene {
     waitfanfare
     textcolor(0)
     msgbox(format("Oh, right! I had ordered pizza\nearlier.\p"
-        "But that's odd… I thought you quit that pizza delivery job last week.\p"
+        "But that's odd… I thought you quit that pizza delivery job last week…?\p"
         "Ah, no matter.\nThank you for bringing it to me.\p"
         "Actually, now that I think about it,\nit's a good thing you came.\p"
         "You see, part of the agreement\nwith Professor Oak was that--"))
