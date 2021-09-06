@@ -1757,6 +1757,16 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
                 gender = MON_FEMALE;
             else if (partyData[i].gender == NPCMON_GENDERLESS)
                 gender = MON_GENDERLESS;
+            else if (partyData[i].gender == NPCMON_MURA_CHARMANDER)
+            {
+                // Canonically, Mura's Charmander is female.
+                // But if the player's Bulbasaur was female, it is male instead,
+                // Because having them both be female seems a little odd.
+                if (FlagGet(FLAG_MURAS_CHARMANDER_MALE))
+                    gender = MON_MALE;
+                else
+                    gender = MON_FEMALE;
+            }
             else // Default value, randomize
                 gender = GetGenderFromSpeciesAndPersonality(partyData[i].species, Random());
 

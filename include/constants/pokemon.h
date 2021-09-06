@@ -213,6 +213,7 @@
 #define NPCMON_MALE 1
 #define NPCMON_FEMALE 2
 #define NPCMON_GENDERLESS 3
+#define NPCMON_MURA_CHARMANDER 4
 
 // Which starter did player choose?
 #define STARTER_BULBASAUR 0

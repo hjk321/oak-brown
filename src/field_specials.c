@@ -2174,3 +2174,15 @@ static void Task_WingFlapSound(u8 taskId)
     if (data[0] == gSpecialVar_0x8004 - 1)
         DestroyTask(taskId);
 }
+
+void SetMuraCharmanderGender(void)
+{
+    // Canonically, Mura's Charmander is female.
+    // But if the player's Bulbasaur was female, it is male instead,
+    // Because having them both be female seems a little odd.
+    u8 gender = GetGenderFromSpeciesAndPersonality(SPECIES_BULBASAUR, GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY));
+    if(gender == MON_FEMALE)
+        FlagSet(FLAG_MURAS_CHARMANDER_MALE);
+    else
+        FlagClear(FLAG_MURAS_CHARMANDER_MALE);
+}

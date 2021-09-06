@@ -14,7 +14,7 @@ static const struct TrainerMon sTrainerMons_MuraCharmander1[] = {
         .iv = 30,
         .lvl = 5,
         .species = SPECIES_CHARMANDER,
-        .gender = NPCMON_FEMALE,
+        .gender = NPCMON_MURA_CHARMANDER,
         .nature = NATURE_ADAMANT,
         .ball = ITEM_POKE_BALL,
     },

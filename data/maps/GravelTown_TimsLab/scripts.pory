@@ -294,6 +294,7 @@ script GravelTown_TimsLab_GetStarter {
             setvar(VAR_STARTER_MON, STARTER_BULBASAUR)
             setflag(FLAG_HIDE_BULBASAUR_BALL)
             setflag(FLAG_HIDE_CHARMANDER_BALL)
+            special(SetMuraCharmanderGender)
         case SPECIES_SQUIRTLE:
             setflag(FLAG_CHOSE_SQUIRTLE)
             setvar(VAR_STARTER_MON, STARTER_SQUIRTLE)
