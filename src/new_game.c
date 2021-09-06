@@ -57,7 +57,7 @@ void CopyTrainerId(u8 *dst, u8 *src)
 
 static void InitPlayerTrainerId(void)
 {
-    u32 trainerId = (Random() << 0x10) | GetGeneratedTrainerIdLower();
+    u32 trainerId = Random32();
     SetTrainerId(trainerId, gSaveBlock2Ptr->playerTrainerId);
 }
 
@@ -127,7 +127,6 @@ void NewGameInitData(void)
     gSaveBlock2Ptr->gcnLinkFlags = 0;
     gSaveBlock2Ptr->field_AC = 1;
     gSaveBlock2Ptr->field_AD = 0;
-    InitPlayerTrainerId();
     PlayTimeCounter_Reset();
     ClearPokedexFlags();
     InitEventData();
@@ -159,6 +158,7 @@ void NewGameInitData(void)
     FlagSet(FLAG_SYS_B_DASH);
     FlagSet(FLAG_PROLOGUE);
     InitTimeBasedEvents();
+    InitPlayerTrainerId();
 }
 
 static void ResetMiniGamesResults(void)
