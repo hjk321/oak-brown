@@ -679,10 +679,8 @@ static bool8 SaveDialog_Wait60FramesThenCheckAButtonHeld(void)
 static u8 SaveDialogCB_PrintAskSaveText(void)
 {
     PrintSaveStats();
-    if (gDifferentSaveFile)
-        sSaveDialogCB = SaveDialogCB_PrintAskOverwriteText;
-    else
-        sSaveDialogCB = SaveDialogCB_PrintSavingDontTurnOffPower;
+    ClearStdWindowAndFrame(GetStartMenuWindowId(), FALSE);
+    sSaveDialogCB = SaveDialogCB_PrintSavingDontTurnOffPower;
     return SAVECB_RETURN_CONTINUE;
 }
 
@@ -698,10 +696,7 @@ static u8 SaveDialogCB_AskSaveHandleInput(void)
     switch (Menu_ProcessInputNoWrapClearOnChoose())
     {
     case 0:
-        if ((gSaveFileStatus != SAVE_STATUS_EMPTY && gSaveFileStatus != SAVE_STATUS_INVALID) || !gDifferentSaveFile)
-            sSaveDialogCB = SaveDialogCB_PrintAskOverwriteText;
-        else
-            sSaveDialogCB = SaveDialogCB_PrintSavingDontTurnOffPower;
+        sSaveDialogCB = SaveDialogCB_PrintSavingDontTurnOffPower;
         break;
     case 1:
     case -1:
