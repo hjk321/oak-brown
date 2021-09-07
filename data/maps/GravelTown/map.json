@@ -131,7 +131,21 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "GravelTown_StoreClerk",
-      "flag": "0"
+      "flag": "FLAG_REACHED_MERSON_CITY"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BIKER_DISMOUNTED",
+      "in_connection": false,
+      "x": 13,
+      "y": 35,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GravelTown_Biker",
+      "flag": "FLAG_TEMP_A"
     }
   ],
   "warp_events": [

@@ -257,7 +257,7 @@ script SouthRijonGate_Indoor_PolicemanB {
         msgbox(format("You did well, son, real well.\p"
             "You probably saved the whole operation, in fact."))
     } else {
-        msgbox(format("There was a hostage situation here recenty.\p"
+        msgbox(format("There was a hostage situation here recently.\p"
             "That's why the border's closed for now."))
     }
     release

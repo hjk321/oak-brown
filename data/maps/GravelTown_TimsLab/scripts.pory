@@ -205,8 +205,10 @@ script GravelTown_TimsLab_Tim {
             "Always make sure that what you want is also what they want.\p"
             "Pay attention to their needs and develop a friendship with them.\p"
             "I expect you to take good care of your Pokémon!"))
-    } elif (!flag(FLAG_BADGE01_GET)) {
+    } elif (!flag(FLAG_REACHED_MERSON_CITY)) {
         msgbox(format("Tim: Pokémon are just waiting to be found, {PLAYER}!"))
+    } else {
+        msgbox(format("Placeholder"))
     }
     release
 }

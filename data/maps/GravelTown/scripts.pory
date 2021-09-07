@@ -3,10 +3,15 @@ const LASS_ID = 5
 const BEAUTY_ID = 6
 const BLACKBELT_ID = 7
 
+const TEMPVAR_HIDE_BIKER = FLAG_TEMP_A
+
 mapscripts GravelTown_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         if(flag(FLAG_SYS_POKEMON_GET)) {
             clearflag(FLAG_PROLOGUE)
+        }
+        if(!flag(FLAG_REACHED_MERSON_CITY)) {
+            setflag(TEMPVAR_HIDE_BIKER)
         }
     }
 }
@@ -102,4 +107,12 @@ script GravelTown_GravelTownSign {
 script GravelTown_MersonCaveSign {
     msgbox("Merson Cave", MSGBOX_SIGN)
     closemessage
+}
+
+script GravelTown_Biker {
+    lock
+    faceplayer
+    msgbox("I can't believe it!\nI just got fired from the Pokémart!\p"
+        "Apparently, they DO deliver… … …")
+    release
 }

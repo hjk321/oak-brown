@@ -12,8 +12,8 @@ script SeashoreCity_MurasHouse_Dad {
     lock
     faceplayer
     if (!flag(FLAG_SYS_POKEMON_GET)) {
-        msgbox(format("My son, Mura is leaving today as well.\pKeep him out of trouble, would you?"))
-    } elif (!flag(FLAG_BADGE01_GET)) {
+        msgbox(format("My son, Mura, is leaving today as well.\pKeep him out of trouble, would you?"))
+    } elif (!flag(FLAG_REACHED_MERSON_CITY)) {
         msgbox(format("Ohohoh! Your first Pokémon battle was with Mura? How did it go?"))
     } else {
         msgbox(format("Is Mura doing well on his journey? I wish he'd call home more often."))

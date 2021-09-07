@@ -3,8 +3,17 @@ const BIKER_CLERK_ID = 1
 
 const TEMPVAR_PLAYER_X = VAR_TEMP_8
 const TEMPVAR_PLAYER_Y = VAR_TEMP_9
+const TEMPFLAG_HIDE_BIKER = FLAG_TEMP_A
+const TEMPFLAG_HIDE_CLERKS = FLAG_TEMP_B
 
 mapscripts GravelTown_PokeMart_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        if (flag(FLAG_REACHED_MERSON_CITY)) {
+            setflag(TEMPFLAG_HIDE_BIKER)
+        } else {
+            setflag(TEMPFLAG_HIDE_CLERKS)
+        }
+    }
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_MAP_SCENE_GRAVEL_TOWN, 2: GravelTown_PokeMart_TimsPizza
     ]
@@ -53,8 +62,11 @@ script GravelTown_PokeMart_Pokefan {
 script GravelTown_PokeMart_BaldingMan {
     lock
     faceplayer
-    // TODO Change for normal clerks
-    msgbox(format("I'm a little concerned about that shop clerk.\pHe doesn't seem to know what he's doing."))
+    if (flag(FLAG_REACHED_MERSON_CITY)) {
+        msgbox(format("These shop clerks really know what they're doing!"))
+    } else {
+        msgbox(format("I'm a little concerned about that shop clerk.\pHe doesn't seem to know what he's doing."))
+    }
     release
 }
 
@@ -83,4 +95,30 @@ script GravelTown_PokeMart_TimsPizza {
 movement Movement_PlayerWalkToMartCounter {
     walk_up * 5
     walk_left
+}
+
+script GravelTown_PokeMart_Clerk {
+    call(Mart_CheckAcrossCounter)
+    textcolor(2)
+    message(format("Welcome to the Gravel Town Pokémart."))
+    waitmessage
+    call(Mart_StandardShop)
+    msgbox(Mart_ThanksForShopping)
+    release
+}
+
+script GravelTown_PokeMart_SpecialClerk {
+    textcolor(2)
+    message(format("Welcome to the Gravel Town Pokémart's specialty counter."))
+    waitmessage
+    pokemart(GravelTownMart)
+    msgbox(Mart_ThanksForShopping)
+    release
+}
+
+mart GravelTownMart {
+    ITEM_MOON_STONE
+    ITEM_NEST_BALL
+    ITEM_MECH_MAIL
+    ITEM_WOOD_MAIL
 }
