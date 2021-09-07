@@ -388,6 +388,7 @@ static void Task_RushInjuredPokemonToCenter(u8 taskId)
 {
     u8 windowId;
     const struct HealLocation *loc;
+    const struct HealLocation *loc2;
 
     switch (gTasks[taskId].data[0])
     {
@@ -399,11 +400,12 @@ static void Task_RushInjuredPokemonToCenter(u8 taskId)
         PutWindowTilemap(windowId);
         CopyWindowToVram(windowId, COPYWIN_BOTH);
         loc = GetHealLocation(SPAWN_SEASHORE_CITY);
+        loc2 = GetHealLocation(SPAWN_GRAVEL_TOWN);
         if (gSaveBlock1Ptr->lastHealLocation.mapGroup == loc->group
-         && gSaveBlock1Ptr->lastHealLocation.mapNum == loc->map
-         && gSaveBlock1Ptr->lastHealLocation.warpId == -1
-         && gSaveBlock1Ptr->lastHealLocation.x == loc->x
-         && gSaveBlock1Ptr->lastHealLocation.y == loc->y)
+         && gSaveBlock1Ptr->lastHealLocation.mapNum == loc->map)
+            gTasks[taskId].data[0] = 4;
+        else if (gSaveBlock1Ptr->lastHealLocation.mapGroup == loc2->group
+         && gSaveBlock1Ptr->lastHealLocation.mapNum == loc2->map)
             gTasks[taskId].data[0] = 4;
         else
             gTasks[taskId].data[0] = 1;
