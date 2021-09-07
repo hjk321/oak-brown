@@ -257,7 +257,7 @@ u32 ComputeWhiteOutMoneyLoss(void)
 {
     u8 nbadges = CountBadgesForOverworldWhiteOutLossCalculation();
     u8 toplevel = GetPlayerPartyHighestLevel();
-    u32 losings = toplevel * 4 * sWhiteOutMoneyLossMultipliers[nbadges];
+    u32 losings = toplevel * 8 * sWhiteOutMoneyLossMultipliers[nbadges];
     u32 money = GetMoney(&gSaveBlock1Ptr->money);
     if (losings > money)
         losings = money;
