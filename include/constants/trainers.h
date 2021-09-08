@@ -187,6 +187,7 @@
 #define TRAINER_PIC_FISHERMAN_2           166
 #define TRAINER_PIC_WORKER                167
 #define TRAINER_PIC_KARPMAN               168
+#define TRAINER_PIC_POKEMANIAC_2          169
 
 // Leftover from R/S
 #define TRAINER_SECRET_BASE                 1024

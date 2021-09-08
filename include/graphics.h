@@ -4210,6 +4210,7 @@ extern const u32 gTrainerFrontPic_Guitarist2[];
 extern const u32 gTrainerFrontPic_Fisherman2[];
 extern const u32 gTrainerFrontPic_Worker[];
 extern const u32 gTrainerFrontPic_Karpman[];
+extern const u32 gTrainerFrontPic_PokeManiac2[];
 
 extern const u32 gTrainerPalette_AquaLeaderArchie[];
 extern const u32 gTrainerPalette_AquaGruntM[];
@@ -4383,6 +4384,7 @@ extern const u32 gTrainerPalette_Guitarist2[];
 extern const u32 gTrainerPalette_Fisherman2[];
 extern const u32 gTrainerPalette_Worker[];
 extern const u32 gTrainerPalette_Karpman[];
+extern const u32 gTrainerPalette_PokeManiac2[];
 
 extern const u8 gFireRedMenuElements_Gfx[];
 extern const u16 gFireRedMenuElements1_Pal[];

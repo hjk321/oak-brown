@@ -639,6 +639,11 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     { CLASS_AQUA_ADMIN, 10 },
     { CLASS_AQUA_LEADER, 20 },
     { CLASS_BOSS, 25 },
+    { CLASS_RANCHER, 9 },
+    { CLASS_ACE_TRAINER, 12 },
+    { CLASS_FIRE_BREATHER, 10 },
+    { CLASS_COWGIRL, 4 },
+    { CLASS_WORKER, 8 },
     { 0xFF, 5 },
 };
 
@@ -748,6 +753,11 @@ const struct TrainerBall gTrainerBallTable[] = {
     { CLASS_AQUA_ADMIN, ITEM_ULTRA_BALL },
     { CLASS_AQUA_LEADER, ITEM_ULTRA_BALL },
     { CLASS_BOSS, ITEM_ULTRA_BALL },
+    { CLASS_RANCHER, ITEM_POKE_BALL },
+    { CLASS_ACE_TRAINER, ITEM_POKE_BALL },
+    { CLASS_FIRE_BREATHER, ITEM_POKE_BALL },
+    { CLASS_COWGIRL, ITEM_POKE_BALL },
+    { CLASS_WORKER, ITEM_POKE_BALL },
     { 0xFF, ITEM_POKE_BALL },
 };
 

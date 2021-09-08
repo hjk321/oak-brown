@@ -1788,7 +1788,7 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
 {
     u32 dstId = 0; // if they used dstId, why not use srcId as well?
     const u8 *toCpy = NULL;
-    u8 text[30];
+    u8 text[32];
     u8 multiplayerId;
     s32 i;
 

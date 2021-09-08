@@ -503,6 +503,9 @@ const u32 gTrainerPalette_Worker[] = INCBIN_U32("graphics/trainers/front_pics/wo
 const u32 gTrainerFrontPic_Karpman[] = INCBIN_U32("graphics/trainers/front_pics/karpman_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Karpman[] = INCBIN_U32("graphics/trainers/front_pics/karpman_front_pic.gbapal.lz");
 
+const u32 gTrainerFrontPic_PokeManiac2[] = INCBIN_U32("graphics/trainers/front_pics/pokemaniac_2_front_pic.4bpp.lz");
+const u32 gTrainerPalette_PokeManiac2[] = INCBIN_U32("graphics/trainers/front_pics/pokemaniac_2_front_pic.gbapal.lz");
+
 const u8 gTrainerBackPic_Red[] = INCBIN_U8("graphics/trainers/back_pics/red_back_pic.4bpp");
 const u8 gTrainerBackPic_Leaf[] = INCBIN_U8("graphics/trainers/back_pics/leaf_back_pic.4bpp");
 const u8 gTrainerBackPic_Pokedude[] = INCBIN_U8("graphics/trainers/back_pics/pokedude_back_pic.4bpp");

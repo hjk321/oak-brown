@@ -1,4 +1,4 @@
-const u8 gTrainerClassNames[][13] = {
+const u8 gTrainerClassNames[][14] = {
     _("{PKMN} Trainer"),
     _("{PKMN} Trainer"),
     _("Aqua Leader"),
@@ -106,4 +106,9 @@ const u8 gTrainerClassNames[][13] = {
     _("Ruin Maniac"),
     _("Lady"),
     _("Painter"),
+    _("Rancher"),
+    _("Ace Trainer"),
+    _("Fire Breather"),
+    _("Cowgirl"),
+    _("Rancher"),
 };
