@@ -5774,11 +5774,7 @@ u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
 
 u16 SpeciesToPokedexNum(u16 species)
 {
-    species = SpeciesToNationalPokedexNum(species);
-
-    if (!IsNationalPokedexEnabled() && species > 151)
-        return 0xFFFF;
-    return species;
+    return SpeciesToNationalPokedexNum(species);
 }
 
 void ClearBattleMonForms(void)

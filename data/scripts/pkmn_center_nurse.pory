@@ -7,7 +7,6 @@ EventScript_PkmnCenterNurse:: @ 81A65B8
 	call EventScript_PkmnCenterNurse_TakeAndHealPkmn
 	special SetUsedPkmnCenterQuestLogEvent
 	call EventScript_PkmnCenterNurse_ReturnPkmn
-	closemessage
 	release
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_FaceDown
 	waitmovement 0
@@ -18,6 +17,7 @@ EventScript_PkmnCenterNurse_TakeAndHealPkmn:: @ 81A65CE
 	waitmovement 0
 	dofieldeffect FLDEFF_POKECENTER_HEAL
 	waitfieldeffect FLDEFF_POKECENTER_HEAL
+	closemessage
 	applymovement VAR_LAST_TALKED, Movement_WalkInPlaceFastestDown
 	waitmovement 0
 	special HealPlayerParty

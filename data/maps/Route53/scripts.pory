@@ -136,6 +136,8 @@ script Route53_MeetTim_SequenceBreak {
     playbgm(MUS_TIM, 0)
     setvar(VAR_TEMP_0, 4)
     applymovement(TIM_ID, Movement_TimSequenceBreak)
+    delay(368)
+    playse(SE_PIN)
     waitmovement(TIM_ID)
     textcolor(0)
     applymovement(PLAYER_ID, Movement_FaceRight)
@@ -246,7 +248,7 @@ movement Movement_TimSequenceBreak {
     face_left
     delay_16
     emote_exclamation_mark
-    delay_16 * 3
+    delay_16 * 6
     walk_left
     delay_16 * 2
 }

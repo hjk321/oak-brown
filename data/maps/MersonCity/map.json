@@ -29,8 +29,8 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_KINDLER",
       "in_connection": false,
-      "x": 3,
-      "y": 22,
+      "x": 4,
+      "y": 23,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,

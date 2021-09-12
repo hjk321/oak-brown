@@ -1253,11 +1253,19 @@ const u8 gTimNotesTyranitar[] = _(
 );
 
 const u8 gTimNotesLugia[] = _(
-    ""
+    "Legendaries were once thought as immortal\n"
+    "singular beings, until Lugia was observed\n"
+    "raising young. Once in a Legendary's\n"
+    "lifetime, it will lay a single egg. This\n"
+    "egg is created via parthenogenesis."
 );
 
 const u8 gTimNotesHoOh[] = _(
-    ""
+    "If the legends are to be believed, this\n"
+    "legendary Pokémon continuously travelling\n"
+    "in the sky, flying around the entire\n"
+    "world. It is rumored to appear rarely\n"
+    "to trainers after powerful rainstorms."
 );
 
 const u8 gTimNotesCelebi[] = _(

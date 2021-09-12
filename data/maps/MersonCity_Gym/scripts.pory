@@ -50,11 +50,7 @@ script MersonCity_Gym_Karpman {
 
     if (flag(FLAG_BADGE01_GET)) {
         // Already Defeated
-        msgbox(format("That was an epic battle!\p"
-            "I just wish I could have fought you with my real Pokémon!\p"
-            "Hey, maybe sometime we can have a rematch, when you get stronger!\p"
-            "The next gym leader is Lily, who lives in Owsauri City.\p"
-            "Keep heading north and you'll end up there in no time!"))
+        msgbox(MersonCity_Gym_KarpmanNextGym)
         release
         end
     }
@@ -67,6 +63,16 @@ script MersonCity_Gym_Karpman {
     playbgm(MUS_ENCOUNTER_GYM_LEADER)
     trainerbattle_single(TRAINER_LEADER_KARPMAN, "May the best trainer win!\nHere we go!",
         "Darn it all!\nYou managed to do it somehow!", MersonCity_Gym_KarpmanPostBattle, NO_MUSIC)
+}
+
+text MersonCity_Gym_KarpmanNextGym {
+    format("That was an epic battle!\p"
+    "I just wish I could have fought you with my real Pokémon!\p"
+    "Hey, maybe sometime we can have a rematch, when you get stronger!\p"
+    "Want my advice?\nYou should challenge Lily next.\p"
+    "She's an ice-type gym leader who lives in Owsauri City.\p"
+    "The underground path on Route 54 will take you to Hayward City.\p"
+    "You'll need to head north from there to get to where you're going.")
 }
 
 script MersonCity_Gym_KarpmanPostBattle {
@@ -92,5 +98,6 @@ script MersonCity_Gym_KarpmanPostBattle {
     waitbuttonpress
     textcolor(0)
     msgbox(format("Karpman: TM94 contains Octazooka!\p"
-        "It's a water move that can lower the accuracy of your foe!"), MSGBOX_AUTOCLOSE)
+        "It's a water move that can lower the accuracy of your foe!"))
+    msgbox(MersonCity_Gym_KarpmanNextGym, MSGBOX_AUTOCLOSE)
 }
