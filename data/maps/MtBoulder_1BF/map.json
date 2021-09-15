@@ -1,0 +1,29 @@
+{
+  "id": "MAP_MT_BOULDER_1BF",
+  "name": "MtBoulder_1BF",
+  "layout": "LAYOUT_MT_BOULDER_1BF",
+  "music": "MUS_VIRIDIAN_FOREST",
+  "region_map_section": "MAPSEC_DIGLETTS_CAVE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": true,
+  "allow_escaping": true,
+  "allow_running": false,
+  "show_map_name": false,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

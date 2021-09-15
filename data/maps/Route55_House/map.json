@@ -1,0 +1,35 @@
+{
+  "id": "MAP_ROUTE55_HOUSE",
+  "name": "Route55_House",
+  "layout": "LAYOUT_ROUTE55_HOUSE",
+  "music": "MUS_ROUTE3",
+  "region_map_section": "MAPSEC_ROUTE_3",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 2,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE55",
+      "dest_warp_id": 1
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

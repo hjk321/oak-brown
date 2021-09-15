@@ -23,6 +23,11 @@
       "direction": "down",
       "offset": -9,
       "map": "MAP_SOUTH_RIJON_GATE"
+    },
+    {
+      "direction": "up",
+      "offset": -7,
+      "map": "MAP_ROUTE55"
     }
   ],
   "object_events": [

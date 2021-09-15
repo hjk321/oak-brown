@@ -1,0 +1,35 @@
+{
+  "id": "MAP_ROUTE55_BUILDING_4F",
+  "name": "Route55_Building_4F",
+  "layout": "LAYOUT_ROUTE55_BUILDING_4F",
+  "music": "MUS_CELADON",
+  "region_map_section": "MAPSEC_ROUTE_3",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 12,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE55_BUILDING_3F",
+      "dest_warp_id": 1
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

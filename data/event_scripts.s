@@ -631,3 +631,25 @@ Text_TestMsg:: @ 81ACD45
 	.include "data/maps/SouthRijonGate_Indoor/scripts.inc"
 
 	.include "data/maps/Debug_StoryZone/scripts.inc"
+
+	.include "data/maps/Route55/scripts.inc"
+
+	.include "data/maps/MtBoulder_1F/scripts.inc"
+
+	.include "data/maps/MtBoulder_1BF/scripts.inc"
+
+	.include "data/maps/MtBoulder_2BF/scripts.inc"
+
+	.include "data/maps/Route55_House/scripts.inc"
+
+	.include "data/maps/Route55_Building_1F/scripts.inc"
+
+	.include "data/maps/Route55_Building_2F/scripts.inc"
+
+	.include "data/maps/Route55_Building_3F/scripts.inc"
+
+	.include "data/maps/Route55_Building_4F/scripts.inc"
+
+	.include "data/maps/Route55_Gatehouse/scripts.inc"
+
+	.include "data/maps/HaywardUndergroundPath/scripts.inc"

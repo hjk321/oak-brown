@@ -288,6 +288,138 @@
       "secondary_tileset": "gTileset_GenericBuilding2",
       "border_filepath": "data/layouts/SouthRijonGate_Indoor/border.bin",
       "blockdata_filepath": "data/layouts/SouthRijonGate_Indoor/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE55",
+      "name": "Route55_Layout",
+      "width": 40,
+      "height": 102,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_ViridianCity",
+      "border_filepath": "data/layouts/Route55/border.bin",
+      "blockdata_filepath": "data/layouts/Route55/map.bin"
+    },
+    {
+      "id": "LAYOUT_MT_BOULDER_1F",
+      "name": "MtBoulder_1F_Layout",
+      "width": 45,
+      "height": 25,
+      "border_width": 6,
+      "border_height": 6,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/MtBoulder_1F/border.bin",
+      "blockdata_filepath": "data/layouts/MtBoulder_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_MT_BOULDER_1BF",
+      "name": "MtBoulder_1BF_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 6,
+      "border_height": 6,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/MtBoulder_1BF/border.bin",
+      "blockdata_filepath": "data/layouts/MtBoulder_1BF/map.bin"
+    },
+    {
+      "id": "LAYOUT_MT_BOULDER_2BF",
+      "name": "MtBoulder_2BF_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 6,
+      "border_height": 6,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/MtBoulder_2BF/border.bin",
+      "blockdata_filepath": "data/layouts/MtBoulder_2BF/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE55_HOUSE",
+      "name": "Route55_House_Layout",
+      "width": 11,
+      "height": 8,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding1",
+      "border_filepath": "data/layouts/Route55_House/border.bin",
+      "blockdata_filepath": "data/layouts/Route55_House/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE55_BUILDING_1F",
+      "name": "Route55_Building_1F_Layout",
+      "width": 15,
+      "height": 13,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Condominiums",
+      "border_filepath": "data/layouts/Route55_Building_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Route55_Building_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE55_BUILDING_2F",
+      "name": "Route55_Building_2F_Layout",
+      "width": 15,
+      "height": 12,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Condominiums",
+      "border_filepath": "data/layouts/Route55_Building_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Route55_Building_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE55_BUILDING_3F",
+      "name": "Route55_Building_3F_Layout",
+      "width": 15,
+      "height": 12,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Condominiums",
+      "border_filepath": "data/layouts/Route55_Building_3F/border.bin",
+      "blockdata_filepath": "data/layouts/Route55_Building_3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE55_BUILDING_4F",
+      "name": "Route55_Building_4F_Layout",
+      "width": 15,
+      "height": 12,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Condominiums",
+      "border_filepath": "data/layouts/Route55_Building_4F/border.bin",
+      "blockdata_filepath": "data/layouts/Route55_Building_4F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE55_GATEHOUSE",
+      "name": "Route55_Gatehouse_Layout",
+      "width": 9,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_UnusedGatehouse2",
+      "border_filepath": "data/layouts/Route55_Gatehouse/border.bin",
+      "blockdata_filepath": "data/layouts/Route55_Gatehouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_HAYWARD_UNDERGROUND_PATH",
+      "name": "HaywardUndergroundPath_Layout",
+      "width": 100,
+      "height": 60,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_UndergroundPath",
+      "border_filepath": "data/layouts/HaywardUndergroundPath/border.bin",
+      "blockdata_filepath": "data/layouts/HaywardUndergroundPath/map.bin"
     }
   ]
 }

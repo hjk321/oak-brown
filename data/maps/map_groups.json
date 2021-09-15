@@ -22,14 +22,19 @@
   "gMapGroup_Routes": [
     "Route53",
     "Route54",
-    "SouthRijonGate"
+    "SouthRijonGate",
+    "Route55",
+    "HaywardUndergroundPath"
   ],
   "gMapGroup_Dungeons": [
     "MersonCave_1F",
     "MersonCave_1BF",
     "MersonCave_2BF",
     "MersonCave_Outdoor",
-    "MersonCave_2F"
+    "MersonCave_2F",
+    "MtBoulder_1F",
+    "MtBoulder_1BF",
+    "MtBoulder_2BF"
   ],
   "gMapGroup_Indoor": [
     "SeashoreCity_PlayersHouse_2F",
@@ -39,7 +44,13 @@
     "GravelTown_TimsLab",
     "MersonCity_House",
     "MersonCity_FanClub",
-    "SouthRijonGate_Indoor"
+    "SouthRijonGate_Indoor",
+    "Route55_House",
+    "Route55_Building_1F",
+    "Route55_Building_2F",
+    "Route55_Building_3F",
+    "Route55_Building_4F",
+    "Route55_Gatehouse"
   ],
   "gMapGroup_PokeCenterMart": [
     "GravelTown_PokeMart",

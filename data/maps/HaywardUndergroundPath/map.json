@@ -1,0 +1,35 @@
+{
+  "id": "MAP_HAYWARD_UNDERGROUND_PATH",
+  "name": "HaywardUndergroundPath",
+  "layout": "LAYOUT_HAYWARD_UNDERGROUND_PATH",
+  "music": "MUS_MT_MOON",
+  "region_map_section": "MAPSEC_UNDERGROUND_PATH",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 96,
+      "y": 55,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE55_GATEHOUSE",
+      "dest_warp_id": 1
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}
