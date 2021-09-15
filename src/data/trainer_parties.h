@@ -5,7 +5,6 @@ static const struct TrainerMon sTrainerMons_MuraBulbasaur1[] = {
         .species = SPECIES_BULBASAUR,
         .gender = NPCMON_MALE,
         .nature = NATURE_LAX,
-        .ball = ITEM_POKE_BALL,
     },
 };
 
@@ -16,7 +15,6 @@ static const struct TrainerMon sTrainerMons_MuraCharmander1[] = {
         .species = SPECIES_CHARMANDER,
         .gender = NPCMON_MURA_CHARMANDER,
         .nature = NATURE_ADAMANT,
-        .ball = ITEM_POKE_BALL,
     },
 };
 
@@ -27,7 +25,6 @@ static const struct TrainerMon sTrainerMons_MuraSquirtle1[] = {
         .species = SPECIES_SQUIRTLE,
         .gender = NPCMON_MALE,
         .nature = NATURE_TIMID,
-        .ball = ITEM_POKE_BALL,
     },
 };
 
@@ -35,13 +32,11 @@ static const struct TrainerMon sTrainerMons_YoungsterHayden[] = {
     {
         .lvl = 4,
         .species = SPECIES_SENTRET,
-        .ball = ITEM_POKE_BALL,
         .gender = NPCMON_MALE,
     },
     {
         .lvl = 5,
         .species = SPECIES_RATTATA,
-        .ball = ITEM_POKE_BALL,
     },
 };
 
@@ -49,12 +44,10 @@ static const struct TrainerMon sTrainerMons_YoungsterBenny[] = {
     {
         .lvl = 3,
         .species = SPECIES_RATTATA,
-        .ball = ITEM_POKE_BALL,
     },
     {
         .lvl = 3,
         .species = SPECIES_ZUBAT,
-        .ball = ITEM_POKE_BALL,
     },
 };
 
@@ -62,7 +55,6 @@ static const struct TrainerMon sTrainerMons_LassAbigail[] = {
     {
         .lvl = 4,
         .species = SPECIES_PIKACHU,
-        .ball = ITEM_POKE_BALL,
     },
     {
         .lvl = 5,
@@ -75,7 +67,6 @@ static const struct TrainerMon sTrainerMons_BugCatcherFred[] = {
     {
         .lvl = 4,
         .species = SPECIES_CATERPIE,
-        .ball = ITEM_POKE_BALL,
     },
     {
         .lvl = 6,
@@ -85,7 +76,6 @@ static const struct TrainerMon sTrainerMons_BugCatcherFred[] = {
     {
         .lvl = 4,
         .species = SPECIES_WEEDLE,
-        .ball = ITEM_POKE_BALL,
     },
 };
 
@@ -98,7 +88,6 @@ static const struct TrainerMon sTrainerMons_SuperNerdJonathan[] = {
     {
         .lvl = 6,
         .species = SPECIES_ROTOM,
-        .ball = ITEM_POKE_BALL,
     },
 };
 
@@ -106,17 +95,14 @@ static const struct TrainerMon sTrainerMons_HikerBrian[] = {
     {
         .lvl = 5,
         .species = SPECIES_PATRAT,
-        .ball = ITEM_POKE_BALL,
     },
     {
         .lvl = 5,
         .species = SPECIES_SPEAROW,
-        .ball = ITEM_POKE_BALL,
     },
     {
         .lvl = 6,
         .species = SPECIES_KLINK,
-        .ball = ITEM_POKE_BALL,
     },
 };
 
@@ -124,12 +110,10 @@ static const struct TrainerMon sTrainerMons_SuperNerdJarus[] = {
     {
         .lvl = 7,
         .species = SPECIES_GEODUDE,
-        .ball = ITEM_POKE_BALL,
     },
     {
         .lvl = 6,
         .species = SPECIES_SHIELDON,
-        .ball = ITEM_POKE_BALL,
     },
 };
 
@@ -174,12 +158,10 @@ static const struct TrainerMon sTrainerMons_GamblerJones[] = {
     {
         .lvl = 6,
         .species = SPECIES_VULPIX,
-        .ball = ITEM_POKE_BALL,
     },
     {
         .lvl = 6,
         .species = SPECIES_VULPIX,
-        .ball = ITEM_POKE_BALL,
     },
 };
 
@@ -187,30 +169,25 @@ static const struct TrainerMon sTrainerMons_SuperNerdTheo[] = {
     {
         .lvl = 5,
         .species = SPECIES_SPEAROW,
-        .ball = ITEM_POKE_BALL,
     },
     {
         .lvl = 6,
         .species = SPECIES_PARAS,
-        .ball = ITEM_POKE_BALL,
     },
     {
         .lvl = 5,
         .species = SPECIES_GEODUDE,
-        .ball = ITEM_POKE_BALL,
     },
 };
 
 static const struct TrainerMon sTrainerMons_CamperMike[] = {
     {
-        .lvl = 11,
+        .lvl = 10,
         .species = SPECIES_SQUIRTLE,
-        .ball = ITEM_POKE_BALL,
     },
     {
         .lvl = 11,
         .species = SPECIES_SEEL,
-        .ball = ITEM_POKE_BALL,
     },
 };
 
@@ -232,14 +209,12 @@ static const struct TrainerMon sTrainerMons_LeaderKarpman[] = {
 
 static const struct TrainerMon sTrainerMons_CueballBruce[] = {
     {
-        .lvl = 12,
+        .lvl = 11,
         .species = SPECIES_KOFFING,
-        .ball = ITEM_POKE_BALL,
     },
     {
         .lvl = 12,
         .species = SPECIES_SCRAGGY,
-        .ball = ITEM_POKE_BALL,
     },
 };
 
@@ -247,12 +222,10 @@ static const struct TrainerMon sTrainerMons_BikerEdwin[] = {
     {
         .lvl = 10,
         .species = SPECIES_EKANS,
-        .ball = ITEM_POKE_BALL,
     },
     {
         .lvl = 10,
         .species = SPECIES_POOCHYENA,
-        .ball = ITEM_POKE_BALL,
     },
     {
         .lvl = 11,
@@ -264,20 +237,19 @@ static const struct TrainerMon sTrainerMons_BikerEdwin[] = {
 static const struct TrainerMon sTrainerMons_BikerDamon[] = {
     {
         .lvl = 11,
-        .species = SPECIES_SEVIPER,
-        .ball = ITEM_POKE_BALL,
+        .species = SPECIES_ZANGOOSE,
         .iv = 15,
+        .friendship = 31,
     },
     {
         .lvl = 11,
-        .species = SPECIES_ZANGOOSE,
-        .ball = ITEM_POKE_BALL,
+        .species = SPECIES_SEVIPER,
         .iv = 15,
+        .friendship = 31,
     },
     {
         .lvl = 12,
         .species = SPECIES_STUNKY,
-        .ball = ITEM_POKE_BALL,
         .iv = 20,
     },
     {
