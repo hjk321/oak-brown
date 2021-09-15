@@ -949,6 +949,7 @@ u32 FldEff_SurfBlob(void)
     struct Sprite * sprite;
 
     sub_8063BC4((s16 *)&gFieldEffectArguments[0], (s16 *)&gFieldEffectArguments[1], 8, 8);
+    LoadFieldEffectPalette(7);
     spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[7], gFieldEffectArguments[0], gFieldEffectArguments[1], 0x96);
     if (spriteId != MAX_SPRITES)
     {
