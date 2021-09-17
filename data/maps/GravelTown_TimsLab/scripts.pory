@@ -131,6 +131,7 @@ script GravelTown_TimsLab_BookshelfTriggers {
         if (flag(FLAG_SYS_WON_LAST_TRAINER_BATTLE)) {
             setflag(FLAG_BEAT_MURA_STARTER)
         }
+        special(HealPlayerParty)
         delay(48)
         textcolor(0)
         msgbox(format("Mura: … … …\p… … … Okay!\p"
