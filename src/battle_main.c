@@ -1606,7 +1606,6 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
     u16 rng;
     u16 rngOld;
     u16 partyRng[PARTY_SIZE];
-    u8 pokeball = ITEM_POKE_BALL;
 
     if (trainerNum == TRAINER_SECRET_BASE)
         return 0;
@@ -1695,10 +1694,6 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
 // Check if ball was defined for that pokemon.
             if (partyData[i].ball > 0)
                 SetMonData(&party[i], MON_DATA_POKEBALL, &partyData[i].ball);
-            else
-            {
-                SetMonData(&party[i], MON_DATA_POKEBALL, &pokeball);
-            }
 
 // Check if heldItem was defined.
             if (partyData[i].heldItem > 0)
