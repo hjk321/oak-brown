@@ -74,7 +74,7 @@ static u8 ListMenuAddCursorObject(struct ListMenu *list, u32 cursorKind);
 
 const struct MoveMenuInfoIcon gMoveMenuInfoIcons[] =
 {
-    { 12, 12, 0x00 },       // Dex Caught Pokéball
+    { 12, 12, 0x00 },       // Dex Caught Pokeball
     { 32, 12, 0x20 },       // Normal icon
     { 32, 12, 0x64 },       // Fight icon
     { 32, 12, 0x60 },       // Flying icon
@@ -755,12 +755,12 @@ void ListMenuSetUnkIndicatorsStructField(u8 taskId, u8 field, s32 value)
     }
 }
 
-void sub_8107CD8(u8 palOffset, u16 speciesId)
+void ListMenu_LoadMonIconPalette(u8 palOffset, u16 speciesId)
 {
     LoadPalette(GetValidMonIconPalettePtr(speciesId), palOffset, 0x20);
 }
 
-void sub_8107CF8(u8 windowId, u16 speciesId, u32 personality, u16 x, u16 y)
+void ListMenu_DrawMonIconGraphics(u8 windowId, u16 speciesId, u32 personality, u16 x, u16 y)
 {
     BlitBitmapToWindow(windowId, GetMonIconPtr(speciesId, personality, 1), x, y, 32, 32);
 }

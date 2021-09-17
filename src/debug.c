@@ -200,7 +200,8 @@ static void DebugAction_LivingDex(u8 taskId)
     u8 obedience = TRUE;
     u8 box = 0;
     u8 pos = 0;
-    
+
+    Debug_DestroyMainMenu(taskId);
     FlagSet(FLAG_SYS_POKEMON_GET);
     
     level = GetMonData(&gPlayerParty[0], MON_DATA_LEVEL, NULL);
