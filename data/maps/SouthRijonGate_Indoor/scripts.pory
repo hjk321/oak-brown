@@ -244,7 +244,7 @@ script SouthRijonGate_Indoor_PolicemanA {
         msgbox(format("Well, at least it's all over now.\p"
             "The gate to South Rijon is probably going to close down for a while."))
     } else {
-        msgbox(format("Recent incidents has caused the South Rijon Gate to close for a while.\p"
+        msgbox(format("Recent incidents have caused the South Rijon Gate to close for a while.\p"
             "You'll have to come back later."))
     }
     release

@@ -28,7 +28,7 @@ script MersonCity_PokeMart_SpecialClerk {
 mart MersonCityMart {
     ITEM_WATER_STONE
     ITEM_FRESH_WATER
-    ITEM_TROPIC_MAIL
+    ITEM_HARBOR_MAIL
     ITEM_WAVE_MAIL
 }
 
